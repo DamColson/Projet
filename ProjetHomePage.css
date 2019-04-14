@@ -4,6 +4,10 @@ body {
   background-repeat: no-repeat;
 }
 
+.rem{
+  height:2rem;
+}
+
 .font-family-germania {
   font-family: 'Germania One', cursive;
 }
@@ -26,13 +30,30 @@ body {
   justify-content: center;
 }
 
+form {
+  width: 24rem;
+}
+
+#personnalInfos input{
+  width:20rem;
+}
+
+#personnalInfos label{
+  width:15rem;
+}
+
+
+
+
+
+
 @media screen and (max-width:375px) {
   #homePageText {
     font-size: 0.8rem;
   }
 
   body {
-    background-position: top -10 0% left 0;
+    background-position: top 0% left 0;
   }
 
   #miniWar {
@@ -40,7 +61,7 @@ body {
   }
 
   .topBorder h1 {
-    display:none;
+    display: none;
   }
 
   .topBorder {
@@ -51,8 +72,8 @@ body {
     height: 10rem;
   }
 
-  .warButton{
-    margin-top:-0.5rem;
+  .warButton {
+    margin-top: -0.5rem;
   }
 }
 
@@ -70,7 +91,7 @@ body {
   }
 
   .topBorder h1 {
-    display:none;
+    display: none;
   }
 
   .topBorder {
@@ -80,8 +101,9 @@ body {
   #divHomeText {
     height: 11rem;
   }
-  .warButton{
-    margin-top:-0.4rem;
+
+  .warButton {
+    margin-top: -0.4rem;
   }
 }
 
@@ -99,7 +121,7 @@ body {
   }
 
   .topBorder h1 {
-    display:none;
+    display: none;
   }
 
   .topBorder {
@@ -109,8 +131,9 @@ body {
   #divHomeText {
     height: 13rem;
   }
-  .warButton{
-    margin-top:-0.3rem;
+
+  .warButton {
+    margin-top: -0.3rem;
   }
 }
 
@@ -128,7 +151,7 @@ body {
   }
 
   .topBorder h1 {
-    display:none;
+    display: none;
   }
 
   .topBorder {
@@ -138,8 +161,9 @@ body {
   #divHomeText {
     height: 15rem;
   }
-  .warButton{
-    margin-top:-0.2rem;
+
+  .warButton {
+    margin-top: -0.2rem;
   }
 }
 
@@ -157,7 +181,7 @@ body {
   }
 
   .topBorder h1 {
-    display:none;
+    display: none;
   }
 
   .topBorder {
@@ -168,8 +192,8 @@ body {
     height: 18rem;
   }
 
-  .warButton{
-    margin-top:-0.2rem;
+  .warButton {
+    margin-top: -0.2rem;
   }
 }
 
@@ -187,7 +211,7 @@ body {
   }
 
   .topBorder h1 {
-    display:none;
+    display: none;
   }
 
   .topBorder {
@@ -213,7 +237,7 @@ body {
   }
 
   .topBorder h1 {
-    display:none;
+    display: none;
   }
 
   .topBorder {
@@ -239,7 +263,7 @@ body {
   }
 
   .topBorder h1 {
-    display:none;
+    display: none;
   }
 
   .topBorder {
@@ -250,8 +274,8 @@ body {
     height: 22rem;
   }
 
-  .warButton{
-    margin-top:0.2rem;
+  .warButton {
+    margin-top: 0.2rem;
   }
 }
 
@@ -269,7 +293,7 @@ body {
   }
 
   .topBorder h1 {
-    display:none;
+    display: none;
   }
 
   .topBorder {
@@ -281,8 +305,8 @@ body {
     height: 22rem;
   }
 
-  .warButton{
-    margin-top:0.2rem;
+  .warButton {
+    margin-top: 0.2rem;
   }
 }
 
@@ -311,6 +335,11 @@ body {
   #divHomeText {
     height: 22rem;
   }
+
+  #navbarNav {
+    position: relative;
+    left: 7rem;
+  }
 }
 
 @media screen and (min-width:1025px) and (max-width:1280px) {
@@ -329,6 +358,12 @@ body {
   #divHomeText {
     height: 25rem;
   }
+
+  #navbarNav {
+    position: relative;
+    left: 9rem;
+    margin-top: 1rem;
+  }
 }
 
 @media screen and (min-width:1281px) {
@@ -346,5 +381,11 @@ body {
 
   #divHomeText {
     height: 34rem;
+  }
+
+  #navbarNav {
+    position: relative;
+    left: 10rem;
+    margin-top: 1rem;
   }
 }

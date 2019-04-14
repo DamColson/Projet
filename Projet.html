@@ -21,20 +21,23 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item font-family-germania bg-dark rounded text-center">
-                <a class="text-danger nav-link" href="#">A propos de moi <span class="sr-only">(current)</span></a>
+              <li class="nav-item font-family-germania bg-dark rounded text-center mr-2 h4">
+                <a class="text-danger nav-link" href="#" id="home">Accueil</a>
               </li>
-              <li class="nav-item font-family-germania bg-dark rounded text-center">
-                <a class="text-danger nav-link" href="#formation">Ma formation</a>
+              <li class="nav-item font-family-germania bg-dark rounded text-center mr-2 h4">
+                <a class="text-danger nav-link" href="#">A propos de WarFriends</a>
               </li>
-              <li class="nav-item font-family-germania bg-dark rounded text-center">
-                <a class="text-danger nav-link" href="#experience">Mon expérience</a>
+              <li class="nav-item font-family-germania bg-dark rounded text-center mr-2 h4">
+                <a class="text-danger nav-link" href="#">Connexion</a>
               </li>
-              <li class="nav-item font-family-germania bg-dark rounded text-center">
-                <a class="text-danger nav-link" href="#competence">Mes compétences</a>
+              <li class="nav-item font-family-germania bg-dark rounded text-center d-none mr-2 h4">
+                <a class="text-danger nav-link" href="#">Déconnexion</a>
               </li>
-              <li class="nav-item font-family-germania bg-dark rounded text-center">
-                <a class="text-danger nav-link" href="#hobbies">Mes hobbies</a>
+              <li class="nav-item font-family-germania bg-dark rounded text-center mr-2 h4">
+                <a class="text-danger nav-link" href="#" id="inscription">S'inscrire</a>
+              </li>
+              <li class="nav-item font-family-germania bg-dark rounded text-center d-none mr-2 h4">
+                <a class="text-danger nav-link" href="#">Mon compte</a>
               </li>
             </ul>
           </div>
@@ -43,7 +46,7 @@
         <div class="container-fluid" id="divHomeText">
           <p class="h3 font-weight-bold text-danger font-family-germania" id="homePageText">Find friends. Exchange. Get stronger.</p>
         </div>
-      <p>
+      <p id="mainContent">
 
 Victus universis caro ferina est lactisque abundans copia qua sustentantur, et herbae multiplices et siquae alites capi per aucupium possint, et plerosque mos vidimus frumenti usum et vini penitus ignorantes.
 
@@ -75,10 +78,55 @@ Ideo urbs venerabilis post superbas efferatarum gentium cervices oppressas latas
 
 Paphius quin etiam et Cornelius senatores, ambo venenorum artibus pravis se polluisse confessi, eodem pronuntiante Maximino sunt interfecti. pari sorte etiam procurator monetae extinctus est. Sericum enim et Asbolium supra dictos, quoniam cum hortaretur passim nominare, quos vellent, adiecta religione firmarat, nullum igni vel ferro se puniri iussurum, plumbi validis ictibus interemit. et post hoe flammis Campensem aruspicem dedit, in negotio eius nullo sacramento constrictus.
 </p>
+<form class="w-100 d-none" action="index.html" method="post" id="inscriptionForm">
+  <div class="row">
+    <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+    <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+  <fieldset class="text-center w-100 bg-dark text-light rounded mt-4" id="personnalInfos">
+    <legend class="bg-dark text-light font-weight-bold h2 text-center rounded">Données personnelles</legend>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="firstName">Votre prénom : </label><input class="d-inline-block" type="text" name="firstName" id="firstName" placeholder="Bertrand" /></div>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="birthDay">Votre date de naissance* : </label><input class="d-inline-block"  type="date" name="birthDay" id="birthDay" placeholder="YYYY/MM/DD" required/></div>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="Pseudo">Vote pseudo* :</label><input class="d-inline-block" type="text" name="pseudo" id="pseudo" placeholder="Mon super Pseudo" required/></div>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="mail">Votre adresse mail* :</label><input class="d-inline-block" type="email" name="mail" id="mail" placeholder="patati@patata.com" required/></div>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="discord">Votre tag discord :</label><input class="d-inline-block" type="text" name="discord" id="discord" placeholder="#1234" /></div>
+    <div class="rem"></div>
+  </fieldset>
+</div>
+<div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+<div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+<div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+  <fieldset class="text-center w-100 bg-danger text-light rounded mt-5" id="warframeInfos">
+    <legend class="bg-danger text-light font-weight-bold h2 text-center rounded">Informations relatives à Warframe</legend>
+    <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+    <div class="rem"></div>
+    <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+    <div class="rem"></div>
+  </fieldset>
+</div>
+</form>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="Projet.js"></script>
+
   </body>
 
 </html>
