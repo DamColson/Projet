@@ -1,0 +1,256 @@
+form {
+  width: 24rem;
+}
+
+#personnalInfos input{
+  width:20rem;
+}
+
+#personnalInfos label{
+  width:15rem;
+}
+
+body{
+  background-color:#343a40;
+}
+
+.rem{
+  height:2rem;
+}
+
+.font-family-germania {
+  font-family: 'Germania One', cursive;
+}
+
+.topBorder {
+  width: 100%;
+  height: 6rem;
+  padding-top: 1%;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: black;
+}
+
+.redBorder{
+  border:red 4px solid
+}
+
+.greenBorder{
+  border:green 4px solid
+}
+
+@media screen and (max-width:375px) {
+
+  #miniWar {
+    display: none;
+  }
+
+  .topBorder h1 {
+    display: none;
+  }
+
+  .topBorder {
+    height: 2rem;
+  }
+
+  .warButton {
+    margin-top: -0.5rem;
+  }
+}
+
+@media screen and (min-width:376px) and (max-width:414px) {
+
+  #miniWar {
+    display: none;
+  }
+
+  .topBorder h1 {
+    display: none;
+  }
+
+  .topBorder {
+    height: 2.2rem;
+  }
+
+  .warButton {
+    margin-top: -0.4rem;
+  }
+}
+
+@media screen and (min-width:415px) and (max-width:480px) {
+
+  #miniWar {
+    display: none;
+  }
+
+  .topBorder h1 {
+    display: none;
+  }
+
+  .topBorder {
+    height: 2.4rem;
+  }
+
+
+  .warButton {
+    margin-top: -0.3rem;
+  }
+}
+
+@media screen and (min-width:481px) and (max-width:550px) {
+
+  #miniWar {
+    display: none;
+  }
+
+  .topBorder h1 {
+    display: none;
+  }
+
+  .topBorder {
+    height: 2.4rem;
+  }
+
+
+  .warButton {
+    margin-top: -0.2rem;
+  }
+}
+
+@media screen and (min-width:551px) and (max-width:650px) {
+
+  #miniWar {
+    display: none;
+  }
+
+  .topBorder h1 {
+    display: none;
+  }
+
+  .topBorder {
+    height: 2.6rem;
+  }
+
+
+  .warButton {
+    margin-top: -0.2rem;
+  }
+}
+
+@media screen and (min-width:651px) and (max-width:700px) {
+
+  #miniWar {
+    display: none;
+  }
+
+  .topBorder h1 {
+    display: none;
+  }
+
+  .topBorder {
+    height: 2.9rem;
+  }
+
+}
+
+@media screen and (min-width:701px) and (max-width:800px) {
+
+  #miniWar {
+    display: none;
+  }
+
+  .topBorder h1 {
+    display: none;
+  }
+
+  .topBorder {
+    height: 2.9rem;
+  }
+
+}
+
+@media screen and (min-width:801px) and (max-width:900px) {
+
+  #miniWar {
+    display: none;
+  }
+
+  .topBorder h1 {
+    display: none;
+  }
+
+  .topBorder {
+    height: 3.7rem;
+  }
+
+  .warButton {
+    margin-top: 0.2rem;
+  }
+}
+
+@media screen and (min-width:901px) and (max-width:991px) {
+
+  #miniWar {
+    display: none;
+  }
+
+  .topBorder h1 {
+    display: none;
+  }
+
+  .topBorder {
+    height: 3.7rem;
+    text-align: center;
+  }
+
+  .warButton {
+    margin-top: 0.2rem;
+  }
+}
+
+@media screen and (min-width:992px) and (max-width:1024px) {
+
+  #miniWar {
+    display: none;
+  }
+
+  .topBorder h1 {
+    font-size: 2.4rem;
+  }
+
+  .topBorder {
+    height: 3.7rem;
+    text-align: center;
+  }
+
+  #navbarNav {
+    position: relative;
+    left: 7rem;
+  }
+}
+
+@media screen and (min-width:1025px) and (max-width:1280px) {
+
+  .topBorder h1 {
+    font-size: 3rem;
+  }
+
+  #navbarNav {
+    position: relative;
+    left: 9rem;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width:1281px) {
+
+  .topBorder h1 {
+    font-size: 3.2rem;
+  }
+
+  #navbarNav {
+    position: relative;
+    left: 10rem;
+    margin-top: 1rem;
+  }
+}

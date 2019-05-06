@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="warfriendsApp">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Germania+One" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/form.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <title>warFriendsForm</title>
+</head>
+
+<body class="font-family-germania">
+  <div class="topBorder sticky-top">
+    <h1 class="text-left text-light font-weight-bold font-family-germania"><a href="Projet.html" Title="home"><img class="img-fluid" src="assets/Images/miniWarframe.png" alt="miniWarframe" title="miniWarframe" id="miniWar"/></a>WarFriends</h1>
+    <nav class="navbar navbar-expand-lg fixed-top fixed-right">
+        <button class="navbar-toggler navbar-light w-100 warButton" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="text-right text-light font-family-germania font-weight-bold">Warfriends<i class="warButton fa fa-sort-desc" aria-hidden="true"></i>
+</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item font-family-germania bg-dark rounded text-center mr-2 h4">
+              <a class="text-light nav-link" href="Projet.html" id="home">Accueil</a>
+            </li>
+            <li class="nav-item font-family-germania bg-dark rounded text-center mr-2 h4">
+              <a class="text-light nav-link" href="#">A propos de WarFriends</a>
+            </li>
+            <li class="nav-item font-family-germania bg-dark rounded text-center mr-2 h4">
+              <a class="text-light nav-link" href="#">Connexion/s'inscrire</a>
+            </li>
+            <li class="nav-item font-family-germania bg-dark rounded text-center d-none mr-2 h4">
+              <a class="text-light nav-link" href="#">Déconnexion</a>
+            </li>
+            <li class="nav-item font-family-germania bg-dark rounded text-center mr-2 h4">
+              <a class="text-light nav-link" href="form.html" id="inscription">S'inscrire</a>
+            </li>
+            <li class="nav-item font-family-germania bg-dark rounded text-center d-none mr-2 h4">
+              <a class="text-light nav-link" href="#">Mon compte</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+  <form ng-controller="inscriptionFormCtrl" class="w-100" action="index.html" method="post" id="inscriptionForm" name = "inscriptionFormName">
+    <div class="row">
+      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+      <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+    <fieldset class="text-center w-100 bg-light text-dark rounded mt-4" id="personnalInfos">
+      <legend class="bg-light text-dark font-weight-bold h2 text-center rounded">Données personnelles</legend>
+      <div class="rem"></div>
+      <div><label class="d-inline-block text-center" for="Pseudo">Vote pseudo* :</label><input ng-class="{redBorder:inscriptionFormName.pseudoInput.$error.pattern || pseudoModel.length==0,greenBorder:inscriptionFormName.pseudoInput.$valid && inscriptionFormName.pseudoInput.$dirty && !pseudoModel.length == 0}" class="d-inline-block" type="text" name="pseudoInput" id="pseudo" placeholder="Mon super Pseudo" ng-pattern="regexPseudo" ng-model="pseudoModel" /></div>
+      <p ng-show="inscriptionFormName.pseudoInput.$error.pattern || pseudoModel.length==0">Votre Pseudonyme ne correspond pas aux critères attendus, vérifier que le champs de séléction a bien été rempli</p>
+      <div class="rem"></div>
+      <div><label class="d-inline-block text-center" for="mail">Votre adresse mail* :</label><input ng-class="{redBorder:inscriptionFormName.mailInput.$error.pattern || mailModel.length==0,greenBorder:inscriptionFormName.mailInput.$valid && inscriptionFormName.mailInput.$dirty && !mailModel.length == 0}" class="d-inline-block" type="text" name="mailInput" id="mail" ng-pattern="regexMail" ng-model="mailModel" placeholder="patati@patata.com" /></div>
+      <p ng-show="inscriptionFormName.mailInput.$error.pattern || mailModel.length==0">Votre adresse Email est invalide.</p>
+      <div class="rem"></div>
+      <div><label class="d-inline-block text-center" for="discord">Votre tag discord :</label><input ng-class="{redBorder:inscriptionFormName.tagDiscordInput.$error.pattern || tagDiscordModel.length==0,greenBorder:inscriptionFormName.tagDiscordInput.$valid && inscriptionFormName.tagDiscordInput.$dirty && !tagDiscordModel.length == 0}" class="d-inline-block" type="text" ng-model="tagDiscordModel" ng-pattern="regexTagDiscord" name="tagDiscordInput" id="tagDiscord" placeholder="machin#1234" /></div>
+      <p ng-show="inscriptionFormName.tagDiscordInput.$error.pattern || tagDiscordModel.length==0">Etes vous sur que ceci est un tag Discord?</p>
+      <div class="rem"></div>
+      <div><label class="d-inline-block text-center" for="password  ">Votre mot de passe :</label><input ng-class="{redBorder: inscriptionFormName.passwordInput.$error.pattern || passwordModel.length==0,greenBorder : inscriptionFormName.passwordInput.$valid && inscriptionFormName.passwordInput.$dirty && !passwordModel.length == 0}" class="d-inline-block" type="password" name="passwordInput" id="password" ng-pattern="regexPassword" ng-model="passwordModel"/></div>
+      <p ng-show="inscriptionFormName.passwordInput.$error.pattern || passwordModel.length == 0">Votre mot de passe ne correspond pas au pattern attendu</p>
+      <div class="rem"></div>
+      <div><label class="d-inline-block text-center" for="passConfirm">Confirmez votre mot de passe :</label><input ng-class="{redBorder:passwordConfirmModel !=passwordModel || passwordConfirmModel.length==0,greenBorder:passwordConfirmModel == passwordModel && inscriptionFormName.passwordConfirmInput.$dirty && !passwordConfirmModel.length == 0}" class="d-inline-block passConfirm" type="password" name="passwordConfirmInput" id="passConfirm" ng-pattern="passwordModel" ng-model="passwordConfirmModel"/></div>
+      <p ng-show="passwordConfirmModel != passwordModel || passwordConfirmModel.length == 0">Votre mot de passe de confirmation diffère du mot de passe choisi ou bien le champ de sélection est vide</p>
+      <div class="rem"></div>
+    </fieldset>
+  </div>
+  <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+  <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+  <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+    <fieldset class="text-center w-100 bg-light text-dark rounded mt-5" id="warframeInfos">
+      <legend class="bg-light text-dark font-weight-bold h2 text-center rounded">Informations relatives à Warframe</legend>
+      <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+      <div class="rem"></div>
+      <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+      <div class="rem"></div>
+      <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+      <div class="rem"></div>
+      <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+      <div class="rem"></div>
+      <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+      <div class="rem"></div>
+      <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+      <div class="rem"></div>
+      <div><label class="d-inline-block text-center" for="lastName">Votre nom :</label><input class="d-inline-block" type="text" name="lastName" id="lastName" placeholder="Dupont" /></div>
+      <div class="rem"></div>
+    </fieldset>
+  </div>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="assets/scripts/Projet.js"></script>
+
+</body>
+
+</html>
