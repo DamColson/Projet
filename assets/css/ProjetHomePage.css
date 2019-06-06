@@ -35,9 +35,6 @@ body {
     font-size: 0.8rem;
   }
 
-  body {
-    background-position: top 0% left 0;
-  }
 
   #miniWar {
     display: none;
@@ -63,10 +60,6 @@ body {
 @media screen and (min-width:376px) and (max-width:414px) {
   #homePageText {
     font-size: 1rem;
-  }
-
-  body {
-    background-position: top 0 left 0;
   }
 
   #miniWar {
@@ -95,10 +88,6 @@ body {
     font-size: 1.3rem;
   }
 
-  body {
-    background-position: top 0 left 0;
-  }
-
   #miniWar {
     display: none;
   }
@@ -123,10 +112,6 @@ body {
 @media screen and (min-width:481px) and (max-width:550px) {
   #homePageText {
     font-size: 1.3rem;
-  }
-
-  body {
-    background-position: top 0 left 0;
   }
 
   #miniWar {
@@ -155,10 +140,6 @@ body {
     font-size: 1.3rem;
   }
 
-  body {
-    background-position: top 0 left 0;
-  }
-
   #miniWar {
     display: none;
   }
@@ -185,10 +166,6 @@ body {
     font-size: 1.6rem;
   }
 
-  body {
-    background-position: top 0 left 0;
-  }
-
   #miniWar {
     display: none;
   }
@@ -211,10 +188,6 @@ body {
     font-size: 1.6rem;
   }
 
-  body {
-    background-position: top 0 left 0;
-  }
-
   #miniWar {
     display: none;
   }
@@ -235,10 +208,6 @@ body {
 @media screen and (min-width:801px) and (max-width:900px) {
   #homePageText {
     font-size: 2.2rem;
-  }
-
-  body {
-    background-position: top 0 left 0;
   }
 
   #miniWar {
@@ -267,10 +236,6 @@ body {
     font-size: 2.2rem;
   }
 
-  body {
-    background-position: top 0 left 0;
-  }
-
   #miniWar {
     display: none;
   }
@@ -296,10 +261,6 @@ body {
 @media screen and (min-width:992px) and (max-width:1024px) {
   #homePageText {
     font-size: 2.2rem;
-  }
-
-  body {
-    background-position: top -5% left 0;
   }
 
   #miniWar {
@@ -330,10 +291,6 @@ body {
     font-size: 2.8rem;
   }
 
-  body {
-    background-position: top -5% left 0;
-  }
-
   .topBorder h1 {
     font-size: 3rem;
   }
@@ -353,11 +310,7 @@ body {
   #homePageText {
     font-size: 3rem;
   }
-
-  body {
-    background-position: top 0 left 0;
-  }
-
+  
   .topBorder h1 {
     font-size: 3.2rem;
   }
