@@ -7,19 +7,19 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item font-family-germania bg-dark rounded text-center mr-2 h4">
+              <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4">
                 <a class="text-light nav-link" href="index.php" id="home">Accueil</a>
               </li>
-              <li class="nav-item font-family-germania bg-dark rounded text-center mr-2 h4">
+              <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4">
                 <a class="text-light nav-link" href="#">A propos de WarFriends</a>
               </li>
-              <li class="nav-item font-family-germania bg-dark rounded text-center mr-2 h4">
+              <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4">
                 <a class="text-light nav-link" data-toggle="modal" data-target="#connexionModal">Connexion/s'inscrire</a>
               </li>
-              <li class="nav-item font-family-germania bg-dark rounded text-center d-none mr-2 h4">
+              <li class="nav-item font-family-germania bg-dark-opac rounded text-center d-none mr-2 h4">
                 <a class="text-light nav-link" href="#">Déconnexion</a>
               </li>
-              <li class="nav-item font-family-germania bg-dark rounded text-center d-none mr-2 h4">
+              <li class="nav-item font-family-germania bg-dark-opac rounded text-center d-none mr-2 h4">
                 <a class="text-light nav-link" href="#">Mon compte</a>
               </li>
             </ul>

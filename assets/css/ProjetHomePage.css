@@ -1,6 +1,6 @@
 body {
-  background-image: url(../Images/warframe4.jpg);
-  background-size: 100% auto;
+  background-image: url(../Images/warframe7.jpg);
+  
   background-repeat: no-repeat;
 }
 
@@ -12,13 +12,17 @@ body {
   font-family: 'Germania One', cursive;
 }
 
+.bg-dark-opac{
+    background-color:rgba(52,58,54,0.7);
+}
+
 .topBorder {
   width: 100%;
   height: 6rem;
   padding-top: 1%;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: black;
+  background-color: rgba(0,0,0,0.5);
 }
 
 #divHomeText {
