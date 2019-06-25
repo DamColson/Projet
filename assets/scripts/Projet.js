@@ -1,3 +1,77 @@
+//Tableaux utiles pour la regexArmor
+
+var armor = [
+    'Ash',
+    'Atlas',
+    'Banshee',
+    'Baruuk',
+    'Chroma',
+    'Ember',
+    'Equinox',
+    'Excalibur',
+    'Frost',
+    'Gara',
+    'Garuda',
+    'Harrow',
+    'Hildryn',
+    'Hydroid',
+    'Inaros',
+    'Ivara',
+    'Khora',
+    'Limbo',
+    'Loki',
+    'Mag',
+    'Mesa',
+    'Mirage',
+    'Nekros',
+    'Nezha',
+    'Nidus',
+    'Nova',
+    'Nyx',
+    'Oberon',
+    'Octavia',
+    'Revenant',
+    'Rhino',
+    'Saryn',
+    'Titania',
+    'Trinity',
+    'Valkyr',
+    'Vauban',
+    'Volt',
+    'Wisp',
+    'Wukong',
+    'Zephyr'
+    ];
+var primeArmor = [
+    'Ash Prime',
+    'Banshee Prime',
+    'Chroma Prime',
+    'Ember Prime',
+    'Equinox Prime',
+    'Excalibur Prime',
+    'Frost Prime',
+    'Hydroid Prime',
+    'Limbo Prime',
+    'Loki Prime',
+    'Mag Prime',
+    'Mesa Prime',
+    'Mirage Prime',
+    'Nekros Prime',
+    'Nova Prime',
+    'Nyx Prime',
+    'Oberon Prime',
+    'Rhino Prime',
+    'Saryn Prime',
+    'Trinity Prime',
+    'Valkyr Prime',
+    'Vauban Prime',
+    'Volt Prime',
+    'Zephyr Prime'
+    ];
+    
+var armors = armor.join('|');
+var primeArmors = primeArmor.join('|');
+    
 // regex diverses et variées
 
 var regexBirthday = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
@@ -12,13 +86,15 @@ var regexSyndicateRank = /^(-2|-1|0|neutre|1|2|3|4|5)$/;
 
 var regexSyndicateStanding = /^(0)$|^[1-9]$|^[1-9][0-9]$|^[1-9][0-9]{2}$|^[1-9][0-9]{3}$|^[1-9][0-9]{4}$|^(1)[0-2][0-9]{4}$|^(13)[0-1][0-9]{3}$|^(132000)$/;
 
+var regexArmor = '/^(Aucune en particulier|' + armors + '|' + primeArmors + ')$/';
+
 // Tableau des erreur, chaque entrée commence de base comme etant erreur et est modifié si le test des regex est passé
 
-var errorInForm = {'birthday' : 0,'discord':0,'mail':0,'password':0,'confirmPassword':0,'steelMeridianRank':0,'steelMeridianStanding':0,'arbiterRank':0,'arbiterStanding':0,'cephalonRank':0,'cephalonStanding':0,'perrinRank':0,'perrinStanding':0,'redVeilRank':0,'redVeilStanding':0,'newLokaRank':0,'newLokaStanding':0};
+var errorInForm = {'birthday' : 0,'discord':0,'mail':0,'password':0,'confirmPassword':0,'steelMeridianRank':0,'steelMeridianStanding':0,'arbiterRank':0,'arbiterStanding':0,'cephalonRank':0,'cephalonStanding':0,'perrinRank':0,'perrinStanding':0,'redVeilRank':0,'redVeilStanding':0,'newLokaRank':0,'newLokaStanding':0,'armor':0};
 
 // Tableau de validation, lorsque le tableau des erreur est egal au tableau de validation, le formulaire est validé et l'envoie est autorisé
 
-var formValidate = {'birthday' : 1,'discord':1,'mail':1,'password':1,'confirmPassword':1,'steelMeridianRank':1,'steelMeridianStanding':1,'arbiterRank':1,'arbiterStanding':1,'cephalonRank':1,'cephalonStanding':1,'perrinRank':1,'perrinStanding':1,'redVeilRank':1,'redVeilStanding':1,'newLokaRank':1,'newLokaStanding':1};
+var formValidate = {'birthday' : 1,'discord':1,'mail':1,'password':1,'confirmPassword':1,'steelMeridianRank':1,'steelMeridianStanding':1,'arbiterRank':1,'arbiterStanding':1,'cephalonRank':1,'cephalonStanding':1,'perrinRank':1,'perrinStanding':1,'redVeilRank':1,'redVeilStanding':1,'newLokaRank':1,'newLokaStanding':1,armor:1};
 
 // Variable servant de compteur pour les tableaux, Si la variable atteint 17 ( le nombre de critere a valider ) alors le formulaire est envoyé, dans le cas contraire la variable est reinitialisée et le formulaire est renvoyé 
 
@@ -137,7 +213,7 @@ function checkForm(){
 //    test de la regex date de naissance
 
     if(!regexBirthday.test($('#birthday').val())) {
-        $('#birthdayError').text('date d\'anniversaire invalide. Veillez à ce qu\'elle soit au format Français, JJ/MM/AAAA par exemple.');
+        $('#birthdayError').text('Date d\'anniversaire invalide. Veillez à ce qu\'elle soit au format Français, JJ/MM/AAAA par exemple.');
         $('#birthday').css('border','red solid 2px');
     }else{
         errorInForm['birthday'] = 1;
@@ -167,12 +243,22 @@ function checkForm(){
     }else{
         errorInForm['password'] = 1;
     }
-//    Vérification de la concordance entre le apssword et le confirmPassword
+//    Vérification de la concordance entre le password et le confirmPassword
+
     if($('#password').val() !== $('#confirmPassword').val()) {
         $('#confirmPasswordError').text('Ce mot de passe diffère du mot de passe choisit.');
         $('#confirmPassword').css('border','red solid 2px');
     }else{
         errorInForm['confirmPassword'] = 1;
+    }
+    
+//    test de la regex armor
+
+    if(!regexArmor.test($('#favArmor').val())) {
+        $('#favArmorError').text('Ceci n\'est pas une armure valide');
+        $('#favArmor').css('border','red solid 2px');
+    }else{
+        errorInForm['armor'] = 1;        
     }
     
 //    test des regex rank et standing en fonction du radio pour la faction Steel Meridian
@@ -329,7 +415,7 @@ $('form').submit(function(event){
                countTrue++;
            } 
         }
-        if(countTrue != 17){
+        if(countTrue != Object.keys(errorInForm).length){
             event.preventDefault();
             countTrue = 0;
         }

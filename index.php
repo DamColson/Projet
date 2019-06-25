@@ -19,9 +19,13 @@ include 'file.php';
     <?php
     include 'header.php';
     ?>
-        <div class="container-fluid" id="divHomeText">
+<!--        <div class="container-fluid" id="divHomeText">
           <p class="h3 font-weight-bold text-danger font-family-germania" id="homePageText">Find friends. Exchange. Get stronger.</p>
-        </div>
+        </div>-->
+<video width="auto" height="auto" autoplay="" loop="" muted="">
+                <source type="video/mp4" src="https://n9e5v4d8.ssl.hwcdn.net/uploads/warframes/videos/Nyx.mp4" />
+                <source type="video/webm" src="https://n9e5v4d8.ssl.hwcdn.net/uploads/warframes/videos/Nyx.webm" />
+            </video>
 
   <!-- Modal -->
 <div class="modal fade font-family-germania text-light" id="connexionModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
@@ -54,9 +58,6 @@ include 'file.php';
 </div>
       <p id="mainContent">
 </p>
-<?php
-        var_dump($_COOKIE);
-        ?>
     <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

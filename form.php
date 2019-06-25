@@ -19,7 +19,6 @@ include 'file.php';
         <?php
         include 'header.php';
         ?>
-        
         <form method="POST" class="bg-dark w-75 mx-auto" action="index.php" id="inscriptionForm">
             <p class="h3 text-light mb-3 text-center">Vos informations personnelles</p>
             <fieldset class="bg-dark text-light mb-3">
@@ -32,7 +31,6 @@ include 'file.php';
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
-                    <div class="rem"></div>
                     </div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-lg-4 mt-4"><label for="birthday">Date de Naissance : </label></div>
@@ -42,7 +40,7 @@ include 'file.php';
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
-                    <div id="birthdayError" class="text-danger rem mx-auto"></div>
+                    <div id="birthdayError" class="text-danger mx-auto"></div>
                     </div>
                     <div class="form-group col-lg-1"></div>                   
                     <div class="form-group col-lg-4 mt-2"><label for="discord">Tag Discord : </label></div>
@@ -52,7 +50,7 @@ include 'file.php';
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
-                    <div id="discordError" class="text-danger rem mx-auto"></div>
+                    <div id="discordError" class="text-danger mx-auto"></div>
                     </div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-lg-4 mt-2"><label for="mail">Email : </label></div>
@@ -62,7 +60,7 @@ include 'file.php';
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
-                    <div id="mailError" class="text-danger rem mx-auto"></div>
+                    <div id="mailError" class="text-danger mx-auto"></div>
                     </div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-lg-4 mt-2"><label for="password">Votre mot de passe : </label></div>
@@ -72,7 +70,7 @@ include 'file.php';
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
-                    <div id="passwordError" class="text-danger rem mx-auto"></div>
+                    <div id="passwordError" class="text-danger mx-auto"></div>
                     </div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-lg-4 mt-2"><label for="confirmPassword">Confirmez votre mot de passe : </label></div>
@@ -82,7 +80,7 @@ include 'file.php';
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
-                    <div id="confirmPasswordError" class="text-danger rem mx-auto"></div>
+                    <div id="confirmPasswordError" class="text-danger mx-auto"></div>
                     </div>
                 </div>
                     
@@ -97,18 +95,45 @@ include 'file.php';
                     </div>
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-4"></div>
-                    <div class="form-group col-lg-4"><p class="h4">Etes vous rang 2 ou plus avec :</p></div>
+                    <div class="form-group col-11 col-lg-5">
+                        <label for="favArmor">Quelle est votre armure favorite : </label>
+                        <select class="form-control" id="favArmor" name="favArmor">
+                            <option selected>Aucune en particulier</option>
+                            <optgroup label="Armures classiques">
+                               <?php 
+                                foreach($armor as $armorName):
+                                    ?><option><?= $armorName ?></option>
+                                    <?php
+                                endforeach;
+                                ?> 
+                            </optgroup>
+                            <optgroup label="Armures primes">
+                               <?php 
+                                foreach($primeArmor as $armorName):
+                                    ?><option><?= $armorName ?></option>
+                                    <?php
+                                endforeach;
+                                ?> 
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-3"></div>
+                    <div class="row no-gutters w-100">
+                    <div id="favArmorError" class="text-danger mx-auto"></div>
+                    </div>
                     <div class="form-group col-lg-4"></div>
+                    <div class="form-group col-lg-5 mx-auto"><p class="h4 text-center">Etes vous rang 2 ou plus avec :</p></div>
+                    <div class="form-group col-lg-3"></div>
                     <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">Steel Meridian : </p></div>
                     <div class="row w-100">
                     <div class="form-group col-lg-4"></div>    
-                    <div class="form-group col-11 col-lg-4">
+                    <div class="form-group col-11 col-lg-5">
                         <label for="steelMeridianRadioOn">Oui</label>
                         <input type="radio" id="steelMeridianRadioOn" name="steelMeridianRadio" value="on" />
                         <label for="steelMeridianRadioOff">Non</label>
                         <input type="radio" id="steelMeridianRadioOff" name="steelMeridianRadio" value="off" />
                     </div>
-                    <div class="form-group col-lg-4"></div>        
+                    <div class="form-group col-lg-3"></div>        
                     </div>
                     
                     <div class="row w-100">
@@ -132,18 +157,18 @@ include 'file.php';
                     <div class="form-group col-lg-3"></div>
                     </div>
                     <div class="row no-gutters w-100">
-                        <div id="steelMeridianError" class="text-danger rem mx-auto"><span id="steelMeridianRankError" class="text-danger rem mx-auto"></span><span id="steelMeridianStandingError" class="text-danger rem mx-auto" ></span></div>
+                        <div id="steelMeridianError" class="text-danger mx-auto"><span id="steelMeridianRankError" class="text-danger mx-auto"></span><span id="steelMeridianStandingError" class="text-danger mx-auto" ></span></div>
                     </div>
                     <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">Arbiter Of Hexis : </p></div>
                     <div class="row w-100">
                     <div class="form-group col-lg-4"></div>    
-                    <div class="form-group col-11 col-lg-4">
+                    <div class="form-group col-11 col-lg-5">
                         <label for="arbiterRadioOn">Oui</label>
                         <input type="radio" id="arbiterRadioOn" name="arbiterRadio" value="on"/>
                         <label for="arbiterRadioOff">Non</label>
                         <input type="radio" id="arbiterRadioOff" name="arbiterRadio" value="off"/>
                     </div>
-                    <div class="form-group col-lg-4"></div>
+                    <div class="form-group col-lg-3"></div>
                     </div>
                     <div class="row w-100">
                     <div class="form-group col-lg-3"></div>    
@@ -167,18 +192,18 @@ include 'file.php';
                     <div class="form-group col-lg-3"></div>
                     </div>
                     <div class="row no-gutters w-100">
-                        <div id="arbiterError" class="text-danger rem mx-auto"><span id="arbiterRankError" class="text-danger rem mx-auto"></span><span id="arbiterStandingError" class="text-danger rem mx-auto" ></span></div>
+                        <div id="arbiterError" class="text-danger mx-auto"><span id="arbiterRankError" class="text-danger mx-auto"></span><span id="arbiterStandingError" class="text-danger mx-auto" ></span></div>
                     </div>
                     <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">Cephalon Suda : </p></div>
                     <div class="row w-100">
                     <div class="form-group col-lg-4"></div>    
-                    <div class="form-group col-11 col-lg-4">
+                    <div class="form-group col-11 col-lg-5">
                         <label for="cephalonRadioOn">Oui</label>
                         <input type="radio" id="cephalonRadioOn" name="cephalonRadio" value="on"/>
                         <label for="cephalonRadioOff">Non</label>
                         <input type="radio" id="cephalonRadioOff" name="cephalonRadio" value="off"/>
                     </div>
-                    <div class="form-group col-lg-4"></div>
+                    <div class="form-group col-lg-3"></div>
                     </div>
                     <div class="row w-100">
                     <div class="form-group col-lg-3"></div>    
@@ -201,18 +226,18 @@ include 'file.php';
                     <div class="form-group col-lg-3"></div>
                     </div>
                     <div class="row no-gutters w-100">
-                        <div id="cephalonError" class="text-danger rem mx-auto"><span id="cephalonRankError" class="text-danger rem mx-auto"></span><span id="cephalonStandingError" class="text-danger rem mx-auto" ></span></div>
+                        <div id="cephalonError" class="text-danger mx-auto"><span id="cephalonRankError" class="text-danger mx-auto"></span><span id="cephalonStandingError" class="text-danger mx-auto" ></span></div>
                     </div>
                     <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">The Perrin Sequence : </p></div>
                     <div class="row w-100">
                     <div class="form-group col-lg-4"></div>    
-                    <div class="form-group col-11 col-lg-4">
+                    <div class="form-group col-11 col-lg-5">
                         <label for="perrinRadioOn">Oui</label>
                         <input type="radio" id="perrinRadioOn" name="perrinRadio" value="on"/>
                         <label for="perrinRadioOff">Non</label>
                         <input type="radio" id="perrinRadioOff" name="perrinRadio" value="off"/>
                     </div>
-                    <div class="form-group col-lg-4"></div>
+                    <div class="form-group col-lg-3"></div>
                     </div>
                     <div class="row w-100">
                     <div class="form-group col-lg-3"></div>    
@@ -235,18 +260,18 @@ include 'file.php';
                     <div class="form-group col-lg-3"></div>
                     </div>
                     <div class="row no-gutters w-100">
-                        <div id="perrinError" class="text-danger rem mx-auto"><span id="perrinRankError" class="text-danger rem mx-auto"></span><span id="perrinStandingError" class="text-danger rem mx-auto" ></span></div>
+                        <div id="perrinError" class="text-danger mx-auto"><span id="perrinRankError" class="text-danger mx-auto"></span><span id="perrinStandingError" class="text-danger mx-auto" ></span></div>
                     </div>
                     <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">Red Veil : </p></div>
                     <div class="row w-100">
                     <div class="form-group col-lg-4"></div>    
-                    <div class="form-group col-11 col-lg-4">
+                    <div class="form-group col-11 col-lg-5">
                         <label for="redVeilRadioOn">Oui</label>
                         <input type="radio" id="redVeilRadioOn" name="redVeilRadio" value="on"/>
                         <label for="redVeilRadioOff">Non</label>
                         <input type="radio" id="redVeilRadioOff" name="redVeilRadio" value="off"/>
                     </div>
-                    <div class="form-group col-lg-4"></div>
+                    <div class="form-group col-lg-3"></div>
                     </div>
                     <div class="row w-100">
                     <div class="form-group col-lg-3"></div>    
@@ -269,18 +294,18 @@ include 'file.php';
                     <div class="form-group col-lg-3"></div>
                     </div>
                     <div class="row no-gutters w-100">
-                        <div id="redVeilError" class="text-danger rem mx-auto"><span id="redVeilRankError" class="text-danger rem mx-auto"></span><span id="redVeilStandingError" class="text-danger rem mx-auto" ></span></div>
+                        <div id="redVeilError" class="text-danger mx-auto"><span id="redVeilRankError" class="text-danger mx-auto"></span><span id="redVeilStandingError" class="text-danger mx-auto" ></span></div>
                     </div>
                     <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">New Loka : </p></div>
                     <div class="row w-100">
                     <div class="form-group col-lg-4"></div>    
-                    <div class="form-group col-11 col-lg-4">
+                    <div class="form-group col-11 col-lg-5">
                         <label for="newLokaRadioOn">Oui</label>
                         <input type="radio" id="newLokaRadioOn" name="newLokaRadio" value="on"/>
                         <label for="newLokaRadioOff">Non</label>
                         <input type="radio" id="newLokaRadioOff" name="newLokaRadio" value="off"/>
                     </div>
-                    <div class="form-group col-lg-4"></div>
+                    <div class="form-group col-lg-3"></div>
                     </div>
                     <div class="row w-100">
                     <div class="form-group col-lg-3"></div>    
@@ -303,7 +328,7 @@ include 'file.php';
                     <div class="form-group col-lg-3"></div>
                     </div>
                     <div class="row no-gutters w-100">
-                        <div id="newLokaError" class="text-danger rem mx-auto"><span id="newLokaRankError" class="text-danger rem mx-auto"></span><span id="newLokaStandingError" class="text-danger rem mx-auto" ></span></div>
+                        <div id="newLokaError" class="text-danger mx-auto"><span id="newLokaRankError" class="text-danger mx-auto"></span><span id="newLokaStandingError" class="text-danger mx-auto" ></span></div>
                     </div>
                 </div>
             </fieldset>
@@ -317,6 +342,8 @@ include 'file.php';
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="assets/scripts/Projet.js"></script>
         <?php
+          
+          
     ?>
     </body>    
 </html>

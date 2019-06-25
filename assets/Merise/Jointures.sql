@@ -1,0 +1,7 @@
+-- SELECT `UsersWarfriendsInfos`.`Pseudo` AS `Pseudo Warfriends`,`UsersWarframeInfos`.`WarframePseudo` AS `Pseudo Warframe`,`Armors`.`Name` AS `Armure Favorite`,`Syndicate`.`Name` AS `Syndicat`,`UsersWarframeInfos`.`ValidSyndicateRank` FROM `UsersWarfriendsInfos` INNER JOIN `UsersWarframeInfos` ON `UsersWarfriendsInfos`.`id`=`UsersWarframeInfos`.`id_UsersWarfriendsInfos` INNER JOIN `Armors` ON `UsersWarframeInfos`.`id_Armors`= `Armors`.`id`;
+
+-- SELECT `UsersWarframeInfos`.`WarframePseudo` AS `Pseudo Warframe`,`Syndicate`.`Name` AS `Syndicat`,`UsersWarframeInfos`.`ValidSyndicateRank` AS `rang 2 atteint`,`Armors`.`Name` AS `Armure Favorite` FROM `UsersWarframeInfos` INNER JOIN `Syndicate` ON `UsersWarframeInfos`.`id_Syndicate`=`Syndicate`.`id` INNER JOIN `Armors` ON `UsersWarframeInfos`.`id_Armors`=`Armors`.`id` GROUP BY `UsersWarframeInfos`.`id`;
+
+-- SELECT `UsersWarfriendsInfos`.`Pseudo`,`Syndicate`.`Name`,`UsersWarframeInfos`.`ValidSyndicateRank` FROM `UsersWarfriendsInfos` INNER JOIN `UsersWarframeInfos` ON `UsersWarfriendsInfos`.`id`=`UsersWarframeInfos`.`id_UsersWarfriendsInfos` INNER JOIN `Syndicate` ON `Syndicate`.`id`=`UsersWarframeInfos`.`id_Syndicate`;
+
+-- SELECT `Nom Serie`,`Nom Acteur` FROM `Serie` INNER JOIN `relation` ON `Serie`.`id`=`relation`.`id_Serie` INNER JOIN `Acteur` ON `Acteur`.`id`=`relation`.`id_acteur`;
