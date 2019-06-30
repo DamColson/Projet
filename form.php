@@ -342,7 +342,8 @@ include 'file.php';
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="assets/scripts/Projet.js"></script>
         <?php
-          
+        $db = new PDO('mysql:host=localhost;dbname=warfriends','Fireloup','Girouette301286');
+        $db->exec('INSERT INTO `UsersInfos`(`WarframePseudo`,`WarfriendsPseudo`,`Mail`,`TagDiscord`,`Password`,`id_Armors`)VALUES(\'$_POST[\'warframePseudo\']\',\'Shiixy\',\'shiixy@gmail.com\',\'shiixy#1234\',\'Shiixy1234\',\'27\')')
           
     ?>
     </body>    
