@@ -1,5 +1,5 @@
 <?php
-$_POST = array_map('strip_tags',$_POST);
+
 $rank = [2,3,4,5];
 $armor = [
     'Ash',
@@ -69,9 +69,6 @@ $primeArmor = [
     'VoltPrime',
     'ZephyrPrime'
     ];
-        
-  $armors = implode('|', $armor);
-  $primeArmors = implode('|', $primeArmor);
-  $regexArmors = "/^(" . $armors . '|' . $primeArmors . ")$/";
+$errorInForm = ['birthday'=>0,'discord'=>0,'mail'=>0,'password'=>0,'confirmPassword'=>0,'favArmor'=>0,'StMe'=>0,];
+$formValidation =[];
 ?>
-        

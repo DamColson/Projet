@@ -1,104 +1,7 @@
-//Tableaux utiles pour la regexArmor
-
-var armor = [
-    'Ash',
-    'Atlas',
-    'Banshee',
-    'Baruuk',
-    'Chroma',
-    'Ember',
-    'Equinox',
-    'Excalibur',
-    'Frost',
-    'Gara',
-    'Garuda',
-    'Harrow',
-    'Hildryn',
-    'Hydroid',
-    'Inaros',
-    'Ivara',
-    'Khora',
-    'Limbo',
-    'Loki',
-    'Mag',
-    'Mesa',
-    'Mirage',
-    'Nekros',
-    'Nezha',
-    'Nidus',
-    'Nova',
-    'Nyx',
-    'Oberon',
-    'Octavia',
-    'Revenant',
-    'Rhino',
-    'Saryn',
-    'Titania',
-    'Trinity',
-    'Valkyr',
-    'Vauban',
-    'Volt',
-    'Wisp',
-    'Wukong',
-    'Zephyr'
-    ];
-var primeArmor = [
-    'Ash Prime',
-    'Banshee Prime',
-    'Chroma Prime',
-    'Ember Prime',
-    'Equinox Prime',
-    'Excalibur Prime',
-    'Frost Prime',
-    'Hydroid Prime',
-    'Limbo Prime',
-    'Loki Prime',
-    'Mag Prime',
-    'Mesa Prime',
-    'Mirage Prime',
-    'Nekros Prime',
-    'Nova Prime',
-    'Nyx Prime',
-    'Oberon Prime',
-    'Rhino Prime',
-    'Saryn Prime',
-    'Trinity Prime',
-    'Valkyr Prime',
-    'Vauban Prime',
-    'Volt Prime',
-    'Zephyr Prime'
-    ];
-    
-var armors = armor.join('|');
-var primeArmors = primeArmor.join('|');
-    
-// regex diverses et variées
-
-var regexBirthday = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
-
-var regexMail = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
-
-var regexPassword = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)([-.+!*$@%_\w]{8,19})$/;
-
-var regexDiscord = /^(.)+(\#)([0-9]{4})$/;
-
-var regexSyndicateRank = /^(-2|-1|0|neutre|1|2|3|4|5)$/;
-
-var regexSyndicateStanding = /^(0)$|^[1-9]$|^[1-9][0-9]$|^[1-9][0-9]{2}$|^[1-9][0-9]{3}$|^[1-9][0-9]{4}$|^(1)[0-2][0-9]{4}$|^(13)[0-1][0-9]{3}$|^(132000)$/;
-
-var regexArmor = '/^(Aucune en particulier|' + armors + '|' + primeArmors + ')$/';
-
-// Tableau des erreur, chaque entrée commence de base comme etant erreur et est modifié si le test des regex est passé
-
-var errorInForm = {'birthday' : 0,'discord':0,'mail':0,'password':0,'confirmPassword':0,'steelMeridianRank':0,'steelMeridianStanding':0,'arbiterRank':0,'arbiterStanding':0,'cephalonRank':0,'cephalonStanding':0,'perrinRank':0,'perrinStanding':0,'redVeilRank':0,'redVeilStanding':0,'newLokaRank':0,'newLokaStanding':0,'armor':0};
-
-// Tableau de validation, lorsque le tableau des erreur est egal au tableau de validation, le formulaire est validé et l'envoie est autorisé
-
-var formValidate = {'birthday' : 1,'discord':1,'mail':1,'password':1,'confirmPassword':1,'steelMeridianRank':1,'steelMeridianStanding':1,'arbiterRank':1,'arbiterStanding':1,'cephalonRank':1,'cephalonStanding':1,'perrinRank':1,'perrinStanding':1,'redVeilRank':1,'redVeilStanding':1,'newLokaRank':1,'newLokaStanding':1,armor:1};
-
-// Variable servant de compteur pour les tableaux, Si la variable atteint 17 ( le nombre de critere a valider ) alors le formulaire est envoyé, dans le cas contraire la variable est reinitialisée et le formulaire est renvoyé 
-
-var countTrue = 0;
+$('#connexionButton').click(function(e){
+    e.preventDefault();
+    $("#connexionForm").submit();
+});
 
 //Fonction permettant de cacher ou d'afficher les input de rank et de standing pour chaque faction lorsque le Oui est selectionné pour l'input radio
 
@@ -107,102 +10,63 @@ function standingVisibility(){
 if($('#steelMeridianRadioOn').is(':checked')){
     $('#steelMeridianRank').show();
     $('#steelMeridianRankLabel').show();
-    $('#steelMeridianStanding').show();
-    $('#steelMeridianStandingLabel').show();
-    
 }else if($('#steelMeridianRadioOff').is(':checked')){
      $('#steelMeridianRank').hide();
      $('#steelMeridianRankLabel').hide();
-     $('#steelMeridianStanding').hide();
-     $('#steelMeridianStandingLabel').hide();
 }else{
      $('#steelMeridianRank').hide();
      $('#steelMeridianRankLabel').hide();
-     $('#steelMeridianStanding').hide();
-     $('#steelMeridianStandingLabel').hide();
 }
 if($('#arbiterRadioOn').is(':checked')){
     $('#arbiterRank').show();
-    $('#arbiterRankLabel').show();
-    $('#arbiterStanding').show();
-    $('#arbiterStandingLabel').show();
-    
+    $('#arbiterRankLabel').show();    
 }else if($('#arbiterRadioOff').is(':checked')){
      $('#arbiterRank').hide();
      $('#arbiterRankLabel').hide();
-     $('#arbiterStanding').hide();
-     $('#arbiterStandingLabel').hide();
 }else{
      $('#arbiterRank').hide();
      $('#arbiterRankLabel').hide();
-     $('#arbiterStanding').hide();
-     $('#arbiterStandingLabel').hide();
 }
 if($('#cephalonRadioOn').is(':checked')){
     $('#cephalonRank').show();
     $('#cephalonRankLabel').show();
-    $('#cephalonStanding').show();
-    $('#cephalonStandingLabel').show();
 }else if($('#cephalonRadioOff').is(':checked')){
      $('#cephalonRank').hide();
      $('#cephalonRankLabel').hide();
-     $('#cephalonStanding').hide();
-     $('#cephalonStandingLabel').hide();
 }else{
      $('#cephalonRank').hide();
      $('#cephalonRankLabel').hide();
-     $('#cephalonStanding').hide();
-     $('#cephalonStandingLabel').hide();
 }
 if($('#perrinRadioOn').is(':checked')){
     $('#perrinRank').show();
     $('#perrinRankLabel').show();
-    $('#perrinStanding').show();
-    $('#perrinStandingLabel').show();
     
 }else if($('#perrinRadioOff').is(':checked')){
      $('#perrinRank').hide();
      $('#perrinRankLabel').hide();
-     $('#perrinStanding').hide();
-     $('#perrinStandingLabel').hide();
 }else{
      $('#perrinRank').hide();
      $('#perrinRankLabel').hide();
-     $('#perrinStanding').hide();
-     $('#perrinStandingLabel').hide();
 }
 if($('#redVeilRadioOn').is(':checked')){
     $('#redVeilRank').show();
     $('#redVeilRankLabel').show();
-    $('#redVeilStanding').show();
-    $('#redVeilStandingLabel').show();
-    
 }else if($('#redVeilRadioOff').is(':checked')){
      $('#redVeilRank').hide();
      $('#redVeilRankLabel').hide();
-     $('#redVeilStanding').hide();
-     $('#redVeilStandingLabel').hide();
 }else{
      $('#redVeilRank').hide();
      $('#redVeilRankLabel').hide();
-     $('#redVeilStanding').hide();
-     $('#redVeilStandingLabel').hide();
 }
 if($('#newLokaRadioOn').is(':checked')){
     $('#newLokaRank').show();
-    $('#newLokaRankLabel').show();
-    $('#newLokaStanding').show();
-    $('#newLokaStandingLabel').show(); 
+    $('#newLokaRankLabel').show(); 
 }else if($('#newLokaRadioOff').is(':checked')){
      $('#newLokaRank').hide();
      $('#newLokaRankLabel').hide();
-     $('#newLokaStanding').hide();
-     $('#newLokaStandingLabel').hide();
 }else{
      $('#newLokaRank').hide();
      $('#newLokaRankLabel').hide();
-     $('#newLokaStanding').hide();
-     $('#newLokaStandingLabel').hide();
 }
 }
 
@@ -210,14 +74,6 @@ if($('#newLokaRadioOn').is(':checked')){
 
 function checkForm(){
     
-//    test de la regex date de naissance
-
-    if(!regexBirthday.test($('#birthday').val())) {
-        $('#birthdayError').text('Date d\'anniversaire invalide. Veillez à ce qu\'elle soit au format Français, JJ/MM/AAAA par exemple.');
-        $('#birthday').css('border','red solid 2px');
-    }else{
-        errorInForm['birthday'] = 1;
-    }
     
 //    test de la regex discord
 
