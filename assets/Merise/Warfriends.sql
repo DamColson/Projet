@@ -36,7 +36,7 @@ CREATE TABLE UsersInfos(
         WarfriendsPseudo Varchar (50) NOT NULL ,
         Mail             Varchar (150) NOT NULL ,
         TagDiscord       Varchar (20) ,
-        Password         Varchar (20) NOT NULL ,
+        Password         Varchar (200) NOT NULL ,
         id_Armors        Int NOT NULL
 	,CONSTRAINT UsersInfos_PK PRIMARY KEY (id)
 
@@ -53,6 +53,18 @@ CREATE TABLE SyndicateDetails(
         ValidRank Varchar (3) NOT NULL ,
         Standing  Int
 	,CONSTRAINT SyndicateDetails_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Admin
+#------------------------------------------------------------
+
+CREATE TABLE Admin(
+        id       Int  Auto_increment  NOT NULL ,
+        Pseudo   Varchar (50) NOT NULL ,
+        Password Varchar (500) NOT NULL
+	,CONSTRAINT Admin_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
 

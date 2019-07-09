@@ -17,9 +17,11 @@ require '../Controllers/formController.php';
 
     <body class="font-family-germania">
         <?php
-        include 'header.php';
+        include 'headerView.php';
+        var_dump(dateFR('2019-07-11'));
+        var_dump($errorInForm);
         ?>
-        <form method="POST" class="bg-dark w-75 mx-auto" action="../index.php" id="inscriptionForm">
+        <form method="POST" class="bg-dark w-75 mx-auto" action="formView.php" id="inscriptionForm">
             <p class="h3 text-light mb-3 text-center">Vos informations personnelles</p>
             <fieldset class="bg-dark text-light mb-3">
                 <div class="row bg-light text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
@@ -31,56 +33,57 @@ require '../Controllers/formController.php';
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
+                        <div class="text-danger mx-auto"></div>
                     </div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-lg-4 mt-4"><label for="birthday">Date de Naissance : </label></div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-11 col-lg-4 mt-3">
-                        <input type="date" class="form-control" id="birthday" name="birthday" placeholder="birthday" required />
+                        <input type="date" class="form-control <?= (count($_POST)>0 && $errorInForm['birthday']==0)? 'redBorder':''?>" id="birthday" name="birthday" placeholder="birthday" required />
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
-                        <div id="birthdayError" class="text-danger mx-auto"></div>
+                        <div class="text-danger mx-auto" id="birthdayError"><?= (count($_POST)>0 && $errorInForm['birthday']==0)? 'Date de naissance invalide.':''?></div>
                     </div>
                     <div class="form-group col-lg-1"></div>                   
                     <div class="form-group col-lg-4 mt-2"><label for="discord">Tag Discord : </label></div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-11 col-lg-4 mt-2">
-                        <input type="text" class="form-control" id="discord" name="discord" placeholder="Tag Discord" />
+                        <input type="text" class="form-control <?= (count($_POST)>0 && $errorInForm['discord']==0)? 'redBorder':''?>" id="discord" name="discord" placeholder="Tag Discord" />
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
-                        <div id="discordError" class="text-danger mx-auto"></div>
+                        <div class="text-danger mx-auto" id="discordError"><?= (count($_POST)>0 && $errorInForm['discord']==0)? 'Tag discord invalide':''?></div>
                     </div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-lg-4 mt-2"><label for="mail">Email : </label></div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-11 col-lg-4 mt-2">
-                        <input type="mail" class="form-control" id="mail" name="mail" placeholder="Votre Email" required />
+                        <input type="mail" class="form-control <?= (count($_POST)>0 && $errorInForm['mail']==0)? 'redBorder':''?>" id="mail" name="mail" placeholder="Votre Email" required />
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
-                        <div id="mailError" class="text-danger mx-auto"></div>
+                        <div class="text-danger mx-auto" id="mailError"><?= (count($_POST)>0 && $errorInForm['mail']==0)? 'Adresse mail invalide.':''?></div>
                     </div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-lg-4 mt-2"><label for="password">Votre mot de passe : </label></div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-11 col-lg-4 mt-2">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Une maj, un chiffre, min 8 caract" required />
+                        <input type="password" class="form-control <?= (count($_POST)>0 && $errorInForm['password']==0)? 'redBorder':''?>" id="password" name="password" placeholder="Une maj, un chiffre, min 8 caract" required />
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
-                        <div id="passwordError" class="text-danger mx-auto"></div>
+                        <div class="text-danger mx-auto" id="passwordError"><?= (count($_POST)>0 && $errorInForm['password']==0)? 'Mot de passe invalide,assurez vous qu\'il ait au minimum 8 caractères dont au moins une majsucule et un chiffre':''?></div>
                     </div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-lg-4 mt-2"><label for="confirmPassword">Confirmez votre mot de passe : </label></div>
                     <div class="form-group col-lg-1"></div>
                     <div class="form-group col-11 col-lg-4 mt-2">
-                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required />
+                        <input type="password" class="form-control <?= (count($_POST)>0 && $errorInForm['confirmPassword']==0)? 'redBorder':''?>" id="confirmPassword" name="confirmPassword" required />
                     </div>
                     <div class="form-group col-lg-2"></div>
                     <div class="row no-gutters w-100">
-                        <div id="confirmPasswordError" class="text-danger mx-auto"></div>
+                        <div class="text-danger mx-auto" id="confirmPasswordError"><?= (count($_POST)>0 && $errorInForm['confirmPassword']==0)? 'Ne correspond pas au mot de passe précédement renseigné.':''?></div>
                     </div>
                 </div>
 
@@ -97,8 +100,8 @@ require '../Controllers/formController.php';
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-11 col-lg-6">
                         <label for="favArmor">Quelle est votre armure favorite : </label>
-                        <select class="form-control" id="favArmor" name="favArmor">
-                            <option selected>Aucune en particulier</option>
+                        <select class="form-control <?= (count($_POST)>0 && $errorInForm['favArmor']==0)? 'redBorder':''?>" id="favArmor" name="favArmor">
+                            <option value="All" selected>Aucune en particulier</option>
                             <optgroup label="Armures classiques">
                                 <?php
                                 foreach ($armor as $armorName):
@@ -119,7 +122,7 @@ require '../Controllers/formController.php';
                     </div>
                     <div class="form-group col-lg-3"></div>
                     <div class="row no-gutters w-100">
-                        <div id="favArmorError" class="text-danger mx-auto"></div>
+                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['favArmor']==0)? 'Ceci n\'est pas une armure valide.':''?></div>
                     </div>
                     <div class="form-group col-lg-4"></div>
                     <div class="form-group col-lg-4 mx-auto"><p class="h4 text-center">Etes vous rang 2 ou plus avec :</p></div>
@@ -140,7 +143,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>    
                         <div class="form-group col-11 col-lg-6">
                             <label for="steelMeridianRank" id="steelMeridianRankLabel">Rang : </label>
-                            <select class="form-control" id="steelMeridianRank" name="steelMeridianRank">
+                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['StMe']==0)? 'redBorder':''?>" id="steelMeridianRank" name="steelMeridianRank">
                                 <option selected></option>
                                 <?php
                                 foreach ($rank as $rankStage):
@@ -154,7 +157,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>
                     
                     <div class="row no-gutters w-100">
-                        <div id="steelMeridianError" class="text-danger mx-auto"><span id="steelMeridianRankError" class="text-danger mx-auto"></span><span id="steelMeridianStandingError" class="text-danger mx-auto" ></span></div>
+                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['StMe']==0)? 'Ceci n\'est pas un rang valide':''?></div>
                     </div>
                     <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">Arbiter Of Hexis : </p></div>
                     <div class="row w-100">
@@ -171,7 +174,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>    
                         <div class="mx-auto form-group col-11 col-lg-6">
                             <label for="arbiterRank" id="arbiterRankLabel">Rang : </label>
-                            <select class="form-control" id="arbiterRank" name="arbiterRank">
+                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['AoH']==0)? 'redBorder':''?>" id="arbiterRank" name="arbiterRank">
                                 <option selected></option>
                                 <?php
                                 foreach ($rank as $rankStage):
@@ -186,7 +189,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>
                    
                     <div class="row no-gutters w-100">
-                        <div id="arbiterError" class="text-danger mx-auto"><span id="arbiterRankError" class="text-danger mx-auto"></span><span id="arbiterStandingError" class="text-danger mx-auto" ></span></div>
+                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['AoH']==0)? 'Ceci n\'est pas un rang valide':''?></div>
                     </div>
                     <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">Cephalon Suda : </p></div>
                     <div class="row w-100">
@@ -203,7 +206,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>    
                         <div class="mx-auto form-group col-11 col-lg-6">
                             <label for="cephalonRank" id="cephalonRankLabel">Rang : </label>
-                            <select class="form-control" id="cephalonRank" name="cephalonRank">
+                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['CeSu']==0)? 'redBorder':''?>" id="cephalonRank" name="cephalonRank">
                                 <option selected></option>
                                 <?php
                                 foreach ($rank as $rankStage):
@@ -217,7 +220,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>
                     
                     <div class="row no-gutters w-100">
-                        <div id="cephalonError" class="text-danger mx-auto"><span id="cephalonRankError" class="text-danger mx-auto"></span><span id="cephalonStandingError" class="text-danger mx-auto" ></span></div>
+                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['CeSu']==0)? 'Ceci n\'est pas un rang valide':''?></div>
                     </div>
                     <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">The Perrin Sequence : </p></div>
                     <div class="row w-100">
@@ -234,7 +237,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>    
                         <div class="mx-auto form-group col-11 col-lg-6">
                             <label for="perrinRank" id="perrinRankLabel">Rang : </label>
-                            <select class="form-control" id="perrinRank" name="perrinRank">
+                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['ThPeSe']==0)? 'redBorder':''?>" id="perrinRank" name="perrinRank">
                                 <option selected></option>
                                 <?php
                                 foreach ($rank as $rankStage):
@@ -248,7 +251,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>
                    
                     <div class="row no-gutters w-100">
-                        <div id="perrinError" class="text-danger mx-auto"><span id="perrinRankError" class="text-danger mx-auto"></span><span id="perrinStandingError" class="text-danger mx-auto" ></span></div>
+                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['ThPeSe']==0)? 'Ceci n\'est pas un rang valide':''?></div>
                     </div>
                     <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">Red Veil : </p></div>
                     <div class="row w-100">
@@ -265,7 +268,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>    
                         <div class="mx-auto form-group col-11 col-lg-6">
                             <label for="redVeilRank" id="redVeilRankLabel">Rang : </label>
-                            <select class="form-control" id="redVeilRank" name="redVeilRank">
+                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['ReVe']==0)? 'redBorder':''?>" id="redVeilRank" name="redVeilRank">
                                 <option selected></option>
                                 <?php
                                 foreach ($rank as $rankStage):
@@ -279,7 +282,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>
                     
                     <div class="row no-gutters w-100">
-                        <div id="redVeilError" class="text-danger mx-auto"><span id="redVeilRankError" class="text-danger mx-auto"></span><span id="redVeilStandingError" class="text-danger mx-auto" ></span></div>
+                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['ReVe']==0)? 'Ceci n\'est pas un rang valide':''?></div>
                     </div>
                     <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">New Loka : </p></div>
                     <div class="row w-100">
@@ -296,7 +299,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>    
                         <div class="form-group col-11 col-lg-6">
                             <label for="newLokaRank" id="newLokaRankLabel">Rang : </label>
-                            <select class="form-control" id="newLokaRank" name="newLokaRank">
+                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['NeLo']==0)? 'redBorder':''?>" id="newLokaRank" name="newLokaRank">
                                 <option selected></option>
                                 <?php
                                 foreach ($rank as $rankStage):
@@ -310,7 +313,7 @@ require '../Controllers/formController.php';
                         <div class="form-group col-lg-3"></div>
                    
                     <div class="row no-gutters w-100">
-                        <div id="newLokaError" class="text-danger mx-auto"><span id="newLokaRankError" class="text-danger mx-auto"></span><span id="newLokaStandingError" class="text-danger mx-auto" ></span></div>
+                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['NeLo']==0)? 'Ceci n\'est pas un rang valide':''?></div>
                     </div>
                 </div>
             </fieldset>

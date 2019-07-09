@@ -69,6 +69,6 @@ $primeArmor = [
     'VoltPrime',
     'ZephyrPrime'
     ];
-$errorInForm = ['birthday'=>0,'discord'=>0,'mail'=>0,'password'=>0,'confirmPassword'=>0,'favArmor'=>0,'StMe'=>0,];
-$formValidation =[];
+$errorInForm = ['birthday'=>1,'discord'=>1,'mail'=>1,'password'=>1,'confirmPassword'=>1,'favArmor'=>1,'StMe'=>1,'AoH'=>1,'CeSu'=>1,'ThPeSe'=>1,'ReVe'=>1,'NeLo'=>1];
+$formValidation =['birthday'=>1,'discord'=>1,'mail'=>1,'password'=>1,'confirmPassword'=>1,'favArmor'=>1,'StMe'=>1,'AoH'=>1,'CeSu'=>1,'ThPeSe'=>1,'ReVe'=>1,'NeLo'=>1];
 ?>
