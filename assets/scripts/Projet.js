@@ -79,8 +79,14 @@ $('#inscriptionForm').ready(function(){
 
 $('input,select').focusout(function(){
     
-    
+    var postData;
     var id=this.id;
+    
+    if(this.name == 'confirmPassword'){
+        postData = this.name+ '=' + $(this).val() + '&password=' + $('#password').val();
+    }else{
+        postData = this.name+ '=' + $(this).val();
+    }
 
     $(this).removeClass('redBorder');
    
@@ -89,13 +95,25 @@ $('input,select').focusout(function(){
         
         url: '../Controllers/formController.php',
         type:'POST',
-        data: this.name+ '=' + $(this).val(),
+        data: postData,
        
         success: function(data){
-                
-        if(data == 'failure'){
+                console.log(data);
+        if(data == 'failure' && id == 'birthday'){
             $('#'+id).addClass('redBorder');
-            $('#'+id+'Error').text('Il y a une erreur,veuillez vérifier les informations données');
+            $('#'+id+'Error').text('Date de naissance invalide. Etes vous majeur?');
+        }else if(data == 'failure' && id == 'discord'){
+            $('#'+id).addClass('redBorder');
+            $('#'+id+'Error').text('Etes vous sur que ceci est un tag discord valide?');
+        }else if(data == 'failure' && id == 'mail'){
+            $('#'+id).addClass('redBorder');
+            $('#'+id+'Error').text('Etes vous sur que ceci est une adresse mail valide?');
+        }else if(data == 'failure' && id == 'password'){
+            $('#'+id).addClass('redBorder');
+            $('#'+id+'Error').text('Mot de passe invalide.Assurez vous que ce dernier possède une majuscule, un chiffre et au moins 8 caractères');
+        }else if(data == 'failure' && id == 'confirmPassword'){
+            $('#'+id).addClass('redBorder');
+            $('#'+id+'Error').text('Etes vous sur que ce mot de passe est le même que celui précédement renseigné?');
         }else{
             $('#'+id+'Error').empty();
         }

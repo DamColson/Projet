@@ -18,8 +18,8 @@ require '../Controllers/formController.php';
     <body class="font-family-germania">
         <?php
         include 'headerView.php';
-        var_dump(dateFR('2019-07-11'));
-        var_dump($errorInForm);
+        
+        
         ?>
         <form method="POST" class="bg-dark w-75 mx-auto" action="formView.php" id="inscriptionForm">
             <p class="h3 text-light mb-3 text-center">Vos informations personnelles</p>
