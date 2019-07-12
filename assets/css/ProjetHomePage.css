@@ -14,10 +14,13 @@ body {
     background-color:rgba(52,58,54,0.7);
 }
 
+.bg-light-opac{
+   background-color:rgba(248,249,250,0.9); 
+}
+
 .topBorder {
   width: 100%;
-  height: 6rem;
-  padding-top: 1%;
+  height: 6.5rem;
   border: 1px solid black;
   border-radius: 10px;
   background-color: rgba(0,0,0,0.5);
@@ -40,6 +43,18 @@ video {
   bottom: 0;
   left: 0;
   width:100%;
+}
+
+.redBorder{
+    border:red 2px solid;
+}
+
+.headRow{
+    height:6rem;
+}
+
+#connectionDiv{
+    display:none;
 }
 
 @media screen and (max-width:375px) {
@@ -384,9 +399,4 @@ video {
     height: 34rem;
   }
 
-  #navbarNav {
-    position: relative;
-    left: 10rem;
-    margin-top: 1rem;
-  }
 }

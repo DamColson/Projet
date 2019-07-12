@@ -1,15 +1,3 @@
-form {
-    width: 24rem;
-}
-
-#personnalInfos input{
-    width:20rem;
-}
-
-#personnalInfos label{
-    width:15rem;
-}
-
 body{
     background-color:#343a40;
 }
@@ -29,7 +17,6 @@ body{
 .topBorder {
     width: 100%;
     height: 6rem;
-    padding-top: 1%;
     border: 1px solid black;
     border-radius: 10px;
     background-color: rgba(0,0,0,0.5);
@@ -38,12 +25,6 @@ body{
 .redBorder{
     border:red 2px solid;
 }
-
-.greenBorder{
-    border:green 4px solid;
-}
-
-
 
 @media screen and (max-width:375px) {
 
@@ -266,9 +247,4 @@ body{
         font-size: 3.2rem;
     }
 
-    #navbarNav {
-        position: relative;
-        left: 10rem;
-        margin-top: 1rem;
-    }
 }
