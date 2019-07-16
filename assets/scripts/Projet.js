@@ -1,83 +1,8 @@
 var passwordValue;
-var confirmPasswordValue;
+
 //Fonction permettant de cacher ou d'afficher les input de rank pour chaque faction lorsque le Oui est selectionné pour l'input radio
 
-function rankVisibility(){
-
-if($('#steelMeridianRadioOn').is(':checked')){
-    $('#steelMeridianRank').show();
-    $('#steelMeridianRankLabel').show();
-}else if($('#steelMeridianRadioOff').is(':checked')){
-     $('#steelMeridianRank').hide();
-     $('#steelMeridianRankLabel').hide();
-}else{
-     $('#steelMeridianRank').hide();
-     $('#steelMeridianRankLabel').hide();
-}
-if($('#arbiterRadioOn').is(':checked')){
-    $('#arbiterRank').show();
-    $('#arbiterRankLabel').show();    
-}else if($('#arbiterRadioOff').is(':checked')){
-     $('#arbiterRank').hide();
-     $('#arbiterRankLabel').hide();
-}else{
-     $('#arbiterRank').hide();
-     $('#arbiterRankLabel').hide();
-}
-if($('#cephalonRadioOn').is(':checked')){
-    $('#cephalonRank').show();
-    $('#cephalonRankLabel').show();
-}else if($('#cephalonRadioOff').is(':checked')){
-     $('#cephalonRank').hide();
-     $('#cephalonRankLabel').hide();
-}else{
-     $('#cephalonRank').hide();
-     $('#cephalonRankLabel').hide();
-}
-if($('#perrinRadioOn').is(':checked')){
-    $('#perrinRank').show();
-    $('#perrinRankLabel').show();
-    
-}else if($('#perrinRadioOff').is(':checked')){
-     $('#perrinRank').hide();
-     $('#perrinRankLabel').hide();
-}else{
-     $('#perrinRank').hide();
-     $('#perrinRankLabel').hide();
-}
-if($('#redVeilRadioOn').is(':checked')){
-    $('#redVeilRank').show();
-    $('#redVeilRankLabel').show();
-}else if($('#redVeilRadioOff').is(':checked')){
-     $('#redVeilRank').hide();
-     $('#redVeilRankLabel').hide();
-}else{
-     $('#redVeilRank').hide();
-     $('#redVeilRankLabel').hide();
-}
-if($('#newLokaRadioOn').is(':checked')){
-    $('#newLokaRank').show();
-    $('#newLokaRankLabel').show(); 
-}else if($('#newLokaRadioOff').is(':checked')){
-     $('#newLokaRank').hide();
-     $('#newLokaRankLabel').hide();
-}else{
-     $('#newLokaRank').hide();
-     $('#newLokaRankLabel').hide();
-}
-}
-
-// Lancement de la fonction rankVisibility au click d'un input
-
-$('input').click(function(){
-    rankVisibility();
-});
-
-// Lancement de la fonction rankVisibility au chargement du formulaire
-
-$('#inscriptionForm').ready(function(){
-    rankVisibility();
-});
+// debut ajax sur formulaire d'inscription
 
 $('input,select').focusout(function(){
     
@@ -90,7 +15,6 @@ $('input,select').focusout(function(){
 
     if(this.name == 'confirmPassword'){
         postData = this.name+ '=' + $(this).val() + '&password=' + passwordValue;
-        confirmPasswordValue = $(this).val();
     }else if( id == 'pass'){
         postData = this.name+ '=' + $(this).val();
         passwordValue = $(this).val();
@@ -134,10 +58,6 @@ $('input,select').focusout(function(){
    });
 });
 
-$('#connection').click(function(){
-    if($('#connectionDiv').is(':hidden')){
-        $( "#connectionDiv" ).slideDown( 'slow' );
-    }else{
-        $( "#connectionDiv" ).slideUp( 'slow' );
-    }
-});
+
+
+

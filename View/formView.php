@@ -1,8 +1,6 @@
 <?php
 require '../Controllers/formController.php';
-$linkIndex = '../index.php';
-$linkAccount = 'accountView.php';
-$linkFormView ='formView.php';
+
 
 ?>
 <!DOCTYPE html>

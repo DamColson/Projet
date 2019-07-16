@@ -1,6 +1,7 @@
 <?php
 
 $rank = [2,3,4,5];
+$updateRank = ['<2',2,3,4,5];
 $armor = [
     '1'=>'Ash',
     '2'=>'Atlas',
@@ -71,4 +72,6 @@ $primeArmor = [
     ];
 $errorInForm = ['birthday'=>1,'discord'=>1,'mail'=>1,'password'=>1,'confirmPassword'=>1,'favArmor'=>1];
 $formValidation =['birthday'=>1,'discord'=>1,'mail'=>1,'password'=>1,'confirmPassword'=>1,'favArmor'=>1];
+$errorInModif = ['oldPassword'=>1,'newPassword'=>1,'confirmNewPassword'=>1];
+$modifValidation = ['oldPassword'=>1,'newPassword'=>1,'confirmNewPassword'=>1];
 ?>

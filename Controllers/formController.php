@@ -2,6 +2,9 @@
 require '../Models/modelDb.php';
 require '../Models/usersModel.php';
 
+$linkIndex = '../index.php';
+$linkAccount = 'UsersInfosView.php';
+$linkFormView ='formView.php';
 
 include '../assets/php/arrays.php';
 

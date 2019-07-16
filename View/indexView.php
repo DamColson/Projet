@@ -1,8 +1,6 @@
 <?php
 require 'Controllers/connectionController.php';
-$linkIndex = 'index.php';
-$linkAccount = 'View/accountView.php';
-$linkFormView ='View/formView.php'; 
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

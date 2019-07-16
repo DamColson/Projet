@@ -6,7 +6,7 @@ class Armors extends Db{
     public $url;
     
     public function __construct(){
-        
+        parent::__construct();
     }
     
     public function addArmor(){
@@ -18,5 +18,16 @@ class Armors extends Db{
         if($addArmor->execute()):
             return true;
         endif;
+    }
+    
+    public function getArmorsName(){
+        $query = 'SELECT Armors.name FROM Armors WHERE Armors.id = :armorId';
+        $getArmorName = $this->db->prepare($query);
+        $getArmorName->bindValue(':armorId',$this->id,PDO::PARAM_INT);
+        $getArmorName->execute();
+        
+        $getName = $getArmorName->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $getName;
     }
 }

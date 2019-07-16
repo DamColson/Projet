@@ -1,337 +1,272 @@
-<?php //
-//require '../Controllers/updateController.php';
-$linkIndex = '../index.php';
-$linkUpdate = 'updateView.php';
-$linkFormView ='formView.php'; 
+<?php
+session_start();
+require '../Controllers/updateController.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 
- 
-   <?php
-   include 'headView.php';
-   ?>
+
+    <?php
+    include 'headView.php';
+    ?>
 
     <body class="font-family-germania">
         <?php
         include 'headerView.php';
+        var_dump($_SESSION);
         ?>
-        
-        <form method="POST" class="bg-dark w-75 mx-auto" action="formView.php" id="inscriptionForm">
-            <p class="h3 text-light mb-3 text-center">Vos informations personnelles</p>
-            <fieldset class="bg-dark text-light mb-3">
-                <div class="row bg-light text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
-                    
-                    <div class="form-group col-lg-3"></div>
-                    <div class="form-group col-lg-6">
-                        <label for="pseudo">Pseudo : </label>
-                        <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Pseudo" value="" required />
-                    </div>
-                    <div class="form-group col-lg-3"></div>
-                    
-                    <div class="form-group col-lg-3"></div>
-                    <div class="form-group col-lg-6">
-                        <label for="birthday">Date de Naissance : </label>
-                        <input type="date" class="form-control <?= (count($_POST)>0 && $errorInForm['birthday']==0)? 'redBorder':''?>" id="birthday" name="birthday" placeholder="birthday" required />
-                    </div>
-                    <div class="form-group col-lg-3"></div>
 
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto" id="birthdayError"><?= (count($_POST)>0 && $errorInForm['birthday']==0)? 'Date de naissance invalide.':''?></div>
-                    </div>
-                    
-                    <div class="form-group col-lg-3"></div>                   
-                    <div class="form-group col-lg-6">
-                        <label for="discord">Tag Discord : </label>
-                        <input type="text" class="form-control <?= (count($_POST)>0 && $errorInForm['discord']==0)? 'redBorder':''?>" id="discord" name="discord" placeholder="Tag Discord" />
-                    </div>
-                    <div class="form-group col-lg-3"></div>
-                    
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto" id="discordError"><?= (count($_POST)>0 && $errorInForm['discord']==0)? 'Tag discord invalide':''?></div>
-                    </div>
-                    
-                    <div class="form-group col-lg-3"></div>
-                    <div class="form-group col-lg-6">
-                        <label for="mail">Email : </label>
-                        <input type="mail" class="form-control <?= (count($_POST)>0 && $errorInForm['mail']==0)? 'redBorder':''?>" id="mailo" name="mail" placeholder="Votre Email"  />
-                    </div>
-                    <div class="form-group col-lg-3"></div>
-                    
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto" id="mailoError"><?= (count($_POST)>0 && $errorInForm['mail']==0)? 'Adresse mail invalide.':''?></div>
-                    </div>
-                    
-                    <div class="form-group col-lg-3"></div>
-                    <div class="form-group col-lg-6">
-                        <label for="password">Votre mot de passe : </label>
-                        <input type="password" class="form-control <?= (count($_POST)>0 && $errorInForm['password']==0)? 'redBorder':''?>" id="pass" name="password" placeholder="Une maj, un chiffre, min 8 caract" required />
-                    </div>
-                    <div class="form-group col-lg-3"></div>
+        <div class="rem"></div>
 
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto" id="passError"><?= (count($_POST)>0 && $errorInForm['password']==0)? 'Mot de passe invalide,assurez vous qu\'il ait au minimum 8 caractères dont au moins une majsucule et un chiffre':''?></div>
-                    </div>
-                    
-                    <div class="form-group col-lg-3"></div>
-                    <div class="form-group col-lg-6">
-                        <label for="confirmPassword">Confirmez votre mot de passe : </label>
-                        <input type="password" class="form-control <?= (count($_POST)>0 && $errorInForm['confirmPassword']==0)? 'redBorder':''?>" id="confirmPassword" name="confirmPassword" required />
-                    </div>
-                    <div class="form-group col-lg-3"></div>
+        <div class="container">
+            <ul id="tabs" class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a id="tab-A" href="#personalInfos" class="nav-link active" data-toggle="tab" role="tab">Modifier mes informations personnelles</a>
+                </li>
+                <li class="nav-item">
+                    <a id="tab-B" href="#passwordChange" class="nav-link" data-toggle="tab" role="tab">Mettre à jour mes syndicats</a>
+                </li>
+            </ul>
 
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto" id="confirmPasswordError"><?= (count($_POST)>0 && $errorInForm['confirmPassword']==0)? 'Etes vous sur que ce mot de passe est le même que celui précédement renseigné? Possède t-il tout les prérequis attendus?':''?></div>
+
+            <div id="content" class="tab-content" role="tablist">
+                <div id="personalInfos" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
+                    <div class="card-header" role="tab" id="heading-A">
+                        <h5 class="mb-0">
+
+                            <a data-toggle="collapse" href="#collapse-A" aria-expanded="true" aria-controls="collapse-A">
+                                Modifier mes informations personnelles
+                            </a>
+                        </h5>
                     </div>
-                    
-                    <div class="form-group col-lg-3"></div>
-                    <div class="form-group col-11 col-lg-6">
-                        <label for="warframePseudo">Votre pseudo Warframe : </label>
-                        <input type="text" class="form-control" id="warframePseudo" name="warframePseudo" placeholder="Nom" required />
-                    </div>
-                    <div class="form-group col-lg-3"></div>
-                    
-                    <div class="form-group col-lg-3"></div>
-                    <div class="form-group col-11 col-lg-6">
-                        <label for="favArmor">Quelle est votre armure favorite : </label>
-                        <select class="form-control <?= (count($_POST)>0 && $errorInForm['favArmor']==0)? 'redBorder':''?>" id="favArmor" name="favArmor">
-                            <option value="All" selected>Aucune en particulier</option>
-                            <optgroup label="Armures classiques">
-                                <?php
-                                foreach ($armor as $key=>$armorName):
-                                    ?><option value ="<?=$key?>"><?= $armorName ?></option>
-                                    <?php
-                                    
-                                endforeach;
-                                ?> 
-                            </optgroup>
-                            <optgroup label="Armures primes">
-                                <?php
-                                foreach ($primeArmor as $key=>$armorName):
-                                    ?><option value ="<?=$key?>"><?= $armorName ?></option>
-                                    <?php
-                                    
-                                endforeach;
-                                ?> 
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-3"></div>
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['favArmor']==0)? 'Ceci n\'est pas une armure valide.':''?></div>
+
+
+                    <div id="collapse-A" class="collapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
+                        <div class="card-body">
+                            <form method="POST" class="bg-dark w-100 mx-auto" action="updateView.php" id="updateForm">
+                                <p class="h3 text-light mb-3 text-center">Vos informations personnelles</p>
+                                <fieldset class="bg-dark text-light mb-3">
+                                    <div class="row bg-light text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
+
+                                        <div class="form-group col-lg-3"></div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="newPseudo">Pseudo : </label>
+                                            <input type="text" class="form-control" id="newPseudo" name="newPseudo" value="<?= $_SESSION['warfriendsPseudo'] ?>" required />
+                                        </div>
+                                        <div class="form-group col-lg-3"></div>
+
+                                        <div class="form-group col-lg-3"></div>                   
+                                        <div class="form-group col-lg-6">
+                                            <label for="newDiscord">Tag Discord : </label>
+                                            <input type="text" class="form-control" id="newDiscord" name="newDiscord" value="<?= $_SESSION['tagDiscord'] ?>" />
+                                        </div>
+                                        <div class="form-group col-lg-3"></div>
+
+                                        <div class="row no-gutters w-100">
+                                            <div class="text-danger mx-auto" id="discordError"></div>
+                                        </div>
+
+                                        <div class="form-group col-lg-3"></div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="newMail">Email : </label>
+                                            <input type="mail" class="form-control" id="newMail" name="newMail" value="<?= $_SESSION['mail'] ?>"/>
+                                        </div>
+                                        <div class="form-group col-lg-3"></div>
+
+                                        <div class="row no-gutters w-100">
+                                            <div class="text-danger mx-auto" id="mailoError"></div>
+                                        </div>
+
+                                        <div class="form-group col-lg-3"></div>
+                                        <div class="form-group col-11 col-lg-6">
+                                            <label for="newWarframePseudo">Votre pseudo Warframe : </label>
+                                            <input type="text" class="form-control" id="newWarframePseudo" name="newWarframePseudo" value="<?= $_SESSION['warframePseudo'] ?>"  />
+                                        </div>
+                                        <div class="form-group col-lg-3"></div>
+
+                                        <div class="form-group col-lg-3"></div>
+                                        <div class="form-group col-11 col-lg-6">
+                                            <label for="favArmor">Quelle est votre armure favorite : </label>
+                                            <select class="form-control" id="favArmor" name="favArmor">
+                                                <option value="All" selected>Aucune en particulier</option>
+                                                <optgroup label="Armures classiques">
+                                                    <?php
+                                                    foreach ($armor as $key => $armorName):
+                                                        ?><option value ="<?= $key ?>" <?= ($_SESSION['id_Armors'] == $key) ? 'selected' : ''; ?>><?= $armorName ?></option>
+                                                        <?php
+                                                    endforeach;
+                                                    ?> 
+                                                </optgroup>
+                                                <optgroup label="Armures primes">
+                                                    <?php
+                                                    foreach ($primeArmor as $key => $armorName):
+                                                        ?><option value ="<?= $key ?>" <?= ($_SESSION['id_Armors'] == $key) ? 'selected' : ''; ?>><?= $armorName ?></option>
+                                                        <?php
+                                                    endforeach;
+                                                    ?> 
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-lg-3"></div>
+                                        <div class="row no-gutters w-100">
+                                            <div class="text-danger mx-auto"></div>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+
+                                <div class="align-items-center justify-content-center d-flex">
+                                    <button name="submitUpdateButton" id="submitFormButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Envoyer</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
-            </fieldset>
-           
-            <div class="align-items-center justify-content-center d-flex">
-                <button name="submitFormButton" id="submitFormButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Envoyer</button>
-            </div>
-        </form>
-        <form method="POST" class="bg-dark w-75 mx-auto" action="updateView.php" id="inscriptionForm">
-            
+                <div id="passwordChange" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                    <div class="card-header" role="tab" id="heading-B">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapse-B" aria-expanded="false" aria-controls="collapse-B">
+                                Mettre à jour mes syndicats
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapse-B" class="collapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
+                        <div class="card-body">
+                            <div class="rem"></div>
+                            <form method="POST" class="mx-auto bg-dark" action="updateSyndicateRank.php" id="updateSyndicatesForm">
 
-            <p class="h3 text-light mb-3 text-center">Vos informations relatives à Warframe</p>
-            <fieldset class="bg-dark text-light mb-3">
-                <div class="row bg-light text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
-                    
-                    <div class="form-group col-lg-4"></div>
-                    <div class="form-group col-lg-4 mx-auto"><p class="h4 text-center">Etes vous rang 2 ou plus avec :</p></div>
-                    <div class="form-group col-lg-4"></div>
-                    <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">Steel Meridian : </p></div>
-                    <div class="row w-100">
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="mx-auto form-group col-11 col-lg-6">
-                            <label for="steelMeridianRadioOn">Oui</label>
-                            <input type="radio" id="steelMeridianRadioOn" name="steelMeridianRadio" value="on" />
-                            <label for="steelMeridianRadioOff">Non</label>
-                            <input type="radio" id="steelMeridianRadioOff" name="steelMeridianRadio" value="off" />
-                        </div>
-                        <div class="form-group col-lg-3"></div>        
-                    </div>
+                                <div class="rem"></div>
+                                <div class="bg-light w-75 mx-auto rounded">
 
-                    
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="form-group col-11 col-lg-6">
-                            <label for="steelMeridianRank" id="steelMeridianRankLabel">Rang : </label>
-                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['StMe']==0)? 'redBorder':''?>" id="steelMeridianRank" name="steelMeridianRank">
-                                <option selected></option>
-                                <?php
-                                foreach ($rank as $rankStage):
-                                    ?><option><?= $rankStage ?></option>
-                                    <?php
-                                endforeach;
-                                ?>
-                            </select>    
-                        </div>
+                                    <div class="rem"></div>
 
-                        <div class="form-group col-lg-3"></div>
-                    
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['StMe']==0)? 'Ceci n\'est pas un rang valide':''?></div>
-                    </div>
-                    <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">Arbiter Of Hexis : </p></div>
-                    <div class="row w-100">
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="mx-auto form-group col-11 col-lg-6">
-                            <label for="arbiterRadioOn">Oui</label>
-                            <input type="radio" id="arbiterRadioOn" name="arbiterRadio" value="on"/>
-                            <label for="arbiterRadioOff">Non</label>
-                            <input type="radio" id="arbiterRadioOff" name="arbiterRadio" value="off"/>
-                        </div>
-                        <div class="form-group col-lg-3"></div>
-                    </div>
-                   
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="mx-auto form-group col-11 col-lg-6">
-                            <label for="arbiterRank" id="arbiterRankLabel">Rang : </label>
-                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['AoH']==0)? 'redBorder':''?>" id="arbiterRank" name="arbiterRank">
-                                <option selected></option>
-                                <?php
-                                foreach ($rank as $rankStage):
-                                    ?><option><?= $rankStage ?></option>
-                                    <?php
-                                endforeach;
-                                ?>
-                            </select>    
-                        </div>
+                                    <div class="text-dark row no-gutters">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smallsteelicon.png" /> Steel Meridian : 
+                                            <select class="form-control" id="meridianRank" name="meridianRank">
+                                                <option selected disabled></option>
+                                                    <?php
+                                                    foreach ($updateRank as $rank):
+                                                        ?><option value =""><?= $rank ?></option>
+                                                        <?php
+                                                    endforeach;
+                                                    ?> 
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3"></div>    
+                                    </div>                          
 
+                                    <div class="text-dark row no-gutters">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smallarbitericon.png" /> Arbiter Of Hexis :
+                                            <select class="form-control" id="arbiterRank" name="arbiterRank">
+                                                <option selected disabled></option>
+                                                    <?php
+                                                    foreach ($updateRank as $rank):
+                                                        ?><option value =""><?= $rank ?></option>
+                                                        <?php
+                                                    endforeach;
+                                                    ?> 
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3"></div>    
+                                    </div>                   
 
-                        <div class="form-group col-lg-3"></div>
-                   
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['AoH']==0)? 'Ceci n\'est pas un rang valide':''?></div>
-                    </div>
-                    <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">Cephalon Suda : </p></div>
-                    <div class="row w-100">
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="mx-auto form-group col-11 col-lg-6">
-                            <label for="cephalonRadioOn">Oui</label>
-                            <input type="radio" id="cephalonRadioOn" name="cephalonRadio" value="on"/>
-                            <label for="cephalonRadioOff">Non</label>
-                            <input type="radio" id="cephalonRadioOff" name="cephalonRadio" value="off"/>
-                        </div>
-                        <div class="form-group col-lg-3"></div>
-                    </div>
-                    
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="mx-auto form-group col-11 col-lg-6">
-                            <label for="cephalonRank" id="cephalonRankLabel">Rang : </label>
-                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['CeSu']==0)? 'redBorder':''?>" id="cephalonRank" name="cephalonRank">
-                                <option selected></option>
-                                <?php
-                                foreach ($rank as $rankStage):
-                                    ?><option><?= $rankStage ?></option>
-                                    <?php
-                                endforeach;
-                                ?>
-                            </select>    
-                        </div>
+                                    <div class="text-dark row no-gutters">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smallcephalonicon.png" /> Cephalon Suda :
+                                            <select class="form-control" id="cephalonRank" name="cephalonRank">
+                                                <option selected disabled></option>
+                                                    <?php
+                                                    foreach ($updateRank as $rank):
+                                                        ?><option value =""><?= $rank ?></option>
+                                                        <?php
+                                                    endforeach;
+                                                    ?> 
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3"></div>    
+                                    </div>
 
-                        <div class="form-group col-lg-3"></div>
-                    
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['CeSu']==0)? 'Ceci n\'est pas un rang valide':''?></div>
-                    </div>
-                    <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">The Perrin Sequence : </p></div>
-                    <div class="row w-100">
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="mx-auto form-group col-11 col-lg-6">
-                            <label for="perrinRadioOn">Oui</label>
-                            <input type="radio" id="perrinRadioOn" name="perrinRadio" value="on"/>
-                            <label for="perrinRadioOff">Non</label>
-                            <input type="radio" id="perrinRadioOff" name="perrinRadio" value="off"/>
-                        </div>
-                        <div class="form-group col-lg-3"></div>
-                    </div>
-                    
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="mx-auto form-group col-11 col-lg-6">
-                            <label for="perrinRank" id="perrinRankLabel">Rang : </label>
-                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['ThPeSe']==0)? 'redBorder':''?>" id="perrinRank" name="perrinRank">
-                                <option selected></option>
-                                <?php
-                                foreach ($rank as $rankStage):
-                                    ?><option><?= $rankStage ?></option>
-                                    <?php
-                                endforeach;
-                                ?>
-                            </select>    
-                        </div>
+                                    <div class="text-dark row no-gutters">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smallredveilicon.png" /> The Red Veil :
+                                            <select class="form-control" id="redVeilRank" name="redVeilRank">
+                                                <option selected disabled></option>
+                                                    <?php
+                                                    foreach ($updateRank as $rank):
+                                                        ?><option value =""><?= $rank ?></option>
+                                                        <?php
+                                                    endforeach;
+                                                    ?> 
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3"></div>    
+                                    </div>
 
-                        <div class="form-group col-lg-3"></div>
-                   
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['ThPeSe']==0)? 'Ceci n\'est pas un rang valide':''?></div>
-                    </div>
-                    <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">Red Veil : </p></div>
-                    <div class="row w-100">
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="mx-auto form-group col-11 col-lg-6">
-                            <label for="redVeilRadioOn">Oui</label>
-                            <input type="radio" id="redVeilRadioOn" name="redVeilRadio" value="on"/>
-                            <label for="redVeilRadioOff">Non</label>
-                            <input type="radio" id="redVeilRadioOff" name="redVeilRadio" value="off"/>
-                        </div>
-                        <div class="form-group col-lg-3"></div>
-                    </div>
-                
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="mx-auto form-group col-11 col-lg-6">
-                            <label for="redVeilRank" id="redVeilRankLabel">Rang : </label>
-                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['ReVe']==0)? 'redBorder':''?>" id="redVeilRank" name="redVeilRank">
-                                <option selected></option>
-                                <?php
-                                foreach ($rank as $rankStage):
-                                    ?><option><?= $rankStage ?></option>
-                                    <?php
-                                endforeach;
-                                ?>
-                            </select>    
-                        </div>
+                                    <div class="text-dark row no-gutters">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smallperrinsequenceicon.png" /> Perrin Sequence :
+                                            <select class="form-control" id="perrinRank" name="perrinRank">
+                                                <option selected disabled></option>
+                                                    <?php
+                                                    foreach ($updateRank as $rank):
+                                                        ?><option value =""><?= $rank ?></option>
+                                                        <?php
+                                                    endforeach;
+                                                    ?> 
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3"></div>    
+                                    </div>
 
-                        <div class="form-group col-lg-3"></div>
-                    
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['ReVe']==0)? 'Ceci n\'est pas un rang valide':''?></div>
-                    </div>
-                    <div class="form-group col-12 align-items-bottom"><p class="h5 text-danger">New Loka : </p></div>
-                    <div class="row w-100">
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="mx-auto form-group col-11 col-lg-6">
-                            <label for="newLokaRadioOn">Oui</label>
-                            <input type="radio" id="newLokaRadioOn" name="newLokaRadio" value="on"/>
-                            <label for="newLokaRadioOff">Non</label>
-                            <input type="radio" id="newLokaRadioOff" name="newLokaRadio" value="off"/>
-                        </div>
-                        <div class="form-group col-lg-3"></div>
-                    </div>
-                  
-                        <div class="form-group col-lg-3"></div>    
-                        <div class="form-group col-11 col-lg-6">
-                            <label for="newLokaRank" id="newLokaRankLabel">Rang : </label>
-                            <select class="form-control <?= (count($_POST)>0 && $errorInForm['NeLo']==0)? 'redBorder':''?>" id="newLokaRank" name="newLokaRank">
-                                <option selected></option>
-                                <?php
-                                foreach ($rank as $rankStage):
-                                    ?><option><?= $rankStage ?></option>
-                                    <?php
-                                endforeach;
-                                ?>
-                            </select>    
-                        </div>
+                                    <div class="text-dark row no-gutters">
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smalllokaicon.png" /> The New Loka :
+                                            <select class="form-control" id="lokaRank" name="lokaRank">
+                                                <option selected disabled></option>
+                                                    <?php
+                                                    foreach ($updateRank as $rank):
+                                                        ?><option value =""><?= $rank ?></option>
+                                                        <?php
+                                                    endforeach;
+                                                    ?> 
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3"></div>    
+                                    </div>
 
-                        <div class="form-group col-lg-3"></div>
-                   
-                    <div class="row no-gutters w-100">
-                        <div class="text-danger mx-auto"><?= (count($_POST)>0 && $errorInForm['NeLo']==0)? 'Ceci n\'est pas un rang valide':''?></div>
+                                    <div class="rem"></div>
+
+                                    <div class="align-items-center justify-content-center d-flex">
+                                        <button name="submitFormButton" id="submitFormButton" value="submitOn" type="submit" class="btn btn-dark text-light mb-3">Envoyer</button>
+                                    </div>
+
+                                    <div class="rem"></div>
+                                </div>
+
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </fieldset>
-            <div class="align-items-center justify-content-center d-flex">
-                <button name="submitFormButton" id="submitFormButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Envoyer</button>
+
+
             </div>
-        </form>
+        </div>
+
+
+
+
+
+
+
 
         <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

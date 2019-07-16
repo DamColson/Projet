@@ -32,27 +32,20 @@ class Users extends Db {
         endif;
     }
 
-    public function updateUsers() {
+    public function updateUsersPassword() {
         
-        foreach($_POST as $key=>$value):
-            
-            if (!empty($_POST[$key]) && $key!='submitFormButton'):
                
-                $query = 'UPDATE UsersInfos SET :key = :value WHERE id=:id';
-                $updateUser = $this->db->prepare($query);
-                $updateUser->bindValue(':value', $value, PDO::PARAM_STR);
-                $updateUser->bindValue(':key', $key, PDO::PARAM_STR);
-                $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
+                $query = 'UPDATE UsersInfos SET password = :password WHERE id=:id';
+                $updatePassword = $this->db->prepare($query);
+                $updatePassword->bindValue(':password',$this->password, PDO::PARAM_STR);
+                $updatePassword->bindValue(':id', $this->id, PDO::PARAM_INT);
 
-                if ($updateUser->execute()):
+                if ($updatePassword->execute()):
                     return true;
                 endif;
-            endif; 
-        endforeach;
+      
         
     }
-    
-
     
     public function getUserIds(){
         $query = 'SELECT UsersInfos.id FROM UsersInfos WHERE UsersInfos.warfriendsPseudo = :pseudo';
@@ -74,4 +67,6 @@ class Users extends Db {
         
         return $getInfos;
     }
+    
+    
 }

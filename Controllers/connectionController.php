@@ -3,6 +3,10 @@
 require 'Models/modelDb.php';
 require 'Models/usersModel.php';
 
+$linkIndex = 'index.php';
+$linkAccount = 'View/UsersInfosView.php';
+$linkFormView ='View/formView.php'; 
+
 $_POST = array_map('strip_tags', $_POST);
 $user = new Users();
 $user->warfriendsPseudo = $_POST['warfriendsPseudo'];
@@ -18,4 +22,3 @@ if ($_POST['warfriendsPassword'] == $getInfos[0]['password']):
     endforeach;
 endif;
 
-var_dump($_SESSION);
