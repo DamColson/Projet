@@ -10,7 +10,7 @@ require '../Controllers/UsersInfosController.php';
 
     <?php
     include 'headView.php';
-    var_dump($_SESSION);
+
     $armor = new Armors();
     $armor->id = (int) $_SESSION['id_Armors'];
     $getName = $armor->getArmorsName();
@@ -157,7 +157,7 @@ require '../Controllers/UsersInfosController.php';
                                 <div class="rem"></div>
 
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <a href="updateView.php" class="mx-auto"><button type="button"class="btn btn-dark text-light">Modifier mes infos</button></a>
+                                    <a href="updateView.php" class="mx-auto"><button type="button" class="btn btn-dark text-light">Modifier mes infos</button></a>
                                 </div>
 
                                 <div class="rem"></div>
@@ -184,53 +184,53 @@ require '../Controllers/UsersInfosController.php';
                                     <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                         <img class="img-fluid" src="../assets/Images/smallsteelicon.png" /> Steel Meridian :
                                     </div>
-                                    <div class="col-lg-3"></div>    
+                                       
                                 </div>                          
-
+                                <div class="col-lg-12 text-center h5"><?=($_SESSION['meridianRank']=='<2')?'Votre rang chez Steel Meridian est inférieur à 2':'Votre rang chez Steel Meridian est : ' . $_SESSION['meridianRank']?></div> 
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                         <img class="img-fluid" src="../assets/Images/smallarbitericon.png" /> Arbiter Of Hexis :
                                     </div>
-                                    <div class="col-lg-3"></div>    
+                                        
                                 </div>                   
-
+                                <div class="col-lg-12 text-center h5"><?=($_SESSION['arbiterRank']=='<2')?'Votre rang chez Arbiter Of Hexis est inférieur à 2':'Votre rang chez Arbiter Of Hexis est : ' . $_SESSION['arbiterRank']?></div>
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                         <img class="img-fluid" src="../assets/Images/smallcephalonicon.png" /> Cephalon Suda :
                                     </div>
-                                    <div class="col-lg-3"></div>    
+                                        
                                 </div>
-
+                                <div class="col-lg-12 text-center h5"><?=($_SESSION['cephalonRank']=='<2')?'Votre rang chez Cephalon Suda est inférieur à 2':'Votre rang chez Cephalon Suda est : ' . $_SESSION['cephalonRank']?></div>
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                         <img class="img-fluid" src="../assets/Images/smallredveilicon.png" /> The Red Veil : 
                                     </div>
-                                    <div class="col-lg-3"></div>    
+                                        
                                 </div>
-
+                                    <div class="col-lg-12 text-center h5"><?=($_SESSION['redVeilRank']=='<2')?'Votre rang chez Red Veil est inférieur à 2':'Votre rang chez Red Veil est : ' . $_SESSION['redVeilRank']?></div>
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                         <img class="img-fluid" src="../assets/Images/smallperrinsequenceicon.png" /> Perrin Sequence :
                                     </div>
-                                    <div class="col-lg-3"></div>    
+                                        
                                 </div>
-  
+                                <div class="col-lg-12 text-center h5"><?=($_SESSION['perrinRank']=='<2')?'Votre rang chez The Perrin Sequence est inférieur à 2':'Votre rang chez The Perrin Sequence est : ' . $_SESSION['perrinRank']?></div>    
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                         <img class="img-fluid" src="../assets/Images/smalllokaicon.png" /> The New Loka :
                                     </div>
-                                    <div class="col-lg-3"></div>    
+                                        
                                 </div>
-
+                                <div class="col-lg-12 text-center h5"><?=($_SESSION['lokaRank']=='<2')?'Votre rang chez New Loka est inférieur à 2':'Votre rang chez New Loka est : ' . $_SESSION['lokaRank']?></div>
                                 <div class="rem"></div>
 
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <a href="updateView.php" class="mx-auto"><button type="button"class="btn btn-dark text-light">Modifier mes infos</button></a>
+                                    <a href="updateView.php" class="mx-auto"><button type="button" class="btn btn-dark text-light">Modifier mes infos</button></a>
                                 </div>
 
                                 <div class="rem"></div>
@@ -303,13 +303,32 @@ require '../Controllers/UsersInfosController.php';
                     <div class="card-header" role="tab" id="heading-C">
                         <h5 class="mb-0">
                             <a class="collapsed" data-toggle="collapse" href="#collapse-C" aria-expanded="false" aria-controls="collapse-C">
-                                Supprimer mon compte
+                                Voir mes syndicats
                             </a>
                         </h5>
                     </div>
                     <div id="collapse-C" class="collapse" role="tabpanel" data-parent="#content" aria-labelledby="heading-C">
                         <div class="card-body">
-                            [Tab content C]
+                            <form method="POST" class="bg-dark w-100 mx-auto" action="UsersInfosView.php">
+                                
+                                <fieldset class="bg-dark text-light mb-3">
+                                    <div class="rem"></div>
+                                    <p class="text-danger font-weight-bold h4 text-center">ATTENTION!!!! Vous vous apprêtez à supprimer votre compte sur warfriends. Êtes-vous certain de vouloir supprimer votre compte ? Ceci entrainera la perte de toutes vos données sur le site. Pour supprimer votre compte entrez votre mot de passe ci-dessous</p>
+                                    <div class="rem"></div>
+                                    <div class="row bg-light text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
+
+                                        <div class="form-group col-lg-3"></div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="deletePassword">Mot de passe : </label>
+                                            <input type="password" class="form-control" id="deletePassword" name="deletePassword" value="" required />
+                                        </div>
+                                        <div class="form-group col-lg-3"></div>
+                                    </div>
+                                </fieldset>
+                                <div class="align-items-center justify-content-center d-flex">
+                                    <button name="submitDeleteButton" id="submitDeleteButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Valider</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

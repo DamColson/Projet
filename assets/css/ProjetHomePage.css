@@ -1,13 +1,13 @@
 body {
-      background:#222531;
-  }
+    background:#222531;
+}
 
 .rem{
-  height:2rem;
+    height:2rem;
 }
 
 .font-family-germania {
-  font-family: 'Germania One', cursive;
+    font-family: 'Germania One', cursive;
 }
 
 .bg-dark-opac{
@@ -15,34 +15,34 @@ body {
 }
 
 .bg-light-opac{
-   background-color:rgba(248,249,250,0.9); 
+    background-color:rgba(248,249,250,0.9); 
 }
 
 .topBorder {
-  width: 100%;
-  height: 6.5rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 6.5rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
 }
 
 #divHomeText {
-  display: flex;
+    display: flex;
 }
 
 #homePageText {
-  align-self: center;
-  justify-content: center;
+    align-self: center;
+    justify-content: center;
 }
 
 video {
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width:100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width:100%;
 }
 
 .redBorder{
@@ -59,6 +59,12 @@ video {
 
 .nav-tabs {
     display:none;
+}
+
+.btn-dark {
+    color:#fff;
+    background-color:#292d2c;
+    border-color:#292d2c;
 }
 
 @media(min-width:768px) {
@@ -91,345 +97,345 @@ video {
 }
 
 @media screen and (max-width:375px) {
-  #homePageText {
-    font-size: 0.8rem;
-  }
+    #homePageText {
+        font-size: 0.8rem;
+    }
 
-  video{
-      display:none;
-  }
-  
-  body {
-      background-image: url(../Images/warframe7.jpg);
-      background-repeat: no-repeat;
-  }
+    video{
+        display:none;
+    }
 
-  #miniWar {
-    display: none;
-  }
+    body {
+        background-image: url(../Images/warframe7.jpg);
+        background-repeat: no-repeat;
+    }
 
-  .topBorder h1 {
-    display: none;
-  }
+    #miniWar {
+        display: none;
+    }
 
-  .topBorder {
-    height: 2rem;
-  }
+    .topBorder h1 {
+        display: none;
+    }
 
-  #divHomeText {
-    height: 10rem;
-  }
+    .topBorder {
+        height: 2rem;
+    }
 
-  .warButton {
-    margin-top: -0.5rem;
-  }
+    #divHomeText {
+        height: 10rem;
+    }
+
+    .warButton {
+        margin-top: -0.5rem;
+    }
 }
 
 @media screen and (min-width:376px) and (max-width:414px) {
-  #homePageText {
-    font-size: 1rem;
-  }
+    #homePageText {
+        font-size: 1rem;
+    }
 
-  #miniWar {
-    display: none;
-  }
+    #miniWar {
+        display: none;
+    }
 
-  video{
-      display:none;
-  }
-  
-  body {
-      background-image: url(../Images/warframe7.jpg);
-      background-repeat: no-repeat;
-  }
-  
-  .topBorder h1 {
-    display: none;
-  }
+    video{
+        display:none;
+    }
 
-  .topBorder {
-    height: 2.2rem;
-  }
+    body {
+        background-image: url(../Images/warframe7.jpg);
+        background-repeat: no-repeat;
+    }
 
-  #divHomeText {
-    height: 11rem;
-  }
+    .topBorder h1 {
+        display: none;
+    }
 
-  .warButton {
-    margin-top: -0.4rem;
-  }
+    .topBorder {
+        height: 2.2rem;
+    }
+
+    #divHomeText {
+        height: 11rem;
+    }
+
+    .warButton {
+        margin-top: -0.4rem;
+    }
 }
 
 @media screen and (min-width:415px) and (max-width:480px) {
-  #homePageText {
-    font-size: 1.3rem;
-  }
+    #homePageText {
+        font-size: 1.3rem;
+    }
 
-  #miniWar {
-    display: none;
-  }
-  
-  video{
-      display:none;
-  }
-  
-  body {
-      background-image: url(../Images/warframe7.jpg);
-      background-repeat: no-repeat;
-  }
-  
-  .topBorder h1 {
-    display: none;
-  }
+    #miniWar {
+        display: none;
+    }
 
-  .topBorder {
-    height: 2.4rem;
-  }
+    video{
+        display:none;
+    }
 
-  #divHomeText {
-    height: 13rem;
-  }
+    body {
+        background-image: url(../Images/warframe7.jpg);
+        background-repeat: no-repeat;
+    }
 
-  .warButton {
-    margin-top: -0.3rem;
-  }
+    .topBorder h1 {
+        display: none;
+    }
+
+    .topBorder {
+        height: 2.4rem;
+    }
+
+    #divHomeText {
+        height: 13rem;
+    }
+
+    .warButton {
+        margin-top: -0.3rem;
+    }
 }
 
 @media screen and (min-width:481px) and (max-width:550px) {
-  #homePageText {
-    font-size: 1.3rem;
-  }
+    #homePageText {
+        font-size: 1.3rem;
+    }
 
-  #miniWar {
-    display: none;
-  }
-  
-  video{
-      display:none;
-  }
-  
-  body {
-      background-image: url(../Images/warframe7.jpg);
-      background-repeat: no-repeat;
-  }
-  
-  .topBorder h1 {
-    display: none;
-  }
+    #miniWar {
+        display: none;
+    }
 
-  .topBorder {
-    height: 2.4rem;
-  }
+    video{
+        display:none;
+    }
 
-  #divHomeText {
-    height: 15rem;
-  }
+    body {
+        background-image: url(../Images/warframe7.jpg);
+        background-repeat: no-repeat;
+    }
 
-  .warButton {
-    margin-top: -0.2rem;
-  }
+    .topBorder h1 {
+        display: none;
+    }
+
+    .topBorder {
+        height: 2.4rem;
+    }
+
+    #divHomeText {
+        height: 15rem;
+    }
+
+    .warButton {
+        margin-top: -0.2rem;
+    }
 }
 
 @media screen and (min-width:551px) and (max-width:650px) {
-  #homePageText {
-    font-size: 1.3rem;
-  }
+    #homePageText {
+        font-size: 1.3rem;
+    }
 
-  video{
-      display:none;
-  }
-  
-  body {
-      background-image: url(../Images/warframe7.jpg);
-      background-repeat: no-repeat;
-  }
-  
-  #miniWar {
-    display: none;
-  }
+    video{
+        display:none;
+    }
 
-  .topBorder h1 {
-    display: none;
-  }
+    body {
+        background-image: url(../Images/warframe7.jpg);
+        background-repeat: no-repeat;
+    }
 
-  .topBorder {
-    height: 2.6rem;
-  }
+    #miniWar {
+        display: none;
+    }
 
-  #divHomeText {
-    height: 18rem;
-  }
+    .topBorder h1 {
+        display: none;
+    }
 
-  .warButton {
-    margin-top: -0.2rem;
-  }
+    .topBorder {
+        height: 2.6rem;
+    }
+
+    #divHomeText {
+        height: 18rem;
+    }
+
+    .warButton {
+        margin-top: -0.2rem;
+    }
 }
 
 @media screen and (min-width:651px) and (max-width:700px) {
-  #homePageText {
-    font-size: 1.6rem;
-  }
+    #homePageText {
+        font-size: 1.6rem;
+    }
 
-  #miniWar {
-    display: none;
-  }
-  
-  video{
-      display:none;
-  }
-  
-  body {
-      background-image: url(../Images/warframe7.jpg);
-      background-repeat: no-repeat;
-  }
-  
-  .topBorder h1 {
-    display: none;
-  }
+    #miniWar {
+        display: none;
+    }
 
-  .topBorder {
-    height: 2.9rem;
-  }
+    video{
+        display:none;
+    }
 
-  #divHomeText {
-    height: 19rem;
-  }
+    body {
+        background-image: url(../Images/warframe7.jpg);
+        background-repeat: no-repeat;
+    }
+
+    .topBorder h1 {
+        display: none;
+    }
+
+    .topBorder {
+        height: 2.9rem;
+    }
+
+    #divHomeText {
+        height: 19rem;
+    }
 }
 
 @media screen and (min-width:701px) and (max-width:800px) {
-  #homePageText {
-    font-size: 1.6rem;
-  }
+    #homePageText {
+        font-size: 1.6rem;
+    }
 
-  #miniWar {
-    display: none;
-  }
+    #miniWar {
+        display: none;
+    }
 
-  .topBorder h1 {
-    display: none;
-  }
+    .topBorder h1 {
+        display: none;
+    }
 
-  .topBorder {
-    height: 2.9rem;
-  }
+    .topBorder {
+        height: 2.9rem;
+    }
 
-  #divHomeText {
-    height: 21rem;
-  }
+    #divHomeText {
+        height: 21rem;
+    }
 }
 
 @media screen and (min-width:801px) and (max-width:900px) {
-  #homePageText {
-    font-size: 2.2rem;
-  }
+    #homePageText {
+        font-size: 2.2rem;
+    }
 
-  #miniWar {
-    display: none;
-  }
+    #miniWar {
+        display: none;
+    }
 
-  .topBorder h1 {
-    display: none;
-  }
+    .topBorder h1 {
+        display: none;
+    }
 
-  .topBorder {
-    height: 3.7rem;
-  }
+    .topBorder {
+        height: 3.7rem;
+    }
 
-  #divHomeText {
-    height: 22rem;
-  }
+    #divHomeText {
+        height: 22rem;
+    }
 
-  .warButton {
-    margin-top: 0.2rem;
-  }
+    .warButton {
+        margin-top: 0.2rem;
+    }
 }
 
 @media screen and (min-width:901px) and (max-width:991px) {
-  #homePageText {
-    font-size: 2.2rem;
-  }
+    #homePageText {
+        font-size: 2.2rem;
+    }
 
-  #miniWar {
-    display: none;
-  }
+    #miniWar {
+        display: none;
+    }
 
-  .topBorder h1 {
-    display: none;
-  }
+    .topBorder h1 {
+        display: none;
+    }
 
-  .topBorder {
-    height: 3.7rem;
-    text-align: center;
-  }
+    .topBorder {
+        height: 3.7rem;
+        text-align: center;
+    }
 
-  #divHomeText {
-    height: 22rem;
-  }
+    #divHomeText {
+        height: 22rem;
+    }
 
-  .warButton {
-    margin-top: 0.2rem;
-  }
+    .warButton {
+        margin-top: 0.2rem;
+    }
 }
 
 @media screen and (min-width:992px) and (max-width:1024px) {
-  #homePageText {
-    font-size: 2.2rem;
-  }
+    #homePageText {
+        font-size: 2.2rem;
+    }
 
-  #miniWar {
-    display: none;
-  }
+    #miniWar {
+        display: none;
+    }
 
-  .topBorder h1 {
-    font-size: 2.4rem;
-  }
+    .topBorder h1 {
+        font-size: 2.4rem;
+    }
 
-  .topBorder {
-    height: 3.7rem;
-    text-align: center;
-  }
+    .topBorder {
+        height: 3.7rem;
+        text-align: center;
+    }
 
-  #divHomeText {
-    height: 22rem;
-  }
+    #divHomeText {
+        height: 22rem;
+    }
 
-  #navbarNav {
-    position: relative;
-    left: 7rem;
-  }
+    #navbarNav {
+        position: relative;
+        left: 7rem;
+    }
 }
 
 @media screen and (min-width:1025px) and (max-width:1280px) {
-  #homePageText {
-    font-size: 2.8rem;
-  }
+    #homePageText {
+        font-size: 2.8rem;
+    }
 
-  .topBorder h1 {
-    font-size: 3rem;
-  }
+    .topBorder h1 {
+        font-size: 3rem;
+    }
 
-  #divHomeText {
-    height: 25rem;
-  }
+    #divHomeText {
+        height: 25rem;
+    }
 
-  #navbarNav {
-    position: relative;
-    left: 9rem;
-    margin-top: 1rem;
-  }
+    #navbarNav {
+        position: relative;
+        left: 9rem;
+        margin-top: 1rem;
+    }
 }
 
 @media screen and (min-width:1281px) {
-  #homePageText {
-    font-size: 3rem;
-  }
-  
-  .topBorder h1 {
-    font-size: 3.2rem;
-  }
+    #homePageText {
+        font-size: 3rem;
+    }
 
-  #divHomeText {
-    height: 34rem;
-  }
+    .topBorder h1 {
+        font-size: 3.2rem;
+    }
+
+    #divHomeText {
+        height: 34rem;
+    }
 
 }

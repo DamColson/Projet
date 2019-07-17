@@ -40,9 +40,19 @@ class SyndicateDetails extends Db{
                 return true;
             endif; 
                 
-        endif;
+        endif;    
         
+    }
+    
+    public function getSyndicateInfos(){
+        $query = 'SELECT SyndicateDetails.rank FROM SyndicateDetails INNER JOIN UsersInfos ON SyndicateDetails.id_UsersInfos = UsersInfos.id WHERE id_UsersInfos = :id_UsersInfos';
+        $getSyndicateInfos = $this->db->prepare($query);
+        $getSyndicateInfos->bindValue(':id_UsersInfos',(int)$this->id_UsersInfos,PDO::PARAM_INT);
+        $getSyndicateInfos->execute();
         
+        $getAllInfos = $getSyndicateInfos->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $getAllInfos;
     }
 }
     

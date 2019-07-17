@@ -41,7 +41,7 @@ CREATE TABLE UsersInfos(
         id_Armors        Int NOT NULL
 	,CONSTRAINT UsersInfos_PK PRIMARY KEY (id)
 
-	,CONSTRAINT UsersInfos_Armors_FK FOREIGN KEY (id_Armors) REFERENCES Armors(id)
+	,CONSTRAINT UsersInfos_Armors_FK FOREIGN KEY (id_Armors) REFERENCES Armors(id) 
 )ENGINE=InnoDB;
 
 
@@ -56,8 +56,8 @@ CREATE TABLE SyndicateDetails(
         id_Syndicate  Int NOT NULL
 	,CONSTRAINT SyndicateDetails_PK PRIMARY KEY (id)
 
-	,CONSTRAINT SyndicateDetails_UsersInfos_FK FOREIGN KEY (id_UsersInfos) REFERENCES UsersInfos(id)
-	,CONSTRAINT SyndicateDetails_Syndicate0_FK FOREIGN KEY (id_Syndicate) REFERENCES Syndicate(id)
+	,CONSTRAINT SyndicateDetails_UsersInfos_FK FOREIGN KEY (id_UsersInfos) REFERENCES UsersInfos(id) ON DELETE CASCADE
+	,CONSTRAINT SyndicateDetails_Syndicate0_FK FOREIGN KEY (id_Syndicate) REFERENCES Syndicate(id) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 

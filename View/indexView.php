@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'Controllers/connectionController.php';
 
 ?>
@@ -8,6 +9,7 @@ require 'Controllers/connectionController.php';
 
    <?php
    include 'headView.php';
+
    ?>
 
 <body class="font-family-germania">

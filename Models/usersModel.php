@@ -119,5 +119,13 @@ class Users extends Db {
         return $getInfos;
     }
     
-    
+    public function deleteUsers(){
+        $query = 'DELETE FROM UsersInfos WHERE UsersInfos.id=:id';
+        $deleteUser = $this->db->prepare($query);
+        $deleteUser->bindValue(':id',$this->id,PDO::PARAM_INT);
+        
+        if ($deleteUser->execute()):
+                    return true;
+        endif;
+    }
 }

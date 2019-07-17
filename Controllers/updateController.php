@@ -3,8 +3,7 @@ require '../Models/modelDb.php';
 require '../Models/ArmorsModel.php';
 require '../Models/usersModel.php';
 require '../Models/SyndicateDetailsModel.php';
-
-
+session_start();
 $linkIndex = '../index.php';
 $linkUpdate = 'updateView.php';
 $linkFormView = 'formView.php';
@@ -12,6 +11,7 @@ $seeUsersInfos = 'UsersInfosView.php';
 $modifyAccount = 'updateView.php';
 $linkAccount = 'UsersInfosView.php';
 $linkFormView = 'formView.php';
+$disconnect = '../Controllers/disconnect.php';
 
 include '../assets/php/arrays.php';
 
@@ -31,12 +31,19 @@ return strftime('%d/%m/%Y',strtotime($date));
 $user = new Users();
 $syndicateDetail = new SyndicateDetails();
 
+extract($_SESSION);
+
+
+$user->id = (int)$id;
+$user->warframePseudo=$warframePseudo;
+$user->warfriendsPseudo=$warfriendsPseudo;
+$user->mail=$mail;
+$user->tagDiscord=$tagDiscord;
 
 
 
-foreach ($_SESSION as $key=>$value):
-    $user->$key = $value;
-endforeach;
+
+
 
 $data;
 
@@ -60,8 +67,8 @@ if($_POST):
         $_SESSION['mail'] = $user->mail;
     endif;
     
-    if(!empty($_POST['submitUpdateInfosButton']) && !empty($_POST['newWarfriendsPseudo'])):
-        $user->warfriendsPseudo = $_POST['newWarfriendsPseudo'];
+    if(!empty($_POST['submitUpdateInfosButton']) && !empty($_POST['newPseudo'])):
+        $user->warfriendsPseudo = $_POST['newPseudo'];
         $user->updateUsersWarfriendsPseudos();
         $_SESSION['warfriendsPseudo'] = $user->warfriendsPseudo;
     endif;
@@ -86,7 +93,8 @@ if($_POST):
         $syndicateDetail->rank = $_POST['meridianRank'];
         $syndicateDetail->id_UsersInfos = (int)$user->id;
         $syndicateDetail->id_Syndicate = 1;
-        $syndicateDetail->updateSyndicateDetails();        
+        $syndicateDetail->updateSyndicateDetails();
+        
     endif;
 
 
@@ -142,7 +150,8 @@ if($_POST):
         $syndicateDetail->id_UsersInfos = (int)$user->id;
         $syndicateDetail->id_Syndicate = 6;
         $syndicateDetail->updateSyndicateDetails();
-    endif; 
+    endif;
+    
 endif;
 
 echo $data;

@@ -12,16 +12,11 @@ require '../Controllers/updateController.php';
     <body class="font-family-germania">
         <?php
         include 'headerView.php';
-        $db = new PDO('mysql:host=localhost;dbname=warfriends', 'Fireloup', 'fireloupsql');
         
-        $query = 'SELECT COUNT(SyndicateDetails.id) AS count FROM SyndicateDetails WHERE id_UsersInfos = :id_UsersInfos AND id_Syndicate = :id_Syndicate';
-        $checkPresence = $db->prepare($query);
-        $checkPresence->bindValue(':id_UsersInfos',6,PDO::PARAM_INT);
-        $checkPresence->bindValue(':id_Syndicate',1,PDO::PARAM_INT);
-        $checkPresence->execute();
-        $entryCount = $checkPresence->fetchAll(PDO::FETCH_ASSOC);
         
-        var_dump((int)$entryCount[0]['count']);
+        var_dump($_SESSION);
+        var_dump($user);
+        var_dump($syndicateDetail);
         
         ?>
 

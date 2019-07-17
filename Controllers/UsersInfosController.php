@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require '../Models/modelDb.php';
 require '../Models/ArmorsModel.php';
 require '../Models/usersModel.php';
@@ -11,6 +11,7 @@ $seeUsersInfos = 'UsersInfosView.php';
 $modifyAccount = 'updateView.php';
 $linkAccount = 'UsersInfosView.php';
 $linkFormView = 'formView.php';
+$disconnect = '../Controllers/disconnect.php';
 
 include '../assets/php/arrays.php';
 
@@ -30,9 +31,18 @@ $data;
 
 $user = new Users();
 
-foreach ($_SESSION as $key=>$value):
-    $user->$key = $value;
-endforeach;
+extract($_SESSION);
+
+
+$user->id = (int)$id;
+$user->warframePseudo=$warframePseudo;
+$user->warfriendsPseudo=$warfriendsPseudo;
+$user->mail=$mail;
+$user->tagDiscord=$tagDiscord;
+
+$getInfos = $user->getInfos();
+
+var_dump($getInfos);
 
 if($_POST):
     if (!empty($_POST['oldPassword']) && $_POST['oldPassword'] != $_SESSION['password']):
@@ -52,6 +62,15 @@ if($_POST):
         $user->updateUsersPassword();
         $_SESSION['password'] = $user->password;
     endif;
+    
+    if(isset($_POST['submitDeleteButton'])):
+        if($_POST['deletePassword'] == $_SESSION['password']):
+            $user->deleteUsers();
+            session_destroy();
+            header('Location:../index.php');
+        endif;
+    endif;
+   
 endif;
     
 echo $data;

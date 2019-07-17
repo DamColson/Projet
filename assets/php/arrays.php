@@ -1,7 +1,7 @@
 <?php
 
 $updateRank = ['<2','2','3','4','5'];
-
+$syndicateRankName =['meridianRank','arbiterRank','cephalonRank','perrinRank','redVeilRank','lokaRank'];
 $armor = [
     '1'=>'Ash',
     '2'=>'Atlas',
