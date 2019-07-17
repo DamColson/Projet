@@ -33,8 +33,6 @@ class Users extends Db {
     }
 
     public function updateUsersPassword() {
-        
-               
                 $query = 'UPDATE UsersInfos SET password = :password WHERE id=:id';
                 $updatePassword = $this->db->prepare($query);
                 $updatePassword->bindValue(':password',$this->password, PDO::PARAM_STR);
@@ -42,9 +40,62 @@ class Users extends Db {
 
                 if ($updatePassword->execute()):
                     return true;
-                endif;
-      
-        
+                endif;    
+    }
+    
+    public function updateUsersDiscordTags() {
+                $query = 'UPDATE UsersInfos SET tagDiscord = :discord WHERE id=:id';
+                $updateDiscord = $this->db->prepare($query);
+                $updateDiscord->bindValue(':discord',$this->tagDiscord, PDO::PARAM_STR);
+                $updateDiscord->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+                if ($updateDiscord->execute()):
+                    return true;
+                endif;    
+    }
+    
+    public function updateUsersWarfriendsPseudos() {
+                $query = 'UPDATE UsersInfos SET warfriendsPseudo = :warfriendsPseudo WHERE id=:id';
+                $updateWarfriendsPseudo = $this->db->prepare($query);
+                $updateWarfriendsPseudo->bindValue(':warfriendsPseudo',$this->warfriendsPseudo, PDO::PARAM_STR);
+                $updateWarfriendsPseudo->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+                if ($updateWarfriendsPseudo->execute()):
+                    return true;
+                endif;    
+    }
+    
+    public function updateUsersWarframePseudos() {
+                $query = 'UPDATE UsersInfos SET warframePseudo = :warframePseudo WHERE id=:id';
+                $updateWarframePseudo = $this->db->prepare($query);
+                $updateWarframePseudo->bindValue(':warframePseudo',$this->warframePseudo, PDO::PARAM_STR);
+                $updateWarframePseudo->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+                if ($updateWarframePseudo->execute()):
+                    return true;
+                endif;    
+    }
+    
+    public function updateUsersMails() {
+                $query = 'UPDATE UsersInfos SET mail = :mail WHERE id=:id';
+                $updateMail = $this->db->prepare($query);
+                $updateMail->bindValue(':mail',$this->mail, PDO::PARAM_STR);
+                $updateMail->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+                if ($updateMail->execute()):
+                    return true;
+                endif;    
+    }
+    
+    public function updateUsersFavArmors() {
+                $query = 'UPDATE UsersInfos SET id_Armors = :favArmor WHERE id=:id';
+                $updateFavArmor = $this->db->prepare($query);
+                $updateFavArmor->bindValue(':favArmor',$this->id_Armors, PDO::PARAM_INT);
+                $updateFavArmor->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+                if ($updateFavArmor->execute()):
+                    return true;
+                endif;    
     }
     
     public function getUserIds(){

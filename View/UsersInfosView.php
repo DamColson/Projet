@@ -292,7 +292,7 @@ require '../Controllers/UsersInfosController.php';
                                 </fieldset>
 
                                 <div class="align-items-center justify-content-center d-flex">
-                                    <button name="submitModifButton" id="submitFormButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Envoyer</button>
+                                    <button name="submitModifButton" id="submitModifButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Envoyer</button>
                                 </div>
                             </form>
                         </div>

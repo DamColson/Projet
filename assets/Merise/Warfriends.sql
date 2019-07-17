@@ -50,10 +50,14 @@ CREATE TABLE UsersInfos(
 #------------------------------------------------------------
 
 CREATE TABLE SyndicateDetails(
-        id        Int  Auto_increment  NOT NULL ,
-        validRank Varchar (3) NOT NULL ,
-        rank      Int
+        id            Int  Auto_increment  NOT NULL ,
+        rank          Varchar (50) ,
+        id_UsersInfos Int NOT NULL ,
+        id_Syndicate  Int NOT NULL
 	,CONSTRAINT SyndicateDetails_PK PRIMARY KEY (id)
+
+	,CONSTRAINT SyndicateDetails_UsersInfos_FK FOREIGN KEY (id_UsersInfos) REFERENCES UsersInfos(id)
+	,CONSTRAINT SyndicateDetails_Syndicate0_FK FOREIGN KEY (id_Syndicate) REFERENCES Syndicate(id)
 )ENGINE=InnoDB;
 
 
@@ -110,21 +114,5 @@ CREATE TABLE Message(
 
 	,CONSTRAINT Message_sender_FK FOREIGN KEY (id_sender) REFERENCES sender(id)
 	,CONSTRAINT Message_recipient0_FK FOREIGN KEY (id_recipient) REFERENCES recipient(id)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Link_Users_Syndicate_SyndicateDetails
-#------------------------------------------------------------
-
-CREATE TABLE Link_Users_Syndicate_SyndicateDetails(
-        id                  Int NOT NULL ,
-        id_UsersInfos       Int NOT NULL ,
-        id_SyndicateDetails Int NOT NULL
-	,CONSTRAINT Link_Users_Syndicate_SyndicateDetails_PK PRIMARY KEY (id,id_UsersInfos,id_SyndicateDetails)
-
-	,CONSTRAINT Link_Users_Syndicate_SyndicateDetails_Syndicate_FK FOREIGN KEY (id) REFERENCES Syndicate(id)
-	,CONSTRAINT Link_Users_Syndicate_SyndicateDetails_UsersInfos0_FK FOREIGN KEY (id_UsersInfos) REFERENCES UsersInfos(id)
-	,CONSTRAINT Link_Users_Syndicate_SyndicateDetails_SyndicateDetails1_FK FOREIGN KEY (id_SyndicateDetails) REFERENCES SyndicateDetails(id)
 )ENGINE=InnoDB;
 

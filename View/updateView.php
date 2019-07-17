@@ -9,11 +9,20 @@ require '../Controllers/updateController.php';
     <?php
     include 'headView.php';
     ?>
-
     <body class="font-family-germania">
         <?php
         include 'headerView.php';
-        var_dump($_SESSION);
+        $db = new PDO('mysql:host=localhost;dbname=warfriends', 'Fireloup', 'fireloupsql');
+        
+        $query = 'SELECT COUNT(SyndicateDetails.id) AS count FROM SyndicateDetails WHERE id_UsersInfos = :id_UsersInfos AND id_Syndicate = :id_Syndicate';
+        $checkPresence = $db->prepare($query);
+        $checkPresence->bindValue(':id_UsersInfos',6,PDO::PARAM_INT);
+        $checkPresence->bindValue(':id_Syndicate',1,PDO::PARAM_INT);
+        $checkPresence->execute();
+        $entryCount = $checkPresence->fetchAll(PDO::FETCH_ASSOC);
+        
+        var_dump((int)$entryCount[0]['count']);
+        
         ?>
 
         <div class="rem"></div>
@@ -21,16 +30,16 @@ require '../Controllers/updateController.php';
         <div class="container">
             <ul id="tabs" class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a id="tab-A" href="#personalInfos" class="nav-link active" data-toggle="tab" role="tab">Modifier mes informations personnelles</a>
+                    <a id="tab-A" href="#updatePersonalInfos" class="nav-link active" data-toggle="tab" role="tab">Modifier mes informations personnelles</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab-B" href="#passwordChange" class="nav-link" data-toggle="tab" role="tab">Mettre à jour mes syndicats</a>
+                    <a id="tab-B" href="#updateSyndicate" class="nav-link" data-toggle="tab" role="tab">Mettre à jour mes syndicats</a>
                 </li>
             </ul>
 
 
             <div id="content" class="tab-content" role="tablist">
-                <div id="personalInfos" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
+                <div id="updatePersonalInfos" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
                     <div class="card-header" role="tab" id="heading-A">
                         <h5 class="mb-0">
 
@@ -63,7 +72,7 @@ require '../Controllers/updateController.php';
                                         <div class="form-group col-lg-3"></div>
 
                                         <div class="row no-gutters w-100">
-                                            <div class="text-danger mx-auto" id="discordError"></div>
+                                            <div class="text-danger mx-auto" id="newDiscordError"></div>
                                         </div>
 
                                         <div class="form-group col-lg-3"></div>
@@ -74,7 +83,7 @@ require '../Controllers/updateController.php';
                                         <div class="form-group col-lg-3"></div>
 
                                         <div class="row no-gutters w-100">
-                                            <div class="text-danger mx-auto" id="mailoError"></div>
+                                            <div class="text-danger mx-auto" id="newMailError"></div>
                                         </div>
 
                                         <div class="form-group col-lg-3"></div>
@@ -86,8 +95,8 @@ require '../Controllers/updateController.php';
 
                                         <div class="form-group col-lg-3"></div>
                                         <div class="form-group col-11 col-lg-6">
-                                            <label for="favArmor">Quelle est votre armure favorite : </label>
-                                            <select class="form-control" id="favArmor" name="favArmor">
+                                            <label for="newFavArmor">Quelle est votre armure favorite : </label>
+                                            <select class="form-control" id="newFavArmor" name="newFavArmor">
                                                 <option value="All" selected>Aucune en particulier</option>
                                                 <optgroup label="Armures classiques">
                                                     <?php
@@ -108,22 +117,20 @@ require '../Controllers/updateController.php';
                                             </select>
                                         </div>
                                         <div class="form-group col-lg-3"></div>
-                                        <div class="row no-gutters w-100">
-                                            <div class="text-danger mx-auto"></div>
-                                        </div>
                                     </div>
 
                                 </fieldset>
 
                                 <div class="align-items-center justify-content-center d-flex">
-                                    <button name="submitUpdateButton" id="submitFormButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Envoyer</button>
+                                    <a href="UsersInfosView.php"><button type="button" class="btn btn-light text-dark mr-3 mb-3">Retour</button></a>
+                                    <button name="submitUpdateInfosButton" id="submitUpdateInfosButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Valider</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
 
-                <div id="passwordChange" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                <div id="updateSyndicate" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
                     <div class="card-header" role="tab" id="heading-B">
                         <h5 class="mb-0">
                             <a class="collapsed" data-toggle="collapse" href="#collapse-B" aria-expanded="false" aria-controls="collapse-B">
@@ -134,7 +141,7 @@ require '../Controllers/updateController.php';
                     <div id="collapse-B" class="collapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
                         <div class="card-body">
                             <div class="rem"></div>
-                            <form method="POST" class="mx-auto bg-dark" action="updateSyndicateRank.php" id="updateSyndicatesForm">
+                            <form method="POST" class="mx-auto bg-dark" action="updateView.php" id="updateSyndicatesForm">
 
                                 <div class="rem"></div>
                                 <div class="bg-light w-75 mx-auto rounded">
@@ -146,10 +153,10 @@ require '../Controllers/updateController.php';
                                         <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                             <img class="img-fluid" src="../assets/Images/smallsteelicon.png" /> Steel Meridian : 
                                             <select class="form-control" id="meridianRank" name="meridianRank">
-                                                <option selected disabled></option>
+                                                <option value="" selected disabled></option>
                                                     <?php
-                                                    foreach ($updateRank as $rank):
-                                                        ?><option value =""><?= $rank ?></option>
+                                                    foreach ($updateRank as $value):
+                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -163,10 +170,10 @@ require '../Controllers/updateController.php';
                                         <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                             <img class="img-fluid" src="../assets/Images/smallarbitericon.png" /> Arbiter Of Hexis :
                                             <select class="form-control" id="arbiterRank" name="arbiterRank">
-                                                <option selected disabled></option>
+                                                <option value="" selected disabled></option>
                                                     <?php
-                                                    foreach ($updateRank as $rank):
-                                                        ?><option value =""><?= $rank ?></option>
+                                                    foreach ($updateRank as $value):
+                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -180,10 +187,10 @@ require '../Controllers/updateController.php';
                                         <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                             <img class="img-fluid" src="../assets/Images/smallcephalonicon.png" /> Cephalon Suda :
                                             <select class="form-control" id="cephalonRank" name="cephalonRank">
-                                                <option selected disabled></option>
+                                                <option value="" selected disabled></option>
                                                     <?php
-                                                    foreach ($updateRank as $rank):
-                                                        ?><option value =""><?= $rank ?></option>
+                                                    foreach ($updateRank as $value):
+                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -197,10 +204,10 @@ require '../Controllers/updateController.php';
                                         <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                             <img class="img-fluid" src="../assets/Images/smallredveilicon.png" /> The Red Veil :
                                             <select class="form-control" id="redVeilRank" name="redVeilRank">
-                                                <option selected disabled></option>
+                                                <option value="" selected disabled></option>
                                                     <?php
-                                                    foreach ($updateRank as $rank):
-                                                        ?><option value =""><?= $rank ?></option>
+                                                    foreach ($updateRank as $value):
+                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -214,10 +221,10 @@ require '../Controllers/updateController.php';
                                         <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                             <img class="img-fluid" src="../assets/Images/smallperrinsequenceicon.png" /> Perrin Sequence :
                                             <select class="form-control" id="perrinRank" name="perrinRank">
-                                                <option selected disabled></option>
+                                                <option value="" selected disabled></option>
                                                     <?php
-                                                    foreach ($updateRank as $rank):
-                                                        ?><option value =""><?= $rank ?></option>
+                                                    foreach ($updateRank as $value):
+                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -231,10 +238,10 @@ require '../Controllers/updateController.php';
                                         <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
                                             <img class="img-fluid" src="../assets/Images/smalllokaicon.png" /> The New Loka :
                                             <select class="form-control" id="lokaRank" name="lokaRank">
-                                                <option selected disabled></option>
+                                                <option value="" selected disabled></option>
                                                     <?php
-                                                    foreach ($updateRank as $rank):
-                                                        ?><option value =""><?= $rank ?></option>
+                                                    foreach ($updateRank as $value):
+                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -244,14 +251,17 @@ require '../Controllers/updateController.php';
                                     </div>
 
                                     <div class="rem"></div>
-
+                                    
                                     <div class="align-items-center justify-content-center d-flex">
-                                        <button name="submitFormButton" id="submitFormButton" value="submitOn" type="submit" class="btn btn-dark text-light mb-3">Envoyer</button>
+                                        
+                                        <a href="UsersInfosView.php"><button type="button" class="btn btn-dark text-light mr-3 mb-3">Retour</button></a>
+                                    
+                                        <button name="submitUpdateRankButton" id="submitUpdateRankButton" value="submitOn" type="submit" class="btn btn-dark text-light mb-3">Valider</button>
                                     </div>
 
                                     <div class="rem"></div>
                                 </div>
-
+                                <div class="rem"></div>
                             </form>
                         </div>
                     </div>
@@ -261,16 +271,9 @@ require '../Controllers/updateController.php';
             </div>
         </div>
 
-
-
-
-
-
-
-
         <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="../assets/scripts/Projet.js"></script>
+        <script src="../assets/scripts/updatePersonnalInfos.js"></script>
     </body>    
 </html>

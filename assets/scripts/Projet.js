@@ -1,5 +1,4 @@
 var passwordValue;
-
 //Fonction permettant de cacher ou d'afficher les input de rank pour chaque faction lorsque le Oui est selectionné pour l'input radio
 
 // debut ajax sur formulaire d'inscription
@@ -58,6 +57,12 @@ $('input,select').focusout(function(){
    });
 });
 
-
+$('#connection').click(function(){
+    if($('#connectionDiv').is(':hidden')){
+        $( "#connectionDiv" ).slideDown( 'slow' );
+    }else{
+        $( "#connectionDiv" ).slideUp( 'slow' );
+    }
+});
 
 
