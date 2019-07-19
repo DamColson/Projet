@@ -57,7 +57,7 @@ $('input,select').focusout(function(){
    });
 });
 
-$('#connection').click(function(){
+$('#connection, #closeConnection').click(function(){
     if($('#connectionDiv').is(':hidden')){
         $( "#connectionDiv" ).slideDown( 'slow' );
     }else{

@@ -12,7 +12,7 @@ require_once 'Controllers/indexController.php';
     
     ?>
 
-    <body class="font-family-germania">
+    <body class="font-family-Michroma">
         
         <video autoplay loop poster="../Images/warframe7.jpg" id="bgvid">
             <source src="../assets/Videos/<?= $getName[0]['name'] ?>.webm" type="video/webm">
@@ -46,7 +46,7 @@ require_once 'Controllers/indexController.php';
 
 
                 <div class="align-items-center justify-content-center d-flex">
-                    <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-secondary mr-2" id="closeConnection" data-dismiss="modal">Fermer</button>
                     <button type="submit" class="btn btn-light text-dark ml-2" id="connexionButton">Connexion</button>
                 </div>
             </form>
@@ -56,7 +56,7 @@ require_once 'Controllers/indexController.php';
         <div class="h2 text-center text-light">Nos derniers Inscrits</div>
         <div class="rem"></div>
         <div class="row no-gutters">
-    <div class="col-lg-1"></div><?php
+    <?php
 
 
 foreach($lastFive as $key=>$value):
@@ -66,9 +66,9 @@ foreach($lastFive as $key=>$value):
     $user->warfriendsPseudo = $value['warfriendsPseudo'];
     $lastFivesRank = $user->getLastFivesRanks();
     
-?><div class="col-lg-2 col-12">
+?><div class="col-xl-3 col-12">
     <div id="accordion<?=$key?>">   
-  <div class="card mx-auto" style="width: 18rem;">
+  <div class="card mx-auto bg-light-opac" style="width: 18rem;">
             
                 
              
@@ -78,15 +78,15 @@ foreach($lastFive as $key=>$value):
        <div id="heading<?=$key?>">     
       <h5 class="mb-0 text-center">
         <button class="btn btn-link text-dark " data-toggle="collapse" data-target="<?='#collapse'.$key?>" aria-expanded="true" aria-controls="collapse<?=$key?>">
-          Syndicats de <?= $user->warfriendsPseudo ?>
+          Syndicats
         </button>
       </h5>
        </div>
       <div id="<?='collapse'.$key?>" class="collapse" aria-labelledby="heading<?=$key?>" data-parent="#accordion<?=$key?>">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush bg-light-opac">
                 <?php foreach($lastFivesRank as $secondKey=>$secondValue):
                     
-                    ?><li class="list-group-item"><img class="img-fluid" src="assets/Images/<?= $secondValue['image'] ?>" /><?= 'rang : ' . $secondValue['rank'] ?></li>
+                    ?><li class="bg-dark-opac text-light"><img class="img-fluid" src="assets/Images/<?= $secondValue['image'] ?>" /><?= 'rang : ' . $secondValue['rank'] ?></li>
                     <?php
                 endforeach;
                 ?>
@@ -106,7 +106,7 @@ foreach($lastFive as $key=>$value):
 <?php
 endforeach;
 
-?><div class="col-lg-1"></div>
+?>
 </div>
 
 

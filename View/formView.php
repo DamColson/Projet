@@ -8,7 +8,7 @@ require_once '../Controllers/formController.php';
 include 'headView.php';
 ?>
 
-    <body class="font-family-germania">
+    <body class="font-family-Michroma">
         
 
         <video autoplay loop poster="../Images/warframe7.jpg" id="bgvid">
@@ -43,17 +43,17 @@ include 'headerView.php';
 
 
                 <div class="align-items-center justify-content-center d-flex">
-                    <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-secondary mr-2" id="closeConnection" data-dismiss="modal">Fermer</button>
                     <button type="submit" class="btn btn-light text-dark ml-2" id="connexionButton">Connexion</button>
                 </div>
             </form>
             <div class="rem"></div>
         </div>
         <div class="rem"></div>
-        <form method="POST" class="bg-dark w-75 mx-auto" action="formView.php" id="inscriptionForm">
+        <form method="POST" class="bg-dark-opac w-75 mx-auto" action="formView.php" id="inscriptionForm">
             <p class="h3 text-light mb-3 text-center">Vos informations personnelles</p>
-            <fieldset class="bg-dark text-light mb-3">
-                <div class="row bg-light text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
+            <fieldset class="bg-dark-opac text-light mb-3">
+                <div class="row bg-light-opac text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
 
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">

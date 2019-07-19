@@ -13,7 +13,7 @@ require '../Controllers/UsersInfosController.php';
 
     
     ?>
-    <body class="font-family-germania">
+    <body class="font-family-Michroma">
         
         <video autoplay loop poster="../Images/warframe7.jpg" id="bgvid">
             <source src="../assets/Videos/<?= $getName[0]['name'] ?>.webm" type="video/webm">
@@ -55,8 +55,8 @@ require '../Controllers/UsersInfosController.php';
 
                     <!-- Note: New place of `data-parent` -->
                     <div id="collapse-A" class="collapse accordCarcCollapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
-                        <div class="card-body bg-dark">
-                            <div class="bg-light mx-auto rounded">
+                        <div class="card-body bg-dark-opac">
+                            <div class="bg-light-opac mx-auto rounded">
 
                                 <div class="rem"></div>
 
@@ -176,8 +176,8 @@ require '../Controllers/UsersInfosController.php';
                         </h5>
                     </div>
                     <div id="collapse-D" class="collapse accordCardCollapse" role="tabpanel" data-parent="#content" aria-labelledby="heading-D">
-                        <div class="card-body bg-dark">
-                            <div class="bg-light mx-auto rounded">
+                        <div class="card-body bg-dark-opac">
+                            <div class="bg-light-opac mx-auto rounded">
 
                                 <div class="rem"></div>
 
@@ -251,9 +251,9 @@ require '../Controllers/UsersInfosController.php';
                     </div>
                     <div id="collapse-B" class="collapse accordCardCollapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
                         <div class="card-body">
-                            <form method="POST" class="bg-dark w-100 mx-auto" action="UsersInfosView.php">
+                            <form method="POST" class="bg-dark-opac w-100 mx-auto" action="UsersInfosView.php">
                                 
-                                <fieldset class="bg-light dark mb-3">
+                                <fieldset class="bg-light-opac dark mb-3">
                                     <div class="rem"></div>
                                     <div class="row bg-light text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
 
@@ -311,9 +311,9 @@ require '../Controllers/UsersInfosController.php';
                     </div>
                     <div id="collapse-C" class="collapse accordCardCollapse" role="tabpanel" data-parent="#content" aria-labelledby="heading-C">
                         <div class="card-body">
-                            <form method="POST" class="bg-light w-100 mx-auto" action="UsersInfosView.php">
+                            <form method="POST" class="bg-light-opac w-100 mx-auto" action="UsersInfosView.php">
                                 
-                                <fieldset class="bg-light text-dark mb-3">
+                                <fieldset class="bg-light-opac text-dark mb-3">
                                     <div class="rem"></div>
                                     <p class="text-danger font-weight-bold h4 text-center">ATTENTION!!!! Vous vous apprêtez à supprimer votre compte sur warfriends. Êtes-vous certain de vouloir supprimer votre compte ? Ceci entrainera la perte de toutes vos données sur le site. Pour supprimer votre compte entrez votre mot de passe ci-dessous</p>
                                     <div class="rem"></div>

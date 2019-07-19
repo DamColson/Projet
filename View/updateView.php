@@ -9,7 +9,7 @@ require '../Controllers/updateController.php';
     <?php
     include 'headView.php';
     ?>
-    <body class="font-family-germania">
+    <body class="font-family-Michroma">
         <video autoplay loop poster="../Images/warframe7.jpg" id="bgvid">
             <source src="../assets/Videos/<?= $getName[0]['name'] ?>.webm" type="video/webm">
             <source src="../assets/Videos/<?= $getName[0]['name'] ?>.mp4" type="video/mp4">

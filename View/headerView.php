@@ -1,15 +1,15 @@
 <div class="topBorder sticky-top">
     <div class="row no-gutters"> 
 
-        <nav class="navbar navbar-expand-lg sticky-top w-100">
-            <div class="col-12 col-lg-5">
+        <nav class="navbar navbar-expand-xl sticky-top w-100">
+            <div class="col-12 col-xl-5">
                 <h1 class="mt-2 text-left text-light font-weight-bold font-family-germania"><a href="../index.php" Title="home"><img class="img-fluid" src="../assets/Images/miniWarframe.png" alt="miniWarframe" title="miniWarframe" id="miniWar" /></a>WarFriends</h1>
                 <button class="navbar-toggler navbar-light w-100 warButton" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="text-right text-light font-family-germania font-weight-bold">Warfriends<i class="warButton fa fa-sort-desc" aria-hidden="true"></i>
                     </span>
                 </button>
             </div>
-            <div class="col-12 col-lg-7">
+            <div class="col-12 col-xl-7">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4">
@@ -36,7 +36,7 @@
                         </li>
                         <form method="POST" action="<?=$disconnect?>">
                             <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4 <?=(isset($_SESSION['warfriendsPseudo']))?'':'d-none'?>">
-                                <button class="btn btn-dark text-light nav-link" id="disconnect" name="disconnect" value="disconnect" type="submit"><span class="h4">Déconnexion</span></button>
+                                <button class="btn btn-dark text-light nav-link mx-auto" id="disconnect" name="disconnect" value="disconnect" type="submit"><span class="h4">Déconnexion</span></button>
                             </li>
                         </form>
                     </ul>
