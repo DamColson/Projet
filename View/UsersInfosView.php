@@ -41,7 +41,7 @@ require '../Controllers/UsersInfosController.php';
                 
             </ul>
 
-
+ 
             <div id="content" class="tab-content" role="tablist">
                 <div id="infos" class="card accordCard tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
                     <div class="card-header accordCardHeader" role="tab" id="heading-A">
@@ -55,8 +55,8 @@ require '../Controllers/UsersInfosController.php';
 
                     <!-- Note: New place of `data-parent` -->
                     <div id="collapse-A" class="collapse accordCarcCollapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
-                        <div class="card-body bg-dark-opac">
-                            <div class="bg-light-opac mx-auto rounded">
+                        <div class="card-body accordCardBody">
+                            <div class="mx-auto rounded">
 
                                 <div class="rem"></div>
 
@@ -143,7 +143,7 @@ require '../Controllers/UsersInfosController.php';
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 font-weight-bold h5 text-center">
-                                        Armure favorite :
+                                        Warframe favorite :
                                     </div>
                                     <div class="col-lg-3"></div>    
                                 </div>
@@ -176,8 +176,8 @@ require '../Controllers/UsersInfosController.php';
                         </h5>
                     </div>
                     <div id="collapse-D" class="collapse accordCardCollapse" role="tabpanel" data-parent="#content" aria-labelledby="heading-D">
-                        <div class="card-body bg-dark-opac">
-                            <div class="bg-light-opac mx-auto rounded">
+                        <div class="card-body accordCardBody">
+                            <div class="mx-auto rounded">
 
                                 <div class="rem"></div>
 
@@ -250,12 +250,12 @@ require '../Controllers/UsersInfosController.php';
                         </h5>
                     </div>
                     <div id="collapse-B" class="collapse accordCardCollapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
-                        <div class="card-body">
-                            <form method="POST" class="bg-dark-opac w-100 mx-auto" action="UsersInfosView.php">
+                        <div class="card-body accordCardBody">
+                            <form method="POST" class="w-100 mx-auto" action="UsersInfosView.php">
                                 
-                                <fieldset class="bg-light-opac dark mb-3">
+                                <fieldset class="dark mb-3">
                                     <div class="rem"></div>
-                                    <div class="row bg-light text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
+                                    <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
 
                                         <div class="form-group col-lg-3"></div>
                                         <div class="form-group col-lg-6">
@@ -310,14 +310,14 @@ require '../Controllers/UsersInfosController.php';
                         </h5>
                     </div>
                     <div id="collapse-C" class="collapse accordCardCollapse" role="tabpanel" data-parent="#content" aria-labelledby="heading-C">
-                        <div class="card-body">
-                            <form method="POST" class="bg-light-opac w-100 mx-auto" action="UsersInfosView.php">
+                        <div class="card-body accordCardBody">
+                            <form method="POST" class="w-100 mx-auto" action="UsersInfosView.php">
                                 
-                                <fieldset class="bg-light-opac text-dark mb-3">
+                                <fieldset class="text-dark mb-3">
                                     <div class="rem"></div>
                                     <p class="text-danger font-weight-bold h4 text-center">ATTENTION!!!! Vous vous apprêtez à supprimer votre compte sur warfriends. Êtes-vous certain de vouloir supprimer votre compte ? Ceci entrainera la perte de toutes vos données sur le site. Pour supprimer votre compte entrez votre mot de passe ci-dessous</p>
                                     <div class="rem"></div>
-                                    <div class="row bg-light text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
+                                    <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
 
                                         <div class="form-group col-lg-3"></div>
                                         <div class="form-group col-lg-6">

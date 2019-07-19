@@ -2,7 +2,7 @@
 
 $updateRank = ['<2','2','3','4','5'];
 $syndicateRankName =['meridianRank','arbiterRank','cephalonRank','perrinRank','redVeilRank','lokaRank'];
-$armor = [
+$frame = [
     '1'=>'Ash',
     '2'=>'Atlas',
     '3'=>'Banshee',
@@ -44,7 +44,7 @@ $armor = [
     '39'=>'Wukong',
     '40'=>'Zephyr'
     ];
-$primeArmor = [
+$primeFrame = [
     '41'=>'AshPrime',
     '42'=>'BansheePrime',
     '43'=>'ChromaPrime',

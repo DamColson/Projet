@@ -5,15 +5,15 @@
 }*/
 
 video#bgvid {
-  position: fixed; 
-  right: 0; 
-  bottom: 0;
-  min-width: 100%; 
-  min-height: 100%;
-  width: auto; 
-  height: auto; 
-  z-index: -100;
-  background-size: cover;
+    position: fixed; 
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto; 
+    z-index: -100;
+    background-size: cover;
 }
 
 .rem{
@@ -31,11 +31,11 @@ video#bgvid {
 }
 
 .bg-dark-opac{
-    background-color:rgba(52,58,54,0.7);
+    background-color:rgba(52,58,54,0.8);
 }
 
 .bg-light-opac{
-    background-color:rgba(248,249,250,0.7); 
+    background-color:rgba(248,249,250,0.8); 
 }
 
 .topBorder {
@@ -81,6 +81,10 @@ video {
     display:none;
 }
 
+.accordCard,.accordCardBody{
+    background-color:rgba(248,249,250,0.7); 
+}
+
 .list-group-item{
     position:relative;
     display:block;
@@ -89,7 +93,7 @@ video {
     border:1px solid rgba(0,0,0,.125);
 }
 
-@media(min-width:768px) {
+@media(min-width:1201px) {
     .nav-tabs {
         display: flex;
     }
@@ -105,15 +109,15 @@ video {
     .accordCard .accordCardCollapse{
         display:block;
     }
-    
+
     .btn-dark {
-    color:#fff;
-    background-color:#34403F;
-    border-color:#292d2c;
-}
+        color:#fff;
+        background-color:#34403F;
+        border-color:#292d2c;
+    }
 }
 
-@media(max-width:767px){
+@media(max-width:1200px){
     /*
      * Changed selector to `.tab-content > .tab-pane` to override `.fade:not(.show)`
      * In BS4 Beta `.tab-pane`s were rendered hidden by just `.fade`
@@ -122,13 +126,13 @@ video {
         display: block;
         opacity: 1;
     }
-    
+
     .btn-dark {
-    color:#fff;
-    background-color:#707471;
-    border-color:#292d2c;
-}
-   
+        color:#fff;
+        background-color:#707471;
+        border-color:#292d2c;
+    }
+
 
 }
 
@@ -144,6 +148,8 @@ video {
         background-position: 77%;
         background-repeat: no-repeat;
     }
+    
+    
 
     #miniWar {
         display: none;
@@ -156,7 +162,7 @@ video {
     .topBorder {
         height: 2rem;
     }
-    
+
     .warButton {
         margin-top: -0.5rem;
     }
@@ -239,7 +245,7 @@ video {
         background-position: 77%;
         background-repeat: no-repeat;
     }
-    
+
     .topBorder h1 {
         display: none;
     }
@@ -247,7 +253,7 @@ video {
     .topBorder {
         height: 2.4rem;
     }
-    
+
     .warButton {
         margin-top: -0.2rem;
     }
@@ -317,6 +323,19 @@ video {
 
     .topBorder h1 {
         display: none;
+    }
+
+    video#bgvid {
+        position: fixed;
+        left: -90%;
+        right: 0; 
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;
+        width: auto; 
+        height: auto; 
+        z-index: -100;
+        background-size: cover;
     }
 
     .topBorder {

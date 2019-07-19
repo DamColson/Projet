@@ -45,11 +45,11 @@ require '../Controllers/updateController.php';
 
 
                     <div id="collapse-A" class="collapse accordCardCollapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
-                        <div class="card-body">
-                            <form method="POST" class="bg-dark w-100 mx-auto" action="updateView.php" id="updateForm">
-                                <p class="h3 text-light mb-3 text-center">Vos informations personnelles</p>
-                                <fieldset class="bg-dark text-light mb-3">
-                                    <div class="row bg-light text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
+                        <div class="card-body accordCardBody">
+                            <form method="POST" class="w-100 mx-auto" action="updateView.php" id="updateForm">
+                                <p class="h3 text-dark mb-3 text-center">Vos informations personnelles</p>
+                                <fieldset class="mb-3">
+                                    <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
 
                                         <div class="form-group col-lg-3"></div>
                                         <div class="form-group col-lg-6">
@@ -89,21 +89,21 @@ require '../Controllers/updateController.php';
 
                                         <div class="form-group col-lg-3"></div>
                                         <div class="form-group col-11 col-lg-6">
-                                            <label for="newFavArmor">Quelle est votre armure favorite : </label>
+                                            <label for="newFavArmor">Quelle est votre warframe favorite : </label>
                                             <select class="form-control" id="newFavArmor" name="newFavArmor">
                                                 <option value="All" selected>Aucune en particulier</option>
                                                 <optgroup label="Armures classiques">
                                                     <?php
-                                                    foreach ($armor as $key => $armorName):
-                                                        ?><option value ="<?= $key ?>" <?= ($_SESSION['id_wfd_Armors'] == $key) ? 'selected' : ''; ?>><?= $armorName ?></option>
+                                                    foreach ($frame as $key => $frameName):
+                                                        ?><option value ="<?= $key ?>" <?= ($_SESSION['id_wfd_Armors'] == $key) ? 'selected' : ''; ?>><?= $frameName ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
                                                 </optgroup>
                                                 <optgroup label="Armures primes">
                                                     <?php
-                                                    foreach ($primeArmor as $key => $armorName):
-                                                        ?><option value ="<?= $key ?>" <?= ($_SESSION['id_wfd_Armors'] == $key) ? 'selected' : ''; ?>><?= $armorName ?></option>
+                                                    foreach ($primeFrame as $key => $frameName):
+                                                        ?><option value ="<?= $key ?>" <?= ($_SESSION['id_wfd_Armors'] == $key) ? 'selected' : ''; ?>><?= $frameName ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -116,8 +116,8 @@ require '../Controllers/updateController.php';
                                 </fieldset>
 
                                 <div class="align-items-center justify-content-center d-flex">
-                                    <a href="UsersInfosView.php"><button type="button" class="btn btn-light text-dark mr-3 mb-3">Retour</button></a>
-                                    <button name="submitUpdateInfosButton" id="submitUpdateInfosButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Valider</button>
+                                    <a href="UsersInfosView.php"><button type="button" class="btn btn-dark text-light mr-3 mb-3">Retour</button></a>
+                                    <button name="submitUpdateInfosButton" id="submitUpdateInfosButton" value="submitOn" type="submit" class="btn btn-dark text-light mb-3">Valider</button>
                                 </div>
                             </form>
                         </div>
@@ -133,12 +133,12 @@ require '../Controllers/updateController.php';
                         </h5>
                     </div>
                     <div id="collapse-B" class="collapse accordCardCollapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
-                        <div class="card-body">
-                            <div class="rem"></div>
-                            <form method="POST" class="mx-auto bg-dark" action="updateView.php" id="updateSyndicatesForm">
+                        <div class="card-body accordCardBody">
+                           
+                            <form method="POST" class="mx-auto" action="updateView.php" id="updateSyndicatesForm">
 
-                                <div class="rem"></div>
-                                <div class="bg-light w-75 mx-auto rounded">
+                                
+                                <div class="w-75 mx-auto rounded">
 
                                     <div class="rem"></div>
 
@@ -150,7 +150,7 @@ require '../Controllers/updateController.php';
                                                 <option value="" selected disabled></option>
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
+                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['meridianRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -167,7 +167,7 @@ require '../Controllers/updateController.php';
                                                 <option value="" selected disabled></option>
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
+                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['arbiterRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -184,7 +184,7 @@ require '../Controllers/updateController.php';
                                                 <option value="" selected disabled></option>
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
+                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['cephalonRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -201,7 +201,7 @@ require '../Controllers/updateController.php';
                                                 <option value="" selected disabled></option>
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
+                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['redVeilRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -218,7 +218,7 @@ require '../Controllers/updateController.php';
                                                 <option value="" selected disabled></option>
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
+                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['perrinRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -235,7 +235,7 @@ require '../Controllers/updateController.php';
                                                 <option value="" selected disabled></option>
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>"><?= $value ?></option>
+                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['lokaRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 

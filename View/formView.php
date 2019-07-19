@@ -4,20 +4,20 @@ require_once '../Controllers/formController.php';
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php
-include 'headView.php';
-?>
+    <?php
+    include 'headView.php';
+    ?>
 
     <body class="font-family-Michroma">
-        
+
 
         <video autoplay loop poster="../Images/warframe7.jpg" id="bgvid">
             <source src="../assets/Videos/<?= $getName[0]['name'] ?>.webm" type="video/webm">
             <source src="../assets/Videos/<?= $getName[0]['name'] ?>.mp4" type="video/mp4">
         </video>
-<?php
-include 'headerView.php';
-?>
+        <?php
+        include 'headerView.php';
+        ?>
         <div class="bg-light-opac" id="connectionDiv">
             <div>
                 <p class="h2 font-weight-bold text-center" >Connexion</p>
@@ -50,10 +50,10 @@ include 'headerView.php';
             <div class="rem"></div>
         </div>
         <div class="rem"></div>
-        <form method="POST" class="bg-dark-opac w-75 mx-auto" action="formView.php" id="inscriptionForm">
-            <p class="h3 text-light mb-3 text-center">Vos informations personnelles</p>
-            <fieldset class="bg-dark-opac text-light mb-3">
-                <div class="row bg-light-opac text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
+        <form method="POST" class="bg-light-opac w-75 mx-auto" action="formView.php" id="inscriptionForm">
+            <p class="h3 text-dark mb-3 text-center">Vos informations personnelles</p>
+            <fieldset class="mb-3">
+                <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
 
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">
@@ -126,21 +126,21 @@ include 'headerView.php';
 
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-11 col-lg-6">
-                        <label for="favArmor">Quelle est votre armure favorite : </label>
+                        <label for="favArmor">Quelle est votre warframe favorite : </label>
                         <select class="form-control <?= (count($_POST) > 0 && $errorInForm['favArmor'] == 0) ? 'redBorder' : '' ?>" id="favArmor" name="favArmor">
-                            <option value="All" selected>Aucune en particulier</option>
-                            <optgroup label="Armures classiques">
-<?php
-foreach ($armor as $key => $armorName):
-    ?><option value ="<?= $key ?>"><?= $armorName ?></option>
+
+                            <optgroup label="Warframes classiques">
+                                <?php
+                                foreach ($frame as $key => $frameName):
+                                    ?><option value ="<?= $key ?>"><?= $frameName ?></option>
                                     <?php
                                 endforeach;
                                 ?> 
                             </optgroup>
-                            <optgroup label="Armures primes">
+                            <optgroup label="Warframes primes">
                                 <?php
-                                foreach ($primeArmor as $key => $armorName):
-                                    ?><option value ="<?= $key ?>"><?= $armorName ?></option>
+                                foreach ($primeFrame as $key => $frameName):
+                                    ?><option value ="<?= $key ?>"><?= $frameName ?></option>
                                     <?php
                                 endforeach;
                                 ?> 

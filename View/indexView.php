@@ -86,14 +86,12 @@ foreach($lastFive as $key=>$value):
             <ul class="list-group list-group-flush bg-light-opac">
                 <?php foreach($lastFivesRank as $secondKey=>$secondValue):
                     
-                    ?><li class="bg-dark-opac text-light"><img class="img-fluid" src="assets/Images/<?= $secondValue['image'] ?>" /><?= 'rang : ' . $secondValue['rank'] ?></li>
+                    ?><li class="list-group-item bg-dark-opac text-light"><img class="img-fluid" src="assets/Images/<?= $secondValue['image'] ?>" /><?= 'rang : ' . $secondValue['rank'] ?></li>
                     <?php
                 endforeach;
                 ?>
             </ul>
             <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
             </div>
                 </div>
                <div class="rem"></div> 
