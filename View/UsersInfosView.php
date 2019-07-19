@@ -11,12 +11,14 @@ require '../Controllers/UsersInfosController.php';
     <?php
     include 'headView.php';
 
-    $armor = new Armors();
-    $armor->id = (int) $_SESSION['id_Armors'];
-    $getName = $armor->getArmorsName();
- 
+    
     ?>
     <body class="font-family-germania">
+        
+        <video autoplay loop poster="../Images/warframe7.jpg" id="bgvid">
+            <source src="../assets/Videos/<?= $getName[0]['name'] ?>.webm" type="video/webm">
+            <source src="../assets/Videos/<?= $getName[0]['name'] ?>.mp4" type="video/mp4">
+        </video>
         <?php
         include 'headerView.php';
         ?>
@@ -41,20 +43,20 @@ require '../Controllers/UsersInfosController.php';
 
 
             <div id="content" class="tab-content" role="tablist">
-                <div id="infos" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
-                    <div class="card-header" role="tab" id="heading-A">
+                <div id="infos" class="card accordCard tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
+                    <div class="card-header accordCardHeader" role="tab" id="heading-A">
                         <h5 class="mb-0">
                             <!-- Note: `data-parent` removed from here -->
-                            <a data-toggle="collapse" href="#collapse-A" aria-expanded="true" aria-controls="collapse-A">
+                            <a class="text-dark" data-toggle="collapse" href="#collapse-A" aria-expanded="true" aria-controls="collapse-A">
                                 Informations du compte
                             </a>
                         </h5>
                     </div>
 
                     <!-- Note: New place of `data-parent` -->
-                    <div id="collapse-A" class="collapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
+                    <div id="collapse-A" class="collapse accordCarcCollapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
                         <div class="card-body bg-dark">
-                            <div class="bg-light w-75 mx-auto rounded">
+                            <div class="bg-light mx-auto rounded">
 
                                 <div class="rem"></div>
 
@@ -165,17 +167,17 @@ require '../Controllers/UsersInfosController.php';
                         </div>
                     </div>
                 </div>
-                <div id="syndicateView" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
-                    <div class="card-header" role="tab" id="heading-D">
+                <div id="syndicateView" class="card accordCard tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                    <div class="card-header accordCardHeader" role="tab" id="heading-D">
                         <h5 class="mb-0">
-                            <a class="collapsed" data-toggle="collapse" href="#collapse-D" aria-expanded="false" aria-controls="collapse-D">
+                            <a class="collapsed text-dark" data-toggle="collapse" href="#collapse-D" aria-expanded="false" aria-controls="collapse-D">
                                 Voir mes syndicats
                             </a>
                         </h5>
                     </div>
-                    <div id="collapse-D" class="collapse" role="tabpanel" data-parent="#content" aria-labelledby="heading-D">
+                    <div id="collapse-D" class="collapse accordCardCollapse" role="tabpanel" data-parent="#content" aria-labelledby="heading-D">
                         <div class="card-body bg-dark">
-                            <div class="bg-light w-75 mx-auto rounded">
+                            <div class="bg-light mx-auto rounded">
 
                                 <div class="rem"></div>
 
@@ -239,19 +241,19 @@ require '../Controllers/UsersInfosController.php';
                     </div>
                 </div>
 
-                <div id="passwordChange" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
-                    <div class="card-header" role="tab" id="heading-B">
+                <div id="passwordChange" class="card accordCard tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                    <div class="card-header accordCardHeader" role="tab" id="heading-B">
                         <h5 class="mb-0">
-                            <a class="collapsed" data-toggle="collapse" href="#collapse-B" aria-expanded="false" aria-controls="collapse-B">
+                            <a class="collapsed text-dark" data-toggle="collapse" href="#collapse-B" aria-expanded="false" aria-controls="collapse-B">
                                 Changer de mot de passe
                             </a>
                         </h5>
                     </div>
-                    <div id="collapse-B" class="collapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
+                    <div id="collapse-B" class="collapse accordCardCollapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
                         <div class="card-body">
                             <form method="POST" class="bg-dark w-100 mx-auto" action="UsersInfosView.php">
                                 
-                                <fieldset class="bg-dark text-light mb-3">
+                                <fieldset class="bg-light dark mb-3">
                                     <div class="rem"></div>
                                     <div class="row bg-light text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
 
@@ -299,19 +301,19 @@ require '../Controllers/UsersInfosController.php';
                     </div>
                 </div>
 
-                <div id="deleteAccount" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
-                    <div class="card-header" role="tab" id="heading-C">
+                <div id="deleteAccount" class="card accordCard tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                    <div class="card-header accordCardHeader" role="tab" id="heading-C">
                         <h5 class="mb-0">
-                            <a class="collapsed" data-toggle="collapse" href="#collapse-C" aria-expanded="false" aria-controls="collapse-C">
+                            <a class="collapsed text-dark" data-toggle="collapse" href="#collapse-C" aria-expanded="false" aria-controls="collapse-C">
                                 Supprimer mon compte
                             </a>
                         </h5>
                     </div>
-                    <div id="collapse-C" class="collapse" role="tabpanel" data-parent="#content" aria-labelledby="heading-C">
+                    <div id="collapse-C" class="collapse accordCardCollapse" role="tabpanel" data-parent="#content" aria-labelledby="heading-C">
                         <div class="card-body">
-                            <form method="POST" class="bg-dark w-100 mx-auto" action="UsersInfosView.php">
+                            <form method="POST" class="bg-light w-100 mx-auto" action="UsersInfosView.php">
                                 
-                                <fieldset class="bg-dark text-light mb-3">
+                                <fieldset class="bg-light text-dark mb-3">
                                     <div class="rem"></div>
                                     <p class="text-danger font-weight-bold h4 text-center">ATTENTION!!!! Vous vous apprêtez à supprimer votre compte sur warfriends. Êtes-vous certain de vouloir supprimer votre compte ? Ceci entrainera la perte de toutes vos données sur le site. Pour supprimer votre compte entrez votre mot de passe ci-dessous</p>
                                     <div class="rem"></div>
@@ -326,7 +328,7 @@ require '../Controllers/UsersInfosController.php';
                                     </div>
                                 </fieldset>
                                 <div class="align-items-center justify-content-center d-flex">
-                                    <button name="submitDeleteButton" id="submitDeleteButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Valider</button>
+                                    <button name="submitDeleteButton" id="submitDeleteButton" value="submitOn" type="submit" class="btn btn-dark text-light mb-3">Valider</button>
                                 </div>
                             </form>
                         </div>

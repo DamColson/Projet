@@ -30,6 +30,13 @@ return strftime('%d/%m/%Y',strtotime($date));
 
 $user = new Users();
 $syndicateDetail = new SyndicateDetails();
+$armor = new Armors();
+if(isset($_SESSION['id_wfd_Armors'])):
+$armor->id = (int) $_SESSION['id_wfd_Armors'];
+else:
+$armor->id = $rand = rand(1,64);
+endif;
+$getName = $armor->getArmorsName();
 
 extract($_SESSION);
 
@@ -80,9 +87,9 @@ if($_POST):
     endif;
     
     if(!empty($_POST['submitUpdateInfosButton']) && !empty($_POST['newFavArmor'])):
-        $user->id_Armors = (int)$_POST['newFavArmor'];
+        $user->id_wfd_Armors = (int)$_POST['newFavArmor'];
         $user->updateUsersFavArmors();
-        $_SESSION['id_Armors'] = $user->id_Armors;
+        $_SESSION['id_wfd_Armors'] = $user->id_wfd_Armors;
     endif;
     
     
@@ -94,6 +101,7 @@ if($_POST):
         $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
         $syndicateDetail->id_wfd_Syndicate = 1;
         $syndicateDetail->updateSyndicateDetails();
+        $_SESSION['meridianRank'] = $syndicateDetail->rank;
         
     endif;
 
@@ -106,6 +114,7 @@ if($_POST):
         $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
         $syndicateDetail->id_wfd_Syndicate = 2;
         $syndicateDetail->updateSyndicateDetails();
+        $_SESSION['arbiterRank'] = $syndicateDetail->rank;
     endif;
 
 
@@ -117,6 +126,7 @@ if($_POST):
         $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
         $syndicateDetail->id_wfd_Syndicate = 3;
         $syndicateDetail->updateSyndicateDetails();
+        $_SESSION['cephalonRank'] = $syndicateDetail->rank;
     endif;
 
 
@@ -128,6 +138,7 @@ if($_POST):
         $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
         $syndicateDetail->id_wfd_Syndicate = 4;
         $syndicateDetail->updateSyndicateDetails();
+        $_SESSION['perrinRank'] = $syndicateDetail->rank;
     endif;
 
 
@@ -139,6 +150,7 @@ if($_POST):
         $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
         $syndicateDetail->id_wfd_Syndicate = 5;
         $syndicateDetail->updateSyndicateDetails();
+        $_SESSION['redVeilRank'] = $syndicateDetail->rank;
     endif;
 
 
@@ -150,6 +162,7 @@ if($_POST):
         $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
         $syndicateDetail->id_wfd_Syndicate = 6;
         $syndicateDetail->updateSyndicateDetails();
+        $_SESSION['lokaRank'] = $syndicateDetail->rank;
     endif;
     
 endif;

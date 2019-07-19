@@ -1,6 +1,8 @@
 <?php
-require '../Models/modelDb.php';
-require '../Models/usersModel.php';
+require_once '../Models/modelDb.php';
+require_once '../Models/usersModel.php';
+require_once '../Models/ArmorsModel.php';
+require_once '../Models/SyndicateDetailsModel.php';
 
 $linkIndex = '../index.php';
 $linkAccount = 'UsersInfosView.php';
@@ -21,7 +23,13 @@ function dateFr($date){
 return strftime('%d/%m/%Y',strtotime($date));
 }
 
-
+$armor = new Armors();
+if(isset($_SESSION['id_wfd_Armors'])):
+$armor->id = (int) $_SESSION['id_wfd_Armors'];
+else:
+$armor->id = $rand = rand(1,64);
+endif;
+$getName = $armor->getArmorsName();
 
 $data;
 
@@ -95,6 +103,33 @@ if($_POST):
 endif;
 
      
+$_POST = array_map('strip_tags', $_POST);
+$user = new Users();
+$syndicateDetail = new SyndicateDetails();
+$user->warfriendsPseudo = $_POST['warfriendsPseudo'];
+$user->getUserIds();
+$getInfos = $user->getInfos();
+$syndicateDetail->id_wfd_UsersInfos = $user->id;
+$getSyndicateInfos = $syndicateDetail->getSyndicateInfos();
 
+session_start();
+
+if ($_POST['warfriendsPassword'] == $getInfos[0]['password']):
+
+    foreach ($getInfos as $key => $value):
+        foreach ($value as $secondKey => $secondValue):
+            $_SESSION[$secondKey] = $secondValue;
+        endforeach;
+    endforeach;
+    
+    foreach ($getSyndicateInfos as $key=>$value):
+        
+            $_SESSION[$syndicateRankName[$key]] = $getSyndicateInfos[$key]['rank'];
+        
+    endforeach;
+    
+
+    
+endif;
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
-require 'Controllers/connectionController.php';
-require 'Controllers/indexController.php';
+require_once 'Controllers/connectionController.php';
+require_once 'Controllers/indexController.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -9,9 +9,15 @@ require 'Controllers/indexController.php';
 
     <?php
     include 'headView.php';
+    
     ?>
 
     <body class="font-family-germania">
+        
+        <video autoplay loop poster="../Images/warframe7.jpg" id="bgvid">
+            <source src="../assets/Videos/<?= $getName[0]['name'] ?>.webm" type="video/webm">
+            <source src="../assets/Videos/<?= $getName[0]['name'] ?>.mp4" type="video/mp4">
+        </video>
         <?php
         include 'headerView.php';
         ?>
@@ -44,11 +50,64 @@ require 'Controllers/indexController.php';
                     <button type="submit" class="btn btn-light text-dark ml-2" id="connexionButton">Connexion</button>
                 </div>
             </form>
+            <div class="rem"></div>
         </div>
-        
-        
-        
+        <div class="rem"></div>
+        <div class="h2 text-center text-light">Nos derniers Inscrits</div>
+        <div class="rem"></div>
+        <div class="row no-gutters">
+    <div class="col-lg-1"></div><?php
 
+
+foreach($lastFive as $key=>$value):
+    
+    $user = new Users();
+    $user->id = (int)$value['id'];
+    $user->warfriendsPseudo = $value['warfriendsPseudo'];
+    $lastFivesRank = $user->getLastFivesRanks();
+    
+?><div class="col-lg-2 col-12">
+    <div id="accordion<?=$key?>">   
+  <div class="card mx-auto" style="width: 18rem;">
+            
+                
+             
+            <div class="card-body">
+                <h5 class="card-title text-center"><?= $user->warfriendsPseudo ?></h5>
+            </div>
+       <div id="heading<?=$key?>">     
+      <h5 class="mb-0 text-center">
+        <button class="btn btn-link text-dark " data-toggle="collapse" data-target="<?='#collapse'.$key?>" aria-expanded="true" aria-controls="collapse<?=$key?>">
+          Syndicats de <?= $user->warfriendsPseudo ?>
+        </button>
+      </h5>
+       </div>
+      <div id="<?='collapse'.$key?>" class="collapse" aria-labelledby="heading<?=$key?>" data-parent="#accordion<?=$key?>">
+            <ul class="list-group list-group-flush">
+                <?php foreach($lastFivesRank as $secondKey=>$secondValue):
+                    
+                    ?><li class="list-group-item"><img class="img-fluid" src="assets/Images/<?= $secondValue['image'] ?>" /><?= 'rang : ' . $secondValue['rank'] ?></li>
+                    <?php
+                endforeach;
+                ?>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+                </div>
+               <div class="rem"></div> 
+        </div>
+        <div class="rem"></div>
+    </div>
+</div>
+        
+    
+<?php
+endforeach;
+
+?><div class="col-lg-1"></div>
+</div>
 
 
 

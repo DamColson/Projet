@@ -1,9 +1,29 @@
 body {
-    background:#222531;
+/*    background-image: url(../Images/warframe7.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;*/
+}
+
+video#bgvid {
+  position: fixed; 
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto; 
+  z-index: -100;
+  background-size: cover;
 }
 
 .rem{
     height:2rem;
+}
+
+.nav-link {
+    color:white;
+    background-color:transparent;
+    border-color:transparent;
 }
 
 .font-family-germania {
@@ -72,15 +92,15 @@ video {
         display: flex;
     }
 
-    .card {
+    .accordCard {
         border: none;
     }
 
-    .card .card-header {
+    .accordCard .accordCardHeader {
         display:none;
     }  
 
-    .card .collapse{
+    .accordCard .accordCardCollapse{
         display:block;
     }
 }
@@ -94,6 +114,12 @@ video {
         display: block;
         opacity: 1;
     }
+/*    body {
+        background-image: url(../Images/warframe7.jpg);
+        background-position: 77%;
+        background-repeat: no-repeat;
+    }*/
+
 }
 
 @media screen and (max-width:375px) {
@@ -105,10 +131,10 @@ video {
         display:none;
     }
 
-    body {
+/*    body {
         background-image: url(../Images/warframe7.jpg);
         background-repeat: no-repeat;
-    }
+    }*/
 
     #miniWar {
         display: none;

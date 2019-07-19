@@ -130,7 +130,8 @@ class Users extends Db {
     }
     
     public function getLastFive(){
-        $query = 'SELECT wfd_UsersInfos.id,wfd_UsersInfos.warfriendsPseudo FROM wfd_UsersInfos ORDER BY wfd_UsersInfos.id DESC LIMIT 5';
+        $query = "SELECT wfd_UsersInfos.id,wfd_UsersInfos.warfriendsPseudo FROM wfd_SyndicateDetails INNER JOIN wfd_Syndicate ON wfd_Syndicate.id = wfd_SyndicateDetails.id_wfd_Syndicate INNER JOIN wfd_UsersInfos ON wfd_UsersInfos.id = wfd_SyndicateDetails.id_wfd_UsersInfos WHERE wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id AND wfd_Syndicate.id = 1 ORDER BY wfd_UsersInfos.id DESC LIMIT 5";
+        
         $getLastFive = $this->db->prepare($query);
         $getLastFive->execute();
         

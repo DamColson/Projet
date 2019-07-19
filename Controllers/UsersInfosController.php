@@ -30,7 +30,14 @@ return ucfirst(strftime('%d/%m/%Y',strtotime($date)));
 $data;
 
 $user = new Users();
-
+$armor = new Armors();
+if(isset($_SESSION['id_wfd_Armors'])):
+$armor->id = (int) $_SESSION['id_wfd_Armors'];
+else:
+$armor->id = $rand = rand(1,64);
+endif;
+$getName = $armor->getArmorsName();
+ 
 extract($_SESSION);
 
 
@@ -41,8 +48,6 @@ $user->mail=$mail;
 $user->tagDiscord=$tagDiscord;
 
 $getInfos = $user->getInfos();
-
-var_dump($getInfos);
 
 if($_POST):
     if (!empty($_POST['oldPassword']) && $_POST['oldPassword'] != $_SESSION['password']):

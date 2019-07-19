@@ -10,13 +10,12 @@ require '../Controllers/updateController.php';
     include 'headView.php';
     ?>
     <body class="font-family-germania">
+        <video autoplay loop poster="../Images/warframe7.jpg" id="bgvid">
+            <source src="../assets/Videos/<?= $getName[0]['name'] ?>.webm" type="video/webm">
+            <source src="../assets/Videos/<?= $getName[0]['name'] ?>.mp4" type="video/mp4">
+        </video>
         <?php
         include 'headerView.php';
-        
-        
-        var_dump($_SESSION);
-        var_dump($user);
-        var_dump($syndicateDetail);
         
         ?>
 
@@ -34,8 +33,8 @@ require '../Controllers/updateController.php';
 
 
             <div id="content" class="tab-content" role="tablist">
-                <div id="updatePersonalInfos" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
-                    <div class="card-header" role="tab" id="heading-A">
+                <div id="updatePersonalInfos" class="card accordCard tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
+                    <div class="card-header accordCardHeader" role="tab" id="heading-A">
                         <h5 class="mb-0">
 
                             <a data-toggle="collapse" href="#collapse-A" aria-expanded="true" aria-controls="collapse-A">
@@ -45,7 +44,7 @@ require '../Controllers/updateController.php';
                     </div>
 
 
-                    <div id="collapse-A" class="collapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
+                    <div id="collapse-A" class="collapse accordCardCollapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
                         <div class="card-body">
                             <form method="POST" class="bg-dark w-100 mx-auto" action="updateView.php" id="updateForm">
                                 <p class="h3 text-light mb-3 text-center">Vos informations personnelles</p>
@@ -96,7 +95,7 @@ require '../Controllers/updateController.php';
                                                 <optgroup label="Armures classiques">
                                                     <?php
                                                     foreach ($armor as $key => $armorName):
-                                                        ?><option value ="<?= $key ?>" <?= ($_SESSION['id_Armors'] == $key) ? 'selected' : ''; ?>><?= $armorName ?></option>
+                                                        ?><option value ="<?= $key ?>" <?= ($_SESSION['id_wfd_Armors'] == $key) ? 'selected' : ''; ?>><?= $armorName ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -104,7 +103,7 @@ require '../Controllers/updateController.php';
                                                 <optgroup label="Armures primes">
                                                     <?php
                                                     foreach ($primeArmor as $key => $armorName):
-                                                        ?><option value ="<?= $key ?>" <?= ($_SESSION['id_Armors'] == $key) ? 'selected' : ''; ?>><?= $armorName ?></option>
+                                                        ?><option value ="<?= $key ?>" <?= ($_SESSION['id_wfd_Armors'] == $key) ? 'selected' : ''; ?>><?= $armorName ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -125,15 +124,15 @@ require '../Controllers/updateController.php';
                     </div>
                 </div>
 
-                <div id="updateSyndicate" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
-                    <div class="card-header" role="tab" id="heading-B">
+                <div id="updateSyndicate" class="card accordCard tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                    <div class="card-header accordCardHeader" role="tab" id="heading-B">
                         <h5 class="mb-0">
                             <a class="collapsed" data-toggle="collapse" href="#collapse-B" aria-expanded="false" aria-controls="collapse-B">
                                 Mettre à jour mes syndicats
                             </a>
                         </h5>
                     </div>
-                    <div id="collapse-B" class="collapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
+                    <div id="collapse-B" class="collapse accordCardCollapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
                         <div class="card-body">
                             <div class="rem"></div>
                             <form method="POST" class="mx-auto bg-dark" action="updateView.php" id="updateSyndicatesForm">
