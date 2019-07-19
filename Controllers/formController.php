@@ -81,7 +81,7 @@ if($_POST):
         $errorInForm['favArmor'] = 0; 
         $data = 'failure';
     elseif(!empty($_POST['submitFormButton'])):
-        $user->id_Armors = $_POST['favArmor'];
+        $user->id_wfd_Armors = $_POST['favArmor'];
     endif;
     
     echo $data;

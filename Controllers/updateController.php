@@ -91,8 +91,8 @@ if($_POST):
         $errorInUpdateSyndicateRank['meridianRank'] = 0;
    elseif(!empty($_POST['meridianRank']) && !empty($_POST['submitUpdateRankButton'])):
         $syndicateDetail->rank = $_POST['meridianRank'];
-        $syndicateDetail->id_UsersInfos = (int)$user->id;
-        $syndicateDetail->id_Syndicate = 1;
+        $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
+        $syndicateDetail->id_wfd_Syndicate = 1;
         $syndicateDetail->updateSyndicateDetails();
         
     endif;
@@ -103,8 +103,8 @@ if($_POST):
         $errorInUpdateSyndicateRank['arbiterRank'] = 0;
     elseif(!empty($_POST['arbiterRank']) && !empty($_POST['submitUpdateRankButton'])):
         $syndicateDetail->rank = $_POST['arbiterRank'];
-        $syndicateDetail->id_UsersInfos = (int)$user->id;
-        $syndicateDetail->id_Syndicate = 2;
+        $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
+        $syndicateDetail->id_wfd_Syndicate = 2;
         $syndicateDetail->updateSyndicateDetails();
     endif;
 
@@ -114,8 +114,8 @@ if($_POST):
         $errorInUpdateSyndicateRank['cephalonRank'] = 0;
     elseif(!empty($_POST['cephalonRank']) && !empty($_POST['submitUpdateRankButton'])):
         $syndicateDetail->rank = $_POST['cephalonRank'];
-        $syndicateDetail->id_UsersInfos = (int)$user->id;
-        $syndicateDetail->id_Syndicate = 3;
+        $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
+        $syndicateDetail->id_wfd_Syndicate = 3;
         $syndicateDetail->updateSyndicateDetails();
     endif;
 
@@ -125,8 +125,8 @@ if($_POST):
         $errorInUpdateSyndicateRank['perrinRank'] = 0;
     elseif(!empty($_POST['perrinRank']) && !empty($_POST['submitUpdateRankButton'])):
         $syndicateDetail->rank = $_POST['perrinRank'];
-        $syndicateDetail->id_UsersInfos = (int)$user->id;
-        $syndicateDetail->id_Syndicate = 4;
+        $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
+        $syndicateDetail->id_wfd_Syndicate = 4;
         $syndicateDetail->updateSyndicateDetails();
     endif;
 
@@ -136,8 +136,8 @@ if($_POST):
         $errorInUpdateSyndicateRank['redVeilRank'] = 0;
     elseif(!empty($_POST['redVeilRank']) && !empty($_POST['submitUpdateRankButton'])):
         $syndicateDetail->rank = $_POST['redVeilRank'];
-        $syndicateDetail->id_UsersInfos = (int)$user->id;
-        $syndicateDetail->id_Syndicate = 5;
+        $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
+        $syndicateDetail->id_wfd_Syndicate = 5;
         $syndicateDetail->updateSyndicateDetails();
     endif;
 
@@ -147,8 +147,8 @@ if($_POST):
         $errorInUpdateSyndicateRank['lokaRank'] = 0;
     elseif(!empty($_POST['lokaRank']) && !empty($_POST['submitUpdateRankButton'])):
         $syndicateDetail->rank = $_POST['lokaRank'];
-        $syndicateDetail->id_UsersInfos = (int)$user->id;
-        $syndicateDetail->id_Syndicate = 6;
+        $syndicateDetail->id_wfd_UsersInfos = (int)$user->id;
+        $syndicateDetail->id_wfd_Syndicate = 6;
         $syndicateDetail->updateSyndicateDetails();
     endif;
     

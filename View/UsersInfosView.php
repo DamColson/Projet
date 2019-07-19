@@ -169,7 +169,7 @@ require '../Controllers/UsersInfosController.php';
                     <div class="card-header" role="tab" id="heading-D">
                         <h5 class="mb-0">
                             <a class="collapsed" data-toggle="collapse" href="#collapse-D" aria-expanded="false" aria-controls="collapse-D">
-                                Supprimer mon compte
+                                Voir mes syndicats
                             </a>
                         </h5>
                     </div>
@@ -303,7 +303,7 @@ require '../Controllers/UsersInfosController.php';
                     <div class="card-header" role="tab" id="heading-C">
                         <h5 class="mb-0">
                             <a class="collapsed" data-toggle="collapse" href="#collapse-C" aria-expanded="false" aria-controls="collapse-C">
-                                Voir mes syndicats
+                                Supprimer mon compte
                             </a>
                         </h5>
                     </div>

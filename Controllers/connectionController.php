@@ -1,8 +1,8 @@
 <?php
 
-require 'Models/modelDb.php';
-require 'Models/usersModel.php';
-require 'Models/SyndicateDetailsModel.php';
+require_once 'Models/modelDb.php';
+require_once 'Models/usersModel.php';
+require_once 'Models/SyndicateDetailsModel.php';
 
 include 'assets/php/arrays.php';
 
@@ -17,7 +17,7 @@ $syndicateDetail = new SyndicateDetails();
 $user->warfriendsPseudo = $_POST['warfriendsPseudo'];
 $user->getUserIds();
 $getInfos = $user->getInfos();
-$syndicateDetail->id_UsersInfos = $user->id;
+$syndicateDetail->id_wfd_UsersInfos = $user->id;
 $getSyndicateInfos = $syndicateDetail->getSyndicateInfos();
 
 session_start();
