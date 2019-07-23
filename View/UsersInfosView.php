@@ -294,9 +294,24 @@ require '../Controllers/UsersInfosController.php';
                                 </fieldset>
 
                                 <div class="align-items-center justify-content-center d-flex">
-                                    <button name="submitModifButton" id="submitModifButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Envoyer</button>
+                                    <button name="submitModifButton" id="submitModifButton" value="submitOn" type="submit" class="btn btn-dark text-light mb-3">Envoyer</button>
                                 </div>
                             </form>
+                            <?php if($errorInModif == $modifValidation && !empty($_POST)):
+
+        ?><script>Swal.fire({
+                    title: 'Félicitation!',
+                    text: 'Votre mot de passe a été changé avec succès',
+                    type: 'success',
+                    confirmButtonText: 'Fermer'
+                });
+                setTimeout(function () {
+                    
+       document.location.href='UsersInfosView.php'; //will redirect to your blog page (an ex: blog.html)
+    }, 2000);</script><?php
+          
+    endif;
+    ?>
                         </div>
                     </div>
                 </div>
@@ -337,7 +352,7 @@ require '../Controllers/UsersInfosController.php';
             </div>
         </div>
 
-
+<?php include 'footerView.php';?>
 
 
 

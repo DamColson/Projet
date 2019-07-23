@@ -1,17 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>assets/css/ProjetHomePage.css</url>
+            <bookmark id="1">
+                <name/>
+                <line>2</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/Fireloup/Projet/assets/scripts/Projet.js</file>
-            <file>file:/home/Fireloup/Projet/Controllers/formController.php</file>
-            <file>file:/home/Fireloup/Projet/View/formView.php</file>
-            <file>file:/home/Fireloup/Projet/assets/css/form.css</file>
+            <file>file:/home/Fireloup/Projet/assets/Merise/Admin.sql</file>
+            <file>file:/home/Fireloup/Projet/assets/Merise/InitialSource.sql</file>
+            <file>file:/home/Fireloup/Projet/Controllers/UsersInfosController.php</file>
+            <file>file:/home/Fireloup/Projet/Models/usersModel.php</file>
+            <file>file:/home/Fireloup/Projet/assets/css/ProjetHomePage.css</file>
+            <file>file:/home/Fireloup/Projet/Controllers/updateController.php</file>
             <file>file:/home/Fireloup/Projet/View/headerView.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/searchController.php</file>
+            <file>file:/home/Fireloup/Projet/assets/Merise/UsersInfos.sql</file>
+            <file>file:/home/Fireloup/Projet/assets/Merise/Syndicates.sql</file>
+            <file>file:/home/Fireloup/Projet/Models/modelDb.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/connectionController.php</file>
+            <file>file:/home/Fireloup/Projet/assets/Merise/Armors.sql</file>
+            <file>file:/home/Fireloup/Projet/assets/Merise/Warfriends.sql</file>
+            <file>file:/home/Fireloup/Projet/Models/SyndicateModel.php</file>
+            <file>file:/home/Fireloup/Projet/assets/Merise/Jointures.sql</file>
+            <file>file:/home/Fireloup/Projet/View/formView.php</file>
+            <file>file:/home/Fireloup/Projet/View/searchView.php</file>
             <file>file:/home/Fireloup/Projet/View/indexView.php</file>
             <file>file:/home/Fireloup/Projet/assets/php/arrays.php</file>
-            <file>file:/home/Fireloup/Projet/assets/php/regex.php</file>
-            <file>file:/home/Fireloup/Projet/index.php</file>
+            <file>file:/home/Fireloup/Projet/Models/SyndicateDetailsModel.php</file>
+            <file>file:/home/Fireloup/Projet/View/headView.php</file>
+            <file>file:/home/Fireloup/Projet/Models/ArmorsModel.php</file>
+            <file>file:/home/Fireloup/Projet/assets/scripts/Projet.js</file>
+            <file>file:/home/Fireloup/Projet/Controllers/formController.php</file>
+            <file>file:/home/Fireloup/Projet/View/UsersInfosView.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/disconnect.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/indexController.php</file>
+            <file>file:/home/Fireloup/Projet/View/updateView.php</file>
         </group>
     </open-files>
 </project-private>

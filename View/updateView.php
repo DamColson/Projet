@@ -8,6 +8,7 @@ require '../Controllers/updateController.php';
 
     <?php
     include 'headView.php';
+    
     ?>
     <body class="font-family-Michroma">
         <video autoplay loop poster="../Images/warframe7.jpg" id="bgvid">
@@ -16,6 +17,7 @@ require '../Controllers/updateController.php';
         </video>
         <?php
         include 'headerView.php';
+        
         
         ?>
 
@@ -120,6 +122,27 @@ require '../Controllers/updateController.php';
                                     <button name="submitUpdateInfosButton" id="submitUpdateInfosButton" value="submitOn" type="submit" class="btn btn-dark text-light mb-3">Valider</button>
                                 </div>
                             </form>
+                            
+                             <?php
+
+                             if($errorInUpdateInfos == $updateInfosValidation && !empty($_POST)):
+                                  
+        ?><script>
+
+                Swal.fire({
+                    title: 'Félicitation!',
+                    text: 'Vos informations personnelles ont été mises à jour.',
+                    type: 'success',
+                    confirmButtonText: 'Fermer'
+                }); 
+                setTimeout(function () {
+                    
+       document.location.href='updateView.php'; //will redirect to your blog page (an ex: blog.html)
+    }, 2000); //will call the function after 2 secs.
+       </script><?php
+    endif;
+    
+    ?>
                         </div>
                     </div>
                 </div>
@@ -257,6 +280,25 @@ require '../Controllers/updateController.php';
                                 </div>
                                 <div class="rem"></div>
                             </form>
+                            
+                            <?php if($errorInUpdateInfos == $updateInfosValidation && $_POST['submitUpdateRankButton']):
+
+        ?><script>Swal.fire({
+                    title: 'Félicitation!',
+                    text: 'Votre informations ont été mise à jour.',
+                    type: 'success',
+                    confirmButtonText: 'Fermer'
+                });
+                
+           setTimeout(function () {
+                    
+       document.location.href='updateView.php'; //will redirect to your blog page (an ex: blog.html)
+    }, 2000); //will call the function after 2 secs.
+                    
+       </script><?php
+          
+    endif;
+    ?>
                         </div>
                     </div>
                 </div>
@@ -264,7 +306,7 @@ require '../Controllers/updateController.php';
 
             </div>
         </div>
-
+<?php include 'footerView.php';?>
         <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

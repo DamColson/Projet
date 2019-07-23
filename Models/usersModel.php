@@ -129,29 +129,29 @@ class Users extends Db {
         endif;
     }
     
-    public function getLastFive(){
+    public function getLastTwelve(){
         $query = "SELECT wfd_UsersInfos.id,wfd_UsersInfos.warfriendsPseudo FROM wfd_SyndicateDetails INNER JOIN wfd_Syndicate ON wfd_Syndicate.id = wfd_SyndicateDetails.id_wfd_Syndicate INNER JOIN wfd_UsersInfos ON wfd_UsersInfos.id = wfd_SyndicateDetails.id_wfd_UsersInfos WHERE wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id AND wfd_Syndicate.id = 1 ORDER BY wfd_UsersInfos.id DESC LIMIT 12";
         
-        $getLastFive = $this->db->prepare($query);
-        $getLastFive->execute();
+        $getLastTwelve = $this->db->prepare($query);
+        $getLastTwelve->execute();
         
-        $lastFive = $getLastFive->fetchAll(PDO::FETCH_ASSOC);
+        $lastTwelve = $getLastTwelve->fetchAll(PDO::FETCH_ASSOC);
         
-        return $lastFive;
+        return $lastTwelve;
     }
     
-    public function getLastFivesRanks(){
+    public function getLastTwelvesRanks(){
         try{
         $query = "SELECT wfd_Syndicate.name AS name,wfd_Syndicate.image AS image,wfd_SyndicateDetails.rank AS rank FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_UsersInfos.id = :wfd_UsersInfosId AND wfd_SyndicateDetails.rank != '<2'";
         
-//        $getLastFivesRank = $this->db->prepare($query);
-        $getLastFivesRank = $this->db->prepare($query);
 
-        $getLastFivesRank->bindValue(':wfd_UsersInfosId',$this->id,PDO::PARAM_INT);
+        $getLastTwelvesRank = $this->db->prepare($query);
+
+        $getLastTwelvesRank->bindValue(':wfd_UsersInfosId',$this->id,PDO::PARAM_INT);
         
-        if($getLastFivesRank->execute()):        
-            $lastFivesRank = $getLastFivesRank->fetchAll(PDO::FETCH_ASSOC);
-            return $lastFivesRank;
+        if($getLastTwelvesRank->execute()):        
+            $lastTwelvesRank = $getLastTwelvesRank->fetchAll(PDO::FETCH_ASSOC);
+            return $lastTwelvesRank;
         endif;
     }catch(PDOException $error){
         $msg = 'ERREUR PDO within ' . $error->getFile() . 'L.' . $error->getLine() . ' : ' . $error->getMessage();

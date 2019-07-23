@@ -88,18 +88,18 @@ if($_POST):
     if(!empty($_POST['favArmor']) && !preg_match($regexArmors,$_POST['favArmor'])):
         $errorInForm['favArmor'] = 0; 
         $data = 'failure';
-    elseif(!empty($_POST['submitFormButton'])):
+    elseif(!empty($_POST['submitFormButton'])): 
         $user->id_wfd_Armors = $_POST['favArmor'];
     endif;
     
-    echo $data;
+  
     
     if($errorInForm == $formValidation):
-        $user->addUsers();
-        header('Location:../index.php');
+        $user->addUsers();     
     endif;
+   echo $data;
     
-
+    
 endif;
 
      

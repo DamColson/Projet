@@ -11,7 +11,7 @@ $syndicate = new Syndicate();
 
 
 
-$lastFive = $user->getLastFive();
+$lastTwelve = $user->getLastTwelve();
 
 $armor = new Armors();
 if(isset($_SESSION['id_wfd_Armors'])):

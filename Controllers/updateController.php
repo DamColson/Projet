@@ -56,6 +56,7 @@ $data;
 
 if($_POST):
     
+
     if(!empty($_POST['newDiscord']) && !preg_match($regexDiscord,$_POST['newDiscord'])):
         $errorInUpdateInfos['discord'] = 0;
         $data = 'failure';

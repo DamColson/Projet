@@ -47,24 +47,45 @@ require_once 'Controllers/indexController.php';
 
                 <div class="align-items-center justify-content-center d-flex">
                     <button type="button" class="btn btn-secondary mr-2" id="closeConnection" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-light text-dark ml-2" id="connexionButton">Connexion</button>
+                    <button type="submit" name="connectionButton" class="btn btn-light text-dark ml-2" id="connectionButton"value="connectionOn">Connexion</button>
                 </div>
             </form>
+            <?php  
+            if (!empty($_SESSION) && !empty($_POST['connectionButton'])):
+
+        ?><script>Swal.fire({
+                    title: 'Bonjour <?=$_SESSION['warfriendsPseudo']?>.',
+                    text: 'Connexion réussie',
+                    type: 'success',
+                    confirmButtonText: 'Fermer'
+                });
+//                setTimeout(function () {
+//                    
+//       document.location.href='index.php'; //will redirect to your blog page (an ex: blog.html)
+//    }, 2000); //will call the function after 2 secs.
+//                
+   
+                    
+       </script><?php
+          
+    endif;
+    
+    ?>
             <div class="rem"></div>
         </div>
         <div class="rem"></div>
-        <div class="h2 text-center text-light">Nos derniers Inscrits</div>
+        <div class="h1 text-center text-dark bg-light-opac w-50 mx-auto rounded">Nos derniers Inscrits</div>
         <div class="rem"></div>
         <div class="row no-gutters">
     <?php
 
 
-foreach($lastFive as $key=>$value):
+foreach($lastTwelve as $key=>$value):
     
     $user = new Users();
     $user->id = (int)$value['id'];
     $user->warfriendsPseudo = $value['warfriendsPseudo'];
-    $lastFivesRank = $user->getLastFivesRanks();
+    $lastTwelvesRank = $user->getLastTwelvesRanks();
     
 ?><div class="col-xl-3 col-12">
     <div id="accordion<?=$key?>">   
@@ -77,14 +98,14 @@ foreach($lastFive as $key=>$value):
             </div>
        <div id="heading<?=$key?>">     
       <h5 class="mb-0 text-center">
-        <button class="btn btn-link text-dark " data-toggle="collapse" data-target="<?='#collapse'.$key?>" aria-expanded="true" aria-controls="collapse<?=$key?>">
-          Syndicats
+        <button class="btn btn-link text-dark syndicateHomeButton" id="<?=$key?>" data-toggle="collapse" data-target="<?='#collapse'.$key?>" aria-expanded="true" aria-controls="collapse<?=$key?>">
+          Syndicats <i class="fas fa-sort-down fa-2x"></i>
         </button>
       </h5>
        </div>
       <div id="<?='collapse'.$key?>" class="collapse" aria-labelledby="heading<?=$key?>" data-parent="#accordion<?=$key?>">
             <ul class="list-group list-group-flush bg-light-opac">
-                <?php foreach($lastFivesRank as $secondKey=>$secondValue):
+                <?php foreach($lastTwelvesRank as $secondKey=>$secondValue):
                     
                     ?><li class="list-group-item bg-dark-opac text-light"><img class="img-fluid" src="assets/Images/<?= $secondValue['image'] ?>" /><?= 'rang : ' . $secondValue['rank'] ?></li>
                     <?php
@@ -92,9 +113,15 @@ foreach($lastFive as $key=>$value):
                 ?>
             </ul>
             <div class="card-body">
+               
             </div>
                 </div>
-               <div class="rem"></div> 
+               <div class="rem"></div>
+               <div class="text-center bg-dark-opac  <?='smallSyndicate' . $key?>">
+                <?php foreach($lastTwelvesRank as $thirdKey=>$thirdValue):
+                   ?><img class="img-fluid w-25" src="assets/Images/<?= $thirdValue['image'] ?>" /><?php
+                endforeach;?>
+               </div>
         </div>
         <div class="rem"></div>
     </div>
@@ -107,15 +134,8 @@ endforeach;
 ?>
 </div>
 
+        <?php include 'View/footerView.php';?>
 
-
-        <!--        <div class="container-fluid" id="divHomeText">
-                  <p class="h3 font-weight-bold text-danger font-family-germania" id="homePageText">Find friends. Exchange. Get stronger.</p>
-                </div>-->
-        <!--            <video width="auto" height="auto" autoplay="" loop="" muted="">
-                        <source type="video/mp4" src="assets/Videos/Nidus.mp4" />
-                        <source type="video/webm" src="assets/Videos/Nidus.webm" />
-                    </video>-->
 
 
         <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
