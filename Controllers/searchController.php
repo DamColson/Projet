@@ -16,7 +16,8 @@ $disconnect = '../Controllers/disconnect.php';
 $user = new Users();
 $user->search = $_GET['searchBar'];
 
-
+$warfriendsPerPage=6;
+$page = (!empty($_GET['page'])) ? $_GET['page'] : 1;
 $search = $user->research();
 
 $armor = new Armors();
@@ -27,4 +28,9 @@ $armor->id = $rand = rand(1,64);
 endif;
 $getName = $armor->getArmorsName();
 
+
+
+
+$searchedWarfriendsQuantity = sizeOf($user->researchCount());
+$pageQuantity = ceil($searchedWarfriendsQuantity/$warfriendsPerPage);
 

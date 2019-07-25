@@ -73,7 +73,20 @@ require_once '../Controllers/searchController.php';
 endforeach;
 ?>
 </div>
+        <?php
+        if ($page > 1):
+            ?><a href="?page=<?php echo $page - 1; ?>&searchBar=<?=$_GET['searchBar']?>&meridianCheckbox=<?=$_GET['meridianCheckbox']?>&arbiterCheckbox=<?=$_GET['arbiterCheckbox']?>&cephalonCheckbox=<?=$_GET['cephalonCheckbox']?>&perrinCheckbox<?=$_GET['perrinCheckbox']?>&redVeilCheckbox=<?=$_GET['redVeilCheckbox']?>&lokaCheckbox=<?=$_GET['lokaCheckbox']?>">Page précédente</a><span> - </span><?php
+        endif;
+        for ($i = 1; $i <= $pageQuantity; $i++):
+            ?><a href="?page=<?php echo $i; ?>&searchBar=<?=$_GET['searchBar']?>&meridianCheckbox=<?=$_GET['meridianCheckbox']?>&arbiterCheckbox=<?=$_GET['arbiterCheckbox']?>&cephalonCheckbox=<?=$_GET['cephalonCheckbox']?>&perrinCheckbox<?=$_GET['perrinCheckbox']?>&redVeilCheckbox=<?=$_GET['redVeilCheckbox']?>&lokaCheckbox=<?=$_GET['lokaCheckbox']?>"><?php echo $i; ?></a> <?php
+        endfor;
+        if ($page < $pageQuantity):
+            ?><span> - </span><a href="?page=<?php echo $page + 1; ?>&searchBar=<?=$_GET['searchBar']?>&meridianCheckbox=<?=$_GET['meridianCheckbox']?>&arbiterCheckbox=<?=$_GET['arbiterCheckbox']?>&cephalonCheckbox=<?=$_GET['cephalonCheckbox']?>&perrinCheckbox<?=$_GET['perrinCheckbox']?>&redVeilCheckbox=<?=$_GET['redVeilCheckbox']?>&lokaCheckbox=<?=$_GET['lokaCheckbox']?>">Page suivante</a><?php
+        endif;
+        
+        
 
+        ?>
         <?php include 'footerView.php';?>
 
 
