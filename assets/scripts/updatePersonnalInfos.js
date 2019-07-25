@@ -31,3 +31,17 @@ $('input').focusout(function () {
         }
     });
 });
+
+// search lightbox
+
+$(function () {
+
+    $(".search").click(function () {
+        $(".bigSearch").fadeIn("slow").css("display", "flex");
+    });
+
+    $(".closeSearchModal").click(function () {
+        $(".bigSearch").fadeOut("fast");
+    });
+
+});

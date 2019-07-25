@@ -3,6 +3,7 @@ require '../Models/modelDb.php';
 require '../Models/ArmorsModel.php';
 require '../Models/usersModel.php';
 require '../Models/SyndicateDetailsModel.php';
+
 session_start();
 $linkIndex = '../index.php';
 $linkUpdate = 'updateView.php';

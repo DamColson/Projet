@@ -16,10 +16,10 @@
                             <a class="text-light nav-link" href="<?= $linkIndex ?>" id="home">Accueil</a>
                         </li>
                         <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4">
-                            <a class="text-light nav-link" href="#">A propos de WarFriends</a>
+                            <a class="text-light nav-link search <?=(isset($_SESSION['warfriendsPseudo']))?'':'d-none'?>">Recherche</a>
                         </li>
                         <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4 <?=(isset($_SESSION['warfriendsPseudo']))?'d-none':''?>">
-                            <a class="text-light nav-link" id="connection">Connexion</a>
+                            <a class="text-light nav-link connection" id="connection">Connexion</a>
                         </li>
                         
                         <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4 <?=(isset($_SESSION['warfriendsPseudo']))?'d-none':''?>">
@@ -78,3 +78,4 @@
         </div>
     </div>
 </div>
+<?php include 'searchLightboxView.php'; ?>

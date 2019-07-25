@@ -93,6 +93,11 @@ video {
     border:1px solid rgba(0,0,0,.125);
 }
 
+.lastSubscriberWidth{
+    width:50%!important;
+}
+
+
 @media(min-width:1201px) {
     .nav-tabs {
         display: flex;
@@ -384,3 +389,104 @@ video {
     }
 }
 
+/*search lightbox */
+.search, .bigSearch {
+    cursor: pointer
+}
+
+.bigSearch {
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    height: 60%;
+    background-color: rgba(52,58,54,0.9);
+    z-index:1021;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* connexion lightbox */
+
+.connection, .bigConnection {
+    cursor: pointer
+}
+
+.bigConnection {
+    position: fixed;
+    top: 15%;
+    left: 25%;
+    width: 50%;
+    height: 70%;
+    background-color: rgba(52,58,54,0.9);
+    z-index:1021;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width:950px) {
+
+    .bigConnection {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    background-color: rgba(52,58,54,0.9);
+    z-index:1021;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+    .bigSearch {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    background-color: rgba(52,58,54,0.9);
+    z-index:1021;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.lastSubscriberWidth{
+    width:100%!important;
+}
+
+
+}
+@media screen and (min-width:951px) and (max-width:1200px){
+
+    .bigConnection {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    background-color: rgba(52,58,54,0.9);
+    z-index:1021;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+    .bigSearch {
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    background-color: rgba(52,58,54,0.9);
+    z-index:1021;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.lastSubscriberWidth{
+    width:50%!important;
+}}

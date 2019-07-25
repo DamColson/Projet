@@ -46,10 +46,18 @@ $('#oldPassword,#newPassword,#confirmNewPassword').focusout(function(){
    });
 });
 
-$('#connection').click(function(){
-    if($('#connectionDiv').is(':hidden')){
-        $( "#connectionDiv" ).slideDown( 'slow' );
-    }else{
-        $( "#connectionDiv" ).slideUp( 'slow' );
-    }
+
+
+// search lightbox
+
+$(function () {
+
+    $(".search").click(function () {
+        $(".bigSearch").fadeIn("slow").css("display", "flex");
+    });
+
+    $(".closeSearchModal").click(function () {
+        $(".bigSearch").fadeOut("fast");
+    });
+
 });

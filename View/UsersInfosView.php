@@ -159,7 +159,7 @@ require '../Controllers/UsersInfosController.php';
                                 <div class="rem"></div>
 
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <a href="updateView.php" class="mx-auto"><button type="button" class="btn btn-dark text-light">Modifier mes infos</button></a>
+                                    <a href="updateView.php" class="mx-auto"><button type="button" class="btn btn-outline-success my-2 my-sm-0">Modifier mes infos</button></a>
                                 </div>
 
                                 <div class="rem"></div>
@@ -232,7 +232,7 @@ require '../Controllers/UsersInfosController.php';
                                 <div class="rem"></div>
 
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <a href="updateView.php" class="mx-auto"><button type="button" class="btn btn-dark text-light">Modifier mes infos</button></a>
+                                    <a href="updateView.php" class="mx-auto"><button type="button" class="btn btn-outline-success my-2 my-sm-0">Modifier mes infos</button></a>
                                 </div>
 
                                 <div class="rem"></div>
@@ -294,7 +294,7 @@ require '../Controllers/UsersInfosController.php';
                                 </fieldset>
 
                                 <div class="align-items-center justify-content-center d-flex">
-                                    <button name="submitModifButton" id="submitModifButton" value="submitOn" type="submit" class="btn btn-dark text-light mb-3">Envoyer</button>
+                                    <button name="submitModifButton" id="submitModifButton" value="submitOn" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Envoyer</button>
                                 </div>
                             </form>
                             <?php if($errorInModif == $modifValidation && !empty($_POST)):
@@ -343,7 +343,7 @@ require '../Controllers/UsersInfosController.php';
                                     </div>
                                 </fieldset>
                                 <div class="align-items-center justify-content-center d-flex">
-                                    <button name="submitDeleteButton" id="submitDeleteButton" value="submitOn" type="submit" class="btn btn-dark text-light mb-3">Valider</button>
+                                    <button name="submitDeleteButton" id="submitDeleteButton" value="submitOn" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Valider</button>
                                 </div>
                             </form>
                         </div>
@@ -352,7 +352,8 @@ require '../Controllers/UsersInfosController.php';
             </div>
         </div>
 
-<?php include 'footerView.php';?>
+<?php 
+include 'footerView.php';?>
 
 
 

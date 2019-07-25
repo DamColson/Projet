@@ -17,40 +17,12 @@ require_once '../Controllers/formController.php';
         </video>
         <?php
         include 'headerView.php';
+        include 'connectionView.php'
         ?>
-        <div class="bg-light-opac" id="connectionDiv">
-            <div>
-                <p class="h2 font-weight-bold text-center" >Connexion</p>
-            </div>
-            <form id="connexionForm" action="../index.php" method="post">
-
-
-                <fieldset class="text-center row no-gutters">
-                    <div class="form-group col-lg-3"></div>
-                    <div class="form-group col-lg-6">
-                        <label for="warfriendsPseudo">Pseudo Warfriends : </label>
-                        <input class="form-control" type="text" name="warfriendsPseudo" id="warfriendsPseudo" required/>
-                    </div>
-                    <div class="form-group col-lg-3"></div>
-                    <div class="rem"></div>
-                    <div class="form-group col-lg-3"></div>
-                    <div class="form-group col-lg-6">
-                        <label for="warfriendsPassword">Mot de passe :</label>
-                        <input class="form-control" type="password" name="warfriendsPassword" id="warfriendsPassword" required/>
-                    </div>
-                    <div class="form-group col-lg-3"></div>
-                </fieldset>
-
-
-                <div class="align-items-center justify-content-center d-flex">
-                    <button type="button" class="btn btn-secondary mr-2" id="closeConnection" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-light text-dark ml-2" id="connexionButton">Connexion</button>
-                </div>
-            </form>
-            <div class="rem"></div>
-        </div>
+        
         <div class="rem"></div>
         <form method="POST" class="bg-light-opac w-75 mx-auto" action="formView.php" id="inscriptionForm">
+            <div class="rem"></div>
             <p class="h3 text-dark mb-3 text-center">Vos informations personnelles</p>
             <fieldset class="mb-3">
                 <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
@@ -156,8 +128,9 @@ require_once '../Controllers/formController.php';
             </fieldset>
 
             <div class="align-items-center justify-content-center d-flex">
-                <button name="submitFormButton" id="submitFormButton" value="submitOn" type="submit" class="btn btn-light text-dark mb-3">Envoyer</button>
+                <button name="submitFormButton" id="submitFormButton" value="submitOn" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Envoyer</button>
             </div>
+            <div class="rem"></div>
         </form>
         <?php if($errorInForm == $formValidation && !empty($_POST)):
 

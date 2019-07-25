@@ -10,6 +10,7 @@ class Users extends Db {
     public $tagDiscord;
     public $password;
     public $id_wfd_Armors;
+    public $search;
 
     
     public function __construct(){
@@ -141,6 +142,84 @@ class Users extends Db {
     }
     
     public function getLastTwelvesRanks(){
+        try{
+        $query = "SELECT wfd_Syndicate.name AS name,wfd_Syndicate.image AS image,wfd_SyndicateDetails.rank AS rank FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_UsersInfos.id = :wfd_UsersInfosId AND wfd_SyndicateDetails.rank != '<2'";
+        
+
+        $getLastTwelvesRank = $this->db->prepare($query);
+
+        $getLastTwelvesRank->bindValue(':wfd_UsersInfosId',$this->id,PDO::PARAM_INT);
+        
+        if($getLastTwelvesRank->execute()):        
+            $lastTwelvesRank = $getLastTwelvesRank->fetchAll(PDO::FETCH_ASSOC);
+            return $lastTwelvesRank;
+        endif;
+    }catch(PDOException $error){
+        $msg = 'ERREUR PDO within ' . $error->getFile() . 'L.' . $error->getLine() . ' : ' . $error->getMessage();
+        die($msg);
+    }
+    }
+    
+    public function research(){
+        try{
+        $query = "SELECT wfd_UsersInfos.id, wfd_UsersInfos.warfriendsPseudo FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE (wfd_Syndicate.name LIKE :search OR wfd_UsersInfos.warfriendsPseudo LIKE :search OR wfd_Syndicate.name = :meridian OR wfd_Syndicate.name = :arbiter OR wfd_Syndicate.name = :cephalon OR wfd_Syndicate.name = :perrin OR wfd_Syndicate.name = :redVeil OR wfd_Syndicate.name = :loka) AND wfd_SyndicateDetails.rank != '<2' GROUP BY wfd_UsersInfos.id ";
+        
+        $search = $this->db->prepare($query);
+        
+        if(!empty($_GET['searchBar'])):
+            $searchVal = '%' . $this->search . '%';
+        elseif(empty($_GET['searchBar'])):
+            $searchVal = NULL;
+        endif;
+        
+        $search->bindValue(':search',$searchVal,PDO::PARAM_STR);
+        
+        if(!empty($_GET['meridianCheckbox'])):
+            $search->bindValue(':meridian',$_GET['meridianCheckbox'],PDO::PARAM_STR);
+        elseif(empty($_GET['meridianCheckbox'])):
+            $search->bindValue(':meridian',NULL,PDO::PARAM_STR);    
+        endif;
+        
+        if(!empty($_GET['arbiterCheckbox'])):
+            $search->bindValue(':arbiter',$_GET['arbiterCheckbox'],PDO::PARAM_STR);
+        elseif(empty($_GET['arbiterCheckbox'])):
+            $search->bindValue(':arbiter',NULL,PDO::PARAM_STR);    
+        endif;
+        
+        if(!empty($_GET['cephalonCheckbox'])):
+            $search->bindValue(':cephalon',$_GET['cephalonCheckbox'],PDO::PARAM_STR);
+        elseif(empty($_GET['cephalonCheckbox'])):
+            $search->bindValue(':cephalon',NULL,PDO::PARAM_STR);    
+        endif;
+        
+        if(!empty($_GET['perrinCheckbox'])):
+            $search->bindValue(':perrin',$_GET['perrinCheckbox'],PDO::PARAM_STR);
+        elseif(empty($_GET['perrinCheckbox'])):
+            $search->bindValue(':perrin',NULL,PDO::PARAM_STR);    
+        endif;
+        
+        if(!empty($_GET['redVeilCheckbox'])):
+            $search->bindValue(':redVeil',$_GET['redVeilCheckbox'],PDO::PARAM_STR);
+        elseif(empty($_GET['redVeilCheckbox'])):
+            $search->bindValue(':redVeil',NULL,PDO::PARAM_STR);    
+        endif;
+        
+        if(!empty($_GET['lokaCheckbox'])):
+            $search->bindValue(':loka',$_GET['lokaCheckbox'],PDO::PARAM_STR);
+        elseif(empty($_GET['lokaCheckbox'])):
+            $search->bindValue(':loka',NULL,PDO::PARAM_STR);    
+        endif;
+        
+        if($search->execute()):
+            $searchResult = $search->fetchAll(PDO::FETCH_ASSOC);
+            return $searchResult;
+        endif;
+    }catch(PDOException $error){
+        $msg = 'ERREUR PDO within ' . $error->getFile() . 'L.' . $error->getLine() . ' : ' . $error->getMessage();
+        die($msg);
+    }
+    }
+    public function getRanks(){
         try{
         $query = "SELECT wfd_Syndicate.name AS name,wfd_Syndicate.image AS image,wfd_SyndicateDetails.rank AS rank FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_UsersInfos.id = :wfd_UsersInfosId AND wfd_SyndicateDetails.rank != '<2'";
         

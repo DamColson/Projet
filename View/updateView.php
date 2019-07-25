@@ -118,8 +118,8 @@ require '../Controllers/updateController.php';
                                 </fieldset>
 
                                 <div class="align-items-center justify-content-center d-flex">
-                                    <a href="UsersInfosView.php"><button type="button" class="btn btn-dark text-light mr-3 mb-3">Retour</button></a>
-                                    <button name="submitUpdateInfosButton" id="submitUpdateInfosButton" value="submitOn" type="submit" class="btn btn-dark text-light mb-3">Valider</button>
+                                    <a href="UsersInfosView.php"><button type="button" class="btn btn-outline-success my-2 my-sm-0 mr-3 mb-3">Retour</button></a>
+                                    <button name="submitUpdateInfosButton" id="submitUpdateInfosButton" value="submitOn" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Valider</button>
                                 </div>
                             </form>
                             
@@ -271,9 +271,9 @@ require '../Controllers/updateController.php';
                                     
                                     <div class="align-items-center justify-content-center d-flex">
                                         
-                                        <a href="UsersInfosView.php"><button type="button" class="btn btn-dark text-light mr-3 mb-3">Retour</button></a>
+                                        <a href="UsersInfosView.php"><button type="button" class="btn btn-outline-success my-2 my-sm-0 mr-3 mb-3">Retour</button></a>
                                     
-                                        <button name="submitUpdateRankButton" id="submitUpdateRankButton" value="submitOn" type="submit" class="btn btn-dark text-light mb-3">Valider</button>
+                                        <button name="submitUpdateRankButton" id="submitUpdateRankButton" value="submitOn" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Valider</button>
                                     </div>
 
                                     <div class="rem"></div>
