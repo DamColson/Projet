@@ -12,6 +12,7 @@ $modifyAccount = 'updateView.php';
 $linkAccount = 'UsersInfosView.php';
 $linkFormView = 'formView.php';
 $disconnect = '../Controllers/disconnect.php';
+$searchView = 'searchView.php';
 
 $user = new Users();
 $user->search = $_GET['searchBar'];

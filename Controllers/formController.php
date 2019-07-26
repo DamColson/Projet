@@ -8,6 +8,7 @@ $linkIndex = '../index.php';
 $linkAccount = 'UsersInfosView.php';
 $linkFormView ='formView.php';
 $disconnect = '../Controllers/disconnect.php';
+$searchView = 'searchView.php';
 
 include '../assets/php/arrays.php';
 

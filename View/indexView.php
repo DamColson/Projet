@@ -21,19 +21,22 @@ require_once 'Controllers/indexController.php';
         include 'headerView.php';
         include 'connectionView.php'
         ?>
-        
+
         <div class="rem"></div>
         <div class="h1 text-center text-dark bg-light-opac lastSubscriberWidth mx-auto rounded">Nos derniers Inscrits</div>
         <div class="rem"></div>
         <div class="row no-gutters">
-<?php
-foreach ($lastTwelve as $key => $value):
+            <?php
+            foreach ($lastTwelve as $key => $value):
 
-    $user = new Users();
-    $user->id = (int) $value['id'];
-    $user->warfriendsPseudo = $value['warfriendsPseudo'];
-    $lastTwelvesRank = $user->getLastTwelvesRanks();
-    ?><div class="col-xl-3 col-12">
+                $user = new Users();
+                $user->id = (int) $value['id'];
+                $user->warfriendsPseudo = $value['warfriendsPseudo'];
+                $user->mail = $value['mail'];
+                $user->tagDiscord = $value['tagDiscord'];
+
+                $lastTwelvesRank = $user->getLastTwelvesRanks();
+                ?><div class="col-xl-3 col-12">
                     <div id="accordion<?= $key ?>">   
                         <div class="card mx-auto bg-light-opac" style="width: 18rem;">
 
@@ -51,11 +54,30 @@ foreach ($lastTwelve as $key => $value):
                             </div>
                             <div id="<?= 'collapse' . $key ?>" class="collapse" aria-labelledby="heading<?= $key ?>" data-parent="#accordion<?= $key ?>">
                                 <ul class="list-group list-group-flush bg-light-opac">
-    <?php foreach ($lastTwelvesRank as $secondKey => $secondValue):
-        ?><li class="list-group-item bg-dark-opac text-light"><img class="img-fluid" src="assets/Images/<?= $secondValue['image'] ?>" /><?= 'rang : ' . $secondValue['rank'] ?></li>
-        <?php
-    endforeach;
-    ?>
+                                    <?php foreach ($lastTwelvesRank as $secondKey => $secondValue):
+                                        ?><li class="list-group-item bg-dark-opac text-light"><img class="img-fluid" src="assets/Images/<?= $secondValue['image'] ?>" /><?= 'rang : ' . $secondValue['rank'] ?></li>
+                                        <?php
+                                    endforeach;
+                                    ?>
+                                </ul>
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+
+                            <!-- test deuxieme accordeon -->
+
+                            <div id="heading<?= $key . '' . $key ?>">     
+                                <h5 class="mb-0 text-center">
+                                    <button class="btn btn-link text-dark contactButton" id="<?= $key . '' . $key ?>" data-toggle="collapse" data-target="<?= '#collapse' . $key . '' . $key ?>" aria-expanded="true" aria-controls="collapse<?= $key . '' . $key ?>">
+                                        Contact <i class="fas fa-sort-down fa-2x"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="<?= 'collapse' . $key . '' . $key ?>" class="collapse" aria-labelledby="heading<?= $key . '' . $key ?>" data-parent="#accordion<?= $key ?>">
+                                <ul class="list-group list-group-flush bg-light-opac">
+                                    <li class="text-center list-group-item bg-dark-opac text-light"><a href="mailto:<?= $user->mail ?>"><?= $user->mail ?></a></li>
+                                    <li class="text-center list-group-item bg-dark-opac text-light"><?= $user->tagDiscord ?></li>
                                 </ul>
                                 <div class="card-body">
 
@@ -63,8 +85,8 @@ foreach ($lastTwelve as $key => $value):
                             </div>
                             <div class="rem"></div>
                             <div class="text-center bg-dark-opac  <?= 'smallSyndicate' . $key ?>">
-                                    <?php foreach ($lastTwelvesRank as $thirdKey => $thirdValue):
-                                        ?><img class="img-fluid w-25" src="assets/Images/<?= $thirdValue['image'] ?>" /><?php endforeach; ?>
+                                <?php foreach ($lastTwelvesRank as $thirdKey => $thirdValue):
+                                    ?><img class="img-fluid w-25" src="assets/Images/<?= $thirdValue['image'] ?>" /><?php endforeach; ?>
                             </div>
                         </div>
                         <div class="rem"></div>
@@ -72,14 +94,12 @@ foreach ($lastTwelve as $key => $value):
                 </div>
 
 
-                                <?php
-                            endforeach;
-                            ?>
+                <?php
+            endforeach;
+            ?>
         </div>
-        
 
-<?php 
-include 'View/footerView.php'; ?>
+        <?php include 'View/footerView.php'; ?>
 
 
 

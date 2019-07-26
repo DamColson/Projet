@@ -13,10 +13,11 @@ $modifyAccount = 'updateView.php';
 $linkAccount = 'UsersInfosView.php';
 $linkFormView = 'formView.php';
 $disconnect = '../Controllers/disconnect.php';
+$searchView = 'searchView.php';
 
 include '../assets/php/arrays.php';
 
-array_map('strip_tags',$_POST);
+$_POST = array_map('strip_tags',$_POST);
 
 $armors = implode('|', $armor);
 $primeArmors = implode('|', $primeArmor);
@@ -47,11 +48,6 @@ $user->warframePseudo=$warframePseudo;
 $user->warfriendsPseudo=$warfriendsPseudo;
 $user->mail=$mail;
 $user->tagDiscord=$tagDiscord;
-
-
-
-
-
 
 $data;
 
@@ -94,7 +90,10 @@ if($_POST):
         $_SESSION['id_wfd_Armors'] = $user->id_wfd_Armors;
     endif;
     
-    
+    if(!empty($_POST['submitUpdateInfosButton']) && !empty($_POST['showDiscord'])):
+        $user->showDiscord = $_POST['showDiscord'];
+        $_SESSION['showDiscord'] = $user->showDiscord;
+    endif;
     
    if (!empty($_POST['meridianRank']) && !preg_match($regexSyndicateRank, $_POST['meridianRank'])):
         $errorInUpdateSyndicateRank['meridianRank'] = 0;

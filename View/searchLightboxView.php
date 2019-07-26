@@ -1,5 +1,5 @@
 <div class="bigSearch">
-            <form id="search" action="View/searchView.php" method="get">
+            <form id="search" action="<?=$searchView?>" method="get">
 
 
                 <fieldset class="text-center row no-gutters text-light">
@@ -42,7 +42,7 @@
                             </div> 
                             <div class="mb-2 mx-auto">
                                 <input class="mr-1" type="checkbox" name="lokaCheckbox" id="lokaCheckbox" value="New Loka" />
-                                <label for="lokaCheckbox">Cephalon Suda</label>
+                                <label for="lokaCheckbox">New Loka</label>
                             </div>
                     </div>    
 

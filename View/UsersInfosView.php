@@ -183,52 +183,52 @@ require '../Controllers/UsersInfosController.php';
 
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
-                                    <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smallsteelicon.png" /> Steel Meridian :
+                                    <div class="col-12 col-lg-6 h5 text-left">
+                                        <img class="img-fluid" src="../assets/Images/smallsteelicon.png" /><span class="font-weight-bold">Steel Meridian : </span><?=($_SESSION['meridianRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['meridianRank']?>
                                     </div>
                                        
                                 </div>                          
-                                <div class="col-lg-12 text-center h5"><?=($_SESSION['meridianRank']=='<2')?'Votre rang chez Steel Meridian est inférieur à 2':'Votre rang chez Steel Meridian est : ' . $_SESSION['meridianRank']?></div> 
+                                
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
-                                    <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smallarbitericon.png" /> Arbiter Of Hexis :
+                                    <div class="col-12 col-lg-6 h5 text-left">
+                                        <img class="img-fluid" src="../assets/Images/smallarbitericon.png" /><span class="font-weight-bold">Arbiter Of Hexis : </span><?=($_SESSION['arbiterRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['arbiterRank']?>
                                     </div>
                                         
                                 </div>                   
-                                <div class="col-lg-12 text-center h5"><?=($_SESSION['arbiterRank']=='<2')?'Votre rang chez Arbiter Of Hexis est inférieur à 2':'Votre rang chez Arbiter Of Hexis est : ' . $_SESSION['arbiterRank']?></div>
+                                
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
-                                    <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smallcephalonicon.png" /> Cephalon Suda :
+                                    <div class="col-12 col-lg-6 h5 text-left">
+                                        <img class="img-fluid" src="../assets/Images/smallcephalonicon.png" /><span class="font-weight-bold">Cephalon Suda : </span><?=($_SESSION['cephalonRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['cephalonRank']?>
                                     </div>
                                         
                                 </div>
-                                <div class="col-lg-12 text-center h5"><?=($_SESSION['cephalonRank']=='<2')?'Votre rang chez Cephalon Suda est inférieur à 2':'Votre rang chez Cephalon Suda est : ' . $_SESSION['cephalonRank']?></div>
+
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
-                                    <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smallredveilicon.png" /> The Red Veil : 
+                                    <div class="col-12 col-lg-6 h5 text-left">
+                                        <img class="img-fluid" src="../assets/Images/smallredveilicon.png" /><span class="font-weight-bold">The Red Veil : </span><?=($_SESSION['redVeilRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['redVeilRank']?>
                                     </div>
                                         
                                 </div>
-                                    <div class="col-lg-12 text-center h5"><?=($_SESSION['redVeilRank']=='<2')?'Votre rang chez Red Veil est inférieur à 2':'Votre rang chez Red Veil est : ' . $_SESSION['redVeilRank']?></div>
+
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
-                                    <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smallperrinsequenceicon.png" /> Perrin Sequence :
+                                    <div class="col-12 col-lg-6 h5 text-left">
+                                        <img class="img-fluid" src="../assets/Images/smallperrinsequenceicon.png" /><span class="font-weight-bold">Perrin Sequence : </span><?=($_SESSION['perrinRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['perrinRank']?>
                                     </div>
                                         
                                 </div>
-                                <div class="col-lg-12 text-center h5"><?=($_SESSION['perrinRank']=='<2')?'Votre rang chez The Perrin Sequence est inférieur à 2':'Votre rang chez The Perrin Sequence est : ' . $_SESSION['perrinRank']?></div>    
+                                  
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
-                                    <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smalllokaicon.png" /> The New Loka :
+                                    <div class="col-12 col-lg-6 h5 text-left">
+                                        <img class="img-fluid" src="../assets/Images/smalllokaicon.png" /><span class="font-weight-bold">The New Loka :</span><?=($_SESSION['lokaRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['lokaRank']?>
                                     </div>
                                         
                                 </div>
-                                <div class="col-lg-12 text-center h5"><?=($_SESSION['lokaRank']=='<2')?'Votre rang chez New Loka est inférieur à 2':'Votre rang chez New Loka est : ' . $_SESSION['lokaRank']?></div>
+                                <div class="col-lg-12 text-center h5"></div>
                                 <div class="rem"></div>
 
                                 <div class="d-flex justify-content-center align-items-center">

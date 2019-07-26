@@ -11,6 +11,8 @@ class Users extends Db {
     public $password;
     public $id_wfd_Armors;
     public $search;
+    public $showDiscord;
+    public $showMail;
 
     public function __construct() {
         parent::__construct();
@@ -130,7 +132,7 @@ class Users extends Db {
     }
 
     public function getLastTwelve() {
-        $query = "SELECT wfd_UsersInfos.id,wfd_UsersInfos.warfriendsPseudo FROM wfd_SyndicateDetails INNER JOIN wfd_Syndicate ON wfd_Syndicate.id = wfd_SyndicateDetails.id_wfd_Syndicate INNER JOIN wfd_UsersInfos ON wfd_UsersInfos.id = wfd_SyndicateDetails.id_wfd_UsersInfos WHERE wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id AND wfd_Syndicate.id = 1 ORDER BY wfd_UsersInfos.id DESC LIMIT 12";
+        $query = "SELECT wfd_UsersInfos.mail,wfd_UsersInfos.tagDiscord,wfd_UsersInfos.id,wfd_UsersInfos.warfriendsPseudo FROM wfd_SyndicateDetails INNER JOIN wfd_Syndicate ON wfd_Syndicate.id = wfd_SyndicateDetails.id_wfd_Syndicate INNER JOIN wfd_UsersInfos ON wfd_UsersInfos.id = wfd_SyndicateDetails.id_wfd_UsersInfos WHERE wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id AND wfd_Syndicate.id = 1 ORDER BY wfd_UsersInfos.id DESC LIMIT 12";
 
         $getLastTwelve = $this->db->prepare($query);
         $getLastTwelve->execute();
@@ -142,7 +144,7 @@ class Users extends Db {
 
     public function getLastTwelvesRanks() {
         try {
-            $query = "SELECT wfd_Syndicate.name AS name,wfd_Syndicate.image AS image,wfd_SyndicateDetails.rank AS rank FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_UsersInfos.id = :wfd_UsersInfosId AND wfd_SyndicateDetails.rank != '<2'";
+            $query = "SELECT wfd_Syndicate.name AS name,wfd_Syndicate.image AS image,wfd_SyndicateDetails.rank AS rank FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_UsersInfos.id = :wfd_UsersInfosId AND wfd_SyndicateDetails.rank != '<2' ORDER BY wfd_SyndicateDetails.rank DESC";
 
 
             $getLastTwelvesRank = $this->db->prepare($query);
@@ -161,7 +163,7 @@ class Users extends Db {
 
     public function research() {
         try {
-            $query = "SELECT wfd_UsersInfos.id, wfd_UsersInfos.warfriendsPseudo FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE (wfd_Syndicate.name LIKE :search OR wfd_UsersInfos.warfriendsPseudo LIKE :search OR wfd_Syndicate.name = :meridian OR wfd_Syndicate.name = :arbiter OR wfd_Syndicate.name = :cephalon OR wfd_Syndicate.name = :perrin OR wfd_Syndicate.name = :redVeil OR wfd_Syndicate.name = :loka) AND wfd_SyndicateDetails.rank != '<2' GROUP BY wfd_UsersInfos.id LIMIT :warfriendsPerPage OFFSET :start";
+            $query = "SELECT wfd_UsersInfos.mail,wfd_UsersInfos.tagDiscord,wfd_UsersInfos.id, wfd_UsersInfos.warfriendsPseudo FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE (wfd_Syndicate.name LIKE :search OR wfd_UsersInfos.warfriendsPseudo LIKE :search OR wfd_Syndicate.name = :meridian OR wfd_Syndicate.name = :arbiter OR wfd_Syndicate.name = :cephalon OR wfd_Syndicate.name = :perrin OR wfd_Syndicate.name = :redVeil OR wfd_Syndicate.name = :loka) AND wfd_SyndicateDetails.rank != '<2' GROUP BY wfd_UsersInfos.id LIMIT :warfriendsPerPage OFFSET :start";
 
             $search = $this->db->prepare($query);
 
@@ -229,7 +231,7 @@ class Users extends Db {
 
     public function getRanks() {
         try {
-            $query = "SELECT wfd_Syndicate.name AS name,wfd_Syndicate.image AS image,wfd_SyndicateDetails.rank AS rank FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_UsersInfos.id = :wfd_UsersInfosId AND wfd_SyndicateDetails.rank != '<2'";
+            $query = "SELECT wfd_Syndicate.name AS name,wfd_Syndicate.image AS image,wfd_SyndicateDetails.rank AS rank FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_UsersInfos.id = :wfd_UsersInfosId AND wfd_SyndicateDetails.rank != '<2' ORDER BY wfd_SyndicateDetails.rank DESC";
 
 
             $getLastTwelvesRank = $this->db->prepare($query);

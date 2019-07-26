@@ -28,6 +28,8 @@ require_once '../Controllers/searchController.php';
     ${'user'.$key} = new Users();
     ${'user'.$key}->id = $value['id'];
     ${'user'.$key}->warfriendsPseudo = $value['warfriendsPseudo'];
+    ${'user'.$key}->mail = $value['mail'];
+    ${'user'.$key}->tagDiscord = $value['tagDiscord'];
     $userRanks = ${'user'.$key}->getRanks();
     ?><div class="col-xl-4 col-12">
                     <div id="accordion<?= $key ?>">   
@@ -57,6 +59,22 @@ require_once '../Controllers/searchController.php';
 
                                 </div>
                             </div>
+                            <div id="heading<?= $key . '' . $key ?>">     
+                                <h5 class="mb-0 text-center">
+                                    <button class="btn btn-link text-dark contactButton" id="<?= $key . '' . $key ?>" data-toggle="collapse" data-target="<?= '#collapse' . $key . '' . $key ?>" aria-expanded="true" aria-controls="collapse<?= $key . '' . $key ?>">
+                                        Contact <i class="fas fa-sort-down fa-2x"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="<?= 'collapse' . $key . '' . $key ?>" class="collapse" aria-labelledby="heading<?= $key . '' . $key ?>" data-parent="#accordion<?= $key ?>">
+                                <ul class="list-group list-group-flush bg-light-opac">
+                                    <li class="text-center list-group-item bg-dark-opac text-light"><a href="mailto:<?= ${'user'.$key}->mail ?>"><?= ${'user'.$key}->mail ?></a></li>
+                                    <li class="text-center list-group-item bg-dark-opac text-light"><?= ${'user'.$key}->tagDiscord ?></li>
+                                </ul>
+                                <div class="card-body">
+
+                                </div>
+                            </div>
                             <div class="rem"></div>
                             <div class="text-center bg-dark-opac  <?= 'smallSyndicate' . $key ?>">
                                     <?php foreach ($userRanks as $thirdKey => $thirdValue):
@@ -73,20 +91,26 @@ require_once '../Controllers/searchController.php';
 endforeach;
 ?>
 </div>
+        <div class="bg-dark-opac text-center">
+            <a class="text-light h4" href="?page=<?php echo 1; ?>&searchBar=<?=$_GET['searchBar']?>&meridianCheckbox=<?=$_GET['meridianCheckbox']?>&arbiterCheckbox=<?=$_GET['arbiterCheckbox']?>&cephalonCheckbox=<?=$_GET['cephalonCheckbox']?>&perrinCheckbox=<?=$_GET['perrinCheckbox']?>&redVeilCheckbox=<?=$_GET['redVeilCheckbox']?>&lokaCheckbox=<?=$_GET['lokaCheckbox']?>"><i class="fas fa-angle-double-left mr-3"></i></a><span> - </span>
         <?php
+        
         if ($page > 1):
-            ?><a href="?page=<?php echo $page - 1; ?>&searchBar=<?=$_GET['searchBar']?>&meridianCheckbox=<?=$_GET['meridianCheckbox']?>&arbiterCheckbox=<?=$_GET['arbiterCheckbox']?>&cephalonCheckbox=<?=$_GET['cephalonCheckbox']?>&perrinCheckbox<?=$_GET['perrinCheckbox']?>&redVeilCheckbox=<?=$_GET['redVeilCheckbox']?>&lokaCheckbox=<?=$_GET['lokaCheckbox']?>">Page précédente</a><span> - </span><?php
+            ?><a class="text-light h4" href="?page=<?php echo $page - 1; ?>&searchBar=<?=$_GET['searchBar']?>&meridianCheckbox=<?=$_GET['meridianCheckbox']?>&arbiterCheckbox=<?=$_GET['arbiterCheckbox']?>&cephalonCheckbox=<?=$_GET['cephalonCheckbox']?>&perrinCheckbox=<?=$_GET['perrinCheckbox']?>&redVeilCheckbox=<?=$_GET['redVeilCheckbox']?>&lokaCheckbox=<?=$_GET['lokaCheckbox']?>"><i class="fas fa-angle-left"></i></a><span> - </span><?php
         endif;
         for ($i = 1; $i <= $pageQuantity; $i++):
-            ?><a href="?page=<?php echo $i; ?>&searchBar=<?=$_GET['searchBar']?>&meridianCheckbox=<?=$_GET['meridianCheckbox']?>&arbiterCheckbox=<?=$_GET['arbiterCheckbox']?>&cephalonCheckbox=<?=$_GET['cephalonCheckbox']?>&perrinCheckbox<?=$_GET['perrinCheckbox']?>&redVeilCheckbox=<?=$_GET['redVeilCheckbox']?>&lokaCheckbox=<?=$_GET['lokaCheckbox']?>"><?php echo $i; ?></a> <?php
+            ?><a class="text-light h5" href="?page=<?php echo $i; ?>&searchBar=<?=$_GET['searchBar']?>&meridianCheckbox=<?=$_GET['meridianCheckbox']?>&arbiterCheckbox=<?=$_GET['arbiterCheckbox']?>&cephalonCheckbox=<?=$_GET['cephalonCheckbox']?>&perrinCheckbox=<?=$_GET['perrinCheckbox']?>&redVeilCheckbox=<?=$_GET['redVeilCheckbox']?>&lokaCheckbox=<?=$_GET['lokaCheckbox']?>"><?php echo $i; ?></a> <?php
         endfor;
         if ($page < $pageQuantity):
-            ?><span> - </span><a href="?page=<?php echo $page + 1; ?>&searchBar=<?=$_GET['searchBar']?>&meridianCheckbox=<?=$_GET['meridianCheckbox']?>&arbiterCheckbox=<?=$_GET['arbiterCheckbox']?>&cephalonCheckbox=<?=$_GET['cephalonCheckbox']?>&perrinCheckbox<?=$_GET['perrinCheckbox']?>&redVeilCheckbox=<?=$_GET['redVeilCheckbox']?>&lokaCheckbox=<?=$_GET['lokaCheckbox']?>">Page suivante</a><?php
+            ?><span> - </span><a class="text-light h4" href="?page=<?php echo $page + 1; ?>&searchBar=<?=$_GET['searchBar']?>&meridianCheckbox=<?=$_GET['meridianCheckbox']?>&arbiterCheckbox=<?=$_GET['arbiterCheckbox']?>&cephalonCheckbox=<?=$_GET['cephalonCheckbox']?>&perrinCheckbox=<?=$_GET['perrinCheckbox']?>&redVeilCheckbox=<?=$_GET['redVeilCheckbox']?>&lokaCheckbox=<?=$_GET['lokaCheckbox']?>"><i class="fas fa-angle-right"></i></a><?php
         endif;
         
         
 
-        ?>
+        ?><a class="text-light h4" href="?page=<?php echo $pageQuantity; ?>&searchBar=<?=$_GET['searchBar']?>&meridianCheckbox=<?=$_GET['meridianCheckbox']?>&arbiterCheckbox=<?=$_GET['arbiterCheckbox']?>&cephalonCheckbox=<?=$_GET['cephalonCheckbox']?>&perrinCheckbox=<?=$_GET['perrinCheckbox']?>&redVeilCheckbox=<?=$_GET['redVeilCheckbox']?>&lokaCheckbox=<?=$_GET['lokaCheckbox']?>"><i class="fas fa-angle-double-right ml-3"></i></a><span> - </span>
+            
+        </div>
+        <div class="rem"></div>
         <?php include 'footerView.php';?>
 
 

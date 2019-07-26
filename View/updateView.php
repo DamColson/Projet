@@ -113,6 +113,22 @@ require '../Controllers/updateController.php';
                                             </select>
                                         </div>
                                         <div class="form-group col-lg-3"></div>
+                                        
+                                        <div class="form-group col-lg-3"></div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="showDiscord">Souhaitez rendre visible votre tag discord ? : </label>
+                                            <input type="radio" class="ml-1" id="showDiscord" name="showDiscord" value="Yes"  />Oui
+                                            <input type="radio" class="ml-1" id="showDiscord" name="showDiscord" value="No"  />Non
+                                        </div>
+                                        <div class="form-group col-lg-3"></div>
+                                                                              
+                                        <div class="form-group col-lg-3"></div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="showMail">Souhaitez rendre visible votre adresse email ? : </label>
+                                            <input type="radio" class="ml-1" id="showMail" name="showMail" value="Yes"  />Oui
+                                            <input type="radio" class="ml-1" id="showMail" name="showMail" value="No"  />Non
+                                        </div>
+                                        <div class="form-group col-lg-3"></div>
                                     </div>
 
                                 </fieldset>
@@ -167,102 +183,96 @@ require '../Controllers/updateController.php';
 
                                     <div class="text-dark row no-gutters">
                                         <div class="col-lg-3"></div>
-                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                            <img class="img-fluid" src="../assets/Images/smallsteelicon.png" /> Steel Meridian : 
-                                            <select class="form-control" id="meridianRank" name="meridianRank">
-                                                <option value="" selected disabled></option>
+                                        <div class="col-12 col-lg-6 h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smallsteelicon.png" /><span class="font-weight-bold">Steel Meridian : </span>
+                                            <div class="text-center">
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['meridianRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
+                                                        ?><input type="radio" class="ml-1" id="meridianRank" name="meridianRank" value="<?=$value?>" <?= ($_SESSION['meridianRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
                                                     endforeach;
                                                     ?> 
-                                            </select>
+                                            </div>
                                         </div>
                                         <div class="col-lg-3"></div>    
                                     </div>                          
 
                                     <div class="text-dark row no-gutters">
                                         <div class="col-lg-3"></div>
-                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                            <img class="img-fluid" src="../assets/Images/smallarbitericon.png" /> Arbiter Of Hexis :
-                                            <select class="form-control" id="arbiterRank" name="arbiterRank">
-                                                <option value="" selected disabled></option>
+                                        <div class="col-12 col-lg-6 h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smallarbitericon.png" /><span class="font-weight-bold">Arbiter Of Hexis : </span>
+                                                <div class="text-center">
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['arbiterRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
+                                                        ?><input type="radio" class="ml-1" id="arbiterRank" name="arbiterRank" value ="<?=$value?>" <?= ($_SESSION['arbiterRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
                                                     endforeach;
                                                     ?> 
-                                            </select>
+                                                </div>
                                         </div>
                                         <div class="col-lg-3"></div>    
                                     </div>                   
 
                                     <div class="text-dark row no-gutters">
                                         <div class="col-lg-3"></div>
-                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                            <img class="img-fluid" src="../assets/Images/smallcephalonicon.png" /> Cephalon Suda :
-                                            <select class="form-control" id="cephalonRank" name="cephalonRank">
-                                                <option value="" selected disabled></option>
+                                        <div class="col-12 col-lg-6 h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smallcephalonicon.png" /><span class="font-weight-bold">Cephalon Suda : </span>
+                                                <div class="text-center">
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['cephalonRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
+                                                        ?><input type="radio" class="ml-1" id="cephalonRank" name="cephalonRank" value ="<?=$value?>" <?= ($_SESSION['cephalonRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
-                                                    endforeach;
+                                                    endforeach; 
                                                     ?> 
-                                            </select>
+                                                </div>        
                                         </div>
                                         <div class="col-lg-3"></div>    
                                     </div>
 
                                     <div class="text-dark row no-gutters">
                                         <div class="col-lg-3"></div>
-                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                            <img class="img-fluid" src="../assets/Images/smallredveilicon.png" /> The Red Veil :
-                                            <select class="form-control" id="redVeilRank" name="redVeilRank">
-                                                <option value="" selected disabled></option>
+                                        <div class="col-12 col-lg-6 h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smallredveilicon.png" /><span class="font-weight-bold">The Red Veil : </span>
+                                                <div class="text-center">
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['redVeilRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
+                                                        ?><input type="radio" class="ml-1" id="redVeilRank" name="redVeilRank" value ="<?=$value?>" <?= ($_SESSION['redVeilRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
                                                     endforeach;
                                                     ?> 
-                                            </select>
+                                                </div>        
                                         </div>
                                         <div class="col-lg-3"></div>    
                                     </div>
 
                                     <div class="text-dark row no-gutters">
                                         <div class="col-lg-3"></div>
-                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                            <img class="img-fluid" src="../assets/Images/smallperrinsequenceicon.png" /> Perrin Sequence :
-                                            <select class="form-control" id="perrinRank" name="perrinRank">
-                                                <option value="" selected disabled></option>
+                                        <div class="col-12 col-lg-6 h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smallperrinsequenceicon.png" /><span class="font-weight-bold">Perrin Sequence : </span>
+                                            <div class="text-center">   
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['perrinRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
+                                                        ?><input type="radio" class="ml-1" id="perrinRank" name="perrinRank" value ="<?=$value?>" <?= ($_SESSION['perrinRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
                                                     endforeach;
                                                     ?> 
-                                            </select>
+                                            </div>            
                                         </div>
                                         <div class="col-lg-3"></div>    
                                     </div>
 
                                     <div class="text-dark row no-gutters">
                                         <div class="col-lg-3"></div>
-                                        <div class="col-12 col-lg-6 font-weight-bold h5 text-left">
-                                            <img class="img-fluid" src="../assets/Images/smalllokaicon.png" /> The New Loka :
-                                            <select class="form-control" id="lokaRank" name="lokaRank">
-                                                <option value="" selected disabled></option>
+                                        <div class="col-12 col-lg-6 h5 text-left">
+                                            <img class="img-fluid" src="../assets/Images/smalllokaicon.png" /><span class="font-weight-bold">The New Loka : </span>
+                                            <div class="text-center">
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><option value ="<?=$value?>" <?= ($_SESSION['lokaRank'] == $value) ? 'selected' : ''; ?>><?= $value ?></option>
+                                                        ?><input class="ml-1" type="radio" id="lokaRank" name="lokaRank" value ="<?=$value?>" <?= ($_SESSION['lokaRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
                                                     endforeach;
                                                     ?> 
-                                            </select>
+                                            </div>
                                         </div>
                                         <div class="col-lg-3"></div>    
                                     </div>

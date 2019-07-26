@@ -10,6 +10,7 @@ $linkIndex = 'index.php';
 $linkAccount = 'View/UsersInfosView.php';
 $linkFormView ='View/formView.php';
 $disconnect = 'Controllers/disconnect.php';
+$searchView = 'View/searchView.php';
 
 $_POST = array_map('strip_tags', $_POST);
 $user = new Users();
