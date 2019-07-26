@@ -4,8 +4,9 @@ $regexBirthday = "#^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\g1|(?:(?:29|30)(\/|-|\
 $regexMail = "#^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$#";
 $regexDiscord = '#^.+(\#)([0-9]{4})$#';
 $regexPassword = '#^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)([-.+!*$@%_\w]{8,500})$#';
-$regexSyndicateRank = '#^(<2|2|3|4|5)$#';
+$regexSyndicateRank = '#^(Moins de 2|2|3|4|5)$#';
 //$regexArmors = '/^(All|' . $armors . '|' . $primeArmors . ')$/';
 $regexArmors = '#^([1-9])$|^([1-5][0-9])$|^(6[0-4])$#';
+$regexShow = '#^(Yes|No)$#';
 
 ?>

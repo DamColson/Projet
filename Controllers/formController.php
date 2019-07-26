@@ -93,6 +93,19 @@ if($_POST):
         $user->id_wfd_Armors = $_POST['favArmor'];
     endif;
     
+    if(!empty($_POST['showDiscord']) && !preg_match($regexShow,$_POST['showDiscord'])):
+        $errorInForm['showDiscord'] = 0; 
+        $data = 'failure';
+    elseif(!empty($_POST['submitFormButton'])): 
+        $user->showDiscord = $_POST['showDiscord'];
+    endif;
+    
+    if(!empty($_POST['showMail']) && !preg_match($regexShow,$_POST['showMail'])):
+        $errorInForm['showMail'] = 0; 
+        $data = 'failure';
+    elseif(!empty($_POST['submitFormButton'])): 
+        $user->showMail = $_POST['showMail'];
+    endif;
   
     
     if($errorInForm == $formValidation):

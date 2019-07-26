@@ -19,7 +19,8 @@ require_once 'Controllers/indexController.php';
         </video>
         <?php
         include 'headerView.php';
-        include 'connectionView.php'
+        include 'connectionView.php';
+
         ?>
 
         <div class="rem"></div>
@@ -34,6 +35,8 @@ require_once 'Controllers/indexController.php';
                 $user->warfriendsPseudo = $value['warfriendsPseudo'];
                 $user->mail = $value['mail'];
                 $user->tagDiscord = $value['tagDiscord'];
+                $user->showDiscord = $value['showDiscord'];
+                $user->showMail = $value['showMail'];
 
                 $lastTwelvesRank = $user->getLastTwelvesRanks();
                 ?><div class="col-xl-3 col-12">
@@ -76,8 +79,8 @@ require_once 'Controllers/indexController.php';
                             </div>
                             <div id="<?= 'collapse' . $key . '' . $key ?>" class="collapse" aria-labelledby="heading<?= $key . '' . $key ?>" data-parent="#accordion<?= $key ?>">
                                 <ul class="list-group list-group-flush bg-light-opac">
-                                    <li class="text-center list-group-item bg-dark-opac text-light"><a href="mailto:<?= $user->mail ?>"><?= $user->mail ?></a></li>
-                                    <li class="text-center list-group-item bg-dark-opac text-light"><?= $user->tagDiscord ?></li>
+                                    <li class="text-center list-group-item bg-dark-opac text-light"><?=($user->showMail =='Yes')?'<a href="mailto:'. $user->mail .'">' . $user->mail . '</a>':'Ce membre ne souhaite pas partager son email' ?></li>
+                                    <li class="text-center list-group-item bg-dark-opac text-light"><?=($user->showDiscord =='Yes')?$user->tagDiscord :'Ce membre ne souhaite pas partager son discord' ?></li>
                                 </ul>
                                 <div class="card-body">
 

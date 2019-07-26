@@ -38,6 +38,8 @@ CREATE TABLE wfd_UsersInfos(
         tagDiscord       Varchar (20) ,
         password         Varchar (200) NOT NULL ,
         birthday         Date NOT NULL ,
+        showDiscord      Varchar (50) NOT NULL ,
+        showMail         Varchar (50) NOT NULL ,
         id_wfd_Armors    Int NOT NULL
 	,CONSTRAINT wfd_UsersInfos_PK PRIMARY KEY (id)
 
@@ -95,7 +97,7 @@ CREATE TABLE wfd_recipient(
         id_wfd_UsersInfos Int
 	,CONSTRAINT wfd_recipient_PK PRIMARY KEY (id)
 
-	,CONSTRAINT wfd_recipient_wfd_UsersInfos_FK FOREIGN KEY (id_wfd_UsersInfos) REFERENCES wfd_UsersInfos(id)
+	,CONSTRAINT wfd_recipient_wfd_UsersInfos_FK FOREIGN KEY (id_wfd_UsersInfos) REFERENCES wfd_UsersInfos(id) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 

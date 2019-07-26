@@ -116,17 +116,17 @@ require '../Controllers/updateController.php';
                                         
                                         <div class="form-group col-lg-3"></div>
                                         <div class="form-group col-lg-6">
-                                            <label for="showDiscord">Souhaitez rendre visible votre tag discord ? : </label>
-                                            <input type="radio" class="ml-1" id="showDiscord" name="showDiscord" value="Yes"  />Oui
-                                            <input type="radio" class="ml-1" id="showDiscord" name="showDiscord" value="No"  />Non
+                                            <label for="newShowDiscord">Souhaitez rendre visible votre tag discord ? : </label>
+                                            <input type="radio" class="ml-1" id="newShowDiscord" name="newShowDiscord" value="Yes"  />Oui
+                                            <input type="radio" class="ml-1" id="newShowDiscord" name="newShowDiscord" value="No"  />Non
                                         </div>
                                         <div class="form-group col-lg-3"></div>
                                                                               
                                         <div class="form-group col-lg-3"></div>
                                         <div class="form-group col-lg-6">
-                                            <label for="showMail">Souhaitez rendre visible votre adresse email ? : </label>
-                                            <input type="radio" class="ml-1" id="showMail" name="showMail" value="Yes"  />Oui
-                                            <input type="radio" class="ml-1" id="showMail" name="showMail" value="No"  />Non
+                                            <label for="newShowMail">Souhaitez rendre visible votre adresse email ? : </label>
+                                            <input type="radio" class="ml-1" id="newShowMail" name="newShowMail" value="Yes"  />Oui
+                                            <input type="radio" class="ml-1" id="newShowMail" name="newShowMail" value="No"  />Non
                                         </div>
                                         <div class="form-group col-lg-3"></div>
                                     </div>
@@ -178,7 +178,7 @@ require '../Controllers/updateController.php';
 
                                 
                                 <div class="w-75 mx-auto rounded">
-
+                                    <p class="h3 text-dark mb-3 text-center">Les rangs de mes syndicats : </p>
                                     <div class="rem"></div>
 
                                     <div class="text-dark row no-gutters">
@@ -188,7 +188,7 @@ require '../Controllers/updateController.php';
                                             <div class="text-center">
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><input type="radio" class="ml-1" id="meridianRank" name="meridianRank" value="<?=$value?>" <?= ($_SESSION['meridianRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
+                                                        ?><input type="radio" class="ml-3" id="meridianRank" name="meridianRank" value="<?=$value?>" <?= ($_SESSION['meridianRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -204,7 +204,7 @@ require '../Controllers/updateController.php';
                                                 <div class="text-center">
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><input type="radio" class="ml-1" id="arbiterRank" name="arbiterRank" value ="<?=$value?>" <?= ($_SESSION['arbiterRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
+                                                        ?><input type="radio" class="ml-3" id="arbiterRank" name="arbiterRank" value ="<?=$value?>" <?= ($_SESSION['arbiterRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -220,7 +220,7 @@ require '../Controllers/updateController.php';
                                                 <div class="text-center">
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><input type="radio" class="ml-1" id="cephalonRank" name="cephalonRank" value ="<?=$value?>" <?= ($_SESSION['cephalonRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
+                                                        ?><input type="radio" class="ml-3" id="cephalonRank" name="cephalonRank" value ="<?=$value?>" <?= ($_SESSION['cephalonRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
                                                     endforeach; 
                                                     ?> 
@@ -236,7 +236,7 @@ require '../Controllers/updateController.php';
                                                 <div class="text-center">
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><input type="radio" class="ml-1" id="redVeilRank" name="redVeilRank" value ="<?=$value?>" <?= ($_SESSION['redVeilRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
+                                                        ?><input type="radio" class="ml-3" id="redVeilRank" name="redVeilRank" value ="<?=$value?>" <?= ($_SESSION['redVeilRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -252,7 +252,7 @@ require '../Controllers/updateController.php';
                                             <div class="text-center">   
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><input type="radio" class="ml-1" id="perrinRank" name="perrinRank" value ="<?=$value?>" <?= ($_SESSION['perrinRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
+                                                        ?><input type="radio" class="ml-3" id="perrinRank" name="perrinRank" value ="<?=$value?>" <?= ($_SESSION['perrinRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
                                                     endforeach;
                                                     ?> 
@@ -268,7 +268,7 @@ require '../Controllers/updateController.php';
                                             <div class="text-center">
                                                     <?php
                                                     foreach ($updateRank as $value):
-                                                        ?><input class="ml-1" type="radio" id="lokaRank" name="lokaRank" value ="<?=$value?>" <?= ($_SESSION['lokaRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
+                                                        ?><input class="ml-3" type="radio" id="lokaRank" name="lokaRank" value ="<?=$value?>" <?= ($_SESSION['lokaRank'] == $value) ? 'checked' : ''; ?> /><?= $value ?>
                                                         <?php
                                                     endforeach;
                                                     ?> 

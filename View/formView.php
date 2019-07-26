@@ -19,7 +19,7 @@ require_once '../Controllers/formController.php';
         include 'headerView.php';
         include 'connectionView.php'
         ?>
-        
+
         <div class="rem"></div>
         <form method="POST" class="bg-light-opac w-75 mx-auto" action="formView.php" id="inscriptionForm">
             <div class="rem"></div>
@@ -123,6 +123,26 @@ require_once '../Controllers/formController.php';
                     <div class="row no-gutters w-100">
                         <div class="text-danger mx-auto"><?= (count($_POST) > 0 && $errorInForm['favArmor'] == 0) ? 'Ceci n\'est pas une armure valide.' : '' ?></div>
                     </div>
+
+                    <div class="form-group col-lg-3"></div>
+                    <div class="form-group col-lg-6">
+                        <label for="showDiscord">Souhaitez rendre visible votre tag discord ? : </label>
+                        <div>
+                            <input type="radio" class="ml-1" id="showDiscord" name="showDiscord" value="Yes"  />Oui
+                            <input type="radio" class="ml-1" id="showDiscord" name="showDiscord" value="No"  />Non
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-3"></div>
+
+                    <div class="form-group col-lg-3"></div>
+                    <div class="form-group col-lg-6">
+                        <label for="showMail">Souhaitez rendre visible votre adresse email ? : </label>
+                        <div>
+                            <input type="radio" class="ml-1" id="showMail" name="showMail" value="Yes"  />Oui
+                            <input type="radio" class="ml-1" id="showMail" name="showMail" value="No"  />Non
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-3"></div>
                 </div>
 
             </fieldset>
@@ -132,24 +152,22 @@ require_once '../Controllers/formController.php';
             </div>
             <div class="rem"></div>
         </form>
-        <?php if($errorInForm == $formValidation && !empty($_POST)):
-
-        ?><script>Swal.fire({
+        <?php if ($errorInForm == $formValidation && !empty($_POST)):
+            ?><script>Swal.fire({
                     title: 'Félicitation!',
                     text: 'Votre inscription est validée, bienvenue sur Warfriends',
                     type: 'success',
                     confirmButtonText: 'Fermer'
                 });
-                
+
                 setTimeout(function () {
-                    
-       document.location.href='../index.php'; //will redirect to your blog page (an ex: blog.html)
-    }, 2000); //will call the function after 2 secs.</script><?php
-          
-    endif;
-    ?>
+
+                    document.location.href = '../index.php'; //will redirect to your blog page (an ex: blog.html)
+                }, 2000); //will call the function after 2 secs.</script><?php
+        endif;
+        ?>
         <div class="rem"></div>
-        <?php include 'footerView.php';?>
+        <?php include 'footerView.php'; ?>
         <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

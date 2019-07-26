@@ -184,7 +184,7 @@ require '../Controllers/UsersInfosController.php';
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smallsteelicon.png" /><span class="font-weight-bold">Steel Meridian : </span><?=($_SESSION['meridianRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['meridianRank']?>
+                                        <img class="img-fluid" src="../assets/Images/smallsteelicon.png" /><span class="font-weight-bold">Steel Meridian : </span><?=($_SESSION['meridianRank']=='Moins de 2')?'Rang < 2':'Rang ' . $_SESSION['meridianRank']?>
                                     </div>
                                        
                                 </div>                          
@@ -192,7 +192,7 @@ require '../Controllers/UsersInfosController.php';
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smallarbitericon.png" /><span class="font-weight-bold">Arbiter Of Hexis : </span><?=($_SESSION['arbiterRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['arbiterRank']?>
+                                        <img class="img-fluid" src="../assets/Images/smallarbitericon.png" /><span class="font-weight-bold">Arbiter Of Hexis : </span><?=($_SESSION['arbiterRank']=='Moins de 2')?'Rang < 2':'Rang ' . $_SESSION['arbiterRank']?>
                                     </div>
                                         
                                 </div>                   
@@ -200,7 +200,7 @@ require '../Controllers/UsersInfosController.php';
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smallcephalonicon.png" /><span class="font-weight-bold">Cephalon Suda : </span><?=($_SESSION['cephalonRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['cephalonRank']?>
+                                        <img class="img-fluid" src="../assets/Images/smallcephalonicon.png" /><span class="font-weight-bold">Cephalon Suda : </span><?=($_SESSION['cephalonRank']=='Moins de 2')?'Rang < 2':'Rang ' . $_SESSION['cephalonRank']?>
                                     </div>
                                         
                                 </div>
@@ -208,7 +208,7 @@ require '../Controllers/UsersInfosController.php';
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smallredveilicon.png" /><span class="font-weight-bold">The Red Veil : </span><?=($_SESSION['redVeilRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['redVeilRank']?>
+                                        <img class="img-fluid" src="../assets/Images/smallredveilicon.png" /><span class="font-weight-bold">The Red Veil : </span><?=($_SESSION['redVeilRank']=='Moins de 2')?'Rang < 2':'Rang ' . $_SESSION['redVeilRank']?>
                                     </div>
                                         
                                 </div>
@@ -216,7 +216,7 @@ require '../Controllers/UsersInfosController.php';
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smallperrinsequenceicon.png" /><span class="font-weight-bold">Perrin Sequence : </span><?=($_SESSION['perrinRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['perrinRank']?>
+                                        <img class="img-fluid" src="../assets/Images/smallperrinsequenceicon.png" /><span class="font-weight-bold">Perrin Sequence : </span><?=($_SESSION['perrinRank']=='Moins de 2')?'Rang < 2':'Rang ' . $_SESSION['perrinRank']?>
                                     </div>
                                         
                                 </div>
@@ -224,7 +224,7 @@ require '../Controllers/UsersInfosController.php';
                                 <div class="text-dark row no-gutters">
                                     <div class="col-lg-3"></div>
                                     <div class="col-12 col-lg-6 h5 text-left">
-                                        <img class="img-fluid" src="../assets/Images/smalllokaicon.png" /><span class="font-weight-bold">The New Loka :</span><?=($_SESSION['lokaRank']=='<2')?'Rang < 2':'Rang ' . $_SESSION['lokaRank']?>
+                                        <img class="img-fluid" src="../assets/Images/smalllokaicon.png" /><span class="font-weight-bold">The New Loka :</span><?=($_SESSION['lokaRank']=='Moins de 2')?'Rang < 2':'Rang ' . $_SESSION['lokaRank']?>
                                     </div>
                                         
                                 </div>

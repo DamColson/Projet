@@ -90,9 +90,16 @@ if($_POST):
         $_SESSION['id_wfd_Armors'] = $user->id_wfd_Armors;
     endif;
     
-    if(!empty($_POST['submitUpdateInfosButton']) && !empty($_POST['showDiscord'])):
-        $user->showDiscord = $_POST['showDiscord'];
+    if(!empty($_POST['submitUpdateInfosButton']) && !empty($_POST['newShowDiscord'])):
+        $user->showDiscord = $_POST['newShowDiscord'];
+        $user->updateShowDiscord();
         $_SESSION['showDiscord'] = $user->showDiscord;
+    endif;
+    
+    if(!empty($_POST['submitUpdateInfosButton']) && !empty($_POST['newShowMail'])):
+        $user->showMail = $_POST['newShowMail'];
+        $user->updateShowMail();
+        $_SESSION['showMail'] = $user->showMail;
     endif;
     
    if (!empty($_POST['meridianRank']) && !preg_match($regexSyndicateRank, $_POST['meridianRank'])):
@@ -106,8 +113,6 @@ if($_POST):
         
     endif;
 
-
-
     if (!empty($_POST['arbiterRank']) && !preg_match($regexSyndicateRank, $_POST['arbiterRank'])):
         $errorInUpdateSyndicateRank['arbiterRank'] = 0;
     elseif(!empty($_POST['arbiterRank']) && !empty($_POST['submitUpdateRankButton'])):
@@ -117,8 +122,6 @@ if($_POST):
         $syndicateDetail->updateSyndicateDetails();
         $_SESSION['arbiterRank'] = $syndicateDetail->rank;
     endif;
-
-
 
     if (!empty($_POST['cephalonRank']) && !preg_match($regexSyndicateRank, $_POST['cephalonRank'])):
         $errorInUpdateSyndicateRank['cephalonRank'] = 0;
@@ -130,8 +133,6 @@ if($_POST):
         $_SESSION['cephalonRank'] = $syndicateDetail->rank;
     endif;
 
-
-
     if (!empty($_POST['perrinRank']) && !preg_match($regexSyndicateRank, $_POST['perrinRank'])):
         $errorInUpdateSyndicateRank['perrinRank'] = 0;
     elseif(!empty($_POST['perrinRank']) && !empty($_POST['submitUpdateRankButton'])):
@@ -142,8 +143,6 @@ if($_POST):
         $_SESSION['perrinRank'] = $syndicateDetail->rank;
     endif;
 
-
-
     if (!empty($_POST['redVeilRank']) && !preg_match($regexSyndicateRank, $_POST['redVeilRank'])):
         $errorInUpdateSyndicateRank['redVeilRank'] = 0;
     elseif(!empty($_POST['redVeilRank']) && !empty($_POST['submitUpdateRankButton'])):
@@ -153,8 +152,6 @@ if($_POST):
         $syndicateDetail->updateSyndicateDetails();
         $_SESSION['redVeilRank'] = $syndicateDetail->rank;
     endif;
-
-
 
     if (!empty($_POST['lokaRank']) && !preg_match($regexSyndicateRank, $_POST['lokaRank'])):
         $errorInUpdateSyndicateRank['lokaRank'] = 0;

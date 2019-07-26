@@ -1,6 +1,6 @@
 <?php
 
-$updateRank = ['<2','2','3','4','5'];
+$updateRank = ['Moins de 2','2','3','4','5'];
 $syndicateRankName =['meridianRank','arbiterRank','cephalonRank','perrinRank','redVeilRank','lokaRank'];
 $frame = [
     '1'=>'Ash',
@@ -70,8 +70,8 @@ $primeFrame = [
     '63'=>'VoltPrime',
     '64'=>'ZephyrPrime'
     ];
-$errorInForm = ['birthday'=>1,'discord'=>1,'mail'=>1,'password'=>1,'confirmPassword'=>1,'favArmor'=>1];
-$formValidation =['birthday'=>1,'discord'=>1,'mail'=>1,'password'=>1,'confirmPassword'=>1,'favArmor'=>1];
+$errorInForm = ['birthday'=>1,'discord'=>1,'mail'=>1,'password'=>1,'confirmPassword'=>1,'favArmor'=>1,'showDiscord'=>1,'showMail'=>1];
+$formValidation =['birthday'=>1,'discord'=>1,'mail'=>1,'password'=>1,'confirmPassword'=>1,'favArmor'=>1,'showDiscord'=>1,'showMail'=>1];
 
 $errorInModif = ['oldPassword'=>1,'newPassword'=>1,'confirmNewPassword'=>1];
 $modifValidation = ['oldPassword'=>1,'newPassword'=>1,'confirmNewPassword'=>1];

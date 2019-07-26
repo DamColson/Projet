@@ -19,7 +19,7 @@ class Users extends Db {
     }
 
     public function addUsers() {
-        $query = 'INSERT INTO wfd_UsersInfos(warframePseudo,warfriendsPseudo,mail,tagDiscord,password,birthday,id_wfd_Armors)VALUE(:warframePseudo,:warfriendsPseudo,:mail,:tagDiscord,:password,:birthday,:id_wfd_Armors)';
+        $query = 'INSERT INTO wfd_UsersInfos(warframePseudo,warfriendsPseudo,mail,tagDiscord,password,birthday,id_wfd_Armors,showDiscord,showMail)VALUE(:warframePseudo,:warfriendsPseudo,:mail,:tagDiscord,:password,:birthday,:id_wfd_Armors,:showDiscord,:showMail)';
         $addUser = $this->db->prepare($query);
         $addUser->bindValue(':warframePseudo', $this->warframePseudo, PDO::PARAM_STR);
         $addUser->bindValue(':birthday', $this->birthday, PDO::PARAM_STR);
@@ -28,6 +28,8 @@ class Users extends Db {
         $addUser->bindValue(':tagDiscord', $this->tagDiscord, PDO::PARAM_STR);
         $addUser->bindValue(':password', $this->password, PDO::PARAM_STR);
         $addUser->bindValue(':id_wfd_Armors', $this->id_wfd_Armors, PDO::PARAM_INT);
+        $addUser->bindValue(':showDiscord', $this->showDiscord, PDO::PARAM_STR);
+        $addUser->bindValue(':showMail', $this->showMail, PDO::PARAM_STR);
 
         if ($addUser->execute()):
             return true;
@@ -99,6 +101,28 @@ class Users extends Db {
             return true;
         endif;
     }
+    
+    public function updateShowDiscord() {
+        $query = 'UPDATE wfd_UsersInfos SET showDiscord = :showDiscord WHERE id=:id';
+        $updateShowDiscord = $this->db->prepare($query);
+        $updateShowDiscord->bindValue(':showDiscord', $this->showDiscord, PDO::PARAM_STR);
+        $updateShowDiscord->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+        if ($updateShowDiscord->execute()):
+            return true;
+        endif;
+    }
+    
+    public function updateShowMail() {
+        $query = 'UPDATE wfd_UsersInfos SET showMail = :showMail WHERE id=:id';
+        $updateShowMail = $this->db->prepare($query);
+        $updateShowMail->bindValue(':showMail', $this->showMail, PDO::PARAM_STR);
+        $updateShowMail->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+        if ($updateShowMail->execute()):
+            return true;
+        endif;
+    }
 
     public function getUserIds() {
         $query = 'SELECT wfd_UsersInfos.id FROM wfd_UsersInfos WHERE wfd_UsersInfos.warfriendsPseudo = :pseudo';
@@ -132,7 +156,7 @@ class Users extends Db {
     }
 
     public function getLastTwelve() {
-        $query = "SELECT wfd_UsersInfos.mail,wfd_UsersInfos.tagDiscord,wfd_UsersInfos.id,wfd_UsersInfos.warfriendsPseudo FROM wfd_SyndicateDetails INNER JOIN wfd_Syndicate ON wfd_Syndicate.id = wfd_SyndicateDetails.id_wfd_Syndicate INNER JOIN wfd_UsersInfos ON wfd_UsersInfos.id = wfd_SyndicateDetails.id_wfd_UsersInfos WHERE wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id AND wfd_Syndicate.id = 1 ORDER BY wfd_UsersInfos.id DESC LIMIT 12";
+        $query = "SELECT wfd_UsersInfos.showDiscord,wfd_UsersInfos.showMail,wfd_UsersInfos.mail,wfd_UsersInfos.tagDiscord,wfd_UsersInfos.id,wfd_UsersInfos.warfriendsPseudo FROM wfd_SyndicateDetails INNER JOIN wfd_Syndicate ON wfd_Syndicate.id = wfd_SyndicateDetails.id_wfd_Syndicate INNER JOIN wfd_UsersInfos ON wfd_UsersInfos.id = wfd_SyndicateDetails.id_wfd_UsersInfos WHERE wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id AND wfd_Syndicate.id = 1 ORDER BY wfd_UsersInfos.id DESC LIMIT 12";
 
         $getLastTwelve = $this->db->prepare($query);
         $getLastTwelve->execute();
@@ -144,7 +168,7 @@ class Users extends Db {
 
     public function getLastTwelvesRanks() {
         try {
-            $query = "SELECT wfd_Syndicate.name AS name,wfd_Syndicate.image AS image,wfd_SyndicateDetails.rank AS rank FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_UsersInfos.id = :wfd_UsersInfosId AND wfd_SyndicateDetails.rank != '<2' ORDER BY wfd_SyndicateDetails.rank DESC";
+            $query = "SELECT wfd_Syndicate.name AS name,wfd_Syndicate.image AS image,wfd_SyndicateDetails.rank AS rank FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_UsersInfos.id = :wfd_UsersInfosId AND wfd_SyndicateDetails.rank != 'Moins de 2' ORDER BY wfd_SyndicateDetails.rank DESC";
 
 
             $getLastTwelvesRank = $this->db->prepare($query);
@@ -163,7 +187,7 @@ class Users extends Db {
 
     public function research() {
         try {
-            $query = "SELECT wfd_UsersInfos.mail,wfd_UsersInfos.tagDiscord,wfd_UsersInfos.id, wfd_UsersInfos.warfriendsPseudo FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE (wfd_Syndicate.name LIKE :search OR wfd_UsersInfos.warfriendsPseudo LIKE :search OR wfd_Syndicate.name = :meridian OR wfd_Syndicate.name = :arbiter OR wfd_Syndicate.name = :cephalon OR wfd_Syndicate.name = :perrin OR wfd_Syndicate.name = :redVeil OR wfd_Syndicate.name = :loka) AND wfd_SyndicateDetails.rank != '<2' GROUP BY wfd_UsersInfos.id LIMIT :warfriendsPerPage OFFSET :start";
+            $query = "SELECT wfd_UsersInfos.showDiscord,wfd_UsersInfos.showMail,wfd_UsersInfos.mail,wfd_UsersInfos.tagDiscord,wfd_UsersInfos.id, wfd_UsersInfos.warfriendsPseudo FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE (wfd_Syndicate.name LIKE :search OR wfd_UsersInfos.warfriendsPseudo LIKE :search OR wfd_Syndicate.name = :meridian OR wfd_Syndicate.name = :arbiter OR wfd_Syndicate.name = :cephalon OR wfd_Syndicate.name = :perrin OR wfd_Syndicate.name = :redVeil OR wfd_Syndicate.name = :loka) AND wfd_SyndicateDetails.rank != 'Moins de 2' GROUP BY wfd_UsersInfos.id LIMIT :warfriendsPerPage OFFSET :start";
 
             $search = $this->db->prepare($query);
 
@@ -231,7 +255,7 @@ class Users extends Db {
 
     public function getRanks() {
         try {
-            $query = "SELECT wfd_Syndicate.name AS name,wfd_Syndicate.image AS image,wfd_SyndicateDetails.rank AS rank FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_UsersInfos.id = :wfd_UsersInfosId AND wfd_SyndicateDetails.rank != '<2' ORDER BY wfd_SyndicateDetails.rank DESC";
+            $query = "SELECT wfd_Syndicate.name AS name,wfd_Syndicate.image AS image,wfd_SyndicateDetails.rank AS rank FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_UsersInfos.id = :wfd_UsersInfosId AND wfd_SyndicateDetails.rank != 'Moins de 2' ORDER BY wfd_SyndicateDetails.rank DESC";
 
 
             $getLastTwelvesRank = $this->db->prepare($query);
@@ -250,7 +274,7 @@ class Users extends Db {
     
     public function researchCount() {
         try {
-            $query = "SELECT wfd_UsersInfos.id, wfd_UsersInfos.warfriendsPseudo FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE (wfd_Syndicate.name LIKE :search OR wfd_UsersInfos.warfriendsPseudo LIKE :search OR wfd_Syndicate.name = :meridian OR wfd_Syndicate.name = :arbiter OR wfd_Syndicate.name = :cephalon OR wfd_Syndicate.name = :perrin OR wfd_Syndicate.name = :redVeil OR wfd_Syndicate.name = :loka) AND wfd_SyndicateDetails.rank != '<2' GROUP BY wfd_UsersInfos.id";
+            $query = "SELECT wfd_UsersInfos.id, wfd_UsersInfos.warfriendsPseudo FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE (wfd_Syndicate.name LIKE :search OR wfd_UsersInfos.warfriendsPseudo LIKE :search OR wfd_Syndicate.name = :meridian OR wfd_Syndicate.name = :arbiter OR wfd_Syndicate.name = :cephalon OR wfd_Syndicate.name = :perrin OR wfd_Syndicate.name = :redVeil OR wfd_Syndicate.name = :loka) AND wfd_SyndicateDetails.rank != 'Moins de 2' GROUP BY wfd_UsersInfos.id";
 
             $search = $this->db->prepare($query);
 
