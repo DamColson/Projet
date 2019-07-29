@@ -21,9 +21,10 @@ $getInfos = $user->getInfos();
 $syndicateDetail->id_wfd_UsersInfos = $user->id;
 $getSyndicateInfos = $syndicateDetail->getSyndicateInfos();
 
+
 session_start();
 
-if ($_POST['warfriendsPassword'] == $getInfos[0]['password']):
+if (password_verify($_POST['warfriendsPassword'],$getInfos[0]['password'])):
 
     foreach ($getInfos as $key => $value):
         foreach ($value as $secondKey => $secondValue):

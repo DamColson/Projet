@@ -308,7 +308,7 @@ require '../Controllers/UsersInfosController.php';
                 setTimeout(function () {
                     
        document.location.href='UsersInfosView.php'; //will redirect to your blog page (an ex: blog.html)
-    }, 2000);</script><?php
+    }, 1000);</script><?php
           
     endif;
     ?>

@@ -20,7 +20,7 @@ require_once 'Controllers/indexController.php';
         <?php
         include 'headerView.php';
         include 'connectionView.php';
-
+        
         ?>
 
         <div class="rem"></div>
@@ -70,14 +70,14 @@ require_once 'Controllers/indexController.php';
 
                             <!-- test deuxieme accordeon -->
 
-                            <div id="heading<?= $key . '' . $key ?>">     
+                            <div class="<?=(empty($_SESSION))?'d-none':'' ?>" id="heading<?= $key . '' . $key ?>">     
                                 <h5 class="mb-0 text-center">
                                     <button class="btn btn-link text-dark contactButton" id="<?= $key . '' . $key ?>" data-toggle="collapse" data-target="<?= '#collapse' . $key . '' . $key ?>" aria-expanded="true" aria-controls="collapse<?= $key . '' . $key ?>">
                                         Contact <i class="fas fa-sort-down fa-2x"></i>
                                     </button>
                                 </h5>
                             </div>
-                            <div id="<?= 'collapse' . $key . '' . $key ?>" class="collapse" aria-labelledby="heading<?= $key . '' . $key ?>" data-parent="#accordion<?= $key ?>">
+                            <div id="<?= 'collapse' . $key . '' . $key ?>" class="<?=(empty($_SESSION))?'d-none':'' ?> collapse" aria-labelledby="heading<?= $key . '' . $key ?>" data-parent="#accordion<?= $key ?>">
                                 <ul class="list-group list-group-flush bg-light-opac">
                                     <li class="text-center list-group-item bg-dark-opac text-light"><?=($user->showMail =='Yes')?'<a href="mailto:'. $user->mail .'">' . $user->mail . '</a>':'Ce membre ne souhaite pas partager son email' ?></li>
                                     <li class="text-center list-group-item bg-dark-opac text-light"><?=($user->showDiscord =='Yes')?$user->tagDiscord :'Ce membre ne souhaite pas partager son discord' ?></li>

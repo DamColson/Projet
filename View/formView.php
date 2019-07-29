@@ -17,7 +17,8 @@ require_once '../Controllers/formController.php';
         </video>
         <?php
         include 'headerView.php';
-        include 'connectionView.php'
+        include 'connectionView.php';
+        
         ?>
 
         <div class="rem"></div>
@@ -33,6 +34,10 @@ require_once '../Controllers/formController.php';
                         <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Pseudo" required />
                     </div>
                     <div class="form-group col-lg-3"></div>
+                    
+                    <div class="row no-gutters w-100">
+                        <div class="text-danger mx-auto" id="pseudoError"></div>
+                    </div>
 
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">
@@ -152,7 +157,7 @@ require_once '../Controllers/formController.php';
             </div>
             <div class="rem"></div>
         </form>
-        <?php if ($errorInForm == $formValidation && !empty($_POST)):
+        <?php if ($errorInForm == $formValidation && !empty($_POST) && $presence[0]['presence'] == 0):
             ?><script>Swal.fire({
                     title: 'Félicitation!',
                     text: 'Votre inscription est validée, bienvenue sur Warfriends',
@@ -163,7 +168,19 @@ require_once '../Controllers/formController.php';
                 setTimeout(function () {
 
                     document.location.href = '../index.php'; //will redirect to your blog page (an ex: blog.html)
-                }, 2000); //will call the function after 2 secs.</script><?php
+                }, 1000); //will call the function after 2 secs.</script><?php
+                elseif($presence[0]['presence'] == 1):
+                    ?><script>Swal.fire({
+                    title: 'Echec!',
+                    text: 'Ce pseudo existe déjà',
+                    type: 'error',
+                    confirmButtonText: 'Fermer'
+                });
+
+                setTimeout(function () {
+
+                    document.location.href = 'formView.php'; //will redirect to your blog page (an ex: blog.html)
+                }, 1000); //will call the function after 2 secs.</script><?php
         endif;
         ?>
         <div class="rem"></div>

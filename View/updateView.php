@@ -154,7 +154,7 @@ require '../Controllers/updateController.php';
                 setTimeout(function () {
                     
        document.location.href='updateView.php'; //will redirect to your blog page (an ex: blog.html)
-    }, 2000); //will call the function after 2 secs.
+    }, 1000); //will call the function after 2 secs.
        </script><?php
     endif;
     

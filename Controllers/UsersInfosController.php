@@ -51,7 +51,7 @@ $user->tagDiscord=$tagDiscord;
 $getInfos = $user->getInfos();
 
 if($_POST):
-    if (!empty($_POST['oldPassword']) && $_POST['oldPassword'] != $_SESSION['password']):
+    if (!empty($_POST['oldPassword']) && !password_verify($_POST['oldPassword'], $_SESSION['password'])):
         $errorInModif['oldPassword'] = 0;
         $data = 'failure';
     endif;
@@ -64,13 +64,13 @@ if($_POST):
         $data = 'failure';
     endif;
     if($errorInModif == $modifValidation && !empty($_POST['submitModifButton'])):
-        $user->password = $_POST['newPassword'];
+        $user->password = password_hash($_POST['newPassword'],PASSWORD_BCRYPT);
         $user->updateUsersPassword();
         $_SESSION['password'] = $user->password;
     endif;
     
     if(isset($_POST['submitDeleteButton'])):
-        if($_POST['deletePassword'] == $_SESSION['password']):
+        if(password_verify($_POST['deletePassword'],$_SESSION['password'])):
             $user->deleteUsers();
             session_destroy();
             header('Location:../index.php');

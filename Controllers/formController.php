@@ -47,6 +47,12 @@ if($_POST):
     
     $user->warframePseudo = $_POST['warframePseudo'];
     $user->warfriendsPseudo = $_POST['pseudo'];
+    
+    $presence = $user->checkPresence();
+    
+    if($presence[0]['presence'] == 1):
+        $data = 'failure';
+    endif;
 
     if(!empty($_POST['birthday']) && !preg_match($regexBirthday,dateFR($_POST['birthday']))):
         $errorInForm['birthday'] = 0;
@@ -77,13 +83,12 @@ if($_POST):
        $errorInForm['password'] = 0;
        $data = 'failure';
     elseif(!empty($_POST['submitFormButton'])):
-        $user->password = $_POST['password'];   
+        $user->password = password_hash($_POST['password'],PASSWORD_BCRYPT);   
     endif;
 
     if(!empty($_POST['confirmPassword']) && $_POST['confirmPassword'] != $_POST['password']):
         $errorInForm['confirmPassword'] = 0;
-        $data = 'failure';
-        
+        $data = 'failure';        
     endif;
 
     if(!empty($_POST['favArmor']) && !preg_match($regexArmors,$_POST['favArmor'])):
@@ -106,11 +111,14 @@ if($_POST):
     elseif(!empty($_POST['submitFormButton'])): 
         $user->showMail = $_POST['showMail'];
     endif;
-  
     
-    if($errorInForm == $formValidation):
-        $user->addUsers();     
+   
+   
+    
+    if($errorInForm == $formValidation && $presence[0]['presence'] == 0):
+        $user->addUsers();
     endif;
+    
    echo $data;
     
     
@@ -128,7 +136,7 @@ $getSyndicateInfos = $syndicateDetail->getSyndicateInfos();
 
 session_start();
 
-if ($_POST['warfriendsPassword'] == $getInfos[0]['password']):
+if (password_verify($_POST['warfriendsPassword'],$getInfos[0]['password'])):
 
     foreach ($getInfos as $key => $value):
         foreach ($value as $secondKey => $secondValue):

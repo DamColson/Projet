@@ -9,7 +9,7 @@ $('input,select').focusout(function () {
 
     var id = this.id;
 
-
+    
 
 
     if (this.name == 'confirmPassword') {
@@ -38,17 +38,20 @@ $('input,select').focusout(function () {
                 $('#' + id + 'Error').text('Date de naissance invalide. Etes vous majeur?');
             } else if (data == 'failure' && id == 'discord') {
                 $('#' + id).addClass('redBorder');
-                $('#' + id + 'Error').text('Etes vous sur que ceci est un tag discord valide?');
+                $('#' + id + 'Error').text('Tag discord invalide ou déjà inscrit');
             } else if (data == 'failure' && id == 'mailo') {
                 $('#' + id).addClass('redBorder');
-                $('#' + id + 'Error').text('Etes vous sur que ceci est une adresse mail valide?');
+                $('#' + id + 'Error').text('Adresse mail invalide ou déjà inscrite');
             } else if (data == 'failure' && id == 'pass') {
                 $('#' + id).addClass('redBorder');
                 $('#' + id + 'Error').text('Mot de passe invalide.Assurez vous que ce dernier possède une majuscule, un chiffre et au moins 8 caractères');
             } else if (data == 'failure' && id == 'confirmPassword') {
                 $('#' + id).addClass('redBorder');
                 $('#' + id + 'Error').text('Etes vous sur que ce mot de passe est le même que celui précédement renseigné? Possède t-il tout les prérequis attendus?');
-            }else {
+            } else if (data == 'failure' && id == 'pseudo'){
+                $('#' + id).addClass('redBorder');
+                $('#' + id + 'Error').text('Ce pseudo est déjà inscrit');
+            } else {
                 $('#' + id + 'Error').empty();
 
             }

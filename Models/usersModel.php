@@ -334,4 +334,16 @@ class Users extends Db {
             die($msg);
         }
     }
+    
+    public function checkPresence(){
+        $query = 'SELECT COUNT(wfd_UsersInfos.id) AS presence FROM wfd_UsersInfos WHERE wfd_UsersInfos.warfriendsPseudo = :pseudo';
+        
+        $check = $this->db->prepare($query);
+        $check->bindValue(':pseudo',$this->warfriendsPseudo,PDO::PARAM_STR);
+        
+        if($check->execute()):
+            $checkPresence = $check->fetchAll(PDO::FETCH_ASSOC);
+            return $checkPresence;
+        endif;
+    }
 }

@@ -3,7 +3,10 @@
     background-size: cover;
     background-repeat: no-repeat;
 }*/
-
+a{
+    outline:0;
+    transition:0.3s;
+}
 video#bgvid {
     position: fixed; 
     right: 0; 
