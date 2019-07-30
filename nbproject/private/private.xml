@@ -12,13 +12,28 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/Fireloup/Projet/Controllers/updateController.php</file>
+            <file>file:/home/Fireloup/Projet/View/footerView.php</file>
+            <file>file:/home/Fireloup/Projet/View/connectionView.php</file>
+            <file>file:/home/Fireloup/Projet/View/formView.php</file>
             <file>file:/home/Fireloup/Projet/View/searchView.php</file>
             <file>file:/home/Fireloup/Projet/View/indexView.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/UsersInfosController.php</file>
+            <file>file:/home/Fireloup/Projet/View/searchLightboxView.php</file>
+            <file>file:/home/Fireloup/Projet/Models/usersModel.php</file>
+            <file>file:/home/Fireloup/Projet/assets/scripts/updatePersonnalInfos.js</file>
+            <file>file:/home/Fireloup/Projet/assets/css/ProjetHomePage.css</file>
+            <file>file:/home/Fireloup/Projet/View/headView.php</file>
+            <file>file:/home/Fireloup/Projet/assets/scripts/Projet.js</file>
+            <file>file:/home/Fireloup/Projet/Controllers/formController.php</file>
+            <file>file:/home/Fireloup/Projet/View/UsersInfosView.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/updateController.php</file>
+            <file>file:/home/Fireloup/Projet/View/headerView.php</file>
             <file>file:/home/Fireloup/Projet/Controllers/searchController.php</file>
             <file>file:/home/Fireloup/Projet/Controllers/indexController.php</file>
-            <file>file:/home/Fireloup/Projet/Models/usersModel.php</file>
-            <file>file:/home/Fireloup/Projet/assets/css/ProjetHomePage.css</file>
+            <file>file:/home/Fireloup/Projet/assets/php/regex.php</file>
+            <file>file:/home/Fireloup/Projet/View/updateView.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/connectionController.php</file>
+            <file>file:/home/Fireloup/Projet/assets/scripts/modifPasswordAjax.js</file>
         </group>
     </open-files>
 </project-private>

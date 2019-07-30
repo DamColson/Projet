@@ -17,8 +17,7 @@ require_once '../Controllers/formController.php';
         </video>
         <?php
         include 'headerView.php';
-        include 'connectionView.php';
-        
+        include 'connectionView.php';  
         ?>
 
         <div class="rem"></div>
@@ -106,22 +105,14 @@ require_once '../Controllers/formController.php';
                         <label for="favArmor">Quelle est votre warframe favorite : </label>
                         <select class="form-control <?= (count($_POST) > 0 && $errorInForm['favArmor'] == 0) ? 'redBorder' : '' ?>" id="favArmor" name="favArmor">
 
-                            <optgroup label="Warframes classiques">
+                            
                                 <?php
                                 foreach ($frame as $key => $frameName):
                                     ?><option value ="<?= $key ?>"><?= $frameName ?></option>
                                     <?php
                                 endforeach;
                                 ?> 
-                            </optgroup>
-                            <optgroup label="Warframes primes">
-                                <?php
-                                foreach ($primeFrame as $key => $frameName):
-                                    ?><option value ="<?= $key ?>"><?= $frameName ?></option>
-                                    <?php
-                                endforeach;
-                                ?> 
-                            </optgroup>
+                            
                         </select>
                     </div>
                     <div class="form-group col-lg-3"></div>
@@ -157,7 +148,7 @@ require_once '../Controllers/formController.php';
             </div>
             <div class="rem"></div>
         </form>
-        <?php if ($errorInForm == $formValidation && !empty($_POST) && $presence[0]['presence'] == 0):
+        <?php if ($errorInForm == $formValidation && !empty($_POST) && $pseudoPresence[0]['pseudoPresence'] == 0  && $discordPresence[0]['discordPresence'] == 0  && $mailPresence[0]['mailPresence'] == 0):
             ?><script>Swal.fire({
                     title: 'Félicitation!',
                     text: 'Votre inscription est validée, bienvenue sur Warfriends',
@@ -168,11 +159,11 @@ require_once '../Controllers/formController.php';
                 setTimeout(function () {
 
                     document.location.href = '../index.php'; //will redirect to your blog page (an ex: blog.html)
-                }, 1000); //will call the function after 2 secs.</script><?php
-                elseif($presence[0]['presence'] == 1):
+                }, 1500); //will call the function after 2 secs.</script><?php
+                elseif($pseudoPresence[0]['pseudoPresence'] == 1 || $discordPresence[0]['discordPresence'] == 1 || $mailPresence[0]['mailPresence'] == 1):
                     ?><script>Swal.fire({
                     title: 'Echec!',
-                    text: 'Ce pseudo existe déjà',
+                    text: 'Formulaire invalide',
                     type: 'error',
                     confirmButtonText: 'Fermer'
                 });
@@ -180,7 +171,8 @@ require_once '../Controllers/formController.php';
                 setTimeout(function () {
 
                     document.location.href = 'formView.php'; //will redirect to your blog page (an ex: blog.html)
-                }, 1000); //will call the function after 2 secs.</script><?php
+                }, 1500); //will call the function after 2 secs.</script><?php
+                
         endif;
         ?>
         <div class="rem"></div>

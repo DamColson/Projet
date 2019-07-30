@@ -15,20 +15,19 @@
                         <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4">
                             <a class="text-light nav-link" href="<?= $linkIndex ?>" id="home">Accueil</a>
                         </li>
-                        <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4">
-                            <a class="text-light nav-link search <?=(isset($_SESSION['warfriendsPseudo']))?'':'d-none'?>">Recherche</a>
-                        </li>
-                        <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4 <?=(isset($_SESSION['warfriendsPseudo']))?'d-none':''?>">
-                            <a class="text-light nav-link connection" id="connection">Connexion</a>
+                        
+                                                
+                        
+                        
+                        <li class="dropdown nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4">
+                            <a class="dropdown-toggle text-light nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Admin</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="<?=$frameLink?>">Gerer les frames</a>
+                                <a class="dropdown-item" href="<?=$syndicateLink?>">Gerer les syndicats</a>
+                                <a class="dropdown-item" href="<?=$memberLink?>">Gerer les membres</a>
+                            </div>
                         </li>
                         
-                        <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4 <?=(isset($_SESSION['warfriendsPseudo']))?'d-none':''?>">
-                            <a class="text-light nav-link" href="<?= $linkFormView ?>">Inscription</a>
-                        </li>
-                        
-                        <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4 <?=(!isset($_SESSION['adminPseudo']))?'d-none':''?>">
-                            <a class="text-light nav-link" href="<?=(isset($_SESSION['adminPseudo']))? $adminLink:$errorLink?>">Console Admin</a>
-                        </li>
                         
                         <li class="dropdown nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4 <?=(isset($_SESSION['warfriendsPseudo']))?'':'d-none'?>">
                             <a class="dropdown-toggle text-light nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="far fa-user-circle"></i></a>
@@ -40,7 +39,7 @@
                             </div>
                         </li>
                         <form method="POST" action="<?=$disconnect?>">
-                            <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4 <?=(isset($_SESSION['warfriendsPseudo']))?'':'d-none'?>">
+                            <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4">
                                 <button class="btn btn-dark text-light nav-link mx-auto" id="disconnect" name="disconnect" value="disconnect" type="submit"><span class="h4">Déconnexion</span></button>
                             </li>
                         </form>

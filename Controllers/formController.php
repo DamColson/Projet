@@ -9,12 +9,13 @@ $linkAccount = 'UsersInfosView.php';
 $linkFormView ='formView.php';
 $disconnect = '../Controllers/disconnect.php';
 $searchView = 'searchView.php';
+$legal = 'legal.php';
+$adminLink = 'adminView.php';
+$errorLink = 'error.php';
 
 include '../assets/php/arrays.php';
 
 $_POST = array_map('strip_tags',$_POST);
-$armors = implode('|', $armor);
-$primeArmors = implode('|', $primeArmor);
 
 include '../assets/php/regex.php';
 
@@ -48,9 +49,10 @@ if($_POST):
     $user->warframePseudo = $_POST['warframePseudo'];
     $user->warfriendsPseudo = $_POST['pseudo'];
     
-    $presence = $user->checkPresence();
+    $pseudoPresence = $user->checkPseudoPresence();
     
-    if($presence[0]['presence'] == 1):
+    
+    if($pseudoPresence[0]['pseudoPresence'] == 1):
         $data = 'failure';
     endif;
 
@@ -69,15 +71,35 @@ if($_POST):
         $errorInForm['discord'] = 0;
         $data = 'failure';
     elseif(!empty($_POST['submitFormButton'])):
-        $user->tagDiscord = $_POST['discord'];    
+        $user->tagDiscord = $_POST['discord'];
+        $discordPresence = $user->checkDiscordPresence();
+    elseif(!empty($_POST['discord']) && preg_match($regexDiscord,$_POST['discord'])):
+        $user->tagDiscord = $_POST['discord'];
+        $discordPresence = $user->checkDiscordPresence();
+        if($discordPresence[0]['discordPresence'] == 1):
+            $errorInForm['discord'] = 0;
+            $data = 'failure';
+        endif;
     endif; 
+        
+    
     
     if(!empty($_POST['mail']) && !preg_match($regexMail,$_POST['mail'])):
        $errorInForm['mail'] = 0;
        $data = 'failure';
     elseif(!empty($_POST['submitFormButton'])):
-        $user->mail = $_POST['mail'];   
+        $user->mail = $_POST['mail'];
+        $mailPresence = $user->checkMailPresence();
+    elseif(!empty($_POST['mail']) && preg_match($regexMail,$_POST['mail'])):
+        $user->mail = $_POST['mail'];
+        $mailPresence = $user->checkMailPresence();
+        if($mailPresence[0]['mailPresence'] == 1):
+            $errorInForm['mail'] = 0;
+            $data = 'failure';
+        endif;
     endif;
+    
+    
     
     if(!empty($_POST['password']) && !preg_match($regexPassword,$_POST['password'])):
        $errorInForm['password'] = 0;
@@ -115,7 +137,7 @@ if($_POST):
    
    
     
-    if($errorInForm == $formValidation && $presence[0]['presence'] == 0):
+    if($errorInForm == $formValidation && $pseudoPresence[0]['pseudoPresence'] == 0 && $discordPresence[0]['discordPresence'] == 0 && $mailPresence[0]['mailPresence'] == 0):
         $user->addUsers();
     endif;
     

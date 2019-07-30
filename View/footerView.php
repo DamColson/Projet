@@ -10,8 +10,8 @@
       <div class="col-12 col-xl-6 mt-md-0 mt-3 text-center">
 
         <!-- Content -->
-        <h5 class="text-uppercase">A propos de moi</h5>
-        <p></p>
+        <h5 class="text-uppercase">A propos de Warfriends</h5>
+        <p>Warfriends a été réalisé dans le cadre d'une formation de developpeur web/web mobile afin de répondre à une problématique liée au jeu Warframe.Il a pour but de mettre en lien des joueurs afin de faciliter leur échange.</p>
 
       </div>
       <!-- Grid column -->
@@ -22,14 +22,11 @@
       <div class="col-12 col-xl-3 mb-md-0 mb-3 text-center">
 
         <!-- Links -->
-        <h5 class="text-uppercase">Links</h5>
+        <h5 class="text-uppercase">A propos</h5>
 
         <ul class="list-unstyled">
           <li>
-            <a class="text-light" href="#!">Mentions Légales</a>
-          </li>
-          <li>
-            <a class="text-light" href="#!">A propos de Warfriends</a>
+            <a class="text-light" href="<?= $legal ?>">Mentions Légales</a>
           </li>
         </ul>
 
@@ -40,11 +37,11 @@
       <div class="col-12 col-xl-3 mb-md-0 mb-3 text-center">
 
         <!-- Links -->
-        <h5 class="text-uppercase">Links</h5>
+        <h5 class="text-uppercase">Contact</h5>
 
         <ul class="list-unstyled">
           <li class="mb-2">
-            <a class="text-light" href="#!">Le Havre, 76600, FR</a>
+            <span class="text-light" href="#!">Le Havre, 76600, FR</span>
           </li>
           <li class="mb-2">
             <a class="text-light" href="#!">warfriends@gmail.com</a>

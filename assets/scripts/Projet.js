@@ -20,7 +20,8 @@ $('input,select').focusout(function () {
     } else {
         postData = this.name + '=' + $(this).val();
     }
-
+    
+    
 
     $(this).removeClass('redBorder');
 
@@ -32,16 +33,16 @@ $('input,select').focusout(function () {
         data: postData,
 
         success: function (data) {
-
+            console.log(data);
             if (data == 'failure' && id == 'birthday') {
                 $('#' + id).addClass('redBorder');
                 $('#' + id + 'Error').text('Date de naissance invalide. Etes vous majeur?');
             } else if (data == 'failure' && id == 'discord') {
                 $('#' + id).addClass('redBorder');
-                $('#' + id + 'Error').text('Tag discord invalide ou déjà inscrit');
+                $('#' + id + 'Error').text('Tag discord invalide ou déjà inscrit sur Warfriends');
             } else if (data == 'failure' && id == 'mailo') {
                 $('#' + id).addClass('redBorder');
-                $('#' + id + 'Error').text('Adresse mail invalide ou déjà inscrite');
+                $('#' + id + 'Error').text('Adresse mail invalide ou déjà inscrite sur Warfriends');
             } else if (data == 'failure' && id == 'pass') {
                 $('#' + id).addClass('redBorder');
                 $('#' + id + 'Error').text('Mot de passe invalide.Assurez vous que ce dernier possède une majuscule, un chiffre et au moins 8 caractères');
@@ -50,7 +51,7 @@ $('input,select').focusout(function () {
                 $('#' + id + 'Error').text('Etes vous sur que ce mot de passe est le même que celui précédement renseigné? Possède t-il tout les prérequis attendus?');
             } else if (data == 'failure' && id == 'pseudo'){
                 $('#' + id).addClass('redBorder');
-                $('#' + id + 'Error').text('Ce pseudo est déjà inscrit');
+                $('#' + id + 'Error').text('Ce pseudo est déjà inscrit sur Warfriends');
             } else {
                 $('#' + id + 'Error').empty();
 

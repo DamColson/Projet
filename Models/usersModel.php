@@ -335,15 +335,39 @@ class Users extends Db {
         }
     }
     
-    public function checkPresence(){
-        $query = 'SELECT COUNT(wfd_UsersInfos.id) AS presence FROM wfd_UsersInfos WHERE wfd_UsersInfos.warfriendsPseudo = :pseudo';
+    public function checkPseudoPresence(){
+        $query = 'SELECT COUNT(wfd_UsersInfos.id) AS pseudoPresence FROM wfd_UsersInfos WHERE wfd_UsersInfos.warfriendsPseudo = :pseudo';
         
-        $check = $this->db->prepare($query);
-        $check->bindValue(':pseudo',$this->warfriendsPseudo,PDO::PARAM_STR);
+        $checkPseudo = $this->db->prepare($query);
+        $checkPseudo->bindValue(':pseudo',$this->warfriendsPseudo,PDO::PARAM_STR);
         
-        if($check->execute()):
-            $checkPresence = $check->fetchAll(PDO::FETCH_ASSOC);
-            return $checkPresence;
+        if($checkPseudo->execute()):
+            $checkPseudoPresence = $checkPseudo->fetchAll(PDO::FETCH_ASSOC);
+            return $checkPseudoPresence;
+        endif;
+    }
+    
+    public function checkDiscordPresence(){
+        $query = 'SELECT COUNT(wfd_UsersInfos.id) AS discordPresence FROM wfd_UsersInfos WHERE wfd_UsersInfos.tagDiscord = :discord';
+        
+        $checkDiscord = $this->db->prepare($query);
+        $checkDiscord->bindValue(':discord',$this->tagDiscord,PDO::PARAM_STR);
+        
+        if($checkDiscord->execute()):
+            $checkDiscordPresence = $checkDiscord->fetchAll(PDO::FETCH_ASSOC);
+            return $checkDiscordPresence;
+        endif;
+    }
+    
+    public function checkMailPresence(){
+        $query = 'SELECT COUNT(wfd_UsersInfos.id) AS mailPresence FROM wfd_UsersInfos WHERE wfd_UsersInfos.mail = :mail';
+        
+        $checkMail = $this->db->prepare($query);
+        $checkMail->bindValue(':mail',$this->mail,PDO::PARAM_STR);
+        
+        if($checkMail->execute()):
+            $checkMailPresence = $checkMail->fetchAll(PDO::FETCH_ASSOC);
+            return $checkMailPresence;
         endif;
     }
 }

@@ -13,6 +13,9 @@ $linkAccount = 'UsersInfosView.php';
 $linkFormView = 'formView.php';
 $disconnect = '../Controllers/disconnect.php';
 $searchView = 'searchView.php';
+$legal = 'legal.php';
+$adminLink = 'adminView.php';
+$errorLink = 'error.php';
 
 $user = new Users();
 $user->search = $_GET['searchBar'];

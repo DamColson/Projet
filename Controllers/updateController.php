@@ -14,6 +14,9 @@ $linkAccount = 'UsersInfosView.php';
 $linkFormView = 'formView.php';
 $disconnect = '../Controllers/disconnect.php';
 $searchView = 'searchView.php';
+$legal = 'legal.php';
+$adminLink = 'adminView.php';
+$errorLink = 'error.php';
 
 include '../assets/php/arrays.php';
 

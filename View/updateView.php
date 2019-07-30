@@ -93,23 +93,15 @@ require '../Controllers/updateController.php';
                                         <div class="form-group col-11 col-lg-6">
                                             <label for="newFavArmor">Quelle est votre warframe favorite : </label>
                                             <select class="form-control" id="newFavArmor" name="newFavArmor">
-                                                <option value="All" selected>Aucune en particulier</option>
-                                                <optgroup label="Armures classiques">
+                                                
+                                                
                                                     <?php
                                                     foreach ($frame as $key => $frameName):
                                                         ?><option value ="<?= $key ?>" <?= ($_SESSION['id_wfd_Armors'] == $key) ? 'selected' : ''; ?>><?= $frameName ?></option>
                                                         <?php
                                                     endforeach;
                                                     ?> 
-                                                </optgroup>
-                                                <optgroup label="Armures primes">
-                                                    <?php
-                                                    foreach ($primeFrame as $key => $frameName):
-                                                        ?><option value ="<?= $key ?>" <?= ($_SESSION['id_wfd_Armors'] == $key) ? 'selected' : ''; ?>><?= $frameName ?></option>
-                                                        <?php
-                                                    endforeach;
-                                                    ?> 
-                                                </optgroup>
+                                                
                                             </select>
                                         </div>
                                         <div class="form-group col-lg-3"></div>

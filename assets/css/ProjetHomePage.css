@@ -1,8 +1,4 @@
-/*body {
-    background-image: url(../Images/warframe7.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}*/
+
 a{
     outline:0;
     transition:0.3s;
@@ -100,6 +96,28 @@ video {
     width:50%!important;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+*:before,*:after {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    position: relative;
+    min-height: 100vh; /* will cover the 100% of viewport */
+    display: block;
+    position: relative;
+    padding-bottom: 257px; /* height of your footer */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
 
 @media(min-width:1201px) {
     .nav-tabs {
@@ -156,8 +174,15 @@ video {
         background-position: 77%;
         background-repeat: no-repeat;
     }
-    
-    
+
+    body {
+        height: 100%;
+        position: relative;
+        min-height: 100vh; /* will cover the 100% of viewport */
+        display: block;
+        position: relative;
+        padding-bottom: 714px; /* height of your footer */
+    }
 
     #miniWar {
         display: none;
@@ -193,6 +218,14 @@ video {
         background-repeat: no-repeat;
     }
 
+    body {
+        height: 100%;
+        position: relative;
+        min-height: 100vh; /* will cover the 100% of viewport */
+        display: block;
+        position: relative;
+        padding-bottom: 666px; /* height of your footer */
+    }
 
     .topBorder h1 {
         display: none;
@@ -297,7 +330,7 @@ video {
     }
 }
 
-@media screen and (min-width:651px) and (max-width:700px) {
+@media screen and (min-width:651px) and (max-width:735px) {
 
     #miniWar {
         display: none;
@@ -314,6 +347,15 @@ video {
         background-repeat: no-repeat;
     }
 
+    body {
+        height: 100%;
+        position: relative;
+        min-height: 100vh; /* will cover the 100% of viewport */
+        display: block;
+        position: relative;
+        padding-bottom: 570px; /* height of your footer */
+    }
+
     .topBorder h1 {
         display: none;
     }
@@ -323,7 +365,7 @@ video {
     }
 }
 
-@media screen and (min-width:701px) and (max-width:800px) {
+@media screen and (min-width:736px) and (max-width:740px) {
 
     #miniWar {
         display: none;
@@ -331,6 +373,53 @@ video {
 
     .topBorder h1 {
         display: none;
+    }
+
+    body {
+        height: 100%;
+        position: relative;
+        min-height: 100vh; /* will cover the 100% of viewport */
+        display: block;
+        position: relative;
+        padding-bottom: 570px; /* height of your footer */
+    }
+
+    video#bgvid {
+        position: fixed;
+        left: -50%;
+        right: 0; 
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;
+        width: auto; 
+        height: auto; 
+        z-index: -100;
+        background-size: cover;
+    }
+
+    .topBorder {
+        height: 2.9rem;
+    }
+}
+
+@media screen and (min-width:741px) and (max-width:800px) {
+
+    #miniWar {
+        display: none;
+    }
+
+    .topBorder h1 {
+        display: none;
+    }
+
+
+    body {
+        height: 100%;
+        position: relative;
+        min-height: 100vh; /* will cover the 100% of viewport */
+        display: block;
+        position: relative;
+        padding-bottom: 473px; /* height of your footer */
     }
 
     video#bgvid {
@@ -365,6 +454,27 @@ video {
         height: 3.7rem;
     }
 
+    body {
+        height: 100%;
+        position: relative;
+        min-height: 100vh; /* will cover the 100% of viewport */
+        display: block;
+        position: relative;
+        padding-bottom: 449px; /* height of your footer */
+    }
+
+    video#bgvid {
+        position: fixed;
+        left: -50%;
+        right: 0; 
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;
+        width: auto; 
+        height: auto; 
+        z-index: -100;
+        background-size: cover;
+    }
 
     .warButton {
         margin-top: 0.2rem;
@@ -385,6 +495,15 @@ video {
     .topBorder {
         height: 3.7rem;
         text-align: center;
+    }
+
+    body {
+        height: 100%;
+        position: relative;
+        min-height: 100vh; /* will cover the 100% of viewport */
+        display: block;
+        position: relative;
+        padding-bottom: 449px; /* height of your footer */
     }
 
     .warButton {
@@ -433,65 +552,65 @@ video {
 @media screen and (max-width:950px) {
 
     .bigConnection {
-    position: fixed;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-    background-color: rgba(52,58,54,0.9);
-    z-index:1021;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+        background-color: rgba(52,58,54,0.9);
+        z-index:1021;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
     .bigSearch {
-    position: fixed;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-    background-color: rgba(52,58,54,0.9);
-    z-index:1021;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+        background-color: rgba(52,58,54,0.9);
+        z-index:1021;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
 
-.lastSubscriberWidth{
-    width:100%!important;
-}
+    .lastSubscriberWidth{
+        width:100%!important;
+    }
 
 
 }
 @media screen and (min-width:951px) and (max-width:1200px){
 
     .bigConnection {
-    position: fixed;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-    background-color: rgba(52,58,54,0.9);
-    z-index:1021;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+        background-color: rgba(52,58,54,0.9);
+        z-index:1021;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
     .bigSearch {
-    position: fixed;
-    top: 10%;
-    left: 5%;
-    width: 90%;
-    height: 80%;
-    background-color: rgba(52,58,54,0.9);
-    z-index:1021;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
+        position: fixed;
+        top: 10%;
+        left: 5%;
+        width: 90%;
+        height: 80%;
+        background-color: rgba(52,58,54,0.9);
+        z-index:1021;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
 
-.lastSubscriberWidth{
-    width:50%!important;
-}}
+    .lastSubscriberWidth{
+        width:50%!important;
+    }}
 
 
