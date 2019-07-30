@@ -13,7 +13,7 @@ class Armors extends Db {
         $query = 'INSERT INTO wfd_Armors(name)VALUE(:name)';
         $addArmor = $this->db->prepare($query);
         $addArmor->bindValue(':name', $this->name, PDO::PARAM_STR);
-        $addArmor->bindValue(':url', $this->url, PDO::PARAM_STR);
+
 
         if ($addArmor->execute()):
             return true;
@@ -58,6 +58,16 @@ class Armors extends Db {
 
         $getId = $getFrameId->fetchAll(PDO::FETCH_ASSOC);
         $this->id = $getId[0]['id'];
+        endif;
+    }
+    
+    public function deleteFrame() {
+        $query = 'DELETE FROM wfd_Armors WHERE wfd_Armors.id=:id';
+        $deleteFrame = $this->db->prepare($query);
+        $deleteFrame->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+        if ($deleteFrame->execute()):
+            return true;
         endif;
     }
 }

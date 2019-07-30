@@ -103,11 +103,7 @@ require_once '../Controllers/frameController.php';
 
                                 
 
-                                <div class="rem"></div>
-
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <a href="updateView.php" class="mx-auto"><button type="button" class="btn btn-outline-success my-2 my-sm-0">Modifier mes infos</button></a>
-                                </div>
+                                
 
                                 <div class="rem"></div>
                             </div>
@@ -141,7 +137,7 @@ require_once '../Controllers/frameController.php';
                                     </div>
                                 </fieldset>
                                 <div class="align-items-center justify-content-center d-flex">
-                                    <button name="submitUpdateFrameButton" id="submitUpdateFrameButton" value="submitOn" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Valider</button>
+                                    <button id="submitUpdateFrameButton" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Valider</button>
                                 </div>
                             </form>
                         </div>
@@ -158,7 +154,7 @@ require_once '../Controllers/frameController.php';
                     </div>
                     <div id="collapse-B" class="collapse accordCardCollapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
                         <div class="card-body accordCardBody">
-                            <form method="POST" class="w-100 mx-auto" action="UsersInfosView.php">
+                            <form method="POST" class="w-100 mx-auto" action="frameManagment.php">
                                 
                                 <fieldset class="dark mb-3">
                                     <div class="rem"></div>
@@ -166,42 +162,17 @@ require_once '../Controllers/frameController.php';
 
                                         <div class="form-group col-lg-3"></div>
                                         <div class="form-group col-lg-6">
-                                            <label for="oldPassword">Mot de passe à modifier : </label>
-                                            <input type="password" class="form-control" id="oldPassword" name="oldPassword" value="" required />
+                                            <label for="deleteFrame">Veuillez retaper le nom de la frame  : </label>
+                                            <input type="text" class="form-control" id="deleteFrame" name="deleteFrame" value="" required />
                                         </div>
-                                        <div class="form-group col-lg-3"></div>
-                                        
-                                        <div class="row no-gutters w-100">
-                                            <div class="text-danger mx-auto" id="oldPasswordError"></div>
-                                        </div>
-
-                                        <div class="form-group col-lg-3"></div>
-                                        <div class="form-group col-lg-6">
-                                            <label for="newPassword">Nouveau mot de passe : </label>
-                                            <input type="password" class="form-control" id="newPassword" name="newPassword" required />
-                                        </div>
-                                        <div class="form-group col-lg-3"></div>
-
-                                        <div class="row no-gutters w-100">
-                                            <div class="text-danger mx-auto" id="newPasswordError"></div>
-                                        </div>
-
-                                        <div class="form-group col-lg-3"></div>                   
-                                        <div class="form-group col-lg-6">
-                                            <label for="confirmNewPassword">Confirmer votre nouveau mot de passe : </label>
-                                            <input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword" required/>
-                                        </div>
-                                        <div class="form-group col-lg-3"></div>
-
-                                        <div class="row no-gutters w-100">
-                                            <div class="text-danger mx-auto" id="confirmNewPasswordError"></div>
-                                        </div>                                                                    
+                                        <div class="form-group col-lg-3"></div>                                    
+                                                                                                           
                                     </div>
                                     
                                 </fieldset>
 
                                 <div class="align-items-center justify-content-center d-flex">
-                                    <button name="submitDeleteFrameButton" id="submitDeleteFrameButton" value="submitOn" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Envoyer</button>
+                                    <button id="submitDeleteFrameButton" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Envoyer</button>
                                 </div>
                             </form>
                             
@@ -219,7 +190,7 @@ require_once '../Controllers/frameController.php';
                     </div>
                     <div id="collapse-C" class="collapse accordCardCollapse" role="tabpanel" data-parent="#content" aria-labelledby="heading-C">
                         <div class="card-body accordCardBody">
-                            <form method="POST" class="w-100 mx-auto" action="UsersInfosView.php">
+                            <form method="POST" class="w-100 mx-auto" action="frameManagment.php">
                                 
                                 <fieldset class="text-dark mb-3">
                                     <div class="rem"></div>
@@ -235,7 +206,7 @@ require_once '../Controllers/frameController.php';
                                     </div>
                                 </fieldset>
                                 <div class="align-items-center justify-content-center d-flex">
-                                    <button name="submitDeleteButton" id="submitDeleteButton" value="submitOn" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Valider</button>
+                                    <button id="submitCreateFrameButton" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Valider</button>
                                 </div>
                             </form>
                         </div>
