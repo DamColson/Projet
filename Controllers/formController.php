@@ -1,8 +1,10 @@
 <?php
 require_once '../Models/modelDb.php';
 require_once '../Models/usersModel.php';
-require_once '../Models/ArmorsModel.php';
 require_once '../Models/SyndicateDetailsModel.php';
+require_once '../Models/ArmorsModel.php';
+require_once '../Models/SyndicateModel.php';
+
 
 $linkIndex = '../index.php';
 $linkAccount = 'UsersInfosView.php';

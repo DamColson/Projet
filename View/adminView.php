@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require '../Controllers/adminController.php';
 require '../Controllers/disconnect.php';
 ?>

@@ -27,6 +27,7 @@ class Armors extends Db {
 
         if ($getArmorName->execute()):
             $getName = $getArmorName->fetchAll(PDO::FETCH_ASSOC);
+            $this->name = $getName[0]['name'];
             return $getName;
         endif;
     }
@@ -50,7 +51,7 @@ class Armors extends Db {
     }
     
     public function getFrameIds() {
-        $query = 'SELECT wfd_Armors.id FROM wfd_Armors WHERE wfd_Armors.name = :name';
+        $query = 'SELECT wfd_Armors.id,wfd_Armors.name FROM wfd_Armors WHERE wfd_Armors.name = :name';
         $getFrameId = $this->db->prepare($query);
         $getFrameId->bindValue(':name', $this->name, PDO::PARAM_STR);
         

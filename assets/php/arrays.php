@@ -2,13 +2,28 @@
 
 
 $warframe = new Armors();
-$allFrame = $warframe->getAllFrame();
+$allFrames = $warframe->getAllFrame();
 $frame;
 
-foreach($allFrame as $key=>$value):
+foreach($allFrames as $key=>$value):
      $frame[$value['id']] = $value['name'];
 endforeach;
 
+$getSyndicate = new Syndicate();
+$allSyndicates = $getSyndicate->getAllSyndicates();
+$syndicateArray;
+
+foreach($allSyndicates as $key=>$value):
+    $syndicateArray[$value['id']] = $value['name'];
+endforeach;
+
+$getUserPseudo = new Users();
+$allUsers = $getUserPseudo->getAllUsers();
+$usersArray;
+
+foreach($allUsers as $key=>$value):
+    $usersArray[$value['id']] = $value['warfriendsPseudo'];
+endforeach;
 
 $updateRank = ['Moins de 2','2','3','4','5'];
 $syndicateRankName =['meridianRank','arbiterRank','cephalonRank','perrinRank','redVeilRank','lokaRank'];

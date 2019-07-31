@@ -29,15 +29,7 @@
                         </li>
                         
                         
-                        <li class="dropdown nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4 <?=(isset($_SESSION['warfriendsPseudo']))?'':'d-none'?>">
-                            <a class="dropdown-toggle text-light nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="far fa-user-circle"></i></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="<?=$linkAccount?>">Mon Compte</a>
-                               <form method="POST" action="<?=$disconnect?>">
-                                <button class="dropdown-item" name="disconnect" value="disconnect" type="submit">Déconnexion</button>
-                                </form>
-                            </div>
-                        </li>
+                        
                         <form method="POST" action="<?=$disconnect?>">
                             <li class="nav-item font-family-germania bg-dark-opac rounded text-center mr-2 h4">
                                 <button class="btn btn-dark text-light nav-link mx-auto" id="disconnect" name="disconnect" value="disconnect" type="submit"><span class="h4">Déconnexion</span></button>

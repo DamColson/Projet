@@ -5,6 +5,8 @@ require_once 'Models/usersModel.php';
 require_once 'Models/SyndicateDetailsModel.php';
 require_once 'Models/AdminModel.php';
 require_once 'Models/ArmorsModel.php';
+require_once 'Models/SyndicateModel.php';
+
 
 include 'assets/php/arrays.php';
 

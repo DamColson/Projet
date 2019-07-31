@@ -101,7 +101,7 @@ class Users extends Db {
             return true;
         endif;
     }
-    
+
     public function updateShowDiscord() {
         $query = 'UPDATE wfd_UsersInfos SET showDiscord = :showDiscord WHERE id=:id';
         $updateShowDiscord = $this->db->prepare($query);
@@ -112,7 +112,7 @@ class Users extends Db {
             return true;
         endif;
     }
-    
+
     public function updateShowMail() {
         $query = 'UPDATE wfd_UsersInfos SET showMail = :showMail WHERE id=:id';
         $updateShowMail = $this->db->prepare($query);
@@ -138,11 +138,23 @@ class Users extends Db {
         $query = 'SELECT * FROM wfd_UsersInfos WHERE wfd_UsersInfos.warfriendsPseudo = :pseudo';
         $getUserInfos = $this->db->prepare($query);
         $getUserInfos->bindValue(':pseudo', $this->warfriendsPseudo, PDO::PARAM_STR);
-        $getUserInfos->execute();
+        
+        if($getUserInfos->execute()):
+            
+            $getInfos = $getUserInfos->fetchAll(PDO::FETCH_ASSOC);
+       
+            $this->id = $getInfos[0]['id'];
+            $this->warfriendsPseudo = $getInfos[0]['warfriendsPseudo'];
+            $this->warframePseudo = $getInfos[0]['warframePseudo'];
+            $this->birthday = $getInfos[0]['birthday'];
+            $this->mail = $getInfos[0]['mail'];
+            $this->tagDiscord = $getInfos[0]['tagDiscord'];
+            $this->id_wfd_Armors = $getInfos[0]['id_wfd_Armors'];
+            
+            return $getInfos;
+        endif;
 
-        $getInfos = $getUserInfos->fetchAll(PDO::FETCH_ASSOC);
-
-        return $getInfos;
+        
     }
 
     public function deleteUsers() {
@@ -199,7 +211,7 @@ class Users extends Db {
 
             $warfriendsPerPage = 6;
             $page = (!empty($_GET['page'])) ? $_GET['page'] : 1;
-            
+
             $start = ($page - 1) * $warfriendsPerPage;
 
 
@@ -271,7 +283,7 @@ class Users extends Db {
             die($msg);
         }
     }
-    
+
     public function researchCount() {
         try {
             $query = "SELECT wfd_UsersInfos.id, wfd_UsersInfos.warfriendsPseudo FROM wfd_Syndicate INNER JOIN wfd_SyndicateDetails ON wfd_SyndicateDetails.id_wfd_Syndicate = wfd_Syndicate.id INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE (wfd_Syndicate.name LIKE :search OR wfd_UsersInfos.warfriendsPseudo LIKE :search OR wfd_Syndicate.name = :meridian OR wfd_Syndicate.name = :arbiter OR wfd_Syndicate.name = :cephalon OR wfd_Syndicate.name = :perrin OR wfd_Syndicate.name = :redVeil OR wfd_Syndicate.name = :loka) AND wfd_SyndicateDetails.rank != 'Moins de 2' GROUP BY wfd_UsersInfos.id";
@@ -284,10 +296,10 @@ class Users extends Db {
                 $searchVal = NULL;
             endif;
 
-            
+
 
             $search->bindValue(':search', $searchVal, PDO::PARAM_STR);
-            
+
 
             if (!empty($_GET['meridianCheckbox'])):
                 $search->bindValue(':meridian', $_GET['meridianCheckbox'], PDO::PARAM_STR);
@@ -334,40 +346,69 @@ class Users extends Db {
             die($msg);
         }
     }
-    
-    public function checkPseudoPresence(){
+
+    public function checkPseudoPresence() {
         $query = 'SELECT COUNT(wfd_UsersInfos.id) AS pseudoPresence FROM wfd_UsersInfos WHERE wfd_UsersInfos.warfriendsPseudo = :pseudo';
-        
+
         $checkPseudo = $this->db->prepare($query);
-        $checkPseudo->bindValue(':pseudo',$this->warfriendsPseudo,PDO::PARAM_STR);
-        
-        if($checkPseudo->execute()):
+        $checkPseudo->bindValue(':pseudo', $this->warfriendsPseudo, PDO::PARAM_STR);
+
+        if ($checkPseudo->execute()):
             $checkPseudoPresence = $checkPseudo->fetchAll(PDO::FETCH_ASSOC);
             return $checkPseudoPresence;
         endif;
     }
-    
-    public function checkDiscordPresence(){
+
+    public function checkDiscordPresence() {
         $query = 'SELECT COUNT(wfd_UsersInfos.id) AS discordPresence FROM wfd_UsersInfos WHERE wfd_UsersInfos.tagDiscord = :discord';
-        
+
         $checkDiscord = $this->db->prepare($query);
-        $checkDiscord->bindValue(':discord',$this->tagDiscord,PDO::PARAM_STR);
-        
-        if($checkDiscord->execute()):
+        $checkDiscord->bindValue(':discord', $this->tagDiscord, PDO::PARAM_STR);
+
+        if ($checkDiscord->execute()):
             $checkDiscordPresence = $checkDiscord->fetchAll(PDO::FETCH_ASSOC);
             return $checkDiscordPresence;
         endif;
     }
-    
-    public function checkMailPresence(){
+
+    public function checkMailPresence() {
         $query = 'SELECT COUNT(wfd_UsersInfos.id) AS mailPresence FROM wfd_UsersInfos WHERE wfd_UsersInfos.mail = :mail';
-        
+
         $checkMail = $this->db->prepare($query);
-        $checkMail->bindValue(':mail',$this->mail,PDO::PARAM_STR);
-        
-        if($checkMail->execute()):
+        $checkMail->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+
+        if ($checkMail->execute()):
             $checkMailPresence = $checkMail->fetchAll(PDO::FETCH_ASSOC);
             return $checkMailPresence;
         endif;
     }
+
+    public function getAllUsers() {
+        $query = 'SELECT * FROM wfd_UsersInfos';
+        $getUsers = $this->db->query($query);
+        $getAllUsers = $getUsers->fetchAll(PDO::FETCH_ASSOC);
+        return $getAllUsers;
+    }
+
+    public function getInfosById() {
+        $query = 'SELECT * FROM wfd_UsersInfos WHERE wfd_UsersInfos.id = :id';
+        $getUserInfosById = $this->db->prepare($query);
+        $getUserInfosById->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+
+        if ($getUserInfosById->execute()):
+            
+            $getInfosById = $getUserInfosById->fetchAll(PDO::FETCH_ASSOC);
+            $this->id = $getInfosById[0]['id'];
+            $this->warfriendsPseudo = $getInfosById[0]['warfriendsPseudo'];
+            $this->warframePseudo = $getInfosById[0]['warframePseudo'];
+            $this->birthday = $getInfosById[0]['birthday'];
+            $this->mail = $getInfosById[0]['mail'];
+            $this->tagDiscord = $getInfosById[0]['tagDiscord'];
+            $this->id_wfd_Armors = $getInfosById[0]['id_wfd_Armors'];
+
+            return $getInfosById;
+        endif;
+    }
+
 }

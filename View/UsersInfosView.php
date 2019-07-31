@@ -351,7 +351,7 @@ require '../Controllers/UsersInfosController.php';
                 </div>
             </div>
         </div>
-
+<div class="rem"></div>
 <?php 
 include 'footerView.php';?>
 

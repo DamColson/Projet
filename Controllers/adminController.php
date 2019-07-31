@@ -1,8 +1,13 @@
 <?php
-require '../Models/modelDb.php';
-require '../Models/ArmorsModel.php';
-require '../Models/usersModel.php';
-require '../Models/AdminModel.php';
+require_once '../Models/modelDb.php';
+require_once '../Models/usersModel.php';
+require_once '../Models/AdminModel.php';
+require_once '../Models/ArmorsModel.php';
+require_once '../Models/SyndicateModel.php';
+
+if(!isset($_SESSION['adminPseudo'])):
+    header('Location:error.php');
+endif;
 
 session_start();
 $linkIndex = '../index.php';
