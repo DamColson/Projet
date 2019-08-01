@@ -149,7 +149,7 @@ if($_POST):
 endif;
 
      
-$_POST = array_map('strip_tags', $_POST);
+
 $user = new Users();
 $syndicateDetail = new SyndicateDetails();
 $user->warfriendsPseudo = $_POST['warfriendsPseudo'];

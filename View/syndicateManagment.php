@@ -178,14 +178,14 @@ require_once '../Controllers/syndicateController.php';
                                         <div class="form-group col-lg-3"></div>
                                         <div class="form-group col-lg-6">
                                             <label for="newSyndicateName">Nom du syndicat : </label>
-                                            <input type="text" class="form-control" id="newSyndicateName" name="newSyndicateName" value="" />
+                                            <input type="text" class="form-control" id="newSyndicateName" name="newSyndicateName" value="<?= $newSyndicate->name ?>" />
                                         </div>
                                         <div class="form-group col-lg-3"></div>
 
                                         <div class="form-group col-lg-3"></div>
                                         <div class="form-group col-lg-6">
                                             <label for="newSyndicateImage">Image du syndicat : </label>
-                                            <input type="text" class="form-control" id="newSyndicateImage" name="newSyndicateImage" value="" />
+                                            <input type="text" class="form-control" id="newSyndicateImage" name="newSyndicateImage" value="<?= $newSyndicate->image ?>" />
                                         </div>
                                         <div class="form-group col-lg-3"></div>
                                     </div>

@@ -39,7 +39,8 @@ require_once 'Controllers/indexController.php';
                 $user->showMail = $value['showMail'];
 
                 $lastTwelvesRank = $user->getLastTwelvesRanks();
-                ?><div class="col-xl-3 col-12">
+                
+                ?><div class="col-xl-4 col-12">
                     <div id="accordion<?= $key ?>">   
                         <div class="card mx-auto bg-light-opac" style="width: 18rem;">
 
