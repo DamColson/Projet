@@ -12,6 +12,7 @@ $syndicate = new Syndicate();
 
 
 $lastTwelve = $user->getLastTwelve();
+$lastSixOffsetSix = $user->getLastSixOffsetSix();
 
 $armor = new Armors();
 if(isset($_SESSION['id_wfd_Armors'])):

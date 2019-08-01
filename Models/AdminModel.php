@@ -30,4 +30,15 @@ class Admin extends Db{
 
         return $getAdminPass;
     }
+    
+    public function updateAdminPassword() {
+        $query = 'UPDATE wfd_Admins SET password = :password WHERE Admin.pseudo=:pseudo';
+        $updatePassword = $this->db->prepare($query);
+        $updatePassword->bindValue(':password', $this->password, PDO::PARAM_STR);
+        $updatePassword->bindValue(':pseudo', $this->name, PDO::PARAM_INT);
+
+        if ($updatePassword->execute()):
+            return true;
+        endif;
+    }
 }

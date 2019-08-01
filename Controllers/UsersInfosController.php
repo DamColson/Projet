@@ -7,8 +7,9 @@ require_once '../Models/modelDb.php';
 require_once '../Models/usersModel.php';
 require_once '../Models/ArmorsModel.php';
 require_once '../Models/SyndicateModel.php';
+require_once '../Models/AdminModel.php';
 
-//Liste des liens nécessaires
+//Liste des liens nécessaires.
 
 $linkIndex = '../index.php';
 $linkUpdate = 'updateView.php';
@@ -47,10 +48,11 @@ return ucfirst(strftime('%d/%m/%Y',strtotime($date)));
 
 $data;
 
-//Instanciation de deux nouvelles classes, une utilisateur une pour les frames.
+//Instanciation de trois nouvelles classes, une utilisateur une pour les frames et une pour l'admin.
 
 $user = new Users();
 $armor = new Armors();
+$admin = new Admin();
 
 //Génération de la vidéo background, si la personne est connectée, on affichera sa frame, si personne n'est connecté, une frame aléatoire sera choisie.
 
@@ -77,6 +79,10 @@ $user->tagDiscord=$tagDiscord;
 
 $getInfos = $user->getInfos();
 
+//Hydratation de $admin
+
+$admin->pseudo = $user->warfriendsPseudo;
+
 //Extraction de $_POST.
 
 extract($_POST);
@@ -100,6 +106,11 @@ if(!empty($_POST)):
         $user->password = password_hash($newPassword,PASSWORD_BCRYPT);//On hydrate le password de l'utilisateur avec une version hashée du password entrée dansle formulaire ( hash BCRYPT)
         $user->updateUsersPassword();//Mise à jour du password dans la base de donnée
         $password = $user->password;//Mise à jour des informations de session
+        if(isset($adminPseudo)):
+            $admin->password = password_hash($newPassword,PASSWORD_BCRYPT);
+            $admin->updateAdminPassword();
+            
+        endif;
     endif;
     //Formulaire de suppression de compte
     if(isset($submitDeleteButton))://Si le formulaire de suppression a été envoyé.

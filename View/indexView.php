@@ -22,11 +22,23 @@ require_once 'Controllers/indexController.php';
         include 'connectionView.php';
         
         ?>
+        <div class="wrapper">
+        <div class="rem"></div>
+        
+        <div class="rem"></div>
+        
+        
+        <div class="container-fluid" id="content">
+            <div class="h1 text-center text-dark bg-light-opac lastSubscriberWidth mx-auto rounded">Nos derniers Inscrits</div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
 
-        <div class="rem"></div>
-        <div class="h1 text-center text-dark bg-light-opac lastSubscriberWidth mx-auto rounded">Nos derniers Inscrits</div>
-        <div class="rem"></div>
-        <div class="row no-gutters">
+            
+
+        </div>
+    </nav>
+        <div class="row no-gutters" id="main">
+            
             <?php
             foreach ($lastTwelve as $key => $value):
 
@@ -95,6 +107,7 @@ require_once 'Controllers/indexController.php';
                         </div>
                         <div class="rem"></div>
                     </div>
+                    
                 </div>
 
 
@@ -102,6 +115,27 @@ require_once 'Controllers/indexController.php';
             endforeach;
             ?>
         </div>
+        </div>
+        <button type="button" id="sideListCollapse" class="btn btn-dark">
+                
+               Open Sesame
+            </button>
+        <div id="sideList" class="active">
+            <div class="text-light" id="sideListContent">
+               <?php foreach($lastSixOffsetSix as $key=>$value):
+                   
+               endforeach;
+               
+               
+               ?> 
+            </div>
+            
+        
+        </div>
+        </div>
+            
+       
+        
 
         <?php include 'View/footerView.php'; ?>
 

@@ -199,6 +199,14 @@ footer {
     .warButton {
         margin-top: -0.5rem;
     }
+
+    .nav-item{
+        background-color:rgba(52,58,54,0.8);   
+    }
+
+    .helloMember{
+        display:none;
+    }
 }
 
 @media screen and (min-width:376px) and (max-width:414px) {
@@ -238,6 +246,14 @@ footer {
     .warButton {
         margin-top: -0.4rem;
     }
+
+    .nav-item{
+        background-color:rgba(52,58,54,0.8);   
+    }
+
+    .helloMember{
+        display:none;
+    }
 }
 
 @media screen and (min-width:415px) and (max-width:480px) {
@@ -267,6 +283,14 @@ footer {
 
     .warButton {
         margin-top: -0.3rem;
+    }
+
+    .nav-item{
+        background-color:rgba(52,58,54,0.8);   
+    }
+
+    .helloMember{
+        display:none;
     }
 }
 
@@ -298,6 +322,14 @@ footer {
     .warButton {
         margin-top: -0.2rem;
     }
+
+    .nav-item{
+        background-color:rgba(52,58,54,0.8);   
+    }
+
+    .helloMember{
+        display:none;
+    }
 }
 
 @media screen and (min-width:551px) and (max-width:650px) {
@@ -327,6 +359,14 @@ footer {
 
     .warButton {
         margin-top: -0.2rem;
+    }
+
+    .nav-item{
+        background-color:rgba(52,58,54,0.8);   
+    }
+
+    .helloMember{
+        display:none;
     }
 }
 
@@ -362,6 +402,14 @@ footer {
 
     .topBorder {
         height: 2.9rem;
+    }
+
+    .nav-item{
+        background-color:rgba(52,58,54,0.8);   
+    }
+
+    .helloMember{
+        display:none;
     }
 }
 
@@ -400,6 +448,14 @@ footer {
     .topBorder {
         height: 2.9rem;
     }
+
+    .nav-item{
+        background-color:rgba(52,58,54,0.8);   
+    }
+
+    .helloMember{
+        display:none;
+    }
 }
 
 @media screen and (min-width:741px) and (max-width:800px) {
@@ -437,6 +493,14 @@ footer {
 
     .topBorder {
         height: 2.9rem;
+    }
+
+    .nav-item{
+        background-color:rgba(52,58,54,0.8);   
+    }
+
+    .helloMember{
+        display:none;
     }
 }
 
@@ -479,6 +543,14 @@ footer {
     .warButton {
         margin-top: 0.2rem;
     }
+
+    .nav-item{
+        background-color:rgba(52,58,54,0.8);   
+    }
+
+    .helloMember{
+        display:none;
+    }
 }
 
 @media screen and (min-width:901px) and (max-width:1200px) {
@@ -508,6 +580,14 @@ footer {
 
     .warButton {
         margin-top: 0.2rem;
+    }
+
+    .nav-item{
+        background-color:rgba(52,58,54,0.8);   
+    }
+
+    .helloMember{
+        display:none;
     }
 }
 
@@ -611,6 +691,56 @@ footer {
 
     .lastSubscriberWidth{
         width:50%!important;
-    }}
+    }
+    
+    
+}
 
+.wrapper{
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    
+}
+
+#sideList {
+    min-width: 450px;
+    max-width: 450px;
+    transition:0.5s;
+}
+
+#sideList.active{
+    min-width: 0px;
+    max-width: 0px;
+    transition:0.5s;
+}
+
+#sideListContent{
+    overflow-x: hidden;
+}
+
+#sideList.active #sideListContent {
+    display:none;
+}
+
+
+@media (max-width: 1024px) {
+    #sideList {
+        display:none;
+    }
+    #sideListCollapse{
+        display:none;
+    }
+}
+
+@media (max-width: 1280px) {
+    #sideList {
+        min-width: 250px;
+        max-width: 250px;
+    }
+    #sideList.active {
+        display:none;
+        
+}
+}
 
