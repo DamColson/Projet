@@ -113,6 +113,12 @@ body {
     padding-bottom: 257px; /* height of your footer */
 }
 
+.smallImgWidth{
+    width:13%;
+}
+
+
+
 footer {
     position: absolute;
     bottom: 0;
