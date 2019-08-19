@@ -142,13 +142,14 @@ require_once '../Controllers/formController.php';
                 </div>
 
             </fieldset>
-
+            <div class="g-recaptcha mb-3" name="g-recaptcha-response" data-sitekey="6LeEprMUAAAAACAV_SQ0_5j-s_4TCZeYh3_V1Vp2"></div>
             <div class="align-items-center justify-content-center d-flex">
                 <button name="submitFormButton" id="submitFormButton" value="submitOn" type="submit" class="btn btn-outline-success my-2 my-sm-0 mb-3">Envoyer</button>
             </div>
             <div class="rem"></div>
         </form>
-        <?php if ($errorInForm == $formValidation && !empty($_POST) && $pseudoPresence[0]['pseudoPresence'] == 0  && $discordPresence[0]['discordPresence'] == 0  && $mailPresence[0]['mailPresence'] == 0):
+        <?php if ($errorInForm == $formValidation && !empty($_POST) && $pseudoPresence[0]['pseudoPresence'] == 0  && $discordPresence[0]['discordPresence'] == 0  && $mailPresence[0]['mailPresence'] == 0 && $decode['success'] == true):
+            
             ?><script>Swal.fire({
                     title: 'Félicitation!',
                     text: 'Votre inscription est validée, bienvenue sur Warfriends',
@@ -158,8 +159,20 @@ require_once '../Controllers/formController.php';
 
                 setTimeout(function () {
 
-                    document.location.href = '../index.php'; //will redirect to your blog page (an ex: blog.html)
-                }, 1500); //will call the function after 2 secs.</script><?php
+                    document.location.href = '../index.php'; 
+                }, 1500); //will call the function after 1,5 secs.</script><?php
+                elseif(($errorInForm != $formValidation && !empty($_POST)) || (!empty($_POST) && $decode['success'] != true)):
+                    ?><script>Swal.fire({
+                    title: 'Echec!',
+                    text: 'Formulaire invalide',
+                    type: 'error',
+                    confirmButtonText: 'Fermer'
+                });
+
+                setTimeout(function () {
+
+                    document.location.href = 'formView.php'; 
+                }, 1500); //will call the function after 1,5 secs.</script><?php
                 elseif($pseudoPresence[0]['pseudoPresence'] == 1 || $discordPresence[0]['discordPresence'] == 1 || $mailPresence[0]['mailPresence'] == 1):
                     ?><script>Swal.fire({
                     title: 'Echec!',
@@ -170,8 +183,8 @@ require_once '../Controllers/formController.php';
 
                 setTimeout(function () {
 
-                    document.location.href = 'formView.php'; //will redirect to your blog page (an ex: blog.html)
-                }, 1500); //will call the function after 2 secs.</script><?php
+                    document.location.href = 'formView.php'; 
+                }, 1500); //will call the function after 1,5 secs.</script><?php
                 
         endif;
         ?>

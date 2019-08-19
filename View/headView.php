@@ -6,5 +6,7 @@
   <link rel="stylesheet" href="../assets/css/ProjetHomePage.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script src="https://kit.fontawesome.com/eaadffbb2b.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <title>warFriends</title>
 </head>

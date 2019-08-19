@@ -190,10 +190,27 @@ if(!empty($_POST)):
         $user->showMail = $showMail;
     endif;
     
+    // Ma clé privée
+	$secret = "6LeEprMUAAAAAOLbq9E9d5aI60mvPUPy4dMHN_Ei";
+	// Paramètre renvoyé par le recaptcha
+	$response = $_POST['g-recaptcha-response'];
+	// On récupère l'IP de l'utilisateur
+	$remoteip = $_SERVER['REMOTE_ADDR'];
+	
+	$api_url = "https://www.google.com/recaptcha/api/siteverify?secret=" 
+	    . $secret
+	    . "&response=" . $response
+	    . "&remoteip=" . $remoteip ;
+	
+	$decode = json_decode(file_get_contents($api_url), true);
+	
+	
     //Si il n'y a aucune erreur et que ni lepseudo warfriends, nilemail ni le tag discord ne se trouve dans la bdd,alors, l'utilisateur et ses infos sont ajoutés à la bdd et ce dernier pourra se connecter.
     
     if($errorInForm == $formValidation && $pseudoPresence[0]['pseudoPresence'] == 0 && $discordPresence[0]['discordPresence'] == 0 && $mailPresence[0]['mailPresence'] == 0):
-        $user->addUsers();
+        if ($decode['success'] == true) {
+		$user->addUsers();
+	}
     endif;
     
     //Envoie de la valeur de $data à ajax.

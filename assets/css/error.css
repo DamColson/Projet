@@ -1,44 +1,15 @@
-@media screen and (max-width: 400px) {
 
-    /* media pour réduire le captcha */
-    .g-recaptcha {
-        transform: scale(0.89);
-        -webkit-transform: scale(0.89);
-        transform-origin: 0 0;
-        -webkit-transform-origin: 0 0;
-    }
-
+.errorMessage{
+    font-size:2rem;
 }
 
 .g-recaptcha div{
     margin:auto;
 }
 
-a{
-    outline:0;
-    transition:0.3s;
-}
-
-video#bgvid {
-    position: fixed; 
-    right: 0; 
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-    width: auto; 
-    height: auto; 
-    z-index: -100;
-    background-size: cover;
-}
 
 .rem{
     height:2rem;
-}
-
-.nav-link {
-    color:white;
-    background-color:transparent;
-    border-color:transparent;
 }
 
 .font-family-Michroma {
@@ -61,65 +32,6 @@ video#bgvid {
     background-color: rgba(0,0,0,0.5);
 }
 
-#divHomeText {
-    display: flex;
-}
-
-#homePageText {
-    align-self: center;
-    justify-content: center;
-}
-
-video {
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width:100%;
-}
-
-.redBorder{
-    border:red 2px solid;
-}
-
-.headRow{
-    height:6rem;
-}
-
-#connectionDiv{
-    display:none;
-}
-
-.nav-tabs {
-    display:none;
-}
-
-.accordCard,.accordCardBody{
-    background-color:rgba(248,249,250,0.7); 
-}
-
-.list-group-item{
-    position:relative;
-    display:block;
-    padding:.75rem 1.25rem;
-    margin-bottom:-1px;
-    border:1px solid rgba(0,0,0,.125);
-}
-
-.lastSubscriberWidth{
-    width:50%!important;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-*:before,*:after {
-    box-sizing: border-box;
-}
-
 body {
     height: 100%;
     position: relative;
@@ -129,73 +41,13 @@ body {
     padding-bottom: 257px; /* height of your footer */
 }
 
-.smallImgWidth{
-    width:13%;
-}
-
-
-
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 
-@media(min-width:1201px) {
-    .nav-tabs {
-        display: flex;
-    }
-
-    .accordCard {
-        border: none;
-    }
-
-    .accordCard .accordCardHeader {
-        display:none;
-    }  
-
-    .accordCard .accordCardCollapse{
-        display:block;
-    }
-
-    .btn-dark {
-        color:#fff;
-        background-color:#34403F;
-        border-color:#292d2c;
-    }
-}
-
-@media(max-width:1200px){
-    /*
-     * Changed selector to `.tab-content > .tab-pane` to override `.fade:not(.show)`
-     * In BS4 Beta `.tab-pane`s were rendered hidden by just `.fade`
-     */
-    .tab-content > .tab-pane { 
-        display: block;
-        opacity: 1;
-    }
-
-    .btn-dark {
-        color:#fff;
-        background-color:#707471;
-        border-color:#292d2c;
-    }
-
-
-}
-
 @media screen and (max-width:375px) {
-
-    video{
-        display:none;
-    }
-
-    body {
-        background-image: url(../Images/warframe7.jpg);
-        background-size: cover;
-        background-position: 77%;
-        background-repeat: no-repeat;
-    }
 
     body {
         height: 100%;
@@ -237,17 +89,6 @@ footer {
         display: none;
     }
 
-    video{
-        display:none;
-    }
-
-    body {
-        background-image: url(../Images/warframe7.jpg);
-        background-size: cover;
-        background-position: 77%;
-        background-repeat: no-repeat;
-    }
-
     body {
         height: 100%;
         position: relative;
@@ -284,17 +125,6 @@ footer {
         display: none;
     }
 
-    video{
-        display:none;
-    }
-
-    body {
-        background-image: url(../Images/warframe7.jpg);
-        background-size: cover;
-        background-position: 77%;
-        background-repeat: no-repeat;
-    }
-
     .topBorder h1 {
         display: none;
     }
@@ -321,18 +151,7 @@ footer {
     #miniWar {
         display: none;
     }
-
-    video{
-        display:none;
-    }
-
-    body {
-        background-image: url(../Images/warframe7.jpg);
-        background-size: cover;
-        background-position: 77%;
-        background-repeat: no-repeat;
-    }
-
+    
     .topBorder h1 {
         display: none;
     }
@@ -355,17 +174,6 @@ footer {
 }
 
 @media screen and (min-width:551px) and (max-width:650px) {
-
-    video{
-        display:none;
-    }
-
-    body {
-        background-image: url(../Images/warframe7.jpg);
-        background-size: cover;
-        background-position: 77%;
-        background-repeat: no-repeat;
-    }
 
     #miniWar {
         display: none;
@@ -396,17 +204,6 @@ footer {
 
     #miniWar {
         display: none;
-    }
-
-    video{
-        display:none;
-    }
-
-    body {
-        background-image: url(../Images/warframe7.jpg);
-        background-size: cover;
-        background-position: 77%;
-        background-repeat: no-repeat;
     }
 
     body {
@@ -454,19 +251,6 @@ footer {
         padding-bottom: 570px; /* height of your footer */
     }
 
-    video#bgvid {
-        position: fixed;
-        left: -50%;
-        right: 0; 
-        bottom: 0;
-        min-width: 100%; 
-        min-height: 100%;
-        width: auto; 
-        height: auto; 
-        z-index: -100;
-        background-size: cover;
-    }
-
     .topBorder {
         height: 2.9rem;
     }
@@ -498,19 +282,6 @@ footer {
         display: block;
         position: relative;
         padding-bottom: 473px; /* height of your footer */
-    }
-
-    video#bgvid {
-        position: fixed;
-        left: -90%;
-        right: 0; 
-        bottom: 0;
-        min-width: 100%; 
-        min-height: 100%;
-        width: auto; 
-        height: auto; 
-        z-index: -100;
-        background-size: cover;
     }
 
     .topBorder {
@@ -548,20 +319,7 @@ footer {
         position: relative;
         padding-bottom: 449px; /* height of your footer */
     }
-
-    video#bgvid {
-        position: fixed;
-        left: -50%;
-        right: 0; 
-        bottom: 0;
-        min-width: 100%; 
-        min-height: 100%;
-        width: auto; 
-        height: auto; 
-        z-index: -100;
-        background-size: cover;
-    }
-
+    
     .warButton {
         margin-top: 0.2rem;
     }
@@ -717,52 +475,3 @@ footer {
 
 
 }
-
-.wrapper{
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-
-}
-
-#sideList {
-    min-width: 450px;
-    max-width: 450px;
-    transition:0.5s;
-}
-
-#sideList.active{
-    min-width: 0px;
-    max-width: 0px;
-    transition:0.5s;
-}
-
-#sideListContent{
-    overflow-x: hidden;
-}
-
-#sideList.active #sideListContent {
-    display:none;
-}
-
-
-@media (max-width: 1024px) {
-    #sideList {
-        display:none;
-    }
-    #sideListCollapse{
-        display:none;
-    }
-}
-
-@media (max-width: 1280px) {
-    #sideList {
-        min-width: 250px;
-        max-width: 250px;
-    }
-    #sideList.active {
-        display:none;
-
-    }
-}
-
