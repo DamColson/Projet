@@ -27,12 +27,14 @@ $errorLink = 'error.php';
 $frameLink = 'frameManagment.php';
 $syndicateLink = 'syndicateManagment.php';
 $memberLink = 'memberManagment.php';
+$legal = 'legal.php';
 
 //Instanciation de class admin, user et armor.
 
 $admin = new Admin();
 $user = new Users();
 $armor = new Armors();
+$syndicate = new Syndicate();
 
 //Génération de la vidéo background, si la personne est connectée, on affichera sa frame, si personne n'est connecté, une frame aléatoire sera choisie.
 
@@ -42,3 +44,7 @@ else:
 $armor->id = $rand = rand(1,64);
 endif;
 $getName = $armor->getArmorsName();
+$getNumber = $armor->getFrameNumber();
+$getSyndicateNumber = $syndicate->getSyndicateNumber();
+$getUserNumber = $user->getUsersNumber();
+$getFavNumber = $user->getDistinctFavNumber();

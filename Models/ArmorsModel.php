@@ -71,4 +71,12 @@ class Armors extends Db {
             return true;
         endif;
     }
+    
+    public function getFrameNumber(){
+        $query = 'SELECT COUNT(*) AS number FROM wfd_Armors';
+        $getNumber = $this->db->query($query);
+        $getFrameNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
+        return $getFrameNumber;
+    }
+    
 }

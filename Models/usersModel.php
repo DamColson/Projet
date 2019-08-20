@@ -412,7 +412,7 @@ class Users extends Db {
     }
     
     public function getLastSixOffsetSix() {
-        $query = "SELECT wfd_UsersInfos.id,wfd_UsersInfos.warfriendsPseudo FROM wfd_SyndicateDetails INNER JOIN wfd_Syndicate ON wfd_Syndicate.id = wfd_SyndicateDetails.id_wfd_Syndicate INNER JOIN wfd_UsersInfos ON wfd_UsersInfos.id = wfd_SyndicateDetails.id_wfd_UsersInfos WHERE wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id AND wfd_Syndicate.id = 1 ORDER BY wfd_UsersInfos.id DESC LIMIT 6 OFFSET 6";
+        $query = "SELECT wfd_UsersInfos.id,wfd_UsersInfos.warfriendsPseudo FROM wfd_SyndicateDetails INNER JOIN wfd_Syndicate ON wfd_Syndicate.id = wfd_SyndicateDetails.id_wfd_Syndicate INNER JOIN wfd_UsersInfos ON wfd_UsersInfos.id = wfd_SyndicateDetails.id_wfd_UsersInfos WHERE wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id AND wfd_Syndicate.id = 1 ORDER BY wfd_UsersInfos.id DESC LIMIT 7 OFFSET 6";
 
         $getLastSixOffsetSix = $this->db->query($query);
 
@@ -421,6 +421,18 @@ class Users extends Db {
         return $lastSixOffsetSix;
     }
     
+    public function getUsersNumber(){
+        $query = 'SELECT COUNT(wfd_UsersInfos.id) AS number FROM wfd_UsersInfos';
+        $getNumber = $this->db->query($query);
+        $getUsersNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
+        return $getUsersNumber;
+    }
     
-
+    public function getDistinctFavNumber(){
+        $query = 'SELECT COUNT(DISTINCT id_wfd_Armors) AS number from wfd_UsersInfos';
+        $getNumber = $this->db->query($query);
+        $getFavNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
+        return $getFavNumber;
+    }
 }
+

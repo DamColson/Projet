@@ -90,4 +90,13 @@ class Syndicate extends Db{
             return true;
         endif;
     }
+    
+    public function getSyndicateNumber(){
+        $query = 'SELECT COUNT(*) AS number FROM wfd_Syndicate';
+        $getNumber = $this->db->query($query);
+        $getSyndicateNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
+        return $getSyndicateNumber;
+    }
+    
+    
 }

@@ -18,6 +18,23 @@ a{
     outline:0;
     transition:0.3s;
 }
+.adminTopic{
+    display:block;
+    width:100%;
+    padding:.25rem 1.5rem;
+    clear:both;
+    font-weight:400;
+    color:rgb(248,249,250);
+    text-align:inherit;
+    background-color:transparent;
+    border:0
+}
+
+.adminTopic:hover{
+    color:black;
+    text-decoration:none;
+    background-color:#f8f9fa
+}
 
 video#bgvid {
     position: fixed; 
@@ -193,7 +210,7 @@ footer {
     body {
         background-image: url(../Images/warframe7.jpg);
         background-size: cover;
-        background-position: 77%;
+        background-position: 60%;
         background-repeat: no-repeat;
     }
 

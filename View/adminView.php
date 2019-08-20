@@ -23,9 +23,32 @@ require '../Controllers/disconnect.php';
         
         
         ?>
+        <div class="row no-gutters align-items-start mt-5 bg-dark-opac">
+            <div class="col-xl-4 col-12 text-center mt-4">
+                <a class="adminTopic h2 mb-3" href="<?=$frameLink?>"><u>Gerer les frames</u></a>
+                <p class="text-light h4 mb-3">Nombre de frames actuellement enregistrées sur Warfriends</p>
+                <p class="text-success bg-light h4 border border-success rounded w-75 mx-auto mb-3"><?= $getNumber[0]['number']?></p>
+                <p class="text-light h4 mb-3">Nombre de frames différentes mises en favoris par les utilisateurs</p>
+                <p class="text-success bg-light h4 border border-success rounded w-75 mx-auto mb-3"><?= $getFavNumber[0]['number']?></p>
+            </div>
+            <div class="col-xl-4 col-12 text-center mt-4">
+                <a class="adminTopic h2 mb-3" href="<?=$syndicateLink?>"><u>Gerer les syndicats</u></a>
+                <p class="text-light h4 mb-3">Nombre de syndicats actuellement enregistrées sur Warfriends</p>
+                <p class="text-success bg-light h4 border border-success rounded w-75 mx-auto mb-3"><?= $getSyndicateNumber[0]['number']?></p>
+                <p class="text-light h4 mb-3">Nombre d'utilisateurs chez Steel Meridian</p>
+                <p class="text-success bg-light h4 border border-success rounded w-75 mx-auto mb-3"><?= $getSyndicateNumber[0]['number']?></p>
+            </div>
+            <div class="col-xl-4 col-12 text-center mt-4">
+                <a class="adminTopic h2 mb-3" href="<?=$memberLink?>"><u>Gerer les membres</u></a>
+                <p class="text-light h4 mb-3">Nombre de membres actuellement enregistrées sur Warfriends</p>
+                <p class="text-success bg-light h4 border border-light rounded w-75 mx-auto mb-3"><?= $getUserNumber[0]['number']?></p>
+                <p class="text-light h4 mb-3">Nombre de frames différentes mises en favoris par les utilisateurs</p>
+            </div>
+        </div>
         
 
-
+        <div class="rem"></div>
+        <?php include 'footerView.php'; ?>
         <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
