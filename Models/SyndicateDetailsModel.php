@@ -54,5 +54,50 @@ class SyndicateDetails extends Db{
         
         return $getAllInfos;
     }
+    
+    public function getSyndicateNumber(){
+        $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = :id AND rank != 'Moins de 2'";
+        $getNumber = $this->db->prepare($query);
+        $getNumber->bindValue(':id',$this->id_wfd_Syndicate,PDO::PARAM_INT);
+        
+        $getNumber->execute();
+        $getSyndicateNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
+        return $getSyndicateNumber;
+    }
+    
+//    public function getArbiterNumber(){
+//        $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = 2 AND rank != 'Moins de 2'";
+//        $getNumber = $this->db->query($query);
+//        $getArbiterNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
+//        return $getArbiterNumber;
+//    }
+//    
+//    public function getCephalonNumber(){
+//        $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = 3 AND rank != 'Moins de 2'";
+//        $getNumber = $this->db->query($query);
+//        $getCephalonNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
+//        return $getCephalonNumber;
+//    }
+//    
+//    public function getPerrinNumber(){
+//        $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = 4 AND rank != 'Moins de 2'";
+//        $getNumber = $this->db->query($query);
+//        $getPerrinNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
+//        return $getPerrinNumber;
+//    }
+//    
+//    public function getVeilNumber(){
+//        $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = 5 AND rank != 'Moins de 2'";
+//        $getNumber = $this->db->query($query);
+//        $getVeilNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
+//        return $getVeilNumber;
+//    }
+//    
+//    public function getLokaNumber(){
+//        $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = 6 AND rank != 'Moins de 2'";
+//        $getNumber = $this->db->query($query);
+//        $getLokaNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
+//        return $getLokaNumber;
+//    }
 }
     

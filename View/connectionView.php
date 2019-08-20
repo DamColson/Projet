@@ -21,8 +21,8 @@
 
 
                 <div class="align-items-center justify-content-center d-flex">
-                    <button type="button" class="btn btn-outline-light my-2 my-sm-0 mr-2 closeConnection" id="closeConnection" data-dismiss="modal">Fermer</button>
-                    <button type="submit" name="connectionButton" class="btn btn-outline-light my-2 my-sm-0" id="connectionButton"value="connectionOn">Connexion</button>
+                    <button type="button" class="btn btn-outline-success my-2 my-sm-0 mr-2 closeConnection" id="closeConnection" data-dismiss="modal">Fermer</button>
+                    <button type="submit" name="connectionButton" class="btn btn-outline-success my-2 my-sm-0" id="connectionButton"value="connectionOn">Connexion</button>
                 </div>
             </form>
             <?php

@@ -25,7 +25,7 @@ require_once '../Controllers/syndicateController.php';
 
         <form class="text-center" action="syndicateManagment.php" method="GET">
             <fieldset class="w-75 mx-auto">
-                <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
+                <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters bg-dark-opac">
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">
                         <label class="text-light form-group" for="syndicateSearchSelect">Chercher un syndicat : </label>
@@ -56,7 +56,7 @@ require_once '../Controllers/syndicateController.php';
                         <input class="form-control" type="search" name="syndicateSearchInput" id="syndicateSearchInput" />
                     </div>
                     <div class="form-group col-lg-3"></div>
-                    <button class="btn btn-outline-success my-2 my-sm-0 mb-3 text-light" type="submit">Recherche</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0 text-light" type="submit">Recherche</button>
                 </div>
             </fieldset>
         </form>
@@ -66,16 +66,16 @@ require_once '../Controllers/syndicateController.php';
         <div class="container">
             <ul id="tabs" class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a id="tab-A" href="#syndicateInfos" class="nav-link active" data-toggle="tab" role="tab">Informations du syndicat</a>
+                    <a id="tab-A" href="#syndicateInfos" class="nav-link active navLinkHovering" data-toggle="tab" role="tab">Informations du syndicat</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab-D" href="#syndicateUpdate" class="nav-link" data-toggle="tab" role="tab">Modifier le syndicat</a>
+                    <a id="tab-D" href="#syndicateUpdate" class="nav-link navLinkHovering" data-toggle="tab" role="tab">Modifier le syndicat</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab-B" href="#syndicateDeletion" class="nav-link" data-toggle="tab" role="tab">Supprimer le syndicat</a>
+                    <a id="tab-B" href="#syndicateDeletion" class="nav-link navLinkHovering" data-toggle="tab" role="tab">Supprimer le syndicat</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab-C" href="#createNewSyndicate" class="nav-link" data-toggle="tab" role="tab">Ajouter un syndicat</a>
+                    <a id="tab-C" href="#createNewSyndicate" class="nav-link navLinkHovering" data-toggle="tab" role="tab">Ajouter un syndicat</a>
                 </li>
 
             </ul>

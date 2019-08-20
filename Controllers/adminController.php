@@ -8,6 +8,7 @@ require_once '../Models/usersModel.php';
 require_once '../Models/AdminModel.php';
 require_once '../Models/ArmorsModel.php';
 require_once '../Models/SyndicateModel.php';
+require_once '../Models/SyndicateDetailsModel.php';
 
 //Si la personne qui tente d'atteindre cette page admin n'est pas admin, il sera redirigé vers une page d'erreur
 if(!isset($_SESSION['adminPseudo'])):
@@ -36,6 +37,7 @@ $user = new Users();
 $armor = new Armors();
 $syndicate = new Syndicate();
 
+
 //Génération de la vidéo background, si la personne est connectée, on affichera sa frame, si personne n'est connecté, une frame aléatoire sera choisie.
 
 if(isset($_SESSION['id_wfd_Armors'])):
@@ -48,3 +50,7 @@ $getNumber = $armor->getFrameNumber();
 $getSyndicateNumber = $syndicate->getSyndicateNumber();
 $getUserNumber = $user->getUsersNumber();
 $getFavNumber = $user->getDistinctFavNumber();
+$getAllSyndicate = $syndicate->getAllSyndicates();
+$getMostFav = $armor->getMostFavFrame();
+
+

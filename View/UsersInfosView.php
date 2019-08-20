@@ -27,16 +27,16 @@ require '../Controllers/UsersInfosController.php';
         <div class="container">
             <ul id="tabs" class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a id="tab-A" href="#infos" class="nav-link active" data-toggle="tab" role="tab">Informations du compte</a>
+                    <a id="tab-A" href="#infos" class="nav-link active navLinkHovering" data-toggle="tab" role="tab">Informations du compte</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab-D" href="#syndicateView" class="nav-link" data-toggle="tab" role="tab">Voir mes syndicats</a>
+                    <a id="tab-D" href="#syndicateView" class="nav-link navLinkHovering" data-toggle="tab" role="tab">Voir mes syndicats</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab-B" href="#passwordChange" class="nav-link" data-toggle="tab" role="tab">Changer de mot de passe</a>
+                    <a id="tab-B" href="#passwordChange" class="nav-link navLinkHovering" data-toggle="tab" role="tab">Changer de mot de passe</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab-C" href="#deleteAccount" class="nav-link" data-toggle="tab" role="tab">Supprimer mon compte</a>
+                    <a id="tab-C" href="#deleteAccount" class="nav-link navLinkHovering" data-toggle="tab" role="tab">Supprimer mon compte</a>
                 </li>
                 
             </ul>

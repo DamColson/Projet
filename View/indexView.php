@@ -90,7 +90,7 @@ require_once 'Controllers/indexController.php';
                                     </div>
                                     <div id="<?= 'collapse' . $key . '' . $key ?>" class="<?= (empty($_SESSION)) ? 'd-none' : '' ?> collapse" aria-labelledby="heading<?= $key . '' . $key ?>" data-parent="#accordion<?= $key ?>">
                                         <ul class="list-group list-group-flush bg-light-opac">
-                                            <li class="text-center list-group-item bg-dark-opac text-light"><?= (empty($_SESSION)) ? 'Connectez vous pour acceder à ces données !' : (($user->showMail == 'Yes') ? '<a href="mailto:' . $user->mail . '">' . $user->mail . '</a>' : 'Ce membre ne souhaite pas partager son email' ) ?></li>
+                                            <li class="text-center list-group-item bg-dark-opac text-light"><?= (empty($_SESSION)) ? 'Connectez vous pour acceder à ces données !' : (($user->showMail == 'Yes') ? '<a class="text-light" href="mailto:' . $user->mail . '"><u>' . $user->mail . '</u></a>' : 'Ce membre ne souhaite pas partager son email' ) ?></li>
                                             <li class="text-center list-group-item bg-dark-opac text-light"><?= (empty($_SESSION)) ? 'Connectez vous pour acceder à ces données !' : (($user->showDiscord == 'Yes') ? $user->tagDiscord : 'Ce membre ne souhaite pas partager son discord') ?></li>
                                         </ul>
                                         <div class="card-body">
@@ -114,7 +114,7 @@ require_once 'Controllers/indexController.php';
                     ?>
                 </div>
             </div>
-            <button type="button" id="sideListCollapse" class="btn btn-dark">Plus d'inscrits</button>
+            <button type="button" id="sideListCollapse" class="btn btn-dark"><i class="fas fa-plus mr-2"></i>Plus d'inscrits</button>
             <div id="sideList" class="active text-center">
                 <div class="text-light" id="sideListContent">
                     <?php

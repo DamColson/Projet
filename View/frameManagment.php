@@ -25,7 +25,7 @@ require_once '../Controllers/frameController.php';
 
         <form class="text-center" action="frameManagment.php" method="GET">
             <fieldset class="w-75 mx-auto">
-                <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
+                <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters bg-dark-opac">
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">
                         <label class="text-light" for="frameSearchSelect">Chercher une frame : </label>
@@ -56,9 +56,13 @@ require_once '../Controllers/frameController.php';
                         <input class="form-control" type="search" name="frameSearchInput" id="frameSearchInput" />
                     </div>
                     <div class="form-group col-lg-3"></div>
-                    <button class="btn btn-outline-success my-2 my-sm-0 mb-3 text-light" type="submit">Recherche</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0 text-light" type="submit">Recherche</button>
+                    
+                    
                 </div>
+               
             </fieldset>
+            
         </form>
 
         <div class="rem"></div>
@@ -66,16 +70,16 @@ require_once '../Controllers/frameController.php';
         <div class="container">
             <ul id="tabs" class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a id="tab-A" href="#frameInfos" class="nav-link active" data-toggle="tab" role="tab">Informations de la frame</a>
+                    <a id="tab-A" href="#frameInfos" class="nav-link active navLinkHovering" data-toggle="tab" role="tab">Informations de la frame</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab-D" href="#frameUpdate" class="nav-link" data-toggle="tab" role="tab">Modifier la frame</a>
+                    <a id="tab-D" href="#frameUpdate" class="nav-link navLinkHovering" data-toggle="tab" role="tab">Modifier la frame</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab-B" href="#frameDeletion" class="nav-link" data-toggle="tab" role="tab">Supprimer la frame</a>
+                    <a id="tab-B" href="#frameDeletion" class="nav-link navLinkHovering" data-toggle="tab" role="tab">Supprimer la frame</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab-C" href="#createNewFrame" class="nav-link" data-toggle="tab" role="tab">Ajouter une nouvelle frame</a>
+                    <a id="tab-C" href="#createNewFrame" class="nav-link navLinkHovering" data-toggle="tab" role="tab">Ajouter une nouvelle frame</a>
                 </li>
 
             </ul>

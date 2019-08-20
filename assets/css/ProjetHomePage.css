@@ -10,6 +10,10 @@
 
 }
 
+.tinyImg{
+    width:10%;
+}
+
 .g-recaptcha div{
     margin:auto;
 }
@@ -36,6 +40,11 @@ a{
     background-color:#f8f9fa
 }
 
+.navLinkHovering:hover{
+    color:#28a745;
+    text-decoration:none;
+    background-color:black;    
+}
 video#bgvid {
     position: fixed; 
     right: 0; 
@@ -210,7 +219,7 @@ footer {
     body {
         background-image: url(../Images/warframe7.jpg);
         background-size: cover;
-        background-position: 60%;
+        background-position: 77%;
         background-repeat: no-repeat;
     }
 

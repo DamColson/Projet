@@ -52,8 +52,8 @@
 
                 <div class="rem"></div>
                 <div class="align-items-center justify-content-center d-flex">
-                    <button type="button" class="btn btn-outline-light my-2 my-sm-0 mr-2 closeSearchModal" id="closeSearchModal">Fermer</button>
-                    <button type="submit"  class="btn btn-outline-light my-2 my-sm-0" id="searchButton" >Recherche</button>
+                    <button type="button" class="btn btn-outline-success my-2 my-sm-0 mr-2 closeSearchModal" id="closeSearchModal">Fermer</button>
+                    <button type="submit"  class="btn btn-outline-success my-2 my-sm-0" id="searchButton" >Recherche</button>
                 </div>
             </form>
 

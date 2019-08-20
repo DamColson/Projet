@@ -25,6 +25,7 @@
                                 <a class="dropdown-item" href="<?=$frameLink?>">Gerer les frames</a>
                                 <a class="dropdown-item" href="<?=$syndicateLink?>">Gerer les syndicats</a>
                                 <a class="dropdown-item" href="<?=$memberLink?>">Gerer les membres</a>
+                                <a class="dropdown-item" href="<?=$adminLink?>">Accueil admin</a>
                             </div>
                         </li>
                         

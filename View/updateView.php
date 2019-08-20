@@ -26,10 +26,10 @@ require '../Controllers/updateController.php';
         <div class="container">
             <ul id="tabs" class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a id="tab-A" href="#updatePersonalInfos" class="nav-link active" data-toggle="tab" role="tab">Modifier mes informations personnelles</a>
+                    <a id="tab-A" href="#updatePersonalInfos" class="nav-link active navLinkHovering" data-toggle="tab" role="tab">Modifier mes informations personnelles</a>
                 </li>
                 <li class="nav-item">
-                    <a id="tab-B" href="#updateSyndicate" class="nav-link" data-toggle="tab" role="tab">Mettre à jour mes syndicats</a>
+                    <a id="tab-B" href="#updateSyndicate" class="nav-link navLinkHovering" data-toggle="tab" role="tab">Mettre à jour mes syndicats</a>
                 </li>
             </ul>
 

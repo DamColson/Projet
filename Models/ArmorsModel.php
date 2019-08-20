@@ -79,4 +79,10 @@ class Armors extends Db {
         return $getFrameNumber;
     }
     
+    public function getMostFavFrame(){
+        $query = "SELECT wfd_Armors.name,COUNT(*) AS number FROM wfd_UsersInfos INNER JOIN wfd_Armors ON wfd_UsersInfos.id_wfd_Armors = wfd_Armors.id GROUP BY wfd_Armors.name ORDER BY number DESC LIMIT 1";
+        $getFav = $this->db->query($query);
+        $getMostFav = $getFav->fetchAll(PDO::FETCH_ASSOC);
+        return $getMostFav;
+    }
 }

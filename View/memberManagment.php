@@ -25,7 +25,7 @@ require_once '../Controllers/memberController.php';
 
         <form class="text-center" action="memberManagment.php" method="GET">
             <fieldset class="w-75 mx-auto">
-                <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters">
+                <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters bg-dark-opac">
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">
                         <label class="text-light" for="memberSearchSelect">Chercher un membre : </label>
@@ -67,11 +67,11 @@ require_once '../Controllers/memberController.php';
                     <div class="container">
                         <ul id="tabs" class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a id="tab-A" href="#memberInfos" class="nav-link active" data-toggle="tab" role="tab">Informations du membre</a>
+                                <a id="tab-A" href="#memberInfos" class="nav-link active navLinkHovering" data-toggle="tab" role="tab">Informations du membre</a>
                             </li>
 
                             <li class="nav-item">
-                                <a id="tab-B" href="#memberDeletion" class="nav-link" data-toggle="tab" role="tab">Supprimer le membre</a>
+                                <a id="tab-B" href="#memberDeletion" class="nav-link navLinkHovering" data-toggle="tab" role="tab">Supprimer le membre</a>
                             </li>
 
 
