@@ -8,7 +8,7 @@ require_once '../Models/usersModel.php';
 require_once '../Models/ArmorsModel.php';
 require_once '../Models/SyndicateModel.php';
 
-//Page accessible uniquement pour les admins, si la personne connectée n'est pas un admin, elle sera redirigée vers une page d'erreur.
+//Liste des liens nécessaires.
 
 $linkIndex = '../index.php';
 $linkUpdate = 'updateView.php';
@@ -22,6 +22,11 @@ $searchView = 'searchView.php';
 $legal = 'legal.php';
 $adminLink = 'adminView.php';
 $errorLink = 'error.php';
+
+//Strip tags sur chaque élément du POST et du GET pour eviter les injections.
+
+$_GET = array_map('strip_tags', $_GET);
+$_POST = array_map('strip_tags', $_POST);
 
 //Instanciation de classe
 
