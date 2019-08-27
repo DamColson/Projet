@@ -25,11 +25,11 @@ require_once '../Controllers/syndicateController.php';
 
         <form class="text-center" action="syndicateManagment.php" method="GET">
             <fieldset class="w-75 mx-auto">
-                <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters bg-dark-opac">
+                <div class="row text-dark rounded text-center align-items-center justify-content-center no-gutters bg-dark-opac">
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">
                         <label class="text-light form-group" for="syndicateSearchSelect">Chercher un syndicat : </label>
-                        <select class="form-control" name="syndicateSearchSelect" id="syndicateSearchSelect">
+                        <select class="form-control w-75 mx-auto" name="syndicateSearchSelect" id="syndicateSearchSelect">
                             <option disabled selected></option>
                             <?php
                             foreach ($syndicateArray as $key => $syndicateName):
@@ -53,7 +53,7 @@ require_once '../Controllers/syndicateController.php';
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">
                         <label class="text-light" for="syndicateSearchInput">Via son nom : </label>
-                        <input class="form-control" type="search" name="syndicateSearchInput" id="syndicateSearchInput" />
+                        <input class="form-control w-75 mx-auto" type="search" name="syndicateSearchInput" id="syndicateSearchInput" />
                     </div>
                     <div class="form-group col-lg-3"></div>
                     <button class="btn btn-outline-success my-2 my-sm-0 text-light" type="submit">Recherche</button>

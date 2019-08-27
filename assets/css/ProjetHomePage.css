@@ -1,27 +1,59 @@
-@media screen and (max-width: 400px) {
+/*présent sur toute les pages*/
 
-    /* media pour réduire le captcha */
-    .g-recaptcha {
-        transform: scale(0.89);
-        -webkit-transform: scale(0.89);
-        transform-origin: 0 0;
-        -webkit-transform-origin: 0 0;
-    }
-
+body{
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 257px; /* taille du footer */
 }
 
-.tinyImg{
-    width:10%;
+
+* {
+    box-sizing: border-box;
 }
 
-.g-recaptcha div{
-    margin:auto;
+*:before,*:after {
+    box-sizing: border-box;
+}
+
+.font-family-Michroma {
+    font-family: 'Michroma', sans-serif;
+}
+
+.bg-dark-opac{
+    background-color:rgba(52,58,54,0.8);
+}
+
+.bg-light-opac{
+    background-color:rgba(248,249,250,0.8); 
+}
+
+footer {
+    display:flex;
+    flex-direction: column;
+    position:absolute;
+    bottom:0;
+    width: 100%;
 }
 
 a{
     outline:0;
     transition:0.3s;
 }
+
+.rem{
+    height:2rem;
+}
+
+/* Pages admins*/
+/* petites images de syndicat */
+.tinyImg{
+    width:10%;
+}
+
+
 .adminTopic{
     display:block;
     width:100%;
@@ -40,11 +72,24 @@ a{
     background-color:#f8f9fa
 }
 
+/* tabs accordeon*/
+
 .navLinkHovering:hover{
     color:#28a745;
     text-decoration:none;
     background-color:black;    
 }
+
+.nav-tabs {
+    display:none;
+}
+
+.accordCard,.accordCardBody{
+    background-color:rgba(248,249,250,0.7); 
+}
+
+/*vidéo de background*/
+
 video#bgvid {
     position: fixed; 
     right: 0; 
@@ -57,26 +102,12 @@ video#bgvid {
     background-size: cover;
 }
 
-.rem{
-    height:2rem;
-}
+/*navbar*/
 
 .nav-link {
     color:white;
     background-color:transparent;
     border-color:transparent;
-}
-
-.font-family-Michroma {
-    font-family: 'Michroma', sans-serif;
-}
-
-.bg-dark-opac{
-    background-color:rgba(52,58,54,0.8);
-}
-
-.bg-light-opac{
-    background-color:rgba(248,249,250,0.8); 
 }
 
 .topBorder {
@@ -86,86 +117,108 @@ video#bgvid {
     border-radius: 10px;
     background-color: rgba(0,0,0,0.5);
 }
-
-#divHomeText {
-    display: flex;
-}
-
-#homePageText {
-    align-self: center;
-    justify-content: center;
-}
-
-video {
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width:100%;
-}
+/* border utilisées par ajax*/
 
 .redBorder{
     border:red 2px solid;
 }
 
-.headRow{
-    height:6rem;
+/*lightbox de recherche*/
+
+.search, .bigSearch {
+    cursor: pointer
 }
 
-#connectionDiv{
-    display:none;
+.bigSearch {
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    height: 60%;
+    background-color: rgba(52,58,54,0.9);
+    z-index:1021;
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
 
-.nav-tabs {
-    display:none;
+
+/*lightbox de connexion*/
+
+.connection, .bigConnection {
+    cursor: pointer
 }
 
-.accordCard,.accordCardBody{
-    background-color:rgba(248,249,250,0.7); 
+.bigConnection {
+    position: fixed;
+    top: 15%;
+    left: 25%;
+    width: 50%;
+    height: 70%;
+    background-color: rgba(52,58,54,0.9);
+    z-index:1021;
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
 
-.list-group-item{
-    position:relative;
-    display:block;
-    padding:.75rem 1.25rem;
-    margin-bottom:-1px;
-    border:1px solid rgba(0,0,0,.125);
+/* Page d'accueil */
+/* conteneur principal page d'accueil*/
+
+.wrapper{
+    display: flex;
+    width: 100%;
+    align-items: stretch;
 }
 
+/* largeur du "titre" de la page d'accueil */
 .lastSubscriberWidth{
     width:50%!important;
 }
 
-* {
-    box-sizing: border-box;
+/* Liste verticale cachée + d'inscrits sur le coté*/
+/* Largeur de la sideList lorsque celle ci est fermée avec transition de 0.5sec lorsque celle ci s'ouvre */
+
+#sideList {
+    min-width: 450px;
+    max-width: 450px;
+    transition:0.5s;
 }
 
-*:before,*:after {
-    box-sizing: border-box;
+/* Largeur de la sideList lorsque celle ci est fermée avec transition de 0.5sec lorsque celle ci se ferme */
+
+#sideList.active{
+    min-width: 0px;
+    max-width: 0px;
+    transition:0.5s;
 }
 
-body {
-    height: 100%;
-    position: relative;
-    min-height: 100vh; /* will cover the 100% of viewport */
-    display: block;
-    position: relative;
-    padding-bottom: 257px; /* height of your footer */
+/* permet d'eviter que le contenu de la liste n'apparaisse trop tot,le contenu hors du flux etant caché sur l'axe x*/
+
+#sideListContent{
+    overflow-x: hidden;
 }
+
+/* Lorsque la liste est fermée, cacher le contenu */
+
+#sideList.active #sideListContent {
+    display:none;
+}
+
+/* taille des images */
 
 .smallImgWidth{
     width:13%;
 }
 
+/* captcha */
 
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.g-recaptcha div{
+    margin:auto;
 }
+
+/* Media */
+/* au dela de 1200 px, les accordeons fonctionnent comme des tabs */
 
 @media(min-width:1201px) {
     .nav-tabs {
@@ -191,11 +244,10 @@ footer {
     }
 }
 
+/*En dessous de 1201px, les tabs deviennent des accordeons */
+
 @media(max-width:1200px){
-    /*
-     * Changed selector to `.tab-content > .tab-pane` to override `.fade:not(.show)`
-     * In BS4 Beta `.tab-pane`s were rendered hidden by just `.fade`
-     */
+
     .tab-content > .tab-pane { 
         display: block;
         opacity: 1;
@@ -206,9 +258,9 @@ footer {
         background-color:#707471;
         border-color:#292d2c;
     }
-
-
 }
+
+/*en dessous de 375px, retire la video et cache divers chose de la navbar */
 
 @media screen and (max-width:375px) {
 
@@ -221,15 +273,7 @@ footer {
         background-size: cover;
         background-position: 77%;
         background-repeat: no-repeat;
-    }
-
-    body {
-        height: 100%;
-        position: relative;
-        min-height: 100vh; /* will cover the 100% of viewport */
-        display: block;
-        position: relative;
-        padding-bottom: 714px; /* height of your footer */
+        padding-bottom: 714px;
     }
 
     #miniWar {
@@ -257,6 +301,8 @@ footer {
     }
 }
 
+/*entre 376 et 414px, retire la video et cache divers chose de la navbar */
+
 @media screen and (min-width:376px) and (max-width:414px) {
 
     #miniWar {
@@ -272,14 +318,6 @@ footer {
         background-size: cover;
         background-position: 77%;
         background-repeat: no-repeat;
-    }
-
-    body {
-        height: 100%;
-        position: relative;
-        min-height: 100vh; /* will cover the 100% of viewport */
-        display: block;
-        position: relative;
         padding-bottom: 666px; /* height of your footer */
     }
 
@@ -304,6 +342,8 @@ footer {
     }
 }
 
+/*entre 415 et 480px, retire la video et cache divers chose de la navbar */
+
 @media screen and (min-width:415px) and (max-width:480px) {
 
     #miniWar {
@@ -319,6 +359,7 @@ footer {
         background-size: cover;
         background-position: 77%;
         background-repeat: no-repeat;
+        padding-bottom: 618px; /* height of your footer */
     }
 
     .topBorder h1 {
@@ -342,6 +383,8 @@ footer {
     }
 }
 
+/*entre 481 et 550px, retire la video et cache divers chose de la navbar */
+
 @media screen and (min-width:481px) and (max-width:550px) {
 
     #miniWar {
@@ -357,6 +400,7 @@ footer {
         background-size: cover;
         background-position: 77%;
         background-repeat: no-repeat;
+        padding-bottom: 594px; /* height of your footer */
     }
 
     .topBorder h1 {
@@ -380,6 +424,8 @@ footer {
     }
 }
 
+/*entre 551 et 650px, retire la video et cache divers chose de la navbar */
+
 @media screen and (min-width:551px) and (max-width:650px) {
 
     video{
@@ -391,6 +437,8 @@ footer {
         background-size: cover;
         background-position: 77%;
         background-repeat: no-repeat;
+        padding-bottom: 594px; /* height of your footer */
+        
     }
 
     #miniWar {
@@ -418,6 +466,8 @@ footer {
     }
 }
 
+/*entre 651 et 735px, retire la video et cache divers chose de la navbar */
+
 @media screen and (min-width:651px) and (max-width:735px) {
 
     #miniWar {
@@ -433,14 +483,6 @@ footer {
         background-size: cover;
         background-position: 77%;
         background-repeat: no-repeat;
-    }
-
-    body {
-        height: 100%;
-        position: relative;
-        min-height: 100vh; /* will cover the 100% of viewport */
-        display: block;
-        position: relative;
         padding-bottom: 570px; /* height of your footer */
     }
 
@@ -461,6 +503,8 @@ footer {
     }
 }
 
+/*entre 736 et 740px, repositionne la vidéo, cache certaine chose de la navbar (les medias suivants font la meme chose )) */
+
 @media screen and (min-width:736px) and (max-width:740px) {
 
     #miniWar {
@@ -472,11 +516,6 @@ footer {
     }
 
     body {
-        height: 100%;
-        position: relative;
-        min-height: 100vh; /* will cover the 100% of viewport */
-        display: block;
-        position: relative;
         padding-bottom: 570px; /* height of your footer */
     }
 
@@ -518,11 +557,6 @@ footer {
 
 
     body {
-        height: 100%;
-        position: relative;
-        min-height: 100vh; /* will cover the 100% of viewport */
-        display: block;
-        position: relative;
         padding-bottom: 473px; /* height of your footer */
     }
 
@@ -567,11 +601,6 @@ footer {
     }
 
     body {
-        height: 100%;
-        position: relative;
-        min-height: 100vh; /* will cover the 100% of viewport */
-        display: block;
-        position: relative;
         padding-bottom: 449px; /* height of your footer */
     }
 
@@ -618,11 +647,6 @@ footer {
     }
 
     body {
-        height: 100%;
-        position: relative;
-        min-height: 100vh; /* will cover the 100% of viewport */
-        display: block;
-        position: relative;
         padding-bottom: 449px; /* height of your footer */
     }
 
@@ -639,43 +663,7 @@ footer {
     }
 }
 
-/*search lightbox */
-.search, .bigSearch {
-    cursor: pointer
-}
-
-.bigSearch {
-    position: fixed;
-    top: 20%;
-    left: 25%;
-    width: 50%;
-    height: 60%;
-    background-color: rgba(52,58,54,0.9);
-    z-index:1021;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* connexion lightbox */
-
-.connection, .bigConnection {
-    cursor: pointer
-}
-
-.bigConnection {
-    position: fixed;
-    top: 15%;
-    left: 25%;
-    width: 50%;
-    height: 70%;
-    background-color: rgba(52,58,54,0.9);
-    z-index:1021;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
+/* repositionnement et redimension des lightbox de recherche et de connexion en dessous de 950 px */
 
 @media screen and (max-width:950px) {
 
@@ -710,6 +698,9 @@ footer {
 
 
 }
+
+/* repositionnement et redimension des lightbox de recherche et de connexion entre 951 et 1200px */
+
 @media screen and (min-width:951px) and (max-width:1200px){
 
     .bigConnection {
@@ -744,33 +735,7 @@ footer {
 
 }
 
-.wrapper{
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-
-}
-
-#sideList {
-    min-width: 450px;
-    max-width: 450px;
-    transition:0.5s;
-}
-
-#sideList.active{
-    min-width: 0px;
-    max-width: 0px;
-    transition:0.5s;
-}
-
-#sideListContent{
-    overflow-x: hidden;
-}
-
-#sideList.active #sideListContent {
-    display:none;
-}
-
+/* dissimulation ou redimension de la side list en fonction de la taille du viewport */
 
 @media (max-width: 1024px) {
     #sideList {
@@ -790,5 +755,19 @@ footer {
         display:none;
 
     }
+}
+
+/*captcha sur petit ecran.*/
+
+@media screen and (max-width: 400px) {
+
+    /* media pour réduire le captcha */
+    .g-recaptcha {
+        transform: scale(0.89);
+        -webkit-transform: scale(0.89);
+        transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+    }
+
 }
 

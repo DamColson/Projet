@@ -5,7 +5,7 @@
             <url>assets/css/ProjetHomePage.css</url>
             <bookmark id="1">
                 <name/>
-                <line>2</line>
+                <line>0</line>
                 <key/>
             </bookmark>
         </file>
@@ -14,25 +14,39 @@
         <group>
             <file>file:/home/Fireloup/Projet/View/footerView.php</file>
             <file>file:/home/Fireloup/Projet/View/connectionView.php</file>
-            <file>file:/home/Fireloup/Projet/View/formView.php</file>
-            <file>file:/home/Fireloup/Projet/View/searchView.php</file>
-            <file>file:/home/Fireloup/Projet/View/indexView.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/memberController.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/frameController.php</file>
             <file>file:/home/Fireloup/Projet/Controllers/UsersInfosController.php</file>
-            <file>file:/home/Fireloup/Projet/View/searchLightboxView.php</file>
             <file>file:/home/Fireloup/Projet/Models/usersModel.php</file>
             <file>file:/home/Fireloup/Projet/assets/scripts/updatePersonnalInfos.js</file>
             <file>file:/home/Fireloup/Projet/assets/css/ProjetHomePage.css</file>
+            <file>file:/home/Fireloup/Projet/View/syndicateManagment.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/updateController.php</file>
+            <file>file:/home/Fireloup/Projet/View/headerView.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/searchController.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/adminController.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/connectionController.php</file>
+            <file>file:/home/Fireloup/Projet/Models/AdminModel.php</file>
+            <file>file:/home/Fireloup/Projet/View/error.php</file>
+            <file>file:/home/Fireloup/Projet/View/legal.php</file>
+            <file>file:/home/Fireloup/Projet/View/formView.php</file>
+            <file>file:/home/Fireloup/Projet/View/searchView.php</file>
+            <file>file:/home/Fireloup/Projet/View/frameManagment.php</file>
+            <file>file:/home/Fireloup/Projet/View/indexView.php</file>
+            <file>file:/home/Fireloup/Projet/View/adminView.php</file>
+            <file>file:/home/Fireloup/Projet/View/searchLightboxView.php</file>
+            <file>file:/home/Fireloup/Projet/assets/php/arrays.php</file>
             <file>file:/home/Fireloup/Projet/View/headView.php</file>
             <file>file:/home/Fireloup/Projet/assets/scripts/Projet.js</file>
             <file>file:/home/Fireloup/Projet/Controllers/formController.php</file>
             <file>file:/home/Fireloup/Projet/View/UsersInfosView.php</file>
-            <file>file:/home/Fireloup/Projet/Controllers/updateController.php</file>
-            <file>file:/home/Fireloup/Projet/View/headerView.php</file>
-            <file>file:/home/Fireloup/Projet/Controllers/searchController.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/syndicateController.php</file>
+            <file>file:/home/Fireloup/Projet/View/adminHeaderView.php</file>
+            <file>file:/home/Fireloup/Projet/View/memberManagment.php</file>
+            <file>file:/home/Fireloup/Projet/Controllers/disconnect.php</file>
             <file>file:/home/Fireloup/Projet/Controllers/indexController.php</file>
             <file>file:/home/Fireloup/Projet/assets/php/regex.php</file>
             <file>file:/home/Fireloup/Projet/View/updateView.php</file>
-            <file>file:/home/Fireloup/Projet/Controllers/connectionController.php</file>
             <file>file:/home/Fireloup/Projet/assets/scripts/modifPasswordAjax.js</file>
         </group>
     </open-files>

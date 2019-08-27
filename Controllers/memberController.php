@@ -93,7 +93,7 @@ endif;
 extract($_POST);
 extract($_SESSION);
 
-//Deletion de membre puis redirection
+//Deletion de membre puis redirection.
 
 if(isset($deleteMember)):    
     if($warfriendsSearchedMember == $deleteMember):

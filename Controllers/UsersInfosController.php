@@ -32,7 +32,7 @@ include '../assets/php/arrays.php';
 
 $_POST = array_map('strip_tags',$_POST);
 
-//Inclusion des regex
+//Inclusion des regex.
 
 include '../assets/php/regex.php';
 

@@ -11,7 +11,7 @@
 
         <!-- Content -->
         <h5 class="text-uppercase">A propos de Warfriends</h5>
-        <p>Warfriends a été réalisé dans le cadre d'une formation de developpeur web/web mobile afin de répondre à une problématique liée au jeu Warframe.Il a pour but de mettre en lien des joueurs afin de faciliter leur échange.</p>
+        <p>Warfriends a été réalisé dans le cadre d'une formation de developpeur web/web mobile afin de répondre à une problématique liée au jeu Warframe.Il a pour but de mettre en lien des joueurs afin de faciliter leurs échanges.</p>
 
       </div>
       <!-- Grid column -->

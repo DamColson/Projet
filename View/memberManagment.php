@@ -25,11 +25,11 @@ require_once '../Controllers/memberController.php';
 
         <form class="text-center" action="memberManagment.php" method="GET">
             <fieldset class="w-75 mx-auto">
-                <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters bg-dark-opac">
+                <div class="row text-dark rounded text-center align-items-center justify-content-center no-gutters bg-dark-opac">
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">
                         <label class="text-light" for="memberSearchSelect">Chercher un membre : </label>
-                        <select class="form-control" name="memberSearchSelect" id="memberSearchSelect">
+                        <select class="form-control w-75 mx-auto" name="memberSearchSelect" id="memberSearchSelect">
                             <option value="" disabled selected></option>
                             <?php
                             foreach ($usersArray as $key => $memberName):
@@ -54,7 +54,7 @@ require_once '../Controllers/memberController.php';
                     <div class="form-group col-lg-6">
 
                         <label class="text-light" for="memberSearchInput">Via son pseudo warfriends : </label>
-                        <input class="form-control" type="search" name="memberSearchInput" id="memberSearchInput" />
+                        <input class="form-control w-75 mx-auto" type="search" name="memberSearchInput" id="memberSearchInput" />
                     </div>
                     <div class="form-group col-lg-3"></div>
                     <button class="btn btn-outline-success my-2 my-sm-0 mb-3 text-light" type="submit">Recherche</button>

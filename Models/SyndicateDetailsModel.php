@@ -2,16 +2,23 @@
 
 class SyndicateDetails extends Db{
     
+    //Attributs
+    
     public $id;
     public $rank;
     public $id_wfd_UsersInfos;
     public $id_wfd_Syndicate;
     
+    //Contruct qui recupere le construct de son parent Db
+    
     public function __construct(){
         parent::__construct();
     }
     
+    //Méthode qui update les detail des syndicat dans la bdd, si aucune entrée n'est présente, alors elles sont créées dans la bdd,si elles existent,elles sont mises à jour.
+    
     public function updateSyndicateDetails(){
+        try{
         $selectQuery = 'SELECT COUNT(wfd_SyndicateDetails.id) AS count FROM wfd_SyndicateDetails WHERE wfd_SyndicateDetails.id_wfd_UsersInfos = :id_wfd_UsersInfos AND id_wfd_Syndicate = :id_wfd_Syndicate';
         $checkPresence = $this->db->prepare($selectQuery);
         $checkPresence->bindValue(':id_wfd_UsersInfos',$this->id_wfd_UsersInfos,PDO::PARAM_INT);
@@ -40,11 +47,18 @@ class SyndicateDetails extends Db{
                 return true;
             endif; 
                 
-        endif;    
+        endif;
+        } catch (PDOException $error) {
+            $msg = 'ERREUR PDO within ' . $error->getFile() . 'L.' . $error->getLine() . ' : ' . $error->getMessage();
+            die($msg);
+        }
         
     }
     
+    //Méthode permettant de recuperer le rank qu'un joueur a dans les syndicats via une jointure
+    
     public function getSyndicateInfos(){
+        try{
         $query = 'SELECT wfd_SyndicateDetails.rank FROM wfd_SyndicateDetails INNER JOIN wfd_UsersInfos ON wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id WHERE wfd_SyndicateDetails.id_wfd_UsersInfos = :id_wfd_UsersInfos';
         $getSyndicateInfos = $this->db->prepare($query);
         $getSyndicateInfos->bindValue(':id_wfd_UsersInfos',(int)$this->id_wfd_UsersInfos,PDO::PARAM_INT);
@@ -53,9 +67,16 @@ class SyndicateDetails extends Db{
         $getAllInfos = $getSyndicateInfos->fetchAll(PDO::FETCH_ASSOC);
         
         return $getAllInfos;
+        } catch (PDOException $error) {
+            $msg = 'ERREUR PDO within ' . $error->getFile() . 'L.' . $error->getLine() . ' : ' . $error->getMessage();
+            die($msg);
+        }
     }
     
+    //Méthode qui retourne le nombre de fois qu'un syndicat a été choisi par les utilisateurs. ( check de sa popularité )
+    
     public function getSyndicateNumber(){
+        try{
         $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = :id AND rank != 'Moins de 2'";
         $getNumber = $this->db->prepare($query);
         $getNumber->bindValue(':id',$this->id_wfd_Syndicate,PDO::PARAM_INT);
@@ -63,41 +84,11 @@ class SyndicateDetails extends Db{
         $getNumber->execute();
         $getSyndicateNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
         return $getSyndicateNumber;
+        } catch (PDOException $error) {
+            $msg = 'ERREUR PDO within ' . $error->getFile() . 'L.' . $error->getLine() . ' : ' . $error->getMessage();
+            die($msg);
+        }
     }
     
-//    public function getArbiterNumber(){
-//        $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = 2 AND rank != 'Moins de 2'";
-//        $getNumber = $this->db->query($query);
-//        $getArbiterNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
-//        return $getArbiterNumber;
-//    }
-//    
-//    public function getCephalonNumber(){
-//        $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = 3 AND rank != 'Moins de 2'";
-//        $getNumber = $this->db->query($query);
-//        $getCephalonNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
-//        return $getCephalonNumber;
-//    }
-//    
-//    public function getPerrinNumber(){
-//        $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = 4 AND rank != 'Moins de 2'";
-//        $getNumber = $this->db->query($query);
-//        $getPerrinNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
-//        return $getPerrinNumber;
-//    }
-//    
-//    public function getVeilNumber(){
-//        $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = 5 AND rank != 'Moins de 2'";
-//        $getNumber = $this->db->query($query);
-//        $getVeilNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
-//        return $getVeilNumber;
-//    }
-//    
-//    public function getLokaNumber(){
-//        $query = "SELECT COUNT(*) AS number FROM wfd_SyndicateDetails WHERE id_wfd_Syndicate = 6 AND rank != 'Moins de 2'";
-//        $getNumber = $this->db->query($query);
-//        $getLokaNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
-//        return $getLokaNumber;
-//    }
 }
     

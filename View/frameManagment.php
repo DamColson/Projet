@@ -25,11 +25,11 @@ require_once '../Controllers/frameController.php';
 
         <form class="text-center" action="frameManagment.php" method="GET">
             <fieldset class="w-75 mx-auto">
-                <div class="row text-dark rounded w-75 mx-auto text-center align-items-center justify-content-center no-gutters bg-dark-opac">
+                <div class="row text-dark rounded text-center align-items-center justify-content-center no-gutters bg-dark-opac">
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">
                         <label class="text-light" for="frameSearchSelect">Chercher une frame : </label>
-                        <select class="form-control" name="frameSearchSelect" id="frameSearchSelect">
+                        <select class="form-control w-75 mx-auto" name="frameSearchSelect" id="frameSearchSelect">
                             <option value="" disabled selected></option>
                             <?php
                             foreach ($frame as $key => $value):
@@ -53,7 +53,7 @@ require_once '../Controllers/frameController.php';
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">
                         <label class="text-light" for="frameSearchInput">Chercher une frame : </label>
-                        <input class="form-control" type="search" name="frameSearchInput" id="frameSearchInput" />
+                        <input class="form-control w-75 mx-auto" type="search" name="frameSearchInput" id="frameSearchInput" />
                     </div>
                     <div class="form-group col-lg-3"></div>
                     <button class="btn btn-outline-success my-2 my-sm-0 text-light" type="submit">Recherche</button>
