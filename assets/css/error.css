@@ -1,12 +1,28 @@
+/* Taille du message d'erreur */
 
 .errorMessage{
     font-size:2rem;
 }
 
-.g-recaptcha div{
-    margin:auto;
+/* navbar*/
+
+.topBorder {
+    width: 100%;
+    height: 6.5rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
 }
 
+/* footer */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Généralités */
 
 .rem{
     height:2rem;
@@ -24,13 +40,7 @@
     background-color:rgba(248,249,250,0.8); 
 }
 
-.topBorder {
-    width: 100%;
-    height: 6.5rem;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: rgba(0,0,0,0.5);
-}
+/* Body */
 
 body {
     height: 100%;
@@ -41,11 +51,111 @@ body {
     padding-bottom: 257px; /* height of your footer */
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+/* Lightbox de recherche */
+
+.search, .bigSearch {
+    cursor: pointer
 }
+
+.bigSearch {
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    height: 60%;
+    background-color: rgba(52,58,54,0.9);
+    z-index:1021;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Lightbox de connexion */
+
+.connection, .bigConnection {
+    cursor: pointer
+}
+
+.bigConnection {
+    position: fixed;
+    top: 15%;
+    left: 25%;
+    width: 50%;
+    height: 70%;
+    background-color: rgba(52,58,54,0.9);
+    z-index:1021;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Médias gérant la position et la taille des lightboxes en fonction de la taille du viewport */
+
+@media screen and (max-width:950px) {
+
+    .bigConnection {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+        background-color: rgba(52,58,54,0.9);
+        z-index:1021;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+    .bigSearch {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+        background-color: rgba(52,58,54,0.9);
+        z-index:1021;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lastSubscriberWidth{
+        width:100%!important;
+    }
+}
+@media screen and (min-width:951px) and (max-width:1200px){
+
+    .bigConnection {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+        background-color: rgba(52,58,54,0.9);
+        z-index:1021;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+    .bigSearch {
+        position: fixed;
+        top: 10%;
+        left: 5%;
+        width: 90%;
+        height: 80%;
+        background-color: rgba(52,58,54,0.9);
+        z-index:1021;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lastSubscriberWidth{
+        width:50%!important;
+    }
+}
+
+/* Médias gérant la taille du body en fonction de la taille du footer et le contenu de la navbar en fonction du viewport */
 
 @media screen and (max-width:375px) {
 
@@ -369,109 +479,4 @@ footer {
     .helloMember{
         display:none;
     }
-}
-
-/*search lightbox */
-.search, .bigSearch {
-    cursor: pointer
-}
-
-.bigSearch {
-    position: fixed;
-    top: 20%;
-    left: 25%;
-    width: 50%;
-    height: 60%;
-    background-color: rgba(52,58,54,0.9);
-    z-index:1021;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* connexion lightbox */
-
-.connection, .bigConnection {
-    cursor: pointer
-}
-
-.bigConnection {
-    position: fixed;
-    top: 15%;
-    left: 25%;
-    width: 50%;
-    height: 70%;
-    background-color: rgba(52,58,54,0.9);
-    z-index:1021;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-@media screen and (max-width:950px) {
-
-    .bigConnection {
-        position: fixed;
-        top: 5%;
-        left: 5%;
-        width: 90%;
-        height: 90%;
-        background-color: rgba(52,58,54,0.9);
-        z-index:1021;
-        display: none;
-        align-items: center;
-        justify-content: center;
-    }
-    .bigSearch {
-        position: fixed;
-        top: 5%;
-        left: 5%;
-        width: 90%;
-        height: 90%;
-        background-color: rgba(52,58,54,0.9);
-        z-index:1021;
-        display: none;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .lastSubscriberWidth{
-        width:100%!important;
-    }
-
-
-}
-@media screen and (min-width:951px) and (max-width:1200px){
-
-    .bigConnection {
-        position: fixed;
-        top: 5%;
-        left: 5%;
-        width: 90%;
-        height: 90%;
-        background-color: rgba(52,58,54,0.9);
-        z-index:1021;
-        display: none;
-        align-items: center;
-        justify-content: center;
-    }
-    .bigSearch {
-        position: fixed;
-        top: 10%;
-        left: 5%;
-        width: 90%;
-        height: 80%;
-        background-color: rgba(52,58,54,0.9);
-        z-index:1021;
-        display: none;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .lastSubscriberWidth{
-        width:50%!important;
-    }
-
-
 }
