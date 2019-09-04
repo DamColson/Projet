@@ -2,6 +2,7 @@
 session_start();
 
 //Vérifie si chaque model a déjà été inclut une fois, si c'est le cas il ne l'inclut pas de nouveau, dans le cas contraire, il l'inclut.
+//S'il ne peut pas inclure un model pour diverse raison, alors la page n'est pas chargée et une page blanche apparaitra (require)
 
 require_once '../Models/modelDb.php';
 require_once '../Models/usersModel.php';
@@ -87,7 +88,9 @@ $admin->pseudo = $user->warfriendsPseudo;
 
 extract($_POST);
 
-//Formulaire de modification de password, si le post n'est pas vide, alors il va vérifier que le pass actuel est le bon et le modifier sous reserve que l'utilisateur entre un password valide et le confirme.
+//Formulaire de modification de password, 
+//si le post n'est pas vide, alors il va vérifier que le pass actuel est le bon et le modifier sous reserve 
+//que l'utilisateur entre un password valide et le confirme.
 
 if(!empty($_POST)):
     if (!empty($oldPassword) && !password_verify($oldPassword, $password)):
@@ -103,7 +106,7 @@ if(!empty($_POST)):
         $data = 'failure';
     endif;
     if($errorInModif == $modifValidation && !empty($submitModifButton)): //Si il n'y a pas d'erreur et que le formulaire a été envoyé.
-        $user->password = password_hash($newPassword,PASSWORD_BCRYPT);//On hydrate le password de l'utilisateur avec une version hashée du password entrée dansle formulaire ( hash BCRYPT)
+        $user->password = password_hash($newPassword,PASSWORD_BCRYPT);//On hydrate le password de l'utilisateur avec une version hashée du password
         $user->updateUsersPassword();//Mise à jour du password dans la base de donnée
         $password = $user->password;//Mise à jour des informations de session
         if(isset($adminPseudo)):
@@ -112,6 +115,7 @@ if(!empty($_POST)):
             
         endif;
     endif;
+    
     //Formulaire de suppression de compte
     if(isset($submitDeleteButton))://Si le formulaire de suppression a été envoyé.
         if(password_verify($deletePassword,$password))://Vérification du mot de passe.

@@ -2,7 +2,6 @@
 
             <form id="connexionForm" action="../index.php" method="post">
 
-
                 <fieldset class="text-center row no-gutters  text-light">
                     <div class="form-group col-lg-3"></div>
                     <div class="form-group col-lg-6">
@@ -26,6 +25,9 @@
                 </div>
             </form>
             <?php
+            
+            //Si SESSION n'est pas vide et que le bouton de connexion a été cliqué, lance une alerte de succès de connexion.
+            
             if (!empty($_SESSION) && !empty($_POST['connectionButton'])):
                 ?><script>Swal.fire({
                     title: 'Bonjour <?= $_SESSION['warfriendsPseudo'] ?>.',

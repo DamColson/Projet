@@ -30,6 +30,10 @@ body{
     background-color:rgba(248,249,250,0.8); 
 }
 
+.bg-warning-opac{
+    background-color:rgba(255,193,7,0.8);
+}
+
 footer {
     display:flex;
     flex-direction: column;
@@ -117,6 +121,7 @@ video#bgvid {
     border-radius: 10px;
     background-color: rgba(0,0,0,0.5);
 }
+
 /* border utilisées par ajax*/
 
 .redBorder{

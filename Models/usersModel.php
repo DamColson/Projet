@@ -1,8 +1,10 @@
 <?php
 
+//Création d'une classe Users dont le parent est Db qui représente la table usersInfos.
+
 class Users extends Db {
     
-    //Attributs
+    //Attributs publique,accessible partout.
     
     public $id;
     public $birthday;
@@ -353,7 +355,8 @@ class Users extends Db {
         }
     }
     
-    //Méthode qui renvoie les infos des syndicats dont les rangs sont supérieurs ou égal à 2pour un utilisateur donné ( en fonction de son id )
+    //Méthode qui renvoie les infos des syndicats dont les rangs 
+    //sont supérieurs ou égal à 2 pour un utilisateur donné ( en fonction de son id )
     
     public function getRanks() {
         try {
@@ -577,6 +580,21 @@ class Users extends Db {
         $getFavNumber = $getNumber->fetchAll(PDO::FETCH_ASSOC);
         return $getFavNumber;
         } catch (PDOException $error) {
+            $msg = 'ERREUR PDO within ' . $error->getFile() . 'L.' . $error->getLine() . ' : ' . $error->getMessage();
+            die($msg);
+        }
+    }
+    
+    public function syndicateCount(){
+        try{
+            $query = 'SELECT count(wfd_SyndicateDetails.rank) AS count FROM wfd_SyndicateDetails INNER JOIN wfd_UsersInfos ON wfd_UsersInfos.id = wfd_SyndicateDetails.id_wfd_UsersInfos WHERE wfd_UsersInfos.id = :id';
+            $getCount = $this->db->prepare($query);
+            $getCount->bindvalue(':id',$this->id,PDO::PARAM_INT);
+            if($getCount->execute()):
+                $getSyndicateCount = $getCount->fetchAll(PDO::FETCH_ASSOC);
+                return $getSyndicateCount;
+            endif;
+        }catch (PDOException $error) {
             $msg = 'ERREUR PDO within ' . $error->getFile() . 'L.' . $error->getLine() . ' : ' . $error->getMessage();
             die($msg);
         }

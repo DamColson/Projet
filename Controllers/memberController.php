@@ -44,7 +44,8 @@ $newWarframe = new Armors();
 
 extract($_GET);
 
-//Si le select du formulaire n'est pas vide, l'attribut id de $newUser est hydraté, plusieurs méthodes sont appelées et les données de SESSION sont mises à jours.
+//Si le select du formulaire n'est pas vide, l'attribut id de $newUser est hydraté, 
+//plusieurs méthodes sont appelées et les données de SESSION sont mises à jours.
 
 if (!empty($memberSearchSelect)):
     $newUser->id = $memberSearchSelect;

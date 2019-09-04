@@ -42,7 +42,8 @@ $newSyndicate = new Syndicate();
 
 extract($_GET);
 
-//Si le select du formulaire n'est pas vide, l'attribut id de $newSyndicate est hydraté, la méthode getSyndicateInfosById est appelée et les données de SESSION sont mises à jours.
+//Si le select du formulaire n'est pas vide, l'attribut id de $newSyndicate est hydraté, 
+//la méthode getSyndicateInfosById est appelée et les données de SESSION sont mises à jours.
 
 if(!empty($syndicateSearchSelect)):
     

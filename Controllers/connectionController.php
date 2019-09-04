@@ -39,18 +39,22 @@ $admin = new Admin();
 
 extract($_POST);
 
-//Hydratation de $user avec le password entré dans le formulaire de connection, puis récupération de l'id stockée dans la bdd et hydratation de l'id ( directement dans laméthode )..
+//Hydratation de $user avec le password entré dans le formulaire de connection, 
+//puis récupération de l'id stockée dans la bdd et hydratation de l'id ( directement dans laméthode )..
 
 $user->warfriendsPseudo = $warfriendsPseudo;
 $user->getUserIds();
 $getInfos = $user->getInfos();
 
-//Hydratation de $syndicateDetail avec l'attribut id de $user, puis récupération des rangs de ses syndicats ( s'ils existent ) via lamethode getSyndicateInfos.
+//Hydratation de $syndicateDetail avec l'attribut id de $user, 
+//puis récupération des rangs de ses syndicats ( s'ils existent ) via lamethode getSyndicateInfos.
 
 $syndicateDetail->id_wfd_UsersInfos = $user->id;
 $getSyndicateInfos = $syndicateDetail->getSyndicateInfos();
 
-//Hydratation de $admin avec le pseudo entré dans le formulaire de connection, puis récupération des infos en fonction de ce pseudo.
+//Hydratation de $admin avec le pseudo entré dans le formulaire de connection, 
+//puis récupération des infos en fonction de ce pseudo.
+
 $admin->pseudo = $warfriendsPseudo;
 $getAdminPass = $admin->getInfos();
 
@@ -65,11 +69,13 @@ if (password_verify($warfriendsPassword,$getInfos[0]['password'])):
     
     foreach ($getSyndicateInfos as $key=>$value):
         
-            $_SESSION[$syndicateRankName[$key]] = $getSyndicateInfos[$key]['rank'];//Insertion des rangs de chaque syndicats pour ce membre dans la superglobale $_SESSION ( s'ils existent )
+            $_SESSION[$syndicateRankName[$key]] = $getSyndicateInfos[$key]['rank'];//Insertion des rangs de chaque syndicats pour ce membre dans $_SESSION
         
     endforeach;
     
-    //Si des données admins existent pour lemembre connecté,insertion du pseudo du membre dans la superglobale $_SESSION sous la clé adminPseudo. Cette dernière lui débloquera l'accès à la console admin.
+    //Si des données admins existent pour lemembre connecté,insertion du pseudo du membre dans la superglobale $_SESSION sous la clé adminPseudo. 
+    //Cette dernière lui débloquera l'accès à la console admin.
+    
    if(!empty($getAdminPass)):
        foreach($getAdminPass as $key=>$value):
        $_SESSION['adminPseudo'] = $value['pseudo'];

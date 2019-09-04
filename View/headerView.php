@@ -52,35 +52,20 @@
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade font-family-germania text-light" id="connexionModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content bg-dark">
-            <div class="modal-header">
-                <p class="modal-title h4 font-weight-bold" id="ModalTitle">Connexion</p>
-                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form id="connexionForm" action="../index.php" method="post">
-            <div class="modal-body">
-                
-                    <fieldset class="text-center">
-                        <div><label for="warfriendsPseudo">Pseudo Warfriends : </label><input type="text" name="warfriendsPseudo" id="warfriendsPseudo" required/></div>
-                        <div class="rem"></div>
-                        <div>
-                            <label for="warfriendsPassword">Mot de passe :</label><input type="warfriendsPassword" id="warfriendsPassword" required/>
-                        </div>
-                    </fieldset>
-                
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                <button type="submit" class="btn btn-light text-dark" id="connexionButton">Connexion</button>
-            </div>
-            </form>
-            <a href="<?= $linkFormView ?>" class="text-light text-center h6 font-weight-bold">Ou bien inscrivez vous</a>
-        </div>
-    </div>
-</div>
+
 <?php include 'searchLightboxView.php'; ?>
+<?php 
+if(!empty($_SESSION)):
+    extract($_SESSION);
+    $userSyndicateCount = new Users();
+    $userSyndicateCount->id = $id;
+    $count = $userSyndicateCount->syndicateCount();
+    if((int)$count[0]['count'] < 6):
+        ?><div class="bg-warning-opac sticky-top text-center w-75 mx-auto font-weight-bold rounded">Bonjour <?= $warfriendsPseudo ?>, n'oubliez pas de mettre à jour vos informations de syndicats dans "Mon Compte"</div>
+            <div class="rem"></div><?php
+    endif;
+    
+endif;
+
+
+?>

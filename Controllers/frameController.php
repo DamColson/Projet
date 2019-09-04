@@ -43,7 +43,9 @@ $newFrame = new Armors();
 
 extract($_GET);
 
-//Si le select du formulaire n'est pas vide, l'attribut id de $newFrame est hydraté, la méthide getArmorsName est appelée (récupère le nom de la frame en fonction de son id, et les données de SESSION sont mises à jours/
+//Si le select du formulaire n'est pas vide, l'attribut id de $newFrame est hydraté, 
+//la méthode getArmorsName est appelée (récupère le nom de la frame en fonction de son id, 
+//et les données de SESSION sont mises à jours/
 
 if (!empty($frameSearchSelect)):
 
@@ -81,7 +83,8 @@ if (isset($createNewFrame)):
     $newFrame->addArmor();
 endif;
 
-//Si l'input deleteFrame est set et si le nom de frame renseignée est entré dans l'input nameSearchedFrame, alors la frame en question sera supprimée de la bdd.
+//Si l'input deleteFrame est set et si le nom de frame renseignée est entré dans l'input nameSearchedFrame, 
+//alors la frame en question sera supprimée de la bdd.
 
 if (isset($deleteFrame)):
 

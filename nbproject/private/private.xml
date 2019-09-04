@@ -14,6 +14,7 @@
         <group>
             <file>file:/home/Fireloup/Projet/View/footerView.php</file>
             <file>file:/home/Fireloup/Projet/View/connectionView.php</file>
+            <file>file:/home/Fireloup/Projet/assets/css/error.css</file>
             <file>file:/home/Fireloup/Projet/Controllers/memberController.php</file>
             <file>file:/home/Fireloup/Projet/Controllers/frameController.php</file>
             <file>file:/home/Fireloup/Projet/Controllers/UsersInfosController.php</file>
@@ -28,6 +29,9 @@
             <file>file:/home/Fireloup/Projet/Controllers/connectionController.php</file>
             <file>file:/home/Fireloup/Projet/Models/AdminModel.php</file>
             <file>file:/home/Fireloup/Projet/View/error.php</file>
+            <file>file:/home/Fireloup/Projet/Models/modelDb.php</file>
+            <file>file:/home/Fireloup/Projet/Models/SyndicateModel.php</file>
+            <file>file:/home/Fireloup/Projet/assets/Merise/Warfriends.sql</file>
             <file>file:/home/Fireloup/Projet/View/legal.php</file>
             <file>file:/home/Fireloup/Projet/View/formView.php</file>
             <file>file:/home/Fireloup/Projet/View/searchView.php</file>
@@ -37,6 +41,8 @@
             <file>file:/home/Fireloup/Projet/View/searchLightboxView.php</file>
             <file>file:/home/Fireloup/Projet/assets/php/arrays.php</file>
             <file>file:/home/Fireloup/Projet/View/headView.php</file>
+            <file>file:/home/Fireloup/Projet/Models/SyndicateDetailsModel.php</file>
+            <file>file:/home/Fireloup/Projet/Models/ArmorsModel.php</file>
             <file>file:/home/Fireloup/Projet/assets/scripts/Projet.js</file>
             <file>file:/home/Fireloup/Projet/Controllers/formController.php</file>
             <file>file:/home/Fireloup/Projet/View/UsersInfosView.php</file>

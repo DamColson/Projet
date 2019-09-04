@@ -1,7 +1,5 @@
 <div class="bigSearch">
             <form id="search" action="<?=$searchView?>" method="get">
-
-
                 <fieldset class="text-center row no-gutters text-light">
                     <div class="form-group col-lg-2"></div>
                     <div class="form-group col-lg-8">
@@ -12,8 +10,7 @@
                     </div>
 
                     <div class="form-group col-lg-2"></div>
-                    
-                    
+                                        
                     <div class="form-group offset-md-4 offset-xl-2 col-xl-4 col-lg-4 col-12 text-left">
                             <div class="mb-2 mx-auto">
                                 
@@ -45,7 +42,6 @@
                                 <label for="lokaCheckbox">New Loka</label>
                             </div>
                     </div>    
-
                  
                     <div class="rem"></div>
                 </fieldset>

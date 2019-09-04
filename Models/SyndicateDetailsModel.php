@@ -15,7 +15,8 @@ class SyndicateDetails extends Db{
         parent::__construct();
     }
     
-    //Méthode qui update les detail des syndicat dans la bdd, si aucune entrée n'est présente, alors elles sont créées dans la bdd,si elles existent,elles sont mises à jour.
+    //Méthode qui update les detail des syndicat dans la bdd, si aucune entrée n'est présente, 
+    //alors elles sont créées dans la bdd,si elles existent,elles sont mises à jour.
     
     public function updateSyndicateDetails(){
         try{

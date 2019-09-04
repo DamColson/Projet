@@ -35,7 +35,9 @@ $('input').focusout(function () {
         data: postData, //Valeur des données envoyées.
 
 //En cas de succès,exécutera la fonction suivante,avec en paramètre data qui récupèrera ce qui sera affichédans le controller ( ici le $data du controller ).
-//La fonction ajoutera des bordures rouges et un messages d'erreurs si le controller lui renvoie failure. Dans le cas contraire elle n'affichera pas de bordure et videra le message d'erreur.
+//La fonction ajoutera des bordures rouges et un messages d'erreurs si le controller lui renvoie failure. 
+//Dans le cas contraire elle n'affichera pas de bordure et videra le message d'erreur.
+
         success: function (data) {
             console.log(data);
             if (data == 'failure' && id == 'birthday') {
@@ -66,6 +68,7 @@ $('input').focusout(function () {
 });
 
 //Fonction permettant de caché ou de faire apparaitre la div ayant la classe smallSyndicate sur laquelle nous cliquons sur la page d'accueil ( l'accordéon ).
+
 $('.syndicateHomeButton').click(function () {
     var i = this.id;
     $('.smallSyndicate' + i).toggleClass('d-none');

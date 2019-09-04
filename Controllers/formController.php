@@ -44,7 +44,8 @@ return strftime('%d/%m/%Y',strtotime($date));
 
 $armor = new Armors();
 
-//Génération de la vidéo background, si la personne est connectée, on affichera sa frame, si personne n'est connecté, une frame aléatoire sera choisie.
+//Génération de la vidéo background, si la personne est connectée, on affichera sa frame, 
+//si personne n'est connecté, une frame aléatoire sera choisie.
 
 if(isset($_SESSION['id_wfd_Armors'])):
 $armor->id = (int) $_SESSION['id_wfd_Armors'];
@@ -81,7 +82,8 @@ if(!empty($_POST)):
     $user->warframePseudo = $warframePseudo;
     $user->warfriendsPseudo = $pseudo;
     
-    //Appel de la méthode checkPseudoPrésence qui vérifiera si le pseudo entré dans le formulaire est déjà présent ou pas dans la bdd, puis s'il est déjà présent, renvoie de failure pour ajax qui affichera une erreur.
+    //Appel de la méthode checkPseudoPrésence qui vérifiera si le pseudo entré dans le formulaire est déjà présent ou pas dans la bdd, 
+    //puis s'il est déjà présent, renvoie de failure pour ajax qui affichera une erreur.
       
     $pseudoPresence = $user->checkPseudoPresence();
   
@@ -91,31 +93,41 @@ if(!empty($_POST)):
     
     //Condition qui vérifiera la validité de la date de naissance, format et majorité.    
     //En cas d'erreur une erreur est ajouté au tableau recensant les erreurs et failure sera envoyé a ajax.
+    
     if(!empty($birthday) && !preg_match($regexBirthday,dateFR($birthday))):
         $errorInForm['birthday'] = 0;
         $data = 'failure';
     elseif(!empty($birthday) && $age<$ageEighteen):
         $errorInForm['birthday'] = 0;
         $data = 'failure';
+        
     //Si le formulaire est envoyé, alors l'attribut birthday de $user est hydrater avec le contenu du post.
+        
     elseif(!empty($submitFormButton)):
         $user->birthday = $birthday;
     endif;
     
     //Condition qui vérifiera la validité du tag discord.    
     //En cas d'erreur une erreur est ajouté au tableau recensant les erreurs et failure sera envoyé a ajax.
+    
     if(!empty($discord) && !preg_match($regexDiscord,$discord)):
         $errorInForm['discord'] = 0;
         $data = 'failure';
+        
     //Si leformulaire est envoyé, hydratation de l'attribut tagDiscord avec le contenu du post puis vérification de la présence ou non du tag entré.
+        
     elseif(!empty($_POST['submitFormButton'])):
         $user->tagDiscord = $discord;
         $discordPresence = $user->checkDiscordPresence();
-    //Si le post pour discord n'est pas vide et que la regex est validée, hydratation de tagDiscord puis vérification de présence. 
+        
+    //Si le post pour discord n'est pas vide et que la regex est validée, hydratation de tagDiscord puis vérification de présence.
+        
     elseif(!empty($discord) && preg_match($regexDiscord,$discord)):
         $user->tagDiscord = $discord;
         $discordPresence = $user->checkDiscordPresence();
+        
         //Si déjà présent => failure pour ajax et erreur dans le tableau d'erreur.
+        
         if($discordPresence[0]['discordPresence'] == 1):
             $errorInForm['discord'] = 0;
             $data = 'failure';
@@ -124,18 +136,25 @@ if(!empty($_POST)):
         
     //Condition qui vérifiera la validité du mail.
     //En cas d'erreur une erreur est ajouté au tableau recensant les erreurs et failure sera envoyé a ajax.
+    
     if(!empty($mail) && !preg_match($regexMail,$mail)):
        $errorInForm['mail'] = 0;
        $data = 'failure';
+       
     //Si leformulaire est envoyé, hydratation de l'attribut mail avec le contenu du post puis vérification de la présence ou non du mail entré.
+       
     elseif(!empty($submitFormButton)):
         $user->mail = $mail;
         $mailPresence = $user->checkMailPresence();
+        
     //Si le post pour mail n'est pas vide et que la regex est validée, hydratation de mail puis vérification de présence.
+        
     elseif(!empty($mail) && preg_match($regexMail,$mail)):
         $user->mail = $mail;
         $mailPresence = $user->checkMailPresence();
+        
         //Si déjà présent => failure pour ajax et erreur dans le tableau d'erreur.
+        
         if($mailPresence[0]['mailPresence'] == 1):
             $errorInForm['mail'] = 0;
             $data = 'failure';
@@ -145,16 +164,20 @@ if(!empty($_POST)):
     
     //Condition qui vérifiera la validité du mot de passe.
     //En cas d'erreur une erreur est ajouté au tableau recensant les erreurs et failure sera envoyé a ajax.
+    
     if(!empty($password) && !preg_match($regexPassword,$password)):
        $errorInForm['password'] = 0;
        $data = 'failure';
-    //Si leformulaire est envoyé, hydratation de l'attribut password avec le contenu crypté du post.   
+       
+    //Si leformulaire est envoyé, hydratation de l'attribut password avec le contenu crypté du post.
+       
     elseif(!empty($submitFormButton)):
         $user->password = password_hash($password,PASSWORD_BCRYPT);   
     endif;
     
     //Condition qui vérifiera que la confirmation du mot de passe correspond bien au mot de passe.
     //En cas d'erreur une erreur est ajouté au tableau recensant les erreurs et failure sera envoyé a ajax.
+    
     if(!empty($confirmPassword) && $confirmPassword != $password):
         $errorInForm['confirmPassword'] = 0;
         $data = 'failure';        
@@ -162,39 +185,53 @@ if(!empty($_POST)):
     
     //Condition qui vérifiera la validité de la frame favorite du joueur.
     //En cas d'erreur une erreur est ajouté au tableau recensant les erreurs et failure sera envoyé a ajax.
+    
     if(!empty($_POST['favArmor']) && !preg_match($regexArmors,$_POST['favArmor'])):
         $errorInForm['favArmor'] = 0; 
         $data = 'failure';
-    //Si le formulaire est envoyé, hydratation de l'attribut id_wfdArmors avec le contenu du post. 
+        
+    //Si le formulaire est envoyé, hydratation de l'attribut id_wfdArmors avec le contenu du post.
+        
     elseif(!empty($_POST['submitFormButton'])): 
         $user->id_wfd_Armors = $favArmor;
     endif;
     
     //Condition qui vérifiera la volonté ou non du joueur d'afficher ses informations de contact.
     //En cas d'erreur une erreur est ajouté au tableau recensant les erreurs et failure sera envoyé a ajax.  
+    
     if(!empty($showDiscord) && !preg_match($regexShow,$showDiscord)):
         $errorInForm['showDiscord'] = 0; 
         $data = 'failure';
+        
     //Si le formulaire est envoyé, hydratation de l'attribut showDiscord avec le contenu du post. 
+        
     elseif(!empty($submitFormButton)): 
         $user->showDiscord = $showDiscord;
     endif;
     
     //Condition qui vérifiera la volonté ou non du joueur d'afficher ses informations de contact.
     //En cas d'erreur une erreur est ajouté au tableau recensant les erreurs et failure sera envoyé a ajax.
+    
     if(!empty($showMail) && !preg_match($regexShow,$showMail)):
         $errorInForm['showMail'] = 0; 
         $data = 'failure';
+        
     //Si le formulaire est envoyé, hydratation de l'attribut showMail avec le contenu du post.
+        
     elseif(!empty($submitFormButton)): 
         $user->showMail = $showMail;
     endif;
     
     // Ma clé privée
+    
 	$secret = "6LeEprMUAAAAAOLbq9E9d5aI60mvPUPy4dMHN_Ei";
+        
 	// Paramètre renvoyé par le recaptcha
+        
 	$response = $_POST['g-recaptcha-response'];
+        
 	// On récupère l'IP de l'utilisateur
+        
 	$remoteip = $_SERVER['REMOTE_ADDR'];
 	
 	$api_url = "https://www.google.com/recaptcha/api/siteverify?secret=" 
@@ -205,7 +242,8 @@ if(!empty($_POST)):
 	$decode = json_decode(file_get_contents($api_url), true);
 	
 	
-    //Si il n'y a aucune erreur et que ni lepseudo warfriends, nilemail ni le tag discord ne se trouve dans la bdd,alors, l'utilisateur et ses infos sont ajoutés à la bdd et ce dernier pourra se connecter.
+    //Si il n'y a aucune erreur et que ni le pseudo warfriends, ni lemail ni le tag discord ne se trouve dans la bdd,alors, 
+    //l'utilisateur et ses infos sont ajoutés à la bdd et ce dernier pourra se connecter.
     
     if($errorInForm == $formValidation && $pseudoPresence[0]['pseudoPresence'] == 0 && $discordPresence[0]['discordPresence'] == 0 && $mailPresence[0]['mailPresence'] == 0):
         if ($decode['success'] == true) {

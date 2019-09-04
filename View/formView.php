@@ -21,6 +21,7 @@ require_once '../Controllers/formController.php';
         ?>
 
         <div class="rem"></div>
+        
         <form method="POST" class="bg-light-opac w-75 mx-auto" action="formView.php" id="inscriptionForm">
             <div class="rem"></div>
             <p class="h3 text-dark mb-3 text-center">Vos informations personnelles</p>

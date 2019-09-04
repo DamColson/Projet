@@ -1,24 +1,35 @@
 <?php
+
 session_start();
 
-require '../Controllers/adminController.php';
-require '../Controllers/disconnect.php';
+//Controler et page de deconnection requise
+
+require_once '../Controllers/adminController.php';
+require_once '../Controllers/disconnect.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 
 
     <?php
+    
+    //Inclusion du head
+    
     include 'headView.php';
     ?>
-
+    
     <body class="font-family-Michroma">
-
+        
+        <!--Vidéo fond d'écran en autoloop, la vidéo choisie dépendra des choix de l'utilisateur-->
+        
         <video autoplay loop poster="../Images/warframe7.jpg" id="bgvid">
             <source src="../assets/Videos/<?= $getName[0]['name'] ?>.webm" type="video/webm">
             <source src="../assets/Videos/<?= $getName[0]['name'] ?>.mp4" type="video/mp4">
         </video>
         <?php
+        
+        //Inclusion de la navbar admin
+        
         include 'adminHeaderView.php';
         ?>
         <div class="row no-gutters align-items-center mt-5 bg-dark-opac">
@@ -53,7 +64,12 @@ require '../Controllers/disconnect.php';
             </div>
         </div>
         <div class="rem"></div>
+        
+        <!--Inclusion du footer-->
+        
         <?php include 'footerView.php'; ?>
+        
+        
         <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

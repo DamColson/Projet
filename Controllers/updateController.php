@@ -50,7 +50,8 @@ $user = new Users();
 $syndicateDetail = new SyndicateDetails();
 $armor = new Armors();
 
-//Génération de la vidéo background, si la personne est connectée, on affichera sa frame, si personne n'est connecté, une frame aléatoire sera choisie.
+//Génération de la vidéo background, si la personne est connectée, on affichera sa frame, 
+//si personne n'est connecté, une frame aléatoire sera choisie.
 
 if(isset($_SESSION['id_wfd_Armors'])):
 $armor->id = (int) $_SESSION['id_wfd_Armors'];
@@ -75,7 +76,10 @@ $user->tagDiscord=$tagDiscord;
 
 $data;
 
-//Test des données du POST,si elles sont valide, $user est hydraté avec les nouvelles valeurs entrée dans le POST et la SESSION est mise à jour.Si elle ne sont pas valide, une erreur est ajoutée à un tableau d'erreur et data vaudra failure pour ajax.
+//Test des données du POST,si elles sont valide, 
+//$user est hydraté avec les nouvelles valeurs entrée dans le POST et la SESSION est mise à jour.
+//Si elle ne sont pas valide, 
+//une erreur est ajoutée à un tableau d'erreur et data vaudra failure pour ajax.
 
 if($_POST):
     if(!empty($_POST['newDiscord']) && !preg_match($regexDiscord,$_POST['newDiscord'])):

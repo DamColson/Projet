@@ -58,7 +58,8 @@ $armor->id = $rand = rand(1,64);
 endif;
 $getName = $armor->getArmorsName();
 
-//Nombre d'éléments correspondant à la recherche et nombre de pages.( nombre total d'éléments que divise le nombre d'éléments par page, resultat arrondit au supérieur.
+//Nombre d'éléments correspondant à la recherche et nombre de pages.
+//( nombre total d'éléments que divise le nombre d'éléments par page, resultat arrondit au supérieur).
 
 $searchedWarfriendsQuantity = sizeOf($user->researchCount());
 $pageQuantity = ceil($searchedWarfriendsQuantity/$warfriendsPerPage);
