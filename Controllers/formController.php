@@ -242,13 +242,13 @@ if(!empty($_POST)):
 	$decode = json_decode(file_get_contents($api_url), true);
 	
 	
-    //Si il n'y a aucune erreur et que ni le pseudo warfriends, ni lemail ni le tag discord ne se trouve dans la bdd,alors, 
+    //Si il n'y a aucune erreur et que ni le pseudo warfriends, ni le mail ni le tag discord ne se trouve dans la bdd,alors, 
     //l'utilisateur et ses infos sont ajoutés à la bdd et ce dernier pourra se connecter.
     
     if($errorInForm == $formValidation && $pseudoPresence[0]['pseudoPresence'] == 0 && $discordPresence[0]['discordPresence'] == 0 && $mailPresence[0]['mailPresence'] == 0):
-        if ($decode['success'] == true) {
+        if ($decode['success'] == true):
 		$user->addUsers();
-	}
+	endif;
     endif;
     
     //Envoie de la valeur de $data à ajax.

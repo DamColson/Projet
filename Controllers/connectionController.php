@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 //Vérifie si chaque model a déjà été inclut une fois, si c'est le cas il ne l'inclut pas de nouveau, dans le cas contraire, il l'inclut.
@@ -18,7 +19,7 @@ include 'assets/php/arrays.php';
 
 $linkIndex = 'index.php';
 $linkAccount = 'View/UsersInfosView.php';
-$linkFormView ='View/formView.php';
+$linkFormView = 'View/formView.php';
 $disconnect = 'Controllers/disconnect.php';
 $searchView = 'View/searchView.php';
 $legal = 'View/legal.php';
@@ -58,28 +59,47 @@ $getSyndicateInfos = $syndicateDetail->getSyndicateInfos();
 $admin->pseudo = $warfriendsPseudo;
 $getAdminPass = $admin->getInfos();
 
-//Vérification de la validité du password entrée dans le formulaire de connection.
-if (password_verify($warfriendsPassword,$getInfos[0]['password'])):
+// Ma clé privée
 
-    foreach ($getInfos as $key => $value):
-        foreach ($value as $secondKey => $secondValue):
-            $_SESSION[$secondKey] = $secondValue;//Insertion des données concernant le membre de la bdd dans la superglobale $_SESSION
+$secret = "6LeEprMUAAAAAOLbq9E9d5aI60mvPUPy4dMHN_Ei";
+
+// Paramètre renvoyé par le recaptcha
+
+$response = $_POST['g-recaptcha-response'];
+
+// On récupère l'IP de l'utilisateur
+
+$remoteip = $_SERVER['REMOTE_ADDR'];
+
+$api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
+        . $secret
+        . "&response=" . $response
+        . "&remoteip=" . $remoteip;
+
+$decode = json_decode(file_get_contents($api_url), true);
+
+//Vérification de la validité du password entrée dans le formulaire de connection.
+if (password_verify($warfriendsPassword, $getInfos[0]['password'])):
+    if ($decode['success'] == true):
+        foreach ($getInfos as $key => $value):
+            foreach ($value as $secondKey => $secondValue):
+                $_SESSION[$secondKey] = $secondValue; //Insertion des données concernant le membre de la bdd dans la superglobale $_SESSION
+            endforeach;
         endforeach;
-    endforeach;
-    
-    foreach ($getSyndicateInfos as $key=>$value):
-        
-            $_SESSION[$syndicateRankName[$key]] = $getSyndicateInfos[$key]['rank'];//Insertion des rangs de chaque syndicats pour ce membre dans $_SESSION
-        
-    endforeach;
-    
-    //Si des données admins existent pour lemembre connecté,insertion du pseudo du membre dans la superglobale $_SESSION sous la clé adminPseudo. 
-    //Cette dernière lui débloquera l'accès à la console admin.
-    
-   if(!empty($getAdminPass)):
-       foreach($getAdminPass as $key=>$value):
-       $_SESSION['adminPseudo'] = $value['pseudo'];
-       endforeach;
-   endif;
-    
+
+        foreach ($getSyndicateInfos as $key => $value):
+
+            $_SESSION[$syndicateRankName[$key]] = $getSyndicateInfos[$key]['rank']; //Insertion des rangs de chaque syndicats pour ce membre dans $_SESSION
+
+        endforeach;
+
+        //Si des données admins existent pour le membre connecté,insertion du pseudo du membre dans la superglobale $_SESSION sous la clé adminPseudo. 
+        //Cette dernière lui débloquera l'accès à la console admin.
+
+        if (!empty($getAdminPass)):
+            foreach ($getAdminPass as $key => $value):
+                $_SESSION['adminPseudo'] = $value['pseudo'];
+            endforeach;
+        endif;
+    endif;
 endif;

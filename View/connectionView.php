@@ -16,6 +16,7 @@
                         <input class="form-control" type="password" name="warfriendsPassword" id="warfriendsPassword" required/>
                     </div>
                     <div class="form-group col-lg-3"></div>
+                    <div class="g-recaptcha mb-3 mx-auto" name="g-recaptcha-response" data-sitekey="6LeEprMUAAAAACAV_SQ0_5j-s_4TCZeYh3_V1Vp2"></div>
                 </fieldset>
 
 

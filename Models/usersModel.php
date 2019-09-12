@@ -547,7 +547,7 @@ class Users extends Db {
         $query = "SELECT wfd_UsersInfos.id,wfd_UsersInfos.warfriendsPseudo FROM wfd_SyndicateDetails INNER JOIN wfd_Syndicate ON wfd_Syndicate.id = wfd_SyndicateDetails.id_wfd_Syndicate INNER JOIN wfd_UsersInfos ON wfd_UsersInfos.id = wfd_SyndicateDetails.id_wfd_UsersInfos WHERE wfd_SyndicateDetails.id_wfd_UsersInfos = wfd_UsersInfos.id AND wfd_Syndicate.id = 1 ORDER BY wfd_UsersInfos.id DESC LIMIT 6 OFFSET 6";
 
         $getLastSixOffsetSix = $this->db->query($query);
-
+        
         $lastSixOffsetSix = $getLastSixOffsetSix->fetchAll(PDO::FETCH_ASSOC);
 
         return $lastSixOffsetSix;
@@ -584,6 +584,8 @@ class Users extends Db {
             die($msg);
         }
     }
+    
+    //Méthode qui renvoie le nombre de rang de syndicats renseignés par l'utilisateur
     
     public function syndicateCount(){
         try{
